@@ -1,0 +1,43 @@
+- file: intro
+- file: FrontMatter
+  sections:
+    - file: Preface
+    - file: Jupyter_Introduction
+- file: LinearSystems
+  sections:
+    - file: Gaussian_Elimination
+    - file: Matrix_Algebra
+    - file: Solving_Systems    
+    - file: LU_Factorization
+    - file: Inverse_Matrices
+    - file: Applications
+- file: VectorSpaces
+  sections:
+    - file: Linear_Combinations
+    - file: Subspaces_Spans
+    - file: Linear_Independence
+    - file: Bases
+    - file: Applications_VS
+- file: LinearTransformations
+  sections:
+    - file: Linear_Transformations
+    - file: Change_Bases
+    - file: Applications_LT
+- file: InnerProductSpaces
+  sections:
+    - file: Inner_Products
+    - file: Orthogonalization
+    - file: Projections
+    - file: Orthogonal_Matrices
+    - file: QR_Factorization
+    - file: Applications_IP
+- file: Eigenvalues
+  sections:
+    - file: Geometrical_Interpretation
+    - file: Diagonalization
+    - file: Applications_EV
+- file: content
+  sections:
+    - file: markdown
+    - file: notebooks
+    
