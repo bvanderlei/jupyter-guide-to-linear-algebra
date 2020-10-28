@@ -179,3 +179,37 @@ def RowReduction(A):
             for i in range(k+1,m):    
                 B = RowAdd(B,k,i,-B[i][k])
     return B
+
+def SolveSystem(A,B):
+    ''' 
+    SystemSolve computes the solution to AX=B by elimination in the case that
+    A is a square nxn matrix
+    
+    Parameters
+    ----------
+    A : NumPy array object of dimension nxn
+    B : NumPy array object of dimension nx1
+    
+    Returns
+    -------
+    X: NumPy array object of dimension nx1
+    '''
+    # Check shape of A
+    if (A.shape[0] != A.shape[1]):
+        print("SolveSystem accepts only square arrays.")
+        return
+    n = A.shape[0]  # n is number of rows and columns in A
+
+    # Join A and B to make the augmented matrix
+    A_augmented = np.hstack((A,B))
+    
+    # Carry out elimination    
+    R = RowReduction(A_augmented)
+
+    # Split R back to nxn piece and nx1 piece
+    B_reduced = R[:,n:n+1]
+    A_reduced = R[:,0:n]
+
+    # Do back substitution
+    X = BackSubstitution(A_reduced,B_reduced)
+    return X
