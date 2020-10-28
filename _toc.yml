@@ -36,8 +36,5 @@
     - file: Geometrical_Interpretation
     - file: Diagonalization
     - file: Applications_EV
-- file: content
-  sections:
-    - file: markdown
-    - file: notebooks
+
     
