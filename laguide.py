@@ -197,7 +197,7 @@ def SolveSystem(A,B):
     # Check shape of A
     if (A.shape[0] != A.shape[1]):
         print("SolveSystem accepts only square arrays.")
-        return
+        return None
     n = A.shape[0]  # n is number of rows and columns in A
 
     # Join A and B to make the augmented matrix
@@ -206,10 +206,54 @@ def SolveSystem(A,B):
     # Carry out elimination    
     R = RowReduction(A_augmented)
 
-    # Split R back to nxn piece and nx1 piece
+    # Split R back into nxn piece and nx1 piece
     B_reduced = R[:,n:n+1]
     A_reduced = R[:,0:n]
 
     # Do back substitution
     X = BackSubstitution(A_reduced,B_reduced)
     return X
+
+
+def DeterminantIteration(A):
+    ''' 
+    DeterminantIteration computes the determinant of an nxn A matrix
+    by using the recursive formula.
+
+    Parameters
+    ----------
+    A: NumPy array object of dimension nxn
+    
+    Returns
+    -------
+    D: int
+    '''
+    # Check shape of A
+    if (A.shape[0] != A.shape[1]):
+        print("Determinant only defined for square arrays.")
+        return None
+    n = A.shape[0]  # n is number of rows and columns in A
+    
+    size = A.shape[0]
+    if size == 2:
+        return A[0,0]*A[1,1]-A[0,1]*A[1,0]
+    
+    else:
+        m=0  # Determinant expansion along row 0
+        D=0. # Set determinant to zero and add contributions
+
+        for n in range(size):
+            minor = []
+            k=-1
+            # Construct (m,n) minor array (row m, column n deleted)
+            for i in range(size):
+                if(i != m): 
+                    minor.append([])    
+                    k += 1
+                    for j in range(size):
+                        if(j != n):
+                            minor[k].append(A[i,j])
+            Minor_array = np.array(minor)
+            cofactor = (-1)**(m+n)*DeterminantIteration(Minor_array)
+            D += cofactor*A[m,n]
+        return D
