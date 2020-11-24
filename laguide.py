@@ -168,7 +168,7 @@ def RowReduction(A):
         pivot_row = k
         
         # Find a suitable pivot if the (k,k) entry is zero
-        while(pivot == 0 and pivot_row < m):
+        while(pivot == 0 and pivot_row < m-1):
             pivot_row += 1
             pivot = B[pivot_row][k]
             
