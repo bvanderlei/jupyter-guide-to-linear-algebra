@@ -183,6 +183,89 @@ def RowReduction(A):
                 B = RowAdd(B,k,i,-B[i][k])
     return B
 
+def FullRowReduction(A):
+    ''' 
+    Produces RREF for matrix of any shape.  No pivot strategy implemented. 
+    
+    Parameters
+    ----------
+    A : NumPy array object of dimension mxn
+    
+    Returns
+    -------
+    B: NumPy array object of dimension mxn
+    '''
+    
+    m = A.shape[0]  # m is number of rows in A
+    n = A.shape[1]  # n is number of columns in A
+
+    B = np.zeros((m,n))
+    for i in range(m):
+        for j in range(n):
+            B[i,j] = A[i,j]
+
+    # Set initial pivot search position
+    pivot_row = 0
+    pivot_col = 0
+    
+    # Continue steps of elimination while possible pivot positions are 
+    # within bounds of the array.
+    
+    while(pivot_row < m and pivot_col < n):
+
+        # Set pivot value to current pivot position
+        pivot = B[pivot_row,pivot_col]
+        
+        # If pivot is zero, search down current column, and then subsequent
+        # columns (at or beyond pivot_row) for the next nonzero entry in the 
+        # array is found, or the last entry is reached.
+
+        row_search = pivot_row
+        col_search = pivot_col
+        search_end = False
+
+        while(pivot == 0 and not search_end):
+            if(row_search < m-1):
+                row_search += 1
+                pivot = B[row_search,col_search]
+            else:
+                if(col_search < n-1):
+                    row_search = pivot_row
+                    col_search += 1
+                    pivot = B[row_search,col_search]
+                else:  
+                    # col_search = n-1 and row_search = m-1
+                    search_end = True
+                        
+        # Swap row if needed to bring pivot to position for rref
+        if (pivot != 0 and pivot_row != row_search):
+            B = RowSwap(B,pivot_row,row_search)
+            pivot_row, row_search = row_search, pivot_row
+            
+        # Set pivot position to search position
+        pivot_row = row_search
+        pivot_col = col_search
+            
+        # If pivot is nonzero, carry on with elimination in pivot column 
+        if (pivot != 0):
+            
+            # Set pivot entry to one
+            B = RowScale(B,pivot_row,1./B[pivot_row,pivot_col])
+
+            # Create zeros above pivot
+            for i in range(pivot_row):    
+                B = RowAdd(B,pivot_row,i,-B[i][pivot_col])
+
+            # Create zeros below pivot
+            for i in range(pivot_row+1,m):    
+                B = RowAdd(B,pivot_row,i,-B[i][pivot_col])
+
+        # Advance to next possible pivot position
+        pivot_row += 1
+        pivot_col += 1
+        
+    return B
+
 def SolveSystem(A,B):
     ''' 
     SystemSolve computes the solution to AX=B by elimination in the case that
