@@ -13,9 +13,10 @@
     - file: Applications
 - file: VectorSpaces
   sections:
+    - file: General_Linear_Systems
     - file: Linear_Combinations
-    - file: Subspaces_Spans
     - file: Linear_Independence
+    - file: Subspaces_Spans
     - file: Bases
     - file: Applications_VS
 - file: LinearTransformations

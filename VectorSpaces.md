@@ -13,8 +13,10 @@ Objectives:
 
 Sections:
 
-1. Linear combinations and spans and connection to linear systems
-2. AX = B for non-square A.  Inconsistent systems and solutions to homogenous systems.
-3. General vector spaces and subspaces.
-4. Nullspace and Column space.
+1. General system AX = B for non-square A. 
+2. Linear combinations, spans, and connection to existence of solutions of AX=B.
+3. Linear independence and connection to AX=B through AX=0.
+4. Subspaces, Bases and coordinates?
+5. General vector spaces and subspaces.
+6. Nullspace and Column space.
 
