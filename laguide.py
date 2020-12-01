@@ -134,8 +134,12 @@ def BackSubstitution(U,Y):
 
 def RowReduction(A):
     ''' 
-    RowReduction performs steps of elimination with no pivot strategy and
-    returns a row echelon form of the matrix A.
+    RowReduction performs steps of elimination with no pivot strategy to
+    produce a row echelon from of the matrix A.  It is assumed that A
+    is the augemented matrix associated with a linear system that has
+    a unique solution.  RowReduction may not return correct results if A
+    does not have dimensions n x (n+1) or does not have a pivot in each '
+    column.
     
     Parameters
     ----------
@@ -146,23 +150,18 @@ def RowReduction(A):
     B: NumPy array object of dimension mxn
     '''
     
-    m = A.shape[0]  # m is number of rows in A
-    n = A.shape[1]  # n is number of columns in A
-
+    m = A.shape[0]  # A has m rows 
+    n = A.shape[1]  # It is assumed that A has m+1 columns
+    
     B = np.zeros((m,n))
     for i in range(m):
         for j in range(n):
             B[i][j] = A[i][j]
 
-    if m < n:
-        elimination_steps = m
-    else:
-        elimination_steps = n
-
     # For each step of elimination, we find a suitable pivot, move it into
     # position and create zeros for all entries below.
     
-    for k in range(elimination_steps):
+    for k in range(m):
         # Set pivot as (k,k) entry
         pivot = B[k][k]
         pivot_row = k
@@ -181,6 +180,9 @@ def RowReduction(A):
             B = RowScale(B,k,1./B[k][k])
             for i in range(k+1,m):    
                 B = RowAdd(B,k,i,-B[i][k])
+        else:
+            print("Pivot could not be found in column",k,".")
+            
     return B
 
 def FullRowReduction(A):
