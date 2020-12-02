@@ -20,3 +20,6 @@ Sections:
 5. General vector spaces and subspaces.
 6. Nullspace and Column space.
 
+Define **vector space** here and give example of $R^n$.  Give other examples of vector spaces near the end of the chapter.
+This would allow us to discuss the existence of solutions in the section on spans by checking whether the columns of $A$ span
+$R^m$.

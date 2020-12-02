@@ -185,14 +185,17 @@ def RowReduction(A):
             
     return B
 
-def FullRowReduction(A):
+def FullRowReduction(A, tol = 1e-14):
     ''' 
-    Produces RREF for matrix of any shape.  No pivot strategy implemented. 
+    Produces RREF for matrix of any shape.  No pivot strategy implemented.
+    Entries with abs value < tol are set to zero to account for roundoff
+    errors.
     
     Parameters
     ----------
     A : NumPy array object of dimension mxn
-    
+    tol: optional float
+
     Returns
     -------
     B: NumPy array object of dimension mxn
@@ -257,10 +260,20 @@ def FullRowReduction(A):
             # Create zeros above pivot
             for i in range(pivot_row):    
                 B = RowAdd(B,pivot_row,i,-B[i][pivot_col])
+                # Force known zeros
+                B[i,pivot_col] = 0
 
             # Create zeros below pivot
             for i in range(pivot_row+1,m):    
                 B = RowAdd(B,pivot_row,i,-B[i][pivot_col])
+                # Force known zeros
+                B[i,pivot_col] = 0
+
+            # Force small numbers to zero to account for roundoff error
+            for i in range(m):
+                for j in range(n):
+                    if abs(B[i,j])< tol :
+                        B[i,j] = 0
 
         # Advance to next possible pivot position
         pivot_row += 1
