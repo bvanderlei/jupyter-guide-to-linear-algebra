@@ -3,7 +3,7 @@
   sections:
     - file: Preface
     - file: Jupyter_Introduction
-- file: LinearSystems
+- file: Linear_Systems
   sections:
     - file: Gaussian_Elimination
     - file: Matrix_Algebra
@@ -11,12 +11,11 @@
     - file: LU_Factorization
     - file: Inverse_Matrices
     - file: Applications
-- file: VectorSpaces
+- file: Vector_Spaces
   sections:
     - file: General_Linear_Systems
     - file: Linear_Combinations
     - file: Linear_Independence
-    - file: Subspaces_Spans
     - file: Bases
     - file: Applications_VS
 - file: LinearTransformations
