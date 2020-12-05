@@ -17,6 +17,7 @@
     - file: Linear_Combinations
     - file: Linear_Independence
     - file: Bases
+    - file: Vector_Space_Examples
     - file: Applications_VS
 - file: LinearTransformations
   sections:
