@@ -19,9 +19,9 @@
     - file: Bases
     - file: Vector_Space_Examples
     - file: Applications_VS
-- file: LinearTransformations
+- file: Linear_Transformations
   sections:
-    - file: Linear_Transformations
+    - file: Matrix_Representations
     - file: Change_Bases
     - file: Applications_LT
 - file: InnerProductSpaces
