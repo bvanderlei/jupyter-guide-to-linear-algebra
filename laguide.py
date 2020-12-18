@@ -34,7 +34,7 @@ def RowSwap(A,k,l):
     m = A.shape[0]  # m is number of rows in A
     n = A.shape[1]  # n is number of columns in A
     
-    B = np.copy(A)
+    B = np.copy(A).astype('float64')
 
     for j in range(n):
         temp = B[k][j]
@@ -63,7 +63,7 @@ def RowScale(A,k,scale):
     m = A.shape[0]  # m is number of rows in A
     n = A.shape[1]  # n is number of columns in A
     
-    B = np.copy(A)
+    B = np.copy(A).astype('float64')
 
     for j in range(n):
         B[k][j] *= scale
@@ -91,7 +91,7 @@ def RowAdd(A,k,l,scale):
     m = A.shape[0]  # m is number of rows in A
     n = A.shape[1]  # n is number of columns in A
     
-    B = np.copy(A)
+    B = np.copy(A).astype('float64')
         
     for j in range(n):
         B[l][j] += B[k][j]*scale
@@ -145,7 +145,7 @@ def RowReduction(A):
     m = A.shape[0]  # A has m rows 
     n = A.shape[1]  # It is assumed that A has m+1 columns
     
-    B = np.copy(A)
+    B = np.copy(A).astype('float64')
 
     # For each step of elimination, we find a suitable pivot, move it into
     # position and create zeros for all entries below.
@@ -193,7 +193,7 @@ def FullRowReduction(A, tol = 1e-14):
     m = A.shape[0]  # m is number of rows in A
     n = A.shape[1]  # n is number of columns in A
 
-    B = np.copy(A)
+    B = np.copy(A).astype('float64')
 
     # Set initial pivot search position
     pivot_row = 0
