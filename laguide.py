@@ -13,6 +13,37 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 
+def DotProduct(U,V):
+    ''' 
+    DotProduct computes the Euclidean product of U and V
+    
+    Parameters
+    ----------
+    U : NumPy array object of dimension nx1
+    V : NumPy array object of dimension nx1
+    
+    Returns
+    -------
+    product: float
+    '''
+
+    # Check shapes of U and V
+    if (U.shape[1] != 1 or V.shape[1] != 1):
+        print("Dot product only accepts column vectors.")
+        return
+    # Check shape of V
+    if (U.shape[0] != V.shape[0]):
+        print("Dot product only accepts column vectors of equal length.")
+        return
+
+    n = U.shape[0]
+    product = 0.0
+    
+    for i in range(n):
+        product += U[i,0]*V[i,0]
+
+    return product
+
 def RowSwap(A,k,l):
     ''' 
     RowSwap performs a single row operation on the matrix A.
