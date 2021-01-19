@@ -27,11 +27,10 @@
     - file: Applications_LT
 - file: Inner_Products
   sections:
-    - file: Projections
     - file: Orthogonalization
-    - file: Orthogonal_Matrices
     - file: QR_Factorization
-    - file: Applications_IP
+    - file: Projections
+- file: Applications_IP
 - file: Eigenvalues
   sections:
     - file: Geometrical_Interpretation

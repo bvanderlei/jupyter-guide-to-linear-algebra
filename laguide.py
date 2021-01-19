@@ -11,6 +11,7 @@ throughout the LA Guide.
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+from math import sqrt
 
 
 def DotProduct(U,V):
@@ -43,6 +44,27 @@ def DotProduct(U,V):
         product += U[i,0]*V[i,0]
 
     return product
+
+def Magnitude(U):
+    ''' 
+    Magnitude computes the magnitude of U based on the Euclidean inner product
+    
+    Parameters
+    ----------
+    U : NumPy array object of dimension nx1
+    
+    Returns
+    -------
+    product: float
+    '''
+    # Check shape of U
+    if (U.shape[1] != 1):
+        print("Magnitude only accepts column vectors.")
+        return
+    
+    magnitude = sqrt(DotProduct(U,U))
+    return magnitude    
+
 
 def RowSwap(A,k,l):
     ''' 
