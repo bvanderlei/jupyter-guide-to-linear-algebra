@@ -29,8 +29,9 @@
   sections:
     - file: Orthogonalization
     - file: QR_Factorization
+    - file: Orthogonal_Subspaces
     - file: Projections
-- file: Applications_IP
+    - file: Applications_IP
 - file: Eigenvalues
   sections:
     - file: Geometrical_Interpretation
