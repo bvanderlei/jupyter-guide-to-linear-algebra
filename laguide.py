@@ -398,6 +398,45 @@ def DeterminantIteration(A):
             D += cofactor*A[m,n]
         return D
 
+def Inverse(A):
+    '''
+    A is a NumPy array that represents a matrix of dimension n x n.
+    Inverse computes the inverse matrix by solving AX=I where I is the identity.
+    If A is not invertible, Inverse will not return correct results.
+
+    Parameters
+    ----------
+    A: NumPy array object of dimension nxn
+    
+    Returns
+    -------
+    Inverse: NumPy array object of dimension nxn
+    '''
+
+    # Check shape of A
+    if (A.shape[0] != A.shape[1]):
+        print("Inverse accepts only square arrays.")
+        return
+    n = A.shape[0]  # n is number of rows and columns in A
+
+    I = np.eye(n)
+    
+    # The augmented matrix is A together with all the columns of I.  RowReduction is
+    # carried out simultaneously for all n systems.
+    A_augmented = np.hstack((A,I))
+    R = RowReduction(A_augmented)
+    
+    Inverse = np.zeros((n,n))
+    
+    # Now BackSubstitution is carried out for each column and the result is stored 
+    # in the corresponding column of Inverse.
+    A_reduced = R[:,0:n]
+    for i in range(0,n):
+        B_reduced = R[:,n+i:n+i+1]
+        Inverse[:,i:i+1] = BackSubstitution(A_reduced,B_reduced)
+    
+    return(Inverse)
+
 def DrawGraph(A, pos = None):
     '''
     Draws a directed graph based on adjacency matrix A.

@@ -30,6 +30,7 @@
     - file: Orthogonalization
     - file: QR_Factorization
     - file: Orthogonal_Subspaces
+    - file: Least_Squares_Solutions    
     - file: Projections
     - file: Applications_IP
 - file: Eigenvalues
