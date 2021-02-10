@@ -65,6 +65,45 @@ def Magnitude(U):
     magnitude = sqrt(DotProduct(U,U))
     return magnitude    
 
+def QRFactorization(A):
+    ''' 
+    A is a Numpy array that represents a matrix of dimension m x n.
+    QRFactorization returns matrices Q and R such that A=QR, Q is orthogonal
+    and R is upper triangular.  The factorization is carried out using classical
+    Gram-Schmidt and the results may suffer due to numerical instability.
+    QRFactorization may not return correct results if the columns of A are 
+    linearly dependent.
+    
+    Parameters
+    ----------
+    A : NumPy array object of dimension mxn
+    
+    Returns
+    -------
+    Q : NumPy array object of dimension mxn
+    R : NumPy array object of dimension nxn
+    '''
+
+    # Check shape of A
+    if (A.shape[0] < A.shape[1]):
+        print("A must have more rows than columns for QR factorization.")
+        return
+
+    m = A.shape[0]
+    n = A.shape[1]
+    
+    Q = np.zeros((m,n))
+    R = np.zeros((n,n))
+    
+    for i in range(n):
+        W = A[:,i:i+1]
+        for j in range(i):
+                W = W - DotProduct(A[:,i:i+1],Q[:,j:j+1])*Q[:,j:j+1]
+        Q[:,i:i+1] = W/Magnitude(W)
+        
+    R = Q.transpose()@A
+    
+    return (Q,R)
 
 def RowSwap(A,k,l):
     ''' 
