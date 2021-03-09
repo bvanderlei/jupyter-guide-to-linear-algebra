@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inverse Matrices &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications" href="Applications.html" />
+    <link rel="prev" title="LU Factorization" href="LU_Factorization.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Inverse_Matrices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Inverse_Matrices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#construction-of-an-inverse-matrix">
+   Construction of an Inverse Matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="inverse-matrices">
+<h1>Inverse Matrices<a class="headerlink" href="#inverse-matrices" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this section we consider the idea of inverse matrices and desribe a common method for their construction.</p>
+<p>As a motivation for the upcoming calculations, let’s again consider the system of linear equations written in the matrix algebra form.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+AX = B
+\end{equation}
+\]</div>
+<p>Again, <span class="math notranslate nohighlight">\(A\)</span> is a matrix of coefficents that are known, <span class="math notranslate nohighlight">\(B\)</span> is a vector of known data, and <span class="math notranslate nohighlight">\(X\)</span> is a vector that is unknown.  If <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> were instead only numbers, we would recognize immediately that the way to solve for <span class="math notranslate nohighlight">\(X\)</span> is to divide both sides of the equation by <span class="math notranslate nohighlight">\(A\)</span>, so long as <span class="math notranslate nohighlight">\(A\neq 0\)</span>.  The natural question to ask about the system is ‘Can we define matrix division?’</p>
+<p>The answer is ‘Not quite.’  We can make progress though by understanding that in the case that <span class="math notranslate nohighlight">\(A\)</span>,<span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> are numbers, we could also find the solution by multiplying by <span class="math notranslate nohighlight">\(1/A\)</span>.  This subtle distinction is important because it means that we do not need to define division.  We only need to find the number, that when muliplied by <span class="math notranslate nohighlight">\(A\)</span> gives 1.  This number is called the multiplicative inverse of <span class="math notranslate nohighlight">\(A\)</span> and is written as <span class="math notranslate nohighlight">\(1/A\)</span>, so long as <span class="math notranslate nohighlight">\(A\neq 0\)</span>.</p>
+<p>We can extend this idea to the situation where <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> are matrices.  In order to solve the system <span class="math notranslate nohighlight">\(AX=B\)</span>, we want to multiply by a certain matrix, that when multiplied by <span class="math notranslate nohighlight">\(A\)</span> will give the identity matrix <span class="math notranslate nohighlight">\(I\)</span>.  This matrix is known as the <strong>inverse matrix</strong>, and is given the symbol <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is a square matrix we define <span class="math notranslate nohighlight">\(A^{-1}\)</span> (read as “A inverse”) to be the matrix such that the following are true.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+A^{-1}A = I \hspace{3cm}AA^{-1} = I
+\end{equation}
+\]</div>
+<p>Notes about inverse matrices:</p>
+<ol class="simple">
+<li><p>The order of multiplication of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^{-1}\)</span> does change the product as it typically does in matrix multiplication.</p></li>
+<li><p>The matrix must be square in order for this definition to make sense.  If <span class="math notranslate nohighlight">\(A\)</span> is not square, it is impossible for both
+<span class="math notranslate nohighlight">\(A^{-1}A\)</span> and <span class="math notranslate nohighlight">\(AA^{-1}\)</span> to be defined.</p></li>
+<li><p>Not all matrices have inverses.  Matrices that do have inverses are called <strong>invertible</strong>.  Matrices that do not have inverses are called <strong>non-invertible</strong>, or <strong>singular</strong>, matrices.</p></li>
+<li><p>If a matrix is invertible, its inverse is unique.  (<em>Theorem and proof?</em>)</p></li>
+</ol>
+<p>Now <em>if we know</em> <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we can solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by multiplying both sides by <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+A^{-1}AX = A^{-1}B
+\end{equation}
+\]</div>
+<p>Then <span class="math notranslate nohighlight">\(A^{-1}AX = IX = X\)</span>, so the solution to the system is <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.  Generally speaking however, it is not easy to find <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<div class="section" id="construction-of-an-inverse-matrix">
+<h2>Construction of an Inverse Matrix<a class="headerlink" href="#construction-of-an-inverse-matrix" title="Permalink to this headline">¶</a></h2>
+<p>We take <span class="math notranslate nohighlight">\(C\)</span> as an example matrix, and consider how we might build the inverse.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 2 &amp; -1 \\ 3 &amp; 1 &amp; -3 &amp; 2 \\ 2 &amp; 0 &amp; 4 &amp; 4 \\ 2 &amp; 1 &amp; -1 &amp; -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Let’s think of the matrix product <span class="math notranslate nohighlight">\(CC^{-1}= I\)</span> in terms of the columns of <span class="math notranslate nohighlight">\(C^{-1}\)</span>.  We put focus on the third column as an example, and label those unknown entries with <span class="math notranslate nohighlight">\(y_i\)</span>.  The * entries are uknown as well, but we are ignoring them for the moment.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+CC^{-1}=
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 2 &amp; -1 \\ 3 &amp; 1 &amp; -3 &amp; 2 \\ 2 &amp; 0 &amp; 4 &amp; 4 \\ 2 &amp; 1 &amp; -1 &amp; -1 \end{array}\right]
+\left[ \begin{array}{rrrr} * &amp; * &amp; y_1&amp; * \\ * &amp; * &amp; y_2 &amp; * \\ * &amp; * &amp; y_3 &amp; * \\ * &amp; * &amp; y_4 &amp; *  \end{array}\right]=
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{array}\right]=
+I
+\end{equation}
+\end{split}\]</div>
+<p>Recall now that <span class="math notranslate nohighlight">\(C\)</span> multiplied by the third column of <span class="math notranslate nohighlight">\(C^{-1}\)</span> produces the third column of <span class="math notranslate nohighlight">\(I\)</span>.  This gives us a linear system to solve for the <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 2 &amp; -1 \\ 3 &amp; 1 &amp; -3 &amp; 2 \\ 2 &amp; 0 &amp; 4 &amp; 4 \\ 2 &amp; 1 &amp; -1 &amp; -1 \end{array}\right]
+\left[ \begin{array}{r}  y_1 \\  y_2  \\ y_3 \\ y_4  \end{array}\right]=
+\left[ \begin{array}{r}  0 \\  0  \\ 1 \\ 0  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Solve CY = I3</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">I3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">Y3</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">I3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.16666667]
+ [ 0.66666667]
+ [ 0.16666667]
+ [ 0.16666667]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The other columns of <span class="math notranslate nohighlight">\(C^{-1}\)</span> can be found by solving similar systems with the corresponding columns of the identity matrix.  We can then build <span class="math notranslate nohighlight">\(C^{-1}\)</span> by assembling the columns into a single matrix, and test the result by checking the products <span class="math notranslate nohighlight">\(C^{-1}C\)</span> and <span class="math notranslate nohighlight">\(CC^{-1}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">I4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">Y1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">I1</span><span class="p">)</span>
+<span class="n">Y2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">I2</span><span class="p">)</span>
+<span class="n">Y4</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">I4</span><span class="p">)</span>
+
+<span class="n">C_inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Y1</span><span class="p">,</span><span class="n">Y2</span><span class="p">,</span><span class="n">Y3</span><span class="p">,</span><span class="n">Y4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_inverse</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">C_inverse</span><span class="nd">@C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">C</span><span class="nd">@C_inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.83333333  0.5        -0.16666667 -0.5       ]
+ [-2.08333333 -1.25        0.66666667  2.25      ]
+ [-0.08333333 -0.25        0.16666667  0.25      ]
+ [-0.33333333  0.          0.16666667  0.        ]] 
+ [[ 1.00000000e+00  0.00000000e+00 -1.11022302e-16  1.11022302e-16]
+ [ 0.00000000e+00  1.00000000e+00  0.00000000e+00  4.44089210e-16]
+ [ 5.55111512e-17  0.00000000e+00  1.00000000e+00 -5.55111512e-17]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
+ [[ 1.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [-1.11022302e-16  1.00000000e+00  5.55111512e-17  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00]
+ [-3.33066907e-16  0.00000000e+00  1.11022302e-16  1.00000000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will write a Python function to compute the inverse of a matrix in this way, but in practice, finding the inverse of a matrix is a terribly inefficient way of solving a linear system.  We have to solve <span class="math notranslate nohighlight">\(n\)</span> systems to just to find the inverse of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix, so it appears that it takes <span class="math notranslate nohighlight">\(n\)</span> times the amount of work that it would to just solve the system by elimination.  Suppose however that we needed to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span> for <em>many different vectors</em> <span class="math notranslate nohighlight">\(B\)</span>, but the same coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>.  In that case it might seema appealing to have <span class="math notranslate nohighlight">\(A^{-1}\)</span>, but from a computational standpoint it is still more efficient to use the <span class="math notranslate nohighlight">\(LU\)</span> factorization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1"># =============================================================================</span>
+    <span class="c1"># A is a NumPy array that represents a matrix of dimension n x n.</span>
+    <span class="c1"># Inverse computes the inverse matrix by solving AX=I where I is the identity.</span>
+    <span class="c1"># If A is not invertible, Inverse will not return correct results.</span>
+    <span class="c1"># =============================================================================</span>
+
+    <span class="c1"># Check shape of A</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inverse accepts only square arrays.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># n is number of rows and columns in A</span>
+
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="c1"># The augmented matrix is A together with all the columns of I.  RowReduction is</span>
+    <span class="c1"># carried out simultaneously for all n systems.</span>
+    <span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">I</span><span class="p">))</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+    
+    <span class="n">Inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    
+    <span class="c1"># Now BackSubstitution is carried out for each column and the result is stored </span>
+    <span class="c1"># in the corresponding column of Inverse.</span>
+    <span class="n">A_reduced</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B_reduced</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:,</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">Inverse</span><span class="p">[:,</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">BackSubstitution</span><span class="p">(</span><span class="n">A_reduced</span><span class="p">,</span><span class="n">B_reduced</span><span class="p">)</span>
+    
+    <span class="k">return</span><span class="p">(</span><span class="n">Inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Inverse</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.83333333  0.5        -0.16666667 -0.5       ]
+ [-2.08333333 -1.25        0.66666667  2.25      ]
+ [-0.08333333 -0.25        0.16666667  0.25      ]
+ [-0.33333333  0.          0.16666667  0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random square matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="LU_Factorization.html" title="previous page">LU Factorization</a>
+    <a class='right-next' id="next-link" href="Applications.html" title="next page">Applications</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

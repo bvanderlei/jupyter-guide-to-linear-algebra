@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orthogonal Subspaces &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Least Squares Solutions" href="Least_Squares_Solutions.html" />
+    <link rel="prev" title="QR Factorization" href="QR_Factorization.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Orthogonal_Subspaces.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Orthogonal_Subspaces.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2">
+   Example 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonal-decomposition">
+   Orthogonal Decomposition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fundamental-subspaces">
+   Fundamental Subspaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#row-space">
+     Row Space
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#left-null-space">
+     Left Null Space
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Example 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="orthogonal-subspaces">
+<h1>Orthogonal Subspaces<a class="headerlink" href="#orthogonal-subspaces" title="Permalink to this headline">¶</a></h1>
+<p>In this section we extend the notion of orthogonality from pairs of vectors to whole vector subspaces.  If <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are subspaces of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we say that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are <strong>orthogonal subspaces</strong> if <em>every vector</em> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is orthogonal to <em>every vector</em> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>.</p>
+<p>As an example, let’s suppose that <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_3\)</span>, and <span class="math notranslate nohighlight">\(E_4\)</span> are the standard basis vectors for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 0 \\ 0 \end{array}\right] \hspace{1cm} 
+E_2 = \left[ \begin{array}{r} 0 \\ 1 \\ 0 \\ 0 \end{array}\right] \hspace{1cm}
+E_3 = \left[ \begin{array}{r} 0 \\ 0 \\ 1 \\ 0 \end{array}\right] \hspace{1cm}
+E_4 = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>Now let’s suppose <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_1, E_2\}\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_4\}\)</span>.  Arbitrary vectors <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(W\)</span> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> have the following forms, and clearly <span class="math notranslate nohighlight">\(V\cdot W = 0\)</span>, for any values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V = \left[ \begin{array}{r} a \\ b \\ 0 \\ 0 \end{array}\right] \hspace{1.5cm} 
+W = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ c \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>A closely related idea is that of orthogonal complements.  If <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, the <strong>orthogonal complement</strong> of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the set of all vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> that are orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is also a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and is given the symbol <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.</p>
+<p>In the previous example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are not orthogonal complements.  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_3, E_4\}\)</span> and the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_1, E_2\}\)</span>.</p>
+<p>If the bases elements are not standard, we can determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal or orthogonal complements by examining the elements of their bases.  If <span class="math notranslate nohighlight">\(\alpha\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal if every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span>.  If every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span> <em>and</em> the combined set of vectors in <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> forms a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the span of <span class="math notranslate nohighlight">\(\{V_1\}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be the span of <span class="math notranslate nohighlight">\(\{W_1\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 3 \\ 1 \\ 2  \end{array}\right] \hspace{1cm} 
+W_1 = \left[ \begin{array}{r} -1 \\ 1 \\ 1  \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<p>In order to verify that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces, we have to show that any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is orthogonal to any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>.  In this example, the subspaces are really just orthogonal lines in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> can be written as <span class="math notranslate nohighlight">\(V=aV_2\)</span> for some scalar <span class="math notranslate nohighlight">\(a\)</span>, and any vector <span class="math notranslate nohighlight">\(W\)</span> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> can be written as <span class="math notranslate nohighlight">\(W=bW_1\)</span> for some scalar <span class="math notranslate nohighlight">\(b\)</span>.  Then by the properties of the dot product we have <span class="math notranslate nohighlight">\(V\cdot W = (aV_1)\cdot(bW_1) = ab(V_1\cdot W_1) = 0\)</span>.  This shows that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces.</p>
+<p>The two spaces <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> in this example are not orthogonal complements since <span class="math notranslate nohighlight">\(\{V_1, W_1\}\)</span> do not form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> must contain exactly three vectors.</p>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\alpha = \{V_1, V_2\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\beta = \{W_1, W_2\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, and suppose that we wish to determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 2 \\ 1 \\ 1 \\ 0 \end{array}\right] \hspace{1cm} 
+V_2 = \left[ \begin{array}{r} 2 \\ 3 \\ -1 \\ 4 \end{array}\right] \hspace{1cm}
+W_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 2 \\ 1 \end{array}\right] \hspace{1cm}
+W_2 = \left[ \begin{array}{r} 1 \\ -4 \\ 2 \\ 3 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>To determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces, we need to check that each vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to each vector in <span class="math notranslate nohighlight">\(\beta\)</span>.  A convenient way to do this is to assemble matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> with these vectors as columns and then compute <span class="math notranslate nohighlight">\(A^TB\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">V</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">W</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  2]
+ [ 1  3]
+ [ 1 -1]
+ [ 0  4]]
+
+
+[[-1  1]
+ [ 0 -4]
+ [ 2  2]
+ [ 1  3]]
+
+
+[[0 0]
+ [0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since <span class="math notranslate nohighlight">\(A^TB\)</span> is the zero matrix, it means that <span class="math notranslate nohighlight">\(V_i\cdot W_j=0\)</span> for all pairs of values <span class="math notranslate nohighlight">\(i,j\)</span>.  To understand why this implies that <em>every vector</em> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is orthogonal to <em>every vector</em> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, we can express arbitrary vectors in these spaces in terms of the basis elements.  If <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are arbitrary vectors in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> respectively, then <span class="math notranslate nohighlight">\(V=a_1V_1 + a_2V_2\)</span> and <span class="math notranslate nohighlight">\(W=b_1W_1 + b_2W_2\)</span>.  We can then use the properties of the dot product to show that <span class="math notranslate nohighlight">\(V\cdot W =0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+V\cdot W &amp; = &amp; (a_1V_1 + a_2V_2) \cdot (b_1W_1 + b_2W_2) \\
+ &amp; = &amp; a_1V_1\cdot (b_1W_1 + b_2W_2) + a_2V_2 \cdot (b_1W_1 + b_2W_2) \\
+ &amp; = &amp; a_1b_1(V_1\cdot W_1) + a_1b_2(V_1\cdot W_2) + a_2b_1(V_2\cdot W_1) + a_2b_2(V_2\cdot W_2) \\
+ &amp; = &amp; 0
+\end{eqnarray}
+\end{split}\]</div>
+<p>Now that we know <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces, we want to check that they are also orthogonal complements.  To do this, we need to determine if <span class="math notranslate nohighlight">\(\{V_1, V_2, W_1, W_2\}\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Recall that if the set is a basis, the vector equation <span class="math notranslate nohighlight">\(B=c_1V_1 + c_2V_2 +c_3W_1 + c_4W_4\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  To see if this is indeed true, we can assemble a matrix <span class="math notranslate nohighlight">\(A\)</span> with these vectors as columns, and examine the pivot positions revealed by the RREF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">V</span><span class="p">,</span><span class="n">W</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">RowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  2 -1  1]
+ [ 1  3  0 -4]
+ [ 1 -1  2  2]
+ [ 0  4  1  3]]
+
+
+[[ 1.    1.   -0.5   0.5 ]
+ [ 0.    1.    0.25 -2.25]
+ [ 0.    0.    1.   -1.  ]
+ [ 0.    0.    0.    1.  ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The presence of a pivot in each row and column indicates that <span class="math notranslate nohighlight">\(B=c_1V_1 + c_2V_2 +c_3W_1 + c_4W_4\)</span> has a unique solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, which means that <span class="math notranslate nohighlight">\(\{V_1, V_2, W_1, W_2\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Together with the fact that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal, we can conclude that <span class="math notranslate nohighlight">\(\mathcal{W} = \mathcal{V}^{\perp}\)</span>.</p>
+</div>
+<div class="section" id="orthogonal-decomposition">
+<h2>Orthogonal Decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">¶</a></h2>
+<p>The previous example reveals an important property of orthogonal complements.  If we are given orthogonal complements <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <strong>every vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as the sum of two components, one in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and the other in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span></strong>.  This idea parallels that of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">projecting</span></a> one vector onto another.  Any <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as <span class="math notranslate nohighlight">\(X = P + E\)</span>  where <span class="math notranslate nohighlight">\(P\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> onto the subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.  Since the complements are orthogonal, we know that <span class="math notranslate nohighlight">\(P\cdot E = 0\)</span>.</p>
+</div>
+<div class="section" id="fundamental-subspaces">
+<h2>Fundamental Subspaces<a class="headerlink" href="#fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
+<p>In Chapter 2 we defined the <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">column space</span></a> and the <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">null space</span></a> of a matrix <span class="math notranslate nohighlight">\(A\)</span>. In this section, we define the other two subspaces, and show that they are the orthogonal complements of the first two spaces.</p>
+<div class="section" id="row-space">
+<h3>Row Space<a class="headerlink" href="#row-space" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the <strong>row space</strong> of <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of <em>rows</em> of <span class="math notranslate nohighlight">\(A\)</span>.  Alternatively, we could say that the row space of <span class="math notranslate nohighlight">\(A\)</span> is the column space of <span class="math notranslate nohighlight">\(A^T\)</span>.  The row space of <span class="math notranslate nohighlight">\(A\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and is the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, the null space of <span class="math notranslate nohighlight">\(A\)</span>.  Recall that a vector <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> if <span class="math notranslate nohighlight">\(AX=0\)</span>.  The entries of the vector <span class="math notranslate nohighlight">\(AX\)</span> are exactly the values of the dot products of <span class="math notranslate nohighlight">\(X\)</span> with each of the rows of <span class="math notranslate nohighlight">\(A\)</span>.  Since these entries are all zero, <span class="math notranslate nohighlight">\(X\)</span> is orthogonal to each row of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</div>
+<div class="section" id="left-null-space">
+<h3>Left Null Space<a class="headerlink" href="#left-null-space" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>left null space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is the complement of the <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since the column space of <span class="math notranslate nohighlight">\(A\)</span> is also the row space of <span class="math notranslate nohighlight">\(A^T\)</span>, it must also be that the orthogonal complement of the column space is the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Example 2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Let’s demonstrate with an example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 2 &amp; 1 &amp; 2 &amp; 0 \\ 3 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>To find a basis for <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> we need to solve <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2 1 2 0]
+ [3 0 1 1]
+ [1 1 1 0]]
+[[ 1.   0.   0.   0.5]
+ [ 0.   1.   0.   0. ]
+ [ 0.   0.   1.  -0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The RREF tells us that in order for <span class="math notranslate nohighlight">\(AX=0\)</span>, we need <span class="math notranslate nohighlight">\(x_1 = -0.5x_4\)</span>, <span class="math notranslate nohighlight">\(x_2=0\)</span>, and <span class="math notranslate nohighlight">\(x_3 = 0.5x_4\)</span>.  This means that any vector in <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> has the following form.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} -t \\ 0 \\ t \\ 2t \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>We can see by multiplication with <span class="math notranslate nohighlight">\(A\)</span> that a vector of this form is orthogonal to each row, and thus any vector in the row space.  Because there is a pivot in each row of <span class="math notranslate nohighlight">\(A\)</span>, we know that the rows, if viewed as vectors, are linearly independent.  Alternatively, we check that there is a pivot in each column of <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]
+ [0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have shown that <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, the null space of <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{C}(A^T)\)</span>, the row space of <span class="math notranslate nohighlight">\(A\)</span> form orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, and have the following bases.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\textrm{Basis for }\mathcal{N}(A) =  \left\{ \left[ \begin{array}{r} -1 \\ 0 \\ 1 \\ 2 \end{array}\right] \right\} 
+\hspace{1cm}
+\textrm{Basis for }\mathcal{C}(A^T) = \left\{   
+\left[ \begin{array}{r} 2 \\ 1 \\ 2 \\ 0 \end{array}\right],  
+\left[ \begin{array}{r} 3 \\ 0 \\ 1 \\ 1 \end{array}\right], 
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ 0 \end{array}\right] 
+\right\}
+\end{equation}
+\end{split}\]</div>
+<p>In the next section, we will see how orthogonal decomposition can be used to redefine solutions for inconsistent systems.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(B\)</span> be the following <span class="math notranslate nohighlight">\(4\times 3\)</span>.  Find bases <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrr} 4 &amp; -3 &amp; -2  \\ 2 &amp; 0 &amp; 2 \\ 0 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Using the matrix <span class="math notranslate nohighlight">\(B\)</span> and the bases from the previous exercise, determine vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, and <span class="math notranslate nohighlight">\(P+E = X\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the following vector.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r}1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}  
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> with basis <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}  
+W_2 = \left[ \begin{array}{r} 3 \\ 2 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm} 
+W_3 = \left[ \begin{array}{r} 0 \\ 1 \\ 1 \\ 1 \\ 2 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="QR_Factorization.html" title="previous page">QR Factorization</a>
+    <a class='right-next' id="next-link" href="Least_Squares_Solutions.html" title="next page">Least Squares Solutions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

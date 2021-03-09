@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applications of Inner Products &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Eigenvalues" href="Eigenvalues.html" />
+    <link rel="prev" title="Projections" href="Projections.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Applications_IP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Applications_IP.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-regression">
+   Linear Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-retrieval">
+   Information Retrieval
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-approximation">
+   Fourier Approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="applications-of-inner-products">
+<h1>Applications of Inner Products<a class="headerlink" href="#applications-of-inner-products" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>A common example of the use of least squares is Linear Regression.  In this scenario, we suppose that two variables are related through linear relationship, or we wish to approximate their relationship as linear.  Although data may show that the relationship is not exactly linear, or the data may be subject to experimental error, we might still hope to find the linear model that best fits the data.  This is commonly known as the “line of best fit”, or the “least squares line”.</p>
+<p>For our example, suppose that we are studying the price of beer and nachos at various entertainment venues, and we collect data from a representative sample of venues.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Beer</p></th>
+<th class="head"><p>Nachos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$4.5</p></td>
+<td><p>$12</p></td>
+</tr>
+<tr class="row-odd"><td><p>$4.75</p></td>
+<td><p>$13</p></td>
+</tr>
+<tr class="row-even"><td><p>$5.5</p></td>
+<td><p>$14.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>$5.9</p></td>
+<td><p>$15.5</p></td>
+</tr>
+<tr class="row-even"><td><p>$6.25</p></td>
+<td><p>$15.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>$7</p></td>
+<td><p>$17.25</p></td>
+</tr>
+</tbody>
+</table>
+<p>We plot the data and notice that there is strong correlation between the two variables.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">6.25</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.9</span><span class="p">,</span> <span class="mf">17.25</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Beer (\$)&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Nachos (\$)&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Applications_IP_2_0.png" src="_images/Applications_IP_2_0.png" />
+</div>
+</div>
+<p>Next, we propose a linear equation <span class="math notranslate nohighlight">\(n  = x_1b + x_2\)</span> that relates the nacho price, <span class="math notranslate nohighlight">\(n\)</span>, to the beer price, <span class="math notranslate nohighlight">\(b\)</span>.  If there were only two data points, we would solve a system of two equations to determine the parameters <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.  The larger number of data points leads to an inconsistent overdetermined system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+4.5x_1 + x_2 &amp; = &amp; 12 \\
+4.75x_1 + x_2 &amp; = &amp; 13 \\
+5.5x_1 + x_2 &amp; = &amp; 14.8 \\
+5.9x_1 + x_2 &amp; = &amp; 15.5 \\
+6.25x_1 + x_2 &amp; = &amp; 15.9 \\
+7x_1 + x_2 &amp; = &amp; 17.25 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We find the least squares solution by solving the normal equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">4.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.9</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">6.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">],[</span><span class="mi">13</span><span class="p">],[</span><span class="mf">14.8</span><span class="p">],[</span><span class="mf">15.5</span><span class="p">],[</span><span class="mf">15.9</span><span class="p">],[</span><span class="mf">17.25</span><span class="p">]])</span>
+
+<span class="n">A_LS</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+<span class="n">B_LS</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="n">X_hat</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A_LS</span><span class="p">,</span><span class="n">B_LS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_hat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.04147727]
+ [3.20732008]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that this least squares solution produces a line fits the data reasonably well.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">y_model</span> <span class="o">=</span> <span class="n">x_model</span><span class="o">*</span><span class="n">X_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#for i in range(6):</span>
+<span class="c1">#    y_model[i] = x[i]*X_hat[0,0] + X_hat[1,0]</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_model</span><span class="p">,</span><span class="n">y_model</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Beer (\$)&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Nachos (\$)&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Applications_IP_6_0.png" src="_images/Applications_IP_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="information-retrieval">
+<h2>Information Retrieval<a class="headerlink" href="#information-retrieval" title="Permalink to this headline">¶</a></h2>
+<p>A well-known idea in information retrieval is that of the <strong>vector space model</strong>, which represents documents in a database as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Algorithms which aim to search the database for documents that are most relevant to keyword searches can then make use of the vector representation.  We provide some simple examples of how such algorithms might work.</p>
+<p>Let’s begin by with the modeling a document with a vector.  All we really need is a list of <span class="math notranslate nohighlight">\(n\)</span> words that will be searchable in our database.  This list could be a list of each distinct word in the whole collection of documents, but there are many common words in English that we might disqualify as keywords since they appear abundantly in all documents (the, as, in, it, etc.).  Each document in the database can now be represented by a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, with the <span class="math notranslate nohighlight">\(n\)</span>th entry set to 1 if the corresponding keyword appears in the document, and 0 otherwise.</p>
+<p>For example, suppose our database is simply a list of webpages with content related to information retrieval.  Our set of keywords might be the following.</p>
+<p><strong>{algorithm, engine, information, google, computations, matrix, optimization, retrieval, search, theory }</strong></p>
+<p>Each webpage in the database is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{10}\)</span>, with entries corresponding to these words.  It is most convenient to write these vectors as <span class="math notranslate nohighlight">\(1\times 10\)</span> row vectors rather than <span class="math notranslate nohighlight">\(10\times 1\)</span> column vectors  For example, <em>Search Engine Algorithms</em> would be represented as <span class="math notranslate nohighlight">\([0, 1, 1, 0, 0, 0, 1, 0, 0, 0]\)</span>.  Our database then is represented by a <span class="math notranslate nohighlight">\(n\times 10\)</span> matrix that has a row for each title.  Suppose for the sake of our example that we have the following 6 titles.</p>
+<ul class="simple">
+<li><p>Search Engine Algorithms</p></li>
+<li><p>How Google Search Optimization Works</p></li>
+<li><p>Information Retrieval Theory</p></li>
+<li><p>Matrix Models of Information Retrieval</p></li>
+<li><p>Theory Behind Search Engines</p></li>
+<li><p>Computations in Information Retrieval</p></li>
+</ul>
+<p>We will build a vector for each title, and then assemble them into a matrix <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">T6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">T3</span><span class="p">,</span><span class="n">T4</span><span class="p">,</span><span class="n">T5</span><span class="p">,</span><span class="n">T6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 1 0 0 0 0 0 0 1 0]
+ [0 0 0 1 0 0 1 0 1 0]
+ [0 0 1 0 0 0 0 1 0 1]
+ [0 0 1 0 0 1 0 1 0 0]
+ [0 1 0 0 0 0 0 0 1 1]
+ [0 0 1 0 0 0 0 1 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s consider how we might perform a search of the keywords.  Suppose we want to search for entries matching the words “information”, “retrieval”, and “theory”.  We can build a <span class="math notranslate nohighlight">\(10\times 1\)</span> query vector <span class="math notranslate nohighlight">\(X\)</span> that has entries of 1 corresponding to these keywords.  In this case, the query vector is <span class="math notranslate nohighlight">\([0, 0, 1, 0, 0, 0, 0, 1, 0, 1]^T\)</span>.  The matrix-vector product <span class="math notranslate nohighlight">\(DX\)</span> will now contain entries that represent the number of words from the search that match each title in the database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">D</span><span class="nd">@X</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0]
+ [0]
+ [3]
+ [2]
+ [1]
+ [2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The third entry of <span class="math notranslate nohighlight">\(DX\)</span> is the largest, which means that the third webpage in the database best matches the list of keywords in the search.  The last three titles might also be reported as partial search matches.  Note that the database search is nothing more than a single matrix multiplication, followed by a search of the vector <span class="math notranslate nohighlight">\(DX\)</span> to find the largest entries.</p>
+<p>There are other possible ways that the documents in the database might be represented.   One approach might be to let the <span class="math notranslate nohighlight">\(n\)</span>th entry in each document vector equal the frequency of the corresponding word in that document.  For example, if the 7th keyword appears 53 times in a document, the vector representing that document would have 53 as the 7th entry.  The effect would be that a document that contains many instances of a matching keyword would be ranked higher in the search that a document with fewer instances of the word.</p>
+<p>Another idea is to set the <span class="math notranslate nohighlight">\(n\)</span>th entry equal to the relative frequency of the associated keyword in that document.  The <strong>relative frequency</strong> is the frequency divided by the total number of all keywords in the document.  Shown below is an example what a keyword count might look like if there were only 10 searchable words.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Document 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>algorithm</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>engine</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-even"><td><p>information</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>google</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>compuations</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>matrix</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>optimization</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>retrieval</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>search</p></td>
+<td><p>31</p></td>
+</tr>
+<tr class="row-odd"><td><p>theory</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are a total of 100 keyword matches, so each entry would be divided by 100 and the row vector corresponding to document 1 would be <span class="math notranslate nohighlight">\([0.19, 0.23, 0, 0.02, 0, 0.11, 0, 0.1, 0.31, 0.04]\)</span>  In practice the number of searchable words and the number of words in each document might be tens of thousands each.  The query vector is again a column vector with entries of 1 corresponding to the words in the search, and all other entries set to zero.  The search is executed by a single matrix multiplication, followed by a search of the resulting vector for the largest entry.  The effect of this representation would be similar to that using frequency, but now a document with 50 matches in 30000 words would be rated higher than a document with 50 matches in 100000 words.</p>
+</div>
+<div class="section" id="fourier-approximation">
+<h2>Fourier Approximation<a class="headerlink" href="#fourier-approximation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Berry, Michael W. and Murray Browne. <em>Understanding Serach Engines: Mathematical Modeling and Text Retrieval</em>. 2nd ed., SIAM, 2005</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Projections.html" title="previous page">Projections</a>
+    <a class='right-next' id="next-link" href="Eigenvalues.html" title="next page">Eigenvalues</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

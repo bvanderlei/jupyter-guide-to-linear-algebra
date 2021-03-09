@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear Combinations &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Independence" href="Linear_Independence.html" />
+    <link rel="prev" title="General Linear Systems" href="General_Linear_Systems.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Linear_Combinations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Linear_Combinations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spans">
+   Spans
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2">
+   Example 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spans-and-inconsistent-systems">
+   Spans and inconsistent systems
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3">
+   Example 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subspaces">
+   Subspaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subspace-example">
+     Subspace example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subspace-non-example">
+     Subspace non-example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spans-and-subspaces">
+     Spans and subspaces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#row-space">
+   Row Space
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linear-combinations">
+<h1>Linear Combinations<a class="headerlink" href="#linear-combinations" title="Permalink to this headline">¶</a></h1>
+<p>At the core of many ideas in linear algebra is the concept of a <strong>linear combination</strong> of vectors.  To build a linear combination from a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> we use the two algebraic operations of addition and scalar multiplication.  If we use the symbols <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span> to represent the scalars, the linear combination looks like the following.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n
+\end{equation}
+\]</div>
+<p>The scalars <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span> are sometimes called <em>weights</em>.</p>
+<p>Let’s define a collection of vectors to give concrete examples.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 2 \\ -2 \\ 1 \end{array}\right] \hspace{1cm} 
+V_2 = \left[ \begin{array}{r} 1 \\  0 \\ -1  \end{array}\right] \hspace{1cm}
+V_3 = \left[ \begin{array}{r} 0 \\ -1 \\  6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Now <span class="math notranslate nohighlight">\(3V_1 + 2V_2 +4V_3\)</span>, <span class="math notranslate nohighlight">\(V_1-V_2+V_3\)</span>, and <span class="math notranslate nohighlight">\(3V_2 -V_3\)</span> are all examples of linear combinations of the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> and can be calculated explicitly if needed.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+3V_1+ 2V_2+ 4V_3 = 3\left[ \begin{array}{r} 2 \\ -2 \\ 1 \end{array}\right] 
++2 \left[ \begin{array}{r} 1 \\  0 \\ -1  \end{array}\right]
++4 \left[ \begin{array}{r} 0 \\ -1 \\  6 \end{array}\right] = 
+\left[ \begin{array}{r} 8 \\ -10 \\  25 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The concept of linear combinations of vectors can be used to reinterpret the problem of solving linear systems of equations.  Let’s consider the following system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 + 2x_2  &amp; = &amp; 0\\
+3x_1 - x_2  &amp; = &amp; 14 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We’ve already discussed how this system can be written using matrix multiplication.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cc} 1 &amp; 2 \\ 3 &amp; -1 \end{array}\right]
+\left[ \begin{array}{c} x_1 \\ x_2 \end{array}\right]=
+\left[ \begin{array}{c} 0 \\ 14 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>We’ve also seen how this matrix equation could be repackaged as a vector equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_1\left[ \begin{array}{r} 1 \\ 3 \end{array}\right] +
+x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
+\left[ \begin{array}{r} 0 \\ 14  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The connection to linear combinations now becomes clear if we consider the columns of the coeffiecient matrix as vectors.  Finding the solution to the linear system of equations is equivalent to finding the <em>linear combination</em> of these column vectors that matches the vector on the right hand side of the equation.</p>
+<div class="section" id="spans">
+<h2>Spans<a class="headerlink" href="#spans" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to introduce terminology to describe a collection of linear combinations.  The <strong>span</strong> of a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is the set of all possible linear combinations of vectors in the set.  For any coefficients <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span>, the vector <span class="math notranslate nohighlight">\(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> is said to be <em>in the span of</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
+<p>Given the direct connection between linear systems and linear combinations of vectors, we understand that when we are trying to determine if a given linear system as a solution, we are in fact trying to determine if a given vector, say <span class="math notranslate nohighlight">\(B\)</span>, is a linear combination of some set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  Making use of the new terminology, we could say that we are trying to determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
+<p>It is important to distinguish between the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> and the actual <em>set of vectors</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  The set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains only the vectors themselves, while the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains every vector that can be built as a linear combination of these vectors.  If we were to visualize these objects, the set of vectors would be a collection of arrows, while the span would be a multi-dimensional collection.  Again, it is easiest if we visualize an example in a two or three dimentions.</p>
+<p><font color=red> Figures here for 2d subspace, or similar. </font></p>
+</div>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>We can now apply our experience in solving systems to finding linear combinations.  Suppose we want to determine if <span class="math notranslate nohighlight">\(B\)</span> lies in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> given the following definitions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 2 \\ -1 \\ 0 \\ 3 \end{array}\right] \hspace{1cm}
+V_2 = \left[ \begin{array}{r} 2 \\ 2 \\ 6 \\ -4  \end{array}\right] \hspace{1cm} 
+V_3 = \left[ \begin{array}{r} -1 \\ -1 \\ -1 \\ 0 \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{r}  4 \\ -2 \\ 4 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>We need to determine if there are numbers <span class="math notranslate nohighlight">\(a_1\)</span>, <span class="math notranslate nohighlight">\(a_2\)</span>, and <span class="math notranslate nohighlight">\(a_3\)</span> such that the following vector equation is true.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+a_1\left[ \begin{array}{r} 2 \\ -1 \\ 0 \\ 3 \end{array}\right]+
+a_2\left[ \begin{array}{r} 2 \\ 2 \\ 6 \\ -4  \end{array}\right] +
+a_3\left[ \begin{array}{r} -1 \\ -1 \\ -1 \\ 0 \end{array}\right] =
+\left[ \begin{array}{r}  4 \\ -2 \\ 4 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>This vector equation is equivalent to determining if the following linear system is consistent.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+2a_1 + 2a_2 - a_3 &amp; = &amp; 4\\
+-a_1 + 2a_2 - a_3 &amp; = &amp; -2\\
+\quad\quad 6a_2 - a_3 &amp; = &amp; 4 \\
+3a_1 -4a_2 \quad\quad &amp; = &amp; 2
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Instead of finding values for <span class="math notranslate nohighlight">\(a_1\)</span>, <span class="math notranslate nohighlight">\(a_2\)</span>, and <span class="math notranslate nohighlight">\(a_3\)</span>, we will only do the elimination part of the solution process to determine if the system is consistent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pivot could not be found in column 3 .
+[[ 1.   1.  -0.5  2. ]
+ [ 0.   1.  -0.5  0. ]
+ [ 0.   0.   1.   2. ]
+ [ 0.   0.   0.   0. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no pivot in the last column, the system is consistent.  Recall that the key row operation in the elimination process replaces one row with the sum of itself and the multiple of another row.  In other words, the rows can be replaced with a specific <em>linear combination</em> of rows.  The row of zeros in the reduced matrix indicates that one of the four equations in the original system was in fact a linear combination of the other equations.  (<em>We don’t know for sure which equation was redundant since the rows might have been shuffled during elimination.</em>)  The remaining set of equations is triangluar and we can get the solution with back substitution as before (<span class="math notranslate nohighlight">\(a_1 = 2\)</span>, <span class="math notranslate nohighlight">\(a_2 = 1\)</span>, <span class="math notranslate nohighlight">\(a_3=2\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+a_1 + a_2 - 0.5a_3 &amp; = &amp; 2\\
+a_2 - 0.5a_3 &amp; = &amp; 0\\
+a_3 &amp; = &amp; 2
+\end{eqnarray*}
+\end{split}\]</div>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>As another example, let’s determine if the vector given as <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C = \left[ \begin{array}{r}  4 \\ -2 \\ 4 \\ 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Again, we need to determine if the associated linear system is consistent.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+2a_1 + 2a_2 - a_3 &amp; = &amp; 4\\
+-a_1 + 2a_2 - a_3 &amp; = &amp; -2\\
+\quad\quad 6a_2 - a_3 &amp; = &amp; 4 \\
+3a_1 -4a_2 \quad\quad &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">B_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowReduction</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   1.  -0.5  2. ]
+ [ 0.   1.  -0.5  0. ]
+ [ 0.   0.   1.   2. ]
+ [-0.  -0.  -0.   1. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pivot in the last column indicates that the system has no solution.  Indeed, when we examine the system represented by the reduced matrix, we can see immediately that there are no values of <span class="math notranslate nohighlight">\(a_1\)</span>, <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(a_3\)</span> that satisfy the last equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+a_1 + a_2 - 0.5a_3 &amp; = &amp; 2\\
+a_2 - 0.5a_3 &amp; = &amp; 0\\
+\quad\quad a_3 &amp; = &amp; 2 \\
+0 &amp; = &amp; 1
+\end{eqnarray*}
+\end{split}\]</div>
+</div>
+<div class="section" id="spans-and-inconsistent-systems">
+<h2>Spans and inconsistent systems<a class="headerlink" href="#spans-and-inconsistent-systems" title="Permalink to this headline">¶</a></h2>
+<p>The idea of spans has a direct connection to the general linear system <span class="math notranslate nohighlight">\(AX = B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since <span class="math notranslate nohighlight">\(AX\)</span> is a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, the system <span class="math notranslate nohighlight">\(AX=B\)</span> will have a solution if and only if <span class="math notranslate nohighlight">\(B\)</span> is in the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  This is a direct result of the definitions of matrix-vector multiplication and spans.  This equivalence alone doesn’t directly help us solve the system, but it does allow us to pose a more general question.  For a given <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, will the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> have a solution for any vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>?</p>
+<p>Consider the structure of the RREF of the augmented matrix <span class="math notranslate nohighlight">\([A|B]\)</span> that represents an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, with <span class="math notranslate nohighlight">\(A\)</span> a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix.  One possibility is the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{ccccc} 
+1 &amp; * &amp; * &amp; * &amp; * \\ 0 &amp; 1 &amp; * &amp; * &amp; *  \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; * \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1  
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The defining characteristic of an inconsistent system is that the RREF of the augmented matrix has a row with a pivot in the rightmost column.  Such a row represents the equation <span class="math notranslate nohighlight">\(0=1\)</span>.  We can now realize that the system <span class="math notranslate nohighlight">\(AX=B\)</span> <em>could be inconsistent</em> if the RREF of the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> contains at least one row with all zero entries.  This idea allows us to make a general statement about the existence of solutions.  <strong>A linear system <span class="math notranslate nohighlight">\(AX=B\)</span> has a solution for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in every row</strong></p>
+</div>
+<div class="section" id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<p>We provide two coefficient matrices and their RREFs to demonstrate the possibilities.  It should be emphasized that we are now discussing coefficient matrices, rather than the augmented matrices.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+P = \left[ \begin{array}{rrrr} 
+1 &amp; -2 &amp; 4 &amp; -2 \\ 4 &amp; 3 &amp; 5 &amp; -4  \\ -3 &amp; -2 &amp; 4 &amp; 2 \\  -4 &amp; 1 &amp; 1 &amp; 1  
+\end{array}\right] \hspace{0.75cm} \to \hspace{0.75cm}
+\left[ \begin{array}{rrrr} 
+1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0  \\ 0 &amp; 0 &amp; 1 &amp; 0 \\  0 &amp; 0 &amp; 0 &amp; 1  
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+R = \left[ \begin{array}{rrrr} 
+1 &amp; 1 &amp; 0 &amp; -1 \\ 1 &amp; 1 &amp; 0 &amp; 1  \\ -1 &amp; -1 &amp; 1 &amp; -1 \\ 1 &amp; 1 &amp; -2 &amp; 0   
+\end{array}\right] \hspace{0.75cm} \to \hspace{0.75cm}
+\left[ \begin{array}{rrrr} 
+1 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0  \\ 0 &amp; 0 &amp; 0 &amp; 1 \\  0 &amp; 0 &amp; 0 &amp; 0  
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+[[1. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The system <span class="math notranslate nohighlight">\(PX=B\)</span> has a solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> because it has a pivot in every row.  No matter which <span class="math notranslate nohighlight">\(B\)</span> is given, the system <span class="math notranslate nohighlight">\(PX=B\)</span> is always consistent.  By contrast, the system <span class="math notranslate nohighlight">\(RX=B\)</span> will have solutions for some <span class="math notranslate nohighlight">\(B\)</span>, but not every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  The span of the columns of <span class="math notranslate nohighlight">\(P\)</span> includes every vector in the space <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  We say in this case that the columns of <span class="math notranslate nohighlight">\(P\)</span> <strong>span the space</strong> <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+</div>
+<div class="section" id="subspaces">
+<h2>Subspaces<a class="headerlink" href="#subspaces" title="Permalink to this headline">¶</a></h2>
+<p>It is frequently useful to consider vector subspaces, which we will simply refer to as subspaces.   A <strong>subspace</strong> is a portion of a vector space with the property that any linear combination of vectors in the subspace is another vector that is also in the subspace.  To put it formally, if <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> are vectors that belong to a given subspace, and <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are any scalars, then the vector <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2\)</span> also belongs to the subspace.</p>
+<div class="section" id="subspace-example">
+<h3>Subspace example<a class="headerlink" href="#subspace-example" title="Permalink to this headline">¶</a></h3>
+<p>The set of vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that have middle component equal to zero is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  To understand why, we need to look at an arbitrary linear combination of two arbitrary vectors in the subspace, and verify that the linear combination is also in the subspace.  If we let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the vectors with arbitary first and third components and calculate the linear combination, we see that the linear combination also has zero as its middle component and is thus in the subspace.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1X + c_2Y = 
+c_1\left[ \begin{array}{c} x_1 \\ 0 \\ x_3 \end{array}\right]+
+c_2\left[ \begin{array}{c} y_1 \\ 0 \\ y_3  \end{array}\right] =
+\left[ \begin{array}{c} x_1+y_1 \\ 0 \\ x_3+y_3 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="subspace-non-example">
+<h3>Subspace non-example<a class="headerlink" href="#subspace-non-example" title="Permalink to this headline">¶</a></h3>
+<p>The set of all solutions to the following linear system is <strong>not a subspace</strong> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} 2 &amp; 1 &amp; 2  \\ 3 &amp; 0 &amp; -1 \end{array}\right]
+\left[ \begin{array}{r} x_1 \\ x_2 \\ x_3 \end{array}\right]=
+\left[ \begin{array}{r} 0 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.         -0.33333333  0.66666667]
+ [ 0.          1.          2.66666667 -1.33333333]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this system, <span class="math notranslate nohighlight">\(x_3\)</span> is a free variable.  Choosing two values of <span class="math notranslate nohighlight">\(x_3\)</span> gives us two different solution vectors, which we label <span class="math notranslate nohighlight">\(X_p\)</span> and <span class="math notranslate nohighlight">\(X_q\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_p = \left[ \begin{array}{r} 1 \\ -4 \\ 1 \end{array}\right] \hspace{1cm}
+X_q\left[ \begin{array}{r} 2 \\ -12 \\ 4   \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p>It is easy to check that the sum of these two vectors is <strong>not</strong> a solution to the system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_p + X_q = \left[ \begin{array}{r} 3 \\ -16 \\ 5   \end{array}\right] 
+\hspace{2cm} 
+\left[ \begin{array}{r} 2 &amp; 1 &amp; 2  \\ 3 &amp; 0 &amp; -1 \end{array}\right]
+\left[ \begin{array}{r} 3 \\ -16 \\ 5 \end{array}\right]=
+\left[ \begin{array}{r} 0 \\ 4 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>In fact, it is true in general that if <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the solutions to a system <span class="math notranslate nohighlight">\(AX=B\)</span> do not form a subspace of <span class="math notranslate nohighlight">\(R^m\)</span>.  If <span class="math notranslate nohighlight">\(X_p\)</span> and <span class="math notranslate nohighlight">\(X_q\)</span> are two particular solutions to the system (<span class="math notranslate nohighlight">\(AX_p=B\)</span> and <span class="math notranslate nohighlight">\(AX_q=B\)</span>), their sum is not a solution since <span class="math notranslate nohighlight">\(A(X_p + X_q) = AX_p + AX_q = B + B = 2B\)</span>.<br />
+(<em>Note that since <span class="math notranslate nohighlight">\(2B=B\)</span> when <span class="math notranslate nohighlight">\(B=0\)</span>, the set of solutions to <span class="math notranslate nohighlight">\(AX=0\)</span> does form a subspace.   This important exception is discussed in the next section.</em>)</p>
+</div>
+<div class="section" id="spans-and-subspaces">
+<h3>Spans and subspaces<a class="headerlink" href="#spans-and-subspaces" title="Permalink to this headline">¶</a></h3>
+<p>The idea of subspaces is related to that of spans since <strong>the span of any set of vectors must be a subspace</strong>.  Suppose that vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are arbitrary vectors in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  That is <span class="math notranslate nohighlight">\(X = a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> and <span class="math notranslate nohighlight">\(Y = b_1V_1 + b_2V_2 + b_3V_3 + .... + b_nV_n\)</span> for some sets of weights <span class="math notranslate nohighlight">\(a_1, a_2, ... a_n\)</span> and <span class="math notranslate nohighlight">\(b_1, b_2, ... b_n\)</span>.  The arbitrary linear combination <span class="math notranslate nohighlight">\(c_1X + c_2Y\)</span> is also in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> since it is some other linear combination of these vectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+c_1X + c_2Y &amp; = &amp; c_1(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n) + c_2(b_1V_1 + b_2V_2 + b_3V_3 + .... + b_nV_n)\\
+&amp; = &amp; (c_1a_1 + c_2b_1)V_1 + (c_1a_2 + c_2b_2)V_2 + (c_1a_3 + c_2b_3)V_3 + .... + (c_1a_n + c_2b_n)V_n
+\end{eqnarray*}
+\end{split}\]</div>
+<p>It is also true that any subspace can be described as the span of some set of vectors.  We will explore this idea in an upcoming section.</p>
+</div>
+</div>
+<div class="section" id="row-space">
+<h2>Row Space<a class="headerlink" href="#row-space" title="Permalink to this headline">¶</a></h2>
+<p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  If future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then the matrix-vector product <span class="math notranslate nohighlight">\(AX\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  If we recall that this product is formed by taking a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, we realize that the vector <span class="math notranslate nohighlight">\(AX\)</span> must be <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> by definition.  An important connection here is that the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent <em>if and only if</em> the vector <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
+<p>Although the concept of the row space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Answer questions regarding the following vectors.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 2 \\ 3 \\ -1 \end{array}\right] \hspace{1cm}
+W_2 = \left[ \begin{array}{r} 3 \\ 0 \\ 1   \end{array}\right] \hspace{1cm} 
+W_3 = \left[ \begin{array}{r} 4 \\ -3 \\ 3 \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{r}  1 \\ 1 \\ 1  \end{array}\right] \hspace{1cm}
+C = \left[ \begin{array}{r}  3 \\ 0 \\ 1  \end{array}\right] \hspace{1cm}
+V_1 = \left[ \begin{array}{r} 8 \\ -3 \\ 5 \end{array}\right] \hspace{1cm}
+V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<ol class="simple">
+<li><p>Determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p></li>
+<li><p>Determine if <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p></li>
+<li><p>Find a vector in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> that has zero as its first entry.</p></li>
+<li><p>How can we determine if the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> equal the span of <span class="math notranslate nohighlight">\(\{V_1, V_2\}\)</span>?</p></li>
+</ol>
+<ul class="simple">
+<li><p>Consider the matrix <span class="math notranslate nohighlight">\(R\)</span> from <strong>Example 3</strong>.  Find one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is in the span of the columns of <span class="math notranslate nohighlight">\(R\)</span>, and one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is not.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+R = \left[ \begin{array}{rrrr} 
+1 &amp; 1 &amp; 0 &amp; -1 \\ 1 &amp; 1 &amp; 0 &amp; 1  \\ -1 &amp; -1 &amp; 1 &amp; -1 \\ 1 &amp; 1 &amp; -2 &amp; 0   
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Explain why the system <span class="math notranslate nohighlight">\(AX=B\)</span> cannot be consistent for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 3\)</span> matrix.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="General_Linear_Systems.html" title="previous page">General Linear Systems</a>
+    <a class='right-next' id="next-link" href="Linear_Independence.html" title="next page">Linear Independence</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

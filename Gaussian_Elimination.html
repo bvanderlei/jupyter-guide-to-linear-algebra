@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaussian Elimination &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matrix Algebra" href="Matrix_Algebra.html" />
+    <link rel="prev" title="Linear Systems" href="Linear_Systems.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Gaussian_Elimination.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Gaussian_Elimination.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-row-operations-and-elimination">
+   Example 1:  Row operations and elimination
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercise:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-elimination-on-a-random-array">
+   Example 2:  Elimination on a random array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-finding-pivots">
+   Example 3: Finding pivots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-4-elimination-fails">
+   Example 4:  Elimination fails
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-5-nonunique-solution">
+   Example 5:  Nonunique solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="gaussian-elimination">
+<h1>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">¶</a></h1>
+<p>In this section we define some Python functions to help us solve linear systems in the most direct way.  The algorithm is known as Gaussian Elimination, which we will simply refer to as <strong>elimination</strong> from this point forward.  The idea of elimination is to exchange the system we are given with another system that has the same solution, but is much easier to solve.  To this end we will perform a series of steps called <strong>row operations</strong> which preserve the solution of the system while gradually making the solution more accessible.  There are three such operations we may perform.</p>
+<ol class="simple">
+<li><p>Exchange the position of two equations.</p></li>
+<li><p>Multiply an equation by any nonzero number.</p></li>
+<li><p>Replace any equation with the sum of itself and a multiple of another equation.</p></li>
+</ol>
+<p><a id='GE1'></a></p>
+<div class="section" id="example-1-row-operations-and-elimination">
+<h2>Example 1:  Row operations and elimination<a class="headerlink" href="#example-1-row-operations-and-elimination" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at an example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 + x_2 + 8x_3 &amp; = &amp; 18\\
+4x_1 + 2x_2 -3x_3 &amp; = &amp; -2 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We could swap the first and last equation,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+4x_1 + 2x_2 -3x_3 &amp; = &amp; -2 \\
+2x_1 + x_2 + 8x_3 &amp; = &amp; 18\\
+x_1 - x_2 + x_3 &amp; = &amp; 3
+\end{eqnarray*}
+\end{split}\]</div>
+<p>or we could multiply the first equation by <span class="math notranslate nohighlight">\(5\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 - 5x_2 + 5x_3 &amp; = &amp; 15\\
+2x_1 + x_2 + 8x_3 &amp; = &amp; 18\\
+4x_1 + 2x_2 -3x_3 &amp; = &amp; -2 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>or we could add 2 times the first equation to the last equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 + x_2 + 3x_3 &amp; = &amp; 8\\
+6x_1 \quad\quad -x_3 &amp; = &amp; 4 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The last operation is the most important because it allows us to <em>eliminate</em> a variable from one of the equations.  Note that the third equation no longer contains the <span class="math notranslate nohighlight">\(x_2\)</span> term.  This is the key to the elimination algorithm.</p>
+<p>For computational purposes we can dispense with the variable names and the “=” symbol, and arrange all of the actual numbers in an array.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rrrr} 1 &amp; -1 &amp; 1 &amp; 3 \\ 2 &amp; 1 &amp; 8 &amp; 18 \\ 4 &amp; 2 &amp; -3 &amp; -2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Now let’s build a NumPy array with these values.  We’ll assign the array the name <span class="math notranslate nohighlight">\(\texttt{A}\)</span>, so that we can refer to it later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">18</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could dive in an start performing operations on our array, but instead we will first write a few bits of code that will do each of these operations individually.  We will tuck each operation inside a Python function so that we can use it again for future calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a NumPy array.  RowSwap will return duplicate array with rows</span>
+<span class="c1">#     k and l swapped.</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A</span>
+    
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+        
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+        
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">RowScale</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a NumPy array.  ScaleRow will return duplicate array with the</span>
+<span class="c1">#     entries of row k multiplied by scale.</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A</span>
+    
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*=</span> <span class="n">scale</span>
+        
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="k">def</span> <span class="nf">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
+<span class="c1"># =============================================================================</span>
+<span class="c1">#     A is a numpy array.  RowSwap will return duplicate array with row</span>
+<span class="c1">#     l modifed.  The new values will be the old values of row l added to </span>
+<span class="c1">#     the values of row k, multiplied by scale.</span>
+<span class="c1"># =============================================================================</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># n is number of columns in A</span>
+    
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+        
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">scale</span>
+        
+    <span class="k">return</span> <span class="n">B</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have three new functions called <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>,<span class="math notranslate nohighlight">\(\texttt{RowScale}\)</span>,and <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Let’s try them out to see what they produce.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B1</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B2</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">B3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  1  3]
+ [ 2  1  8 18]
+ [ 4  2 -3 -2]]
+
+
+[[ 1.  -1.   1.   3. ]
+ [ 2.   1.   8.  18. ]
+ [ 2.   1.  -1.5 -1. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The goal of elimination is to perform row operations on this array in order to produce a new array with a structure that looks something like this.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cccc} 1 &amp; * &amp; * &amp; * \\ 0 &amp; 1 &amp; * &amp; * \\ 0 &amp; 0 &amp; 1 &amp; * \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><em>(Note that the * symbols here represent different unknown values that may or may not be 0 or 1.)</em></p>
+<p>We will carry out the row operations and save our progress as arrays with new names  after each step.  For example, we might name them <span class="math notranslate nohighlight">\(\texttt{A1}\)</span>, <span class="math notranslate nohighlight">\(\texttt{A2}\)</span>, <span class="math notranslate nohighlight">\(\texttt{A3}\)</span>, etc. This way we can check the progress, or go back and make changes to our code if we like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Add -2 times row 0 to row 1</span>
+<span class="n">A1</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Add -4 times row 0 to row 2</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Add -2 times row 1 to row 2</span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Multiply row 1 by 1/3</span>
+<span class="n">A4</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Multiply row 2 by 1/19</span>
+<span class="n">A5</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/-</span><span class="mf">19.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1.  1.  3.]
+ [ 0.  3.  6. 12.]
+ [ 4.  2. -3. -2.]] 
+
+[[  1.  -1.   1.   3.]
+ [  0.   3.   6.  12.]
+ [  0.   6.  -7. -14.]] 
+
+[[  1.  -1.   1.   3.]
+ [  0.   3.   6.  12.]
+ [  0.   0. -19. -38.]] 
+
+[[  1.  -1.   1.   3.]
+ [  0.   1.   2.   4.]
+ [  0.   0. -19. -38.]] 
+
+[[ 1. -1.  1.  3.]
+ [ 0.  1.  2.  4.]
+ [-0. -0.  1.  2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s translate this array back to the description of the system with all the symbols in place.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+x_2 + 2x_3 &amp; = &amp; 4\\
+x_3 &amp; = &amp; 2 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>After the steps of elimination, we have what is known as a triangular system.  The solution to this system can be found without much effort by working backwards from the last equation.  The last equation tells us that <span class="math notranslate nohighlight">\(x_3 = 2\)</span>.  If we substitute that value into the second equation, we find that <span class="math notranslate nohighlight">\(x_2 = 0\)</span>.  Finally, if we substitute these values back into the first equation, we find that <span class="math notranslate nohighlight">\(x_1 = 1.\)</span>  This process for finding the solution of the triangular system is called <strong>back substitution</strong>.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise:<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Repeat the elimination process for the following system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 + x_2 + 8x_3 &amp; = &amp; 18\\
+4x_1 + 2x_2 -3x_3 &amp; = &amp; -2 
+\end{eqnarray*}
+\end{split}\]</div>
+<ol class="simple">
+<li><p>Define a NumPy array to contain the numbers.  Name it something other than <span class="math notranslate nohighlight">\(\texttt{A}\)</span>, so that you don’t confuse it with the example.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Use the functions to carry out the row operations on your array.  Print the result to see that your code is successful.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write the final triangular system as a set of equations.  <em>(Copy the markdown code from above to get the format.)</em></p></li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h2>Exercise:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Starting from the array that represents the lower triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Do one step at a time and again print your results to check that you are successful.</p>
+<p>The array now represents a system in the simplest form possible.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 \quad\quad\quad\quad &amp; = &amp; 1\\
+x_2 \quad\quad &amp; = &amp; 0\\
+x_3 &amp; = &amp; 2 
+\end{eqnarray*}
+\end{split}\]</div>
+</div>
+<div class="section" id="example-2-elimination-on-a-random-array">
+<h2>Example 2:  Elimination on a random array<a class="headerlink" href="#example-2-elimination-on-a-random-array" title="Permalink to this headline">¶</a></h2>
+<p>If a system of equations has a solution, the elimination algorithm will always result in a triangular system that can be solved by back substitution.  In this next example, we look at the calculation with a small change to see it in a more general way.  This time when we use the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> function, we will set the <em>scale</em> parameter based on the values in the array.</p>
+<p>To help us avoid writing the code based on the entries in any specific matrix, we will make up a matrix of random numbers using the module named <a class="reference external" href="https://het.as.utexas.edu/HET/Software/Numpy/reference/routines.random.html">random</a>, which is within NumPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3 -4 -2 -6]
+ [-1 -7 -7  1]
+ [ 0  6 -3 -8]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Scale the first row based on the first element in that row.</span>
+<span class="n">R1</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">## Add the first row to the second based on the first element in the second row.</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">## Add the first row to the last based on the first element in the last row.</span>
+<span class="n">R3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">R2</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">## Scale the second row based on the second element in that row.</span>
+<span class="n">R4</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">## Add the second row to the last based on the second element in the last row.</span>
+<span class="n">R5</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">R4</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">## Scale the last row based on the last element in that row.</span>
+<span class="n">R6</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R5</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.         -1.33333333 -0.66666667 -2.        ]
+ [-0.          1.          0.92        0.12      ]
+ [-0.         -0.          1.          1.02347418]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we understand how the row operations work, and we are sure that they are working correctly, we might not have any reason to store the results of the intermediate steps of elimination.  In that case, we could simplify the code considerably by resuing the same array name for each step.  The following code would produce the same result, but we would no longer have access to the original array, or any of the intermediate steps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Execute the code in this example several times.  Each time array <span class="math notranslate nohighlight">\(\texttt{R}\)</span> is created it will be populated with random integers between -8 and 8.  Does the code always produce a triangluar system ready for back substitution?  See if you can figure out which part of the process might fail, and why?</p>
+</div>
+<div class="section" id="example-3-finding-pivots">
+<h2>Example 3: Finding pivots<a class="headerlink" href="#example-3-finding-pivots" title="Permalink to this headline">¶</a></h2>
+<p>As we can see, the code in the last example fails if a zero shows up as any of the entries in the array that we divide by in order to calculate the scale factors.  These critical entries are known as the <strong>pivots</strong>, and their locations in the matrix are called <strong>pivot positions</strong>.  By definition, pivots must be nonzero.  If a zero arises in a pivot position during the elimination steps, we can try to exchange the order of the rows to move a nonzero entry into the pivot position.  Let’s first try this for a specific array before trying to write code that will work for a random array.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 - 2x_2 + 4x_3 &amp; = &amp; 8\\
+3x_1 \quad\quad -9x_3 &amp; = &amp; 0 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  1  3]
+ [ 2 -2  4  8]
+ [ 3  0 -9  0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Add -2 times row 0 to row 1</span>
+<span class="n">G1</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Add -3 times row 0 to row 2</span>
+<span class="n">G2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1.  -1.   1.   3.]
+ [  0.   0.   2.   2.]
+ [  0.   3. -12.  -9.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now there is a zero in the middle pivot position.  We can swap the middle and last though in order to carry on the elimination</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Swap rows 1 and 2</span>
+<span class="n">G3</span> <span class="o">=</span> <span class="n">RowSwap</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Scale the new row 1 by 1/3</span>
+<span class="n">G4</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">G3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">## Scale the new row 2 by 1/2</span>
+<span class="n">G5</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">G4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1.  1.  3.]
+ [ 0.  1. -4. -3.]
+ [ 0.  0.  1.  1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We write the system again as a familar set of equations.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+x_2 - 4x_3 &amp; = &amp; -3\\
+x_3 &amp; = &amp; 1 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Applying back substitution, we find that <span class="math notranslate nohighlight">\(x_2 = 1\)</span> and <span class="math notranslate nohighlight">\(x_1=3\)</span>.</p>
+<p>It is worth noting that the swapping of rows is only necessary as a matter of organization.  Here is another way that we could have done the elimination and ended up with a system that is just the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Scale row 1 by 1/2</span>
+<span class="n">G3_alternative</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Scale row 2 by 1/3</span>
+<span class="n">G4_alternative</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">G3_alternative</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G4_alternative</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1.  1.  3.]
+ [ 0.  0.  1.  1.]
+ [ 0.  1. -4. -3.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The array produced represents the same simplified system, with the equations in a different order of course.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+x_3 &amp; = &amp; 1 \\
+x_2 - 4x_3 &amp; = &amp; -3
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The idea of back substitution works just as well with this form of the system, but the organization of the algorithm becomes slightly more complicated.</p>
+<p><a id='GE4'></a></p>
+</div>
+<div class="section" id="example-4-elimination-fails">
+<h2>Example 4:  Elimination fails<a class="headerlink" href="#example-4-elimination-fails" title="Permalink to this headline">¶</a></h2>
+<p>Let’s make a small change to the system in the previous example and observe an example of how the elimination process can break down.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 - 2x_2 + 4x_3 &amp; = &amp; 8\\
+3x_1 -3x_2 -9x_3 &amp; = &amp; 0 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  1  3]
+ [ 2 -2  4  8]
+ [ 3 -3 -9  0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Add -2 times row 0 to row 1</span>
+<span class="n">H1</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Add -3 times row 0 to row 2</span>
+<span class="n">H2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1.  -1.   1.   3.]
+ [  0.   0.   2.   2.]
+ [  0.   0. -12.  -9.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case exchanging the second and third rows does not help since both rows have a zero in the middle entry.  This means that <em>there is no pivot</em> in the second column.  Let’s scale the rows and look at the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Multiply row 1 by 1/2</span>
+<span class="n">H3</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Multiply row 2 by -1/12</span>
+<span class="n">H4</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">H3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   -1.    1.    3.  ]
+ [ 0.    0.    1.    1.  ]
+ [-0.   -0.    1.    0.75]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we write out the equations, we see that this system is <strong>inconsistent</strong>.  The last two equations contradict each other.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+x_3 &amp; = &amp; 1 \\
+x_3 &amp; = &amp; 0.75
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Note that we did not make any errors in the calculation and that there is no way to reorder the equations to alleviate the problem.  This system simply does not have a solution.  We will revisit this scenario in future sections and provide a characterization for such systems.</p>
+</div>
+<div class="section" id="example-5-nonunique-solution">
+<h2>Example 5:  Nonunique solution<a class="headerlink" href="#example-5-nonunique-solution" title="Permalink to this headline">¶</a></h2>
+<p>In this final example of elimination, we observe another possible outcome of the process.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 - 2x_2 + 4x_3 &amp; = &amp; 8\\
+3x_1 -3x_2 +3x_3 &amp; = &amp; 9 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  1  3]
+ [ 2 -2  4  8]
+ [ 1 -1  3  5]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Add -2 times row 0 to row 1</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">## Add -3 times row 0 to row 2</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1.  1.  3.]
+ [ 0.  0.  2.  2.]
+ [ 0.  0.  2.  2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar to the previous example, we see that there is no way to bring a nonzero number into the second column of the second row.  In this case though we see that the second and third equations do not contradict each other, but are in fact the same equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_3 &amp; = &amp; 2\\
+2x_3 &amp; = &amp; 2 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Let’s do just two more row operations to simplify this system even further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Add -1 times row 1 to row 2</span>
+<span class="n">F3</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">## Multiply row 1 by 1/2</span>
+<span class="n">F4</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">F3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1.  1.  3.]
+ [ 0.  0.  1.  1.]
+ [ 0.  0.  0.  0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the final equation is true for any values of <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span>, we see that there are really only two equations to determine the values of the three unknowns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+x_3 &amp; = &amp; 1\\
+0 &amp; = &amp; 0 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Since the middle equation tells us that <span class="math notranslate nohighlight">\(x_3=1\)</span>, we can plug that value into the first equation using the idea of back substitution.  This leaves us with the single equation <span class="math notranslate nohighlight">\(x_1-x_2 = 2\)</span>.  This equation, and thus the system as a whole, has an <em>infinite number of solutions</em>.  We will revist this idea and provide further details in the next chapter.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Repeat the elimination process for the following system.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 + x_3 &amp; = &amp; 3\\
+2x_1 + x_2 + 8x_3 &amp; = &amp; 18\\
+4x_1 + 2x_2 -3x_3 &amp; = &amp; -2 
+\end{eqnarray*}
+\end{split}\]</div>
+<ol class="simple">
+<li><p>Define a NumPy array to contain the numbers.  Name it something other than <span class="math notranslate nohighlight">\(\texttt{A}\)</span>, so that you don’t confuse it with the example.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Redo the example with the random module using random floats instead of random integers to see the effect.</p></li>
+<li><p>Write a loop that will execute the elimination code on 1000 random <span class="math notranslate nohighlight">\(3\times 3\)</span> arrays to see how frequently it fails.  There is no need to print the arrays, just include a variable that tracks the number of times that elimination fails witout a row swap.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Linear_Systems.html" title="previous page">Linear Systems</a>
+    <a class='right-next' id="next-link" href="Matrix_Algebra.html" title="next page">Matrix Algebra</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

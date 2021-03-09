@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Least Squares Solutions &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Projections" href="Projections.html" />
+    <link rel="prev" title="Orthogonal Subspaces" href="Orthogonal_Subspaces.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Least_Squares_Solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Least_Squares_Solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normal-equations">
+   Normal equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2">
+   Example 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#best-approximation">
+   Best approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-qr-factorization">
+   Example 3: QR factorization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="least-squares-solutions">
+<h1>Least Squares Solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this headline">¶</a></h1>
+<p>In this section we address the problem of inconsistent systems, and the common resolution known as least squares solutions.</p>
+<p>In the case that <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, there is no vector <span class="math notranslate nohighlight">\(X\)</span> such that the two vectors <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same.  A natural idea then is to choose a vector <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are as close as possible.  To do this we define the error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span>, and choose the <span class="math notranslate nohighlight">\(X\)</span> that minimizes <span class="math notranslate nohighlight">\(|E|\)</span>.  This choice of <span class="math notranslate nohighlight">\(X\)</span> is known as the <strong>least squares solution</strong> to the system <span class="math notranslate nohighlight">\(AX=B\)</span>, and we will assign it the symbol <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The direct approach to this formulation of the problem requires the use of calculus to minimize <span class="math notranslate nohighlight">\(|E|\)</span>, but we will take a different approach that only requires inner products and projections.  We will first give the solution to the least squares problem with only a visual explanation.  After some examples, we will provide a more rigorous explanation.</p>
+<p>Recall that if the system <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, the vector <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.  <strong>The error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span> has minimum magnitude exactly when it is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span></strong>.  We can easily visualize this if in the case that <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> as a one dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>Let’s consider a simple example of an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rr} 3 &amp; 9 \\ 1 &amp; 3 \end{array}\right]X = \left[\begin{array}{r} 2 \\ 4 \end{array}\right]    
+\end{equation}
+\end{split}\]</div>
+<p>In this example, the second column of <span class="math notranslate nohighlight">\(A\)</span> is a multiple of the first, so the <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> is a one-dimensional space that contains only multiples of these vectors.  Since <span class="math notranslate nohighlight">\(B\)</span> is not a multiple of either column, <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;$B$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$\mathcal</span><span class="si">{C}</span><span class="s1">(A)$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Least_Squares_Solutions_3_0.png" src="_images/Least_Squares_Solutions_3_0.png" />
+</div>
+</div>
+<p>Let’s look at the relationship between <span class="math notranslate nohighlight">\(AX\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> for an arbitrary <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;$B$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$\mathcal</span><span class="si">{C}</span><span class="s1">(A)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;$AX$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.3</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="s1">&#39;$E=AX-B$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Least_Squares_Solutions_5_0.png" src="_images/Least_Squares_Solutions_5_0.png" />
+</div>
+</div>
+<p>We can see that <span class="math notranslate nohighlight">\(|E|\)</span> is a measure between <span class="math notranslate nohighlight">\(B\)</span> and a vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, and that <span class="math notranslate nohighlight">\(|E|\)</span> will be minimized if we choose <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This is the least squares solution we refer to as <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The closest vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to <span class="math notranslate nohighlight">\(B\)</span> is the <em>orthogonal projection</em> of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\hat{B}\)</span> for this projection so that we now have <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;$B$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$\mathcal</span><span class="si">{C}</span><span class="s1">(A)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;$A\hat</span><span class="si">{X}</span><span class="s1">=\hat</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.7</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="s1">&#39;$E=A\hat</span><span class="si">{X}</span><span class="s1">-B$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Least_Squares_Solutions_7_0.png" src="_images/Least_Squares_Solutions_7_0.png" />
+</div>
+</div>
+<p>In this example, we can use the <a class="reference internal" href="Inner_Products.html"><span class="doc std std-doc">projection formula</span></a> from the beginning of the chapter to calculate <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E = \left[ \begin{array}{r} 1 \\ -3 \end{array} \right] \hspace{2cm} 
+\hat{B} = \left[ \begin{array}{r} 3 \\ 1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>To find <span class="math notranslate nohighlight">\(\hat{X}\)</span>, we solve the system <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rr} 3 &amp; 9 \\ 1 &amp; 3 \end{array}\right]\hat{X} = \left[\begin{array}{r} 3 \\1 \end{array}\right]    
+\end{equation}
+\end{split}\]</div>
+<p>In this system, the second equation is just a multiple of the first.  This means that <span class="math notranslate nohighlight">\(x_1+3x_2 = 1\)</span> is the only constraint on the unknowns, and that we can take <span class="math notranslate nohighlight">\(x_2\)</span> to be a free variable.  If we assign <span class="math notranslate nohighlight">\(x_2\)</span> a parameter, we can describe all possible solutions as follows.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 1-3s \\
+x_2 &amp; = &amp; s
+\end{eqnarray*}
+\end{split}\]</div>
+<p>In this particular example, there is not a unique least squares solution since many vectors solve the matrix equation <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.</p>
+</div>
+<div class="section" id="normal-equations">
+<h2>Normal equations<a class="headerlink" href="#normal-equations" title="Permalink to this headline">¶</a></h2>
+<p>If we assume for now that the error <span class="math notranslate nohighlight">\(E=AX-B\)</span> will have minimum magnitude when it is orthogonal to the column space of <span class="math notranslate nohighlight">\(A\)</span>, we can use our knowledge of the fundamental subspaces to solve the least squares problem when the column space is of higher dimension.  Recall from a previous section that any vector orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> must lie in <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.  This means that <span class="math notranslate nohighlight">\(A^TE=0\)</span> for the least squares solution.  Filling in <span class="math notranslate nohighlight">\(E=AX-B\)</span> gives us the system <span class="math notranslate nohighlight">\(A^T(AX-B)=0\)</span>, which can be written as <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>.  These equations are referred to as the <strong>normal equations</strong>.</p>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>Although the method of least squares can be applied to any inconsistent system, it is usually associated with systems that have more equations than unknowns.  These systems are called overdetermined, and here is one such example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+2x_1 + x_2 &amp; = &amp; 0 \\
+2x_2 - x_2 &amp; = &amp; 2 \\
+3x_1 + 2x_2 &amp; = &amp; 1 \\
+5x_2 + 2x_2 &amp; = &amp; -2
+\end{eqnarray*}
+\end{split}\]</div>
+<p>To verify that the system is indeed inconsistent, we can compute the RREF of the augmented matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]
+ [0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pivot in the last column indicates that the system is inconsistent.  The two columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent and form a basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, which is a two-dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, but <span class="math notranslate nohighlight">\(B\)</span> does not lie in this subspace.</p>
+<p>To find the least squares solution, we will construct and solve the normal equations, <span class="math notranslate nohighlight">\(A^TAX = A^TB\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="c1"># Construct A^TA</span>
+<span class="n">N_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+<span class="c1"># Construct A^TA</span>
+<span class="n">N_B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N_A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N_B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[42 16]
+ [16 10]]
+[[-3]
+ [-4]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The normal equations are a $2\times 2 system, which can be solved using elimination.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+42x_1 + 16x_2 &amp; = &amp; -3 \\
+16x_2 + 10x_2 &amp; = &amp; -4 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_hat</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">N_A</span><span class="p">,</span><span class="n">N_B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_hat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X_hat</span> <span class="o">-</span> <span class="n">B</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of minimum error is:&quot;</span><span class="p">,</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.20731707]
+ [-0.73170732]]
+
+
+Magnitude of minimum error is: 2.5874933722078426
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, there is a unique vector <span class="math notranslate nohighlight">\(\hat{X}\)</span> that minimizes <span class="math notranslate nohighlight">\(|E|\)</span>.  Remember from the previous example that <span class="math notranslate nohighlight">\(\hat{X}\)</span> is the vector such that <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>, where <span class="math notranslate nohighlight">\(\hat{B}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  Note however that when we find the solution using the normal equations, we do not actually need to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span>.</p>
+<p>We have not provided proof yet that <span class="math notranslate nohighlight">\(\hat{X}\)</span> minimizes <span class="math notranslate nohighlight">\(|E|\)</span>, but we could provide some numerical evidence by computing <span class="math notranslate nohighlight">\(|E|\)</span> for other vectors that are “near” <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  For example, we might compute <span class="math notranslate nohighlight">\(|E|\)</span> for a vector <span class="math notranslate nohighlight">\(X\)</span> that has components that are within one of <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  We will use the random module to generate a typical vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_hat</span> <span class="o">+</span> <span class="n">P</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span> <span class="o">-</span> <span class="n">B</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of error is:&quot;</span><span class="p">,</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.98497777]
+ [-0.12274413]]
+Magnitude of error is: 7.138443683413962
+</pre></div>
+</div>
+</div>
+</div>
+<p>Running the code in this cell does not prove that <span class="math notranslate nohighlight">\(|E|\)</span> is at miniumum for <span class="math notranslate nohighlight">\(X=\hat{X}\)</span>, even if we were to put it in a loop and execute it a million times.  It does allows us to demonstrate some evidence to augment our reasoning.  Another thing we might do is let <span class="math notranslate nohighlight">\(X= \delta P\)</span>, and plot <span class="math notranslate nohighlight">\(|E|\)</span> as a function of <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">E_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X_hat</span> <span class="o">+</span> <span class="n">delta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">E_delta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="o">-</span><span class="n">B</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="n">E_delta</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+
+
+<span class="c1">#ax.set_xlim(-2,2)</span>
+<span class="c1">#ax.set_ylim(0,10)</span>
+<span class="c1">#ax.set_xticks(np.arange(-2,2,step = 1))</span>
+<span class="c1">#ax.set_yticks(np.arange(0,10,step = 1))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\delta$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$|E_{\delta}|$&#39;</span><span class="p">);</span>
+
+<span class="c1">#ax.axvline(color=&#39;k&#39;,linewidth = 1)</span>
+<span class="c1">#ax.axhline(color=&#39;k&#39;,linewidth = 1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Least_Squares_Solutions_19_0.png" src="_images/Least_Squares_Solutions_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="best-approximation">
+<h2>Best approximation<a class="headerlink" href="#best-approximation" title="Permalink to this headline">¶</a></h2>
+<p>Although numerical evidence and the plot of <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> may convince us that <span class="math notranslate nohighlight">\(||E||\)</span> is minimum when <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span> are orthogonal, we have not yet given proof of the fact.  To accomplish this, we need to show that <span class="math notranslate nohighlight">\(||B-Y|| \ge ||B-\hat{B}||\)</span> where <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This can be explained using properties of the dot product.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+||B-Y||^2 &amp; = &amp; ||(B-\hat{B}) + (\hat{B}-Y)||^2 \\
+ &amp; = &amp; \left((B-\hat{B}) + (\hat{B}-Y)\right) \cdot \left((B-\hat{B}) + (\hat{B}-Y)\right) \\
+ &amp; = &amp; (B-\hat{B})\cdot (B-\hat{B}) + 2(\hat{B}-Y) \cdot (B-\hat{B}) + (\hat{B}-Y)\cdot(\hat{B}-Y) \\
+ &amp; = &amp; ||B-\hat{B}||^2 + ||\hat{B}-Y||^2 \\
+ &amp; \ge &amp; ||B-\hat{B}||^2
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The first key fact is that <span class="math notranslate nohighlight">\((\hat{B}-Y)\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> so <span class="math notranslate nohighlight">\((\hat{B}-Y) \cdot (B-\hat{B}) = 0\)</span>.  We also need to observe that magnitudes of vectors can never be negative since they are sums of squares.  Indeed, the only vector with magniude zero is the vector with all zero entries.  In particular, this means that <span class="math notranslate nohighlight">\(||\hat{B}-Y||^2 \ge 0\)</span>.</p>
+</div>
+<div class="section" id="example-3-qr-factorization">
+<h2>Example 3: QR factorization<a class="headerlink" href="#example-3-qr-factorization" title="Permalink to this headline">¶</a></h2>
+<p>In this final example, we consider making use of the <span class="math notranslate nohighlight">\(QR\)</span> factorization to solve the normal equations.  If we have insert <span class="math notranslate nohighlight">\(A=QR\)</span> into the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>, we will see a simplification.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+(QR)^T(QR)X &amp; = &amp; (QR)^TB \\
+R^TQ^TQRX &amp; = &amp; R^TQ^TB  \\
+R^TRX &amp; = &amp;  R^TQ^TB \\
+RX &amp; = &amp; Q^TB
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The system <span class="math notranslate nohighlight">\(RX=Q^TB\)</span> is triangular and can be solved with back subsitution.  Note that this approach replaces elimination (<span class="math notranslate nohighlight">\(LU\)</span> factorization) with <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">QTB</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="n">X_hat</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">BackSubstitution</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">QTB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_hat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.20731707]
+ [-0.73170732]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Orthogonal_Subspaces.html" title="previous page">Orthogonal Subspaces</a>
+    <a class='right-next' id="next-link" href="Projections.html" title="next page">Projections</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

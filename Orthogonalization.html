@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orthogonalization &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="QR Factorization" href="QR_Factorization.html" />
+    <link rel="prev" title="Inner Products" href="Inner_Products.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Orthogonalization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Orthogonalization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projecting-vectors-onto-vectors">
+   Projecting vectors onto vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gram-schmidt-algorithm">
+   Gram-Schmidt algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonal-matrices">
+   Orthogonal matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="orthogonalization">
+<h1>Orthogonalization<a class="headerlink" href="#orthogonalization" title="Permalink to this headline">¶</a></h1>
+<p>Some of the most important applications of inner products involve finding and using sets of vectors that are mutually orthogonal.  A set of nonzero vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is <strong>mutually orthogonal</strong> if <span class="math notranslate nohighlight">\(U_i\cdot U_j = 0\)</span> whenever <span class="math notranslate nohighlight">\(i \neq j\)</span>.  This simply means that each vector in the set is orthogonal to each other vector in the set.  If a set of vectors is mutually orthogonal <em>and</em> every vector in the set is a unit vector, we say the set is <strong>orthnormal</strong>.  In other words, every vector in an orthonormal set has magnitude one, and is orthogonal to every other vector in the set.  Orthonormal sets must be linearly independent, so it makes sense to think of them as a basis for some vector subspace.  Any collection of vectors from the standard bases of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> are orthonormal sets.  For example, the set of vectors <span class="math notranslate nohighlight">\(\{E_1, E_4, E_5\}\)</span> from the standard basis of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> forms a orthonormal basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E_1 = \left[ \begin{array}{r} 1\\0\\0\\0\\0 \end{array}\right] \hspace{0.7cm} 
+E_4 = \left[ \begin{array}{r} 0\\0\\0\\1\\0 \end{array}\right] \hspace{0.7cm}
+E_5 = \left[ \begin{array}{r} 0\\0\\0\\0\\1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>In this section we will focus on a process called orthogonalization.  Given a set of linearly independent vectors  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>, we wish to find an orthonormal set of vectors  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> such that the span of  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is the same as the span of  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>.  In other words, we want both sets to bases for the same subspace.</p>
+<p>One of the primary advantages of using orthonormal bases is that the calculation of <a class="reference internal" href="Bases.html"><span class="doc std std-doc">coordinate vectors</span></a> is greatly simplified.  Recall that if we have a typical basis <span class="math notranslate nohighlight">\(\beta = \{V_1, V_2, V_3 ... V_n\}\)</span> for a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and a vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, the coordinates with respect to <span class="math notranslate nohighlight">\(\beta\)</span> are the values of <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, … ,<span class="math notranslate nohighlight">\(c_n\)</span> such that
+<span class="math notranslate nohighlight">\(X = c_1V_1 + c_2V_2 + ... c_nV_n\)</span>.  This requires that we solve the linear system <span class="math notranslate nohighlight">\(A[X]_{\beta}=X\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the matrix that has the basis vectors as its columns, and <span class="math notranslate nohighlight">\([X]_\beta\)</span> is the coordinate vector.  If instead we have an orthonormal basis <span class="math notranslate nohighlight">\(\alpha = \{U_1, U_2, U_3 ... U_n\}\)</span>, there is a convenient shortcut to solving <span class="math notranslate nohighlight">\(X = b_1U_1 + b_2U_2 + ... b_nU_n\)</span>.  Let’s observe the result of taking the dot product of both sides of the equation with <span class="math notranslate nohighlight">\(U_k\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
+ &amp; = &amp; b_1(U_1\cdot U_k) + b_2(U_2\cdot U_k) + ... b_n(U_n\cdot U_k) \\
+ &amp; = &amp; b_k 
+\end{eqnarray}
+\end{split}\]</div>
+<p>All of the products <span class="math notranslate nohighlight">\(U_i\cdot U_k\)</span> are zero except for <span class="math notranslate nohighlight">\(U_k\cdot U_k\)</span>, which is 1.  This means that instead of solving a system to find the coordinates, we can compute each <span class="math notranslate nohighlight">\(b_k\)</span> directly as <span class="math notranslate nohighlight">\(X\cdot U_k\)</span>.</p>
+<div class="section" id="projecting-vectors-onto-vectors">
+<h2>Projecting vectors onto vectors<a class="headerlink" href="#projecting-vectors-onto-vectors" title="Permalink to this headline">¶</a></h2>
+<p>An important step in orthogonalization involves decomposing a vector <span class="math notranslate nohighlight">\(B\)</span> into orthogonal components based on the direction of another vector <span class="math notranslate nohighlight">\(V\)</span>.  Specifically, we want to determine two vectors, <span class="math notranslate nohighlight">\(\hat{B}\)</span> and <span class="math notranslate nohighlight">\(E\)</span>, such that <span class="math notranslate nohighlight">\(\hat{B}\)</span> is in the same direction as <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(B = \hat{B} + E\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.8</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mf">2.8</span><span class="p">,</span><span class="mf">1.4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.6</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$B$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">3.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="s1">&#39;$V$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="s1">&#39;$\hat</span><span class="si">{B}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="s1">&#39;$E$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">theta$&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$x_2$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Orthogonalization_3_0.png" src="_images/Orthogonalization_3_0.png" />
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+B = \hat{B} + E
+\end{equation}
+\]</div>
+<p>The vector <span class="math notranslate nohighlight">\(\hat{B}\)</span> is said to be the <strong>projection</strong> of <span class="math notranslate nohighlight">\(B\)</span> in the direction of <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>To find the magnitude of <span class="math notranslate nohighlight">\(\hat{B}\)</span>, we can use the definition of cosine to write <span class="math notranslate nohighlight">\(||\hat{B}|| = ||B||\cos{\theta}\)</span>.  We also know that <span class="math notranslate nohighlight">\(\cos{\theta}\)</span> can be determined using the dot product.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\cos{\theta} = \frac{B\cdot V}{||B||||V||}
+\end{equation}
+\]</div>
+<p>Combining these facts gives us <span class="math notranslate nohighlight">\(||\hat{B}||\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+||\hat{B}|| = \frac{B\cdot V}{||V||} 
+\end{equation}
+\]</div>
+<p>We can now construct <span class="math notranslate nohighlight">\(\hat{B}\)</span> by multiplying <span class="math notranslate nohighlight">\(||\hat{B}||\)</span> by a unit vector in the direction of <span class="math notranslate nohighlight">\(V\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\hat{B} = \frac{B\cdot V}{||V||}\left(\frac{V}{||V||}  \right)  
+\end{equation}
+\]</div>
+<p>Finally, we can give a tidy formula by writing <span class="math notranslate nohighlight">\(||V||^2\)</span> using the dot product.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\hat{B} = \left(\frac{B\cdot V}{V\cdot V}\right) V 
+\end{equation}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">DotProduct</span>
+<span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">Magnitude</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">DotProduct</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">V</span><span class="p">)</span><span class="o">/</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+
+<span class="n">B_hat</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">V</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B_hat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.8]
+ [1.4]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The easiest way to calculate <span class="math notranslate nohighlight">\(E\)</span> is to first find <span class="math notranslate nohighlight">\(\hat{B}\)</span>, then set <span class="math notranslate nohighlight">\(E = B - \hat{B}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">B</span> <span class="o">-</span> <span class="n">B_hat</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.8]
+ [ 1.6]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If the calculations are correct, we should see that <span class="math notranslate nohighlight">\(\hat{B}\)</span> and <span class="math notranslate nohighlight">\(E\)</span> are orthogonal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">B_hat</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.440892098500626e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see in fact that the computed value of <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> is not <em>exactly</em> zero due to the imprecision of the machine arithmetic.  This is very similar to the some of the results we observed when performing elimination numerically, and we must keep in mind the potential for such errors.</p>
+<p>We also note that the formula derived here for <span class="math notranslate nohighlight">\(\hat{B}\)</span> works for for vectors of any dimension.  If <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, they still occupy a common plane, and the picture looks just the same as the one above regardless of the fact that the plane sits in a higher dimensional space.</p>
+</div>
+<div class="section" id="gram-schmidt-algorithm">
+<h2>Gram-Schmidt algorithm<a class="headerlink" href="#gram-schmidt-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>Given a set of linearly independent vectors  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>, the Gram-Schmidt algorithm produces an orthonormal set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> such that the span of  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is the same as the span of  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>.  The idea is that we will construct the set of <span class="math notranslate nohighlight">\(U\)</span> vectors one at a time by adding in a new <span class="math notranslate nohighlight">\(V\)</span> vector to the set after first subtracting the components of <span class="math notranslate nohighlight">\(V\)</span> that are in the directions of any <span class="math notranslate nohighlight">\(U\)</span> vectors already in the set.  The <span class="math notranslate nohighlight">\(U\)</span> vectors can be scaled to unit length as part of the process, or they can all be scaled at the end, after all of the projections have been computed.</p>
+<p>We write out the individual steps before providing an example.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(V_1\)</span> is scaled to unit length and becomes <span class="math notranslate nohighlight">\(U_1\)</span>.</p></li>
+<li><p>The projection of <span class="math notranslate nohighlight">\(V_2\)</span> in the direction of <span class="math notranslate nohighlight">\(U_1\)</span> is subtracted from <span class="math notranslate nohighlight">\(V_2\)</span>.  This vector is scaled to unit length and becomes <span class="math notranslate nohighlight">\(U_2\)</span>.</p></li>
+<li><p>The projections of <span class="math notranslate nohighlight">\(V_3\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> are subtracted from <span class="math notranslate nohighlight">\(V_3\)</span>.  This vector is scaled to unit length and becomes <span class="math notranslate nohighlight">\(U_3\)</span>.</p></li>
+<li><p>Continue for all <span class="math notranslate nohighlight">\(n\)</span> vectors.</p></li>
+</ol>
+<p>In general, the projections of <span class="math notranslate nohighlight">\(V_k\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, …<span class="math notranslate nohighlight">\(U_{k-1}\)</span> are subtracted from <span class="math notranslate nohighlight">\(V_k\)</span> and the vector that results is scaled to unit length to become <span class="math notranslate nohighlight">\(U_k\)</span>.</p>
+</div>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>As a first example, we take three vectors from <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> as the starting set, and use Python to carry out the calculations.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 0 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 1 \\ 1 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 3 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>The first vector, <span class="math notranslate nohighlight">\(V_1\)</span> is scaled to unit legth to become <span class="math notranslate nohighlight">\(U_1\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">V_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">V_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">U_1</span> <span class="o">=</span> <span class="n">V_1</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">V_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.4472136 ]
+ [0.89442719]
+ [0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To build <span class="math notranslate nohighlight">\(U_2\)</span>, we first subtract from <span class="math notranslate nohighlight">\(V_2\)</span> the projection of <span class="math notranslate nohighlight">\(V_2\)</span> in the direction of <span class="math notranslate nohighlight">\(U_1\)</span> and then scale the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_2</span> <span class="o">=</span> <span class="n">V_2</span> <span class="o">-</span> <span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_2</span><span class="p">,</span><span class="n">U_1</span><span class="p">))</span><span class="o">*</span><span class="n">U_1</span>
+<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.36514837]
+ [-0.18257419]
+ [ 0.91287093]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we labeled the intermediate result as <span class="math notranslate nohighlight">\(W_2\)</span> in order to break the computation into shorter steps.</p>
+<p>In the final step, we subtract from <span class="math notranslate nohighlight">\(V_3\)</span> the projections of <span class="math notranslate nohighlight">\(V_3\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>, and then scale the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_3</span> <span class="o">=</span> <span class="n">V_3</span> <span class="o">-</span> <span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_3</span><span class="p">,</span><span class="n">U_1</span><span class="p">))</span><span class="o">*</span><span class="n">U_1</span> <span class="o">-</span> <span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_3</span><span class="p">,</span><span class="n">U_2</span><span class="p">))</span><span class="o">*</span><span class="n">U_2</span>
+<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W_3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.81649658]
+ [-0.40824829]
+ [-0.40824829]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check now that the <span class="math notranslate nohighlight">\(U\)</span> vectors are mutually orthogonal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">U_2</span><span class="p">,</span><span class="n">U_3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.551115123125783e-17
+0.0
+-5.551115123125783e-17
+</pre></div>
+</div>
+</div>
+</div>
+<p>After seeing this example, we write down the process in a more formulaic manner.  For each <span class="math notranslate nohighlight">\(i = 1, 2, ... n\)</span>, we set</p>
+<p><span class="math notranslate nohighlight">\(W_i = V_i - (V_i \cdot U_1)U_1 - (V_i\cdot U_2)U_2 ... - (V_i\cdot U_{i-1})U_{i-1}\)</span><br />
+<span class="math notranslate nohighlight">\(U_i = W_i/|W_i|\)</span></p>
+<p>It is important to notice here that in general <span class="math notranslate nohighlight">\(U_i\)</span> is a linear combination of <span class="math notranslate nohighlight">\(\{V_1, V_2, ..., V_{i}\}\)</span>.  This means that not only is it true that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is equal to the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ..., V_n\}\)</span>, but also it is true that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, ..., U_i\}\)</span> is equal to the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, ..., V_i\}\)</span> at every step of the process.  This has important implications in the next section.</p>
+</div>
+<div class="section" id="orthogonal-matrices">
+<h2>Orthogonal matrices<a class="headerlink" href="#orthogonal-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Another way we could check that the set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is orthonormal is to assemble a matrix with these vectors as the columns and take advantage of the connection between matrix multiplications and dot products.  Suppose that <span class="math notranslate nohighlight">\(Q\)</span> is the matrix with <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, and <span class="math notranslate nohighlight">\(U_3\)</span> as its columns.  If we compute the matrix product <span class="math notranslate nohighlight">\(Q^TQ\)</span>, the entries will be the dot products between the rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(Q\)</span>, both of which are the set of <span class="math notranslate nohighlight">\(U\)</span> vectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span><span class="n">U_3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">I</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.4472136   0.36514837  0.81649658]
+ [ 0.89442719 -0.18257419 -0.40824829]
+ [ 0.          0.91287093 -0.40824829]]
+[[ 1.00000000e+00  5.55111512e-17  0.00000000e+00]
+ [ 5.55111512e-17  1.00000000e+00 -5.55111512e-17]
+ [ 0.00000000e+00 -5.55111512e-17  1.00000000e+00]]
+[[ 1.  0.  0.]
+ [ 0.  1. -0.]
+ [ 0. -0.  1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that <span class="math notranslate nohighlight">\(U_i\cdot U_j\)</span> is 0 if <span class="math notranslate nohighlight">\(i\neq j\)</span> and 1 if <span class="math notranslate nohighlight">\(i=j\)</span>, which means that <span class="math notranslate nohighlight">\(Q^TQ\)</span> is the identity matrix <span class="math notranslate nohighlight">\(I\)</span>.</p>
+<p>The matrix <span class="math notranslate nohighlight">\(Q\)</span> is called an <strong>orthogonal matrix</strong>, which means that its columns form a set of orthonormal vectors.  The immediate result is that if <span class="math notranslate nohighlight">\(Q\)</span> is an orthogonal matrix, then <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  In the special case that <span class="math notranslate nohighlight">\(Q\)</span> is square, this equation implies that <span class="math notranslate nohighlight">\(Q^T = Q^{-1}\)</span>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Explain why a set of mutually orthogonal vectors must be linearly independent.</p></li>
+<li><p>Derive the formula for the projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(V\)</span> in another way that doesn’t involve <span class="math notranslate nohighlight">\(\cos{\theta}\)</span>.  Let <span class="math notranslate nohighlight">\(\hat{B} = kV\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is an unknown scalar.  Now use <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> to determine <span class="math notranslate nohighlight">\(k\)</span> directly.</p></li>
+<li><p>The set <span class="math notranslate nohighlight">\(\beta = \{U_1, U_2, U_3\}\)</span> is an orthonormal basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \frac{1}{\sqrt{6}}\left[ \begin{array}{r} 2 \\ 1 \\ 1 \end{array}\right] \hspace{0.7cm} 
+U_2 = \frac{1}{\sqrt{2}}\left[ \begin{array}{r} 0 \\ -1 \\ 1 \end{array}\right] \hspace{0.7cm}
+U_3 = \frac{1}{\sqrt{3}}\left[ \begin{array}{r} -1 \\ 1 \\ 1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Define <span class="math notranslate nohighlight">\(Q\)</span> as the matrix with columns <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, and <span class="math notranslate nohighlight">\(U_3\)</span>.  Verify that <span class="math notranslate nohighlight">\(Q^TQ=I\)</span>.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(X\)</span> be the following vector, and compute <span class="math notranslate nohighlight">\([X]_{\beta}\)</span> by solving <span class="math notranslate nohighlight">\(Q[X]
+_{\beta}= X\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 3 \\ 1 \\ -4 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Inner_Products.html" title="previous page">Inner Products</a>
+    <a class='right-next' id="next-link" href="QR_Factorization.html" title="next page">QR Factorization</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Factorization &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Orthogonal Subspaces" href="Orthogonal_Subspaces.html" />
+    <link rel="prev" title="Orthogonalization" href="Orthogonalization.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/QR_Factorization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/QR_Factorization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-a-linear-system">
+   Solving a Linear System
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="qr-factorization">
+<h1>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h1>
+<p>In Chapter 1 we saw that the LU factorization essentially captured the elimination process and stored the result in a way that allowed us to use elimination to solve similar systems without having to carry out the elimination again.  The QR factorization does accomplishes something similar for the orthogonalization process.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span> with linearly independent columns, the QR factorization of <span class="math notranslate nohighlight">\(A\)</span> is a pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, <span class="math notranslate nohighlight">\(R\)</span> is upper triangular, and <span class="math notranslate nohighlight">\(QR=A\)</span>.
+If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangluar.  Suppose for example that <span class="math notranslate nohighlight">\(A\)</span> has 6 rows and 4 columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A =  \left[ \begin{array}{c|c|c|c} &amp; &amp; &amp; \\
+A_1 &amp; A_2 &amp; A_3 &amp; A_4 \\ &amp; &amp; &amp; \end{array} \right] \hspace{2cm}
+Q =  \left[ \begin{array}{c|c|c|c} &amp; &amp; &amp; \\
+U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right] \hspace{2cm}
+R = \left[ \begin{array}{cccc} * &amp; * &amp; * &amp; * \\ 0 &amp; * &amp; * &amp; * \\ 0 &amp; 0 &amp; * &amp; * \\ 0 &amp; 0 &amp; 0 &amp; *  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The columns of <span class="math notranslate nohighlight">\(Q\)</span> are the result of applying the orthogonalization process to the columns of <span class="math notranslate nohighlight">\(A\)</span>.  If we suppose that this is the case, let’s explain why <span class="math notranslate nohighlight">\(R\)</span> must be triangular by looking at the product <span class="math notranslate nohighlight">\(QR\)</span> one column at a time.  For the first column we have the following vector equation which specifies the linear combination of the <span class="math notranslate nohighlight">\(U\)</span> vectors that form <span class="math notranslate nohighlight">\(A_1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{c|c|c|c} &amp; &amp; &amp; \\
+U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right]
+\left[ \begin{array}{c} r_{11} \\ r_{21} \\ r_{31} \\ r_{41} \end{array} \right]
+= r_{11}U_1 + r_{21}U_2 + r_{31}U_3 + r_{41}U_4 = A_1
+\end{equation}
+\end{split}\]</div>
+<p>We know however that <span class="math notranslate nohighlight">\(U_1\)</span> is the unit vector in the direction of <span class="math notranslate nohighlight">\(A_1\)</span>.  This means that <span class="math notranslate nohighlight">\(r_{21}=r_{31}=r_{41}=0\)</span> and
+<span class="math notranslate nohighlight">\(r_{11} = |A_1|\)</span>.  Let’s also note that  <span class="math notranslate nohighlight">\(|A_1| = U_1\cdot A_1\)</span>.</p>
+<p>For the second column we have a similar equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{c|c|c|c} &amp; &amp; &amp; \\
+U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right]
+\left[ \begin{array}{c} r_{12} \\ r_{22} \\ r_{32} \\ r_{42} \end{array} \right]
+= r_{12}U_1 + r_{22}U_2 + r_{32}U_3 + r_{42}U_4 = A_2
+\end{equation}
+\end{split}\]</div>
+<p>We know from the orthogonalization process that <span class="math notranslate nohighlight">\(U_2\)</span> is built by subtracting from <span class="math notranslate nohighlight">\(A_2\)</span> the component that is in the <span class="math notranslate nohighlight">\(U_1\)</span> direction.  Thus, <span class="math notranslate nohighlight">\(A_2\)</span> is a linear combination of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>.  This means that <span class="math notranslate nohighlight">\(r_{32}=r_{42}=0\)</span> and <span class="math notranslate nohighlight">\(r_{12}\)</span> and <span class="math notranslate nohighlight">\(r_{22}\)</span> are the coordinates of <span class="math notranslate nohighlight">\(A_2\)</span> with respect to <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>, which we can compute as <span class="math notranslate nohighlight">\(r_{12} = U_1\cdot A_2\)</span> and
+<span class="math notranslate nohighlight">\(r_{22} = U_2\cdot A_2\)</span>.</p>
+<p>Carrying out the same reasoning for the last two columns, we find that in general <span class="math notranslate nohighlight">\(r_{ij} = U_i\cdot A_j\)</span> and that <span class="math notranslate nohighlight">\(r_{ij} = 0\)</span> for <span class="math notranslate nohighlight">\(i&gt;j\)</span> because the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, ..., U_i\}\)</span> is equal to the span of <span class="math notranslate nohighlight">\(\{A_1, A_2, ..., A_i\}\)</span>.</p>
+<p>To arrive at this conclusion this more succinctly, we could multiply the equation <span class="math notranslate nohighlight">\(A=QR\)</span> by <span class="math notranslate nohighlight">\(Q^T\)</span>, which gives <span class="math notranslate nohighlight">\(Q^TA=Q^TQR\)</span> and <span class="math notranslate nohighlight">\(Q^TA = R\)</span> since <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  If we then understand the matrix product <span class="math notranslate nohighlight">\(Q^TA\)</span> as a collection of dot products between rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(A\)</span>, we have again that <span class="math notranslate nohighlight">\(r_{ij} = U_i \cdot A_j\)</span>.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>Let’s compute the QR factorization for a specific <span class="math notranslate nohighlight">\(6\times 4 \)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 
+1 &amp; 3 &amp; 2 &amp; 0 \\ 
+0 &amp; -1 &amp; -1 &amp; 0 \\ 
+2 &amp; 2 &amp; 1 &amp; 1 \\
+-1 &amp; 1 &amp; 3 &amp; 4 \\
+-4 &amp; 0 &amp; 1 &amp; -2 \\
+0 &amp; -1 &amp; -2 &amp; 5 \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">DotProduct</span> <span class="k">as</span> <span class="n">Dot</span>
+<span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">Magnitude</span>
+
+<span class="c1"># Define A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1"># Slice out the colums of A for processing</span>
+<span class="n">A_1</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">A_2</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">A_3</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">A_4</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Carry out Gram-Schmidt process</span>
+<span class="n">U_1</span> <span class="o">=</span> <span class="n">A_1</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A_1</span><span class="p">)</span>
+<span class="n">W_2</span> <span class="o">=</span> <span class="n">A_2</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_2</span><span class="p">,</span><span class="n">U_1</span><span class="p">)</span><span class="o">*</span><span class="n">U_1</span>
+<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W_2</span><span class="p">)</span>
+<span class="n">W_3</span> <span class="o">=</span> <span class="n">A_3</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_3</span><span class="p">,</span><span class="n">U_1</span><span class="p">)</span><span class="o">*</span><span class="n">U_1</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_3</span><span class="p">,</span><span class="n">U_2</span><span class="p">)</span><span class="o">*</span><span class="n">U_2</span>
+<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W_3</span><span class="p">)</span>
+<span class="n">W_4</span> <span class="o">=</span> <span class="n">A_4</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_4</span><span class="p">,</span><span class="n">U_1</span><span class="p">)</span><span class="o">*</span><span class="n">U_1</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_4</span><span class="p">,</span><span class="n">U_2</span><span class="p">)</span><span class="o">*</span><span class="n">U_2</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A_4</span><span class="p">,</span><span class="n">U_3</span><span class="p">)</span><span class="o">*</span><span class="n">U_3</span>
+<span class="n">U_4</span> <span class="o">=</span> <span class="n">W_4</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W_4</span><span class="p">)</span>
+
+<span class="c1"># Assemble the matrix Q</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span><span class="n">U_3</span><span class="p">,</span><span class="n">U_4</span><span class="p">))</span>
+
+<span class="c1"># Check that Q is orthogonal</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">))</span>
+
+<span class="c1"># Compute R</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+
+<span class="c1">#  Check</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">Q</span><span class="nd">@R</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3  2  0]
+ [ 0 -1 -1  0]
+ [ 2  2  1  1]
+ [-1  1  3  4]
+ [-4  0  1 -2]
+ [ 0 -1 -2  5]]
+[[ 1.  0. -0.  0.]
+ [ 0.  1. -0.  0.]
+ [-0. -0.  1.  0.]
+ [ 0.  0.  0.  1.]]
+[[ 0.21320072  0.71960864 -0.32643805  0.03625532]
+ [ 0.         -0.2638565   0.01525411 -0.00954087]
+ [ 0.42640143  0.38379127 -0.10982963  0.09922508]
+ [-0.21320072  0.33581737  0.74745161  0.52474801]
+ [-0.85280287  0.28784346 -0.32338723 -0.07251063]
+ [ 0.         -0.2638565  -0.46677591  0.84150499]]
+
+
+[[ 4.69041576e+00  1.27920430e+00 -6.39602149e-01  1.27920430e+00]
+ [ 4.44089210e-16  3.78993883e+00  3.90987361e+00 -1.67908683e-01]
+ [-1.33226763e-15 -1.83186799e-15  2.07455958e+00  1.19287176e+00]
+ [ 4.99600361e-16  3.33066907e-16  4.44089210e-16  6.55076331e+00]]
+
+
+[[ 1.  3.  2.  0.]
+ [-0. -1. -1. -0.]
+ [ 2.  2.  1.  1.]
+ [-1.  1.  3.  4.]
+ [-4.  0.  1. -2.]
+ [ 0. -1. -2.  5.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course if we want carry out the factorization in general, it would be helpful to write the code in more general way, and tuck it into a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1"># =============================================================================</span>
+    <span class="c1"># A is a Numpy array that represents a matrix of dimension m x n.</span>
+    <span class="c1"># QRFactorization returns matrices Q and R such that A=QR, Q is orthogonal</span>
+    <span class="c1"># and R is upper triangular.  The factorization is carried out using classical</span>
+    <span class="c1"># Gram-Schmidt and the results may suffer due to numerical instability.</span>
+    <span class="c1"># QRFactorization may not return correct results if the columns of A are </span>
+    <span class="c1"># linearly dependent.</span>
+    <span class="c1"># =============================================================================</span>
+
+    <span class="c1"># Check shape of A</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A must have more rows than columns for QR factorization.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">Dot</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">Q</span><span class="p">[:,</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">Q</span><span class="p">[:,</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">/</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        
+    <span class="n">R</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One point to note here is that this function returns the pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span>.  In order to receive both results, we need to assign a pair of names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.21320072  0.71960864 -0.32643805  0.03625532]
+ [ 0.         -0.2638565   0.01525411 -0.00954087]
+ [ 0.42640143  0.38379127 -0.10982963  0.09922508]
+ [-0.21320072  0.33581737  0.74745161  0.52474801]
+ [-0.85280287  0.28784346 -0.32338723 -0.07251063]
+ [ 0.         -0.2638565  -0.46677591  0.84150499]]
+
+
+[[ 4.69041576e+00  1.27920430e+00 -6.39602149e-01  1.27920430e+00]
+ [ 4.44089210e-16  3.78993883e+00  3.90987361e+00 -1.67908683e-01]
+ [-1.33226763e-15 -1.83186799e-15  2.07455958e+00  1.19287176e+00]
+ [ 4.99600361e-16  3.33066907e-16  4.44089210e-16  6.55076331e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-a-linear-system">
+<h2>Solving a Linear System<a class="headerlink" href="#solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
+<p>It turns out that the orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization also provides another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifys to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
+<p>Let’s try it out on a <span class="math notranslate nohighlight">\(4\times 4\)</span> system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rrrr} 
+2 &amp; 3 &amp; 0 &amp; -1 \\ 
+-1 &amp; 0 &amp; 2 &amp; 0 \\ 
+-1 &amp; -1 &amp; 4 &amp; 2 \\
+0 &amp; 3 &amp; -3 &amp; 2 \\
+\end{array}\right]X = 
+\left[ \begin{array}{r} 0 \\ 1 \\ 2 \\ 5 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">BackSubstitution</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">BackSubstitution</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  3  0 -1]
+ [-1  0  2  0]
+ [-1 -1  4  2]
+ [ 0  3 -3  2]]
+[[-1.00000000e+00]
+ [ 1.00000000e+00]
+ [-1.75198215e-16]
+ [ 1.00000000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In some situations, we might find that we are solving several systems such as <span class="math notranslate nohighlight">\(AX=B_1\)</span>, <span class="math notranslate nohighlight">\(AX=B_2\)</span>, <span class="math notranslate nohighlight">\(AX=B_3\)</span>, …, that involve the same matrix but different right hand sides.  In these situations it is useful to solve the systems with a factorization such as <span class="math notranslate nohighlight">\(QR\)</span> or <span class="math notranslate nohighlight">\(LU\)</span>, because the factorization does not need to be recomputed for each system.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Orthogonalization.html" title="previous page">Orthogonalization</a>
+    <a class='right-next' id="next-link" href="Orthogonal_Subspaces.html" title="next page">Orthogonal Subspaces</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

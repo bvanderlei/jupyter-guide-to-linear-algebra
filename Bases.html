@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bases &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vector Space Examples" href="Vector_Space_Examples.html" />
+    <link rel="prev" title="Linear Independence" href="Linear_Independence.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Bases.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Bases.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-basis-for-mathbb-r-5">
+   Example 1:  Basis for
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^5\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-standard-bases">
+   Example 2: Standard Bases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-basis-for-a-subspace-of-mathbb-r-3">
+   Example 3: Basis for a Subspace of
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^3\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-4-solution-set-of-a-homogeneous-system">
+   Example 4: Solution Set of a Homogeneous System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimension">
+   Dimension
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coordinates">
+   Coordinates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bases">
+<h1>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h1>
+<p>When working with vector spaces, or subspaces, it is often useful to express arbitrary vectors as linear combinations of a set of given vectors known as a basis.  A <strong>basis</strong> for a vector space (or subspace) is a collection of linearly independent vectors that span the space.  This definition pulls together the ideas of linear independence and spanning sets to describe a set of vectors which we will can understand as building blocks for a vector space.</p>
+<p>Given a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and any vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, let us consider the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span>.  This vector equation represents a linear system that could also be represented by the matrix equation <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix that has the vectors <span class="math notranslate nohighlight">\(V_i\)</span> as its columns.  In previous sections we have made two important conclusions regarding this system.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at least one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at most one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> are linearly independent.</p></li>
+</ul>
+<p>Combining these statements tells us that <span class="math notranslate nohighlight">\(AX=Y\)</span> has exactly one solution for each <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> if and only if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent and span the space <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.   In other words, the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span> has a unique solution for any <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> if and only if the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
+<div class="section" id="example-1-basis-for-mathbb-r-5">
+<h2>Example 1:  Basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span><a class="headerlink" href="#example-1-basis-for-mathbb-r-5" title="Permalink to this headline">¶</a></h2>
+<p>The following set of vectors form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 3 \\ 3 \\ 2 \\ -1 \\ 3  \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 2 \\ 0 \\ -2 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspace{0.7cm}
+V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>To verify these vectors form a basis, we need to check that they are linearly independant and that they span <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  Following the previous discussion, we can verify these properties by determining the structure of the solution set for the system <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 5\)</span> matrix with the <span class="math notranslate nohighlight">\(V_i\)</span> as its columns and <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will be consistent for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each row.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will have at most one solution for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if there are no free variables.  This implies that <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the RREF of <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(5\times 5\)</span> identity matrix, which indicates that <span class="math notranslate nohighlight">\(A\)</span> has is a pivot in each row and each column.  This verifies that the columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>, and guarantees that the linear system <span class="math notranslate nohighlight">\(AX=Y\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div>
+<div class="section" id="example-2-standard-bases">
+<h2>Example 2: Standard Bases<a class="headerlink" href="#example-2-standard-bases" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>standard basis</strong> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> is the set of vectors <span class="math notranslate nohighlight">\(\{E_1, E_2, ..., E_n\}\)</span> that correspond to the columns of the <span class="math notranslate nohighlight">\(n\times n\)</span> identity matrix <span class="math notranslate nohighlight">\(I\)</span>.  That is, <span class="math notranslate nohighlight">\(E_i\)</span> is the vector with the <span class="math notranslate nohighlight">\(i\)</span>th entry equal to 1, and all other entries equal to 0.  The standard basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> is shown here as an example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 0 \\ 0 \end{array}\right] \hspace{0.7cm} 
+E_2 = \left[ \begin{array}{r} 0 \\ 1 \\ 0 \\ 0 \end{array}\right] \hspace{0.7cm}
+E_3 = \left[ \begin{array}{r} 0 \\ 0 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
+E_4 = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Clearly there is a unique solution to the system <span class="math notranslate nohighlight">\(IX=Y\)</span> for every <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+</div>
+<div class="section" id="example-3-basis-for-a-subspace-of-mathbb-r-3">
+<h2>Example 3: Basis for a Subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span><a class="headerlink" href="#example-3-basis-for-a-subspace-of-mathbb-r-3" title="Permalink to this headline">¶</a></h2>
+<p>The following set of vectors forms a basis for the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that consists of vectors with middle entry equal to zero.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \end{array}\right] \hspace{1cm} 
+U_2 = \left[ \begin{array}{r} 0 \\ 0 \\ 1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>We need to check that any vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> with middle entry equal to zero can be expressed as a linear combination of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>, and we need to check that <span class="math notranslate nohighlight">\(\{U_1, U_2 \}\)</span> is a linearly independent set.  We define <span class="math notranslate nohighlight">\(A\)</span> as a matrix with <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> as the columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} 1 &amp; 0 \\ 0 &amp; 0 \\ 2 &amp; 1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>To determine if <span class="math notranslate nohighlight">\(\{U_1, U_2\}\)</span> is linearly independent, we need to find out if the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> has any nontrivial solutions.  If both columns of <span class="math notranslate nohighlight">\(A\)</span> contain a pivot, there are no nontrivial solutions and the vectors are linearly independent.  Since there are only two columns, it suffices to check that one column is not a scalar multiple of the other, but we will compute the RREF of <span class="math notranslate nohighlight">\(A\)</span> for the sake of completeness.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
+ [0. 1.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To determine if <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> span the subspace, we need to check if an arbitrary vector <span class="math notranslate nohighlight">\(Y\)</span> with middle entry equal to zero can be expressed as a linear combination of the two vectors.  That is, given any values of <span class="math notranslate nohighlight">\(y_1\)</span> and <span class="math notranslate nohighlight">\(y_3\)</span>, can we always find <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> to solve the vector equation?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{r} 1 \\ 0 \\ 2 \end{array}\right] +
+c_2\left[ \begin{array}{r} 0 \\ 0 \\  1 \end{array}\right] =
+\left[ \begin{array}{c} y_1 \\ 0 \\ y_3 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>In this example it is clear that we can take <span class="math notranslate nohighlight">\(c_1 = y_1\)</span> and <span class="math notranslate nohighlight">\(c_2 = y_3 - 2y_1\)</span> by using substitution.</p>
+</div>
+<div class="section" id="example-4-solution-set-of-a-homogeneous-system">
+<h2>Example 4: Solution Set of a Homogeneous System<a class="headerlink" href="#example-4-solution-set-of-a-homogeneous-system" title="Permalink to this headline">¶</a></h2>
+<p>Consider the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and <span class="math notranslate nohighlight">\(A\)</span> is the following <span class="math notranslate nohighlight">\(2\times 4\)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 \\ -2 &amp; 1 &amp; 3 &amp; 0 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  3. -2.]
+ [ 0.  1.  9. -4.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this system, <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(_4\)</span> are free variables.  If we set <span class="math notranslate nohighlight">\(x_3 = t\)</span>, and <span class="math notranslate nohighlight">\(x_4=s\)</span>, then <span class="math notranslate nohighlight">\(x_1 = 2s -3t\)</span> and
+<span class="math notranslate nohighlight">\(x_2 = 4s -9t\)</span>.  we can write the components of a general solution vector <span class="math notranslate nohighlight">\(X\)</span> in terms of these parameters.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} x_1 \\ x_ 2 \\ x_ 3 \\ x_4 \end{array}\right] =  
+t\left[ \begin{array}{r} -3 \\ -9 \\  1 \\ 0 \end{array}\right] +
+s\left[ \begin{array}{r} 2 \\ 4 \\ 0 \\ 1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>In this form we can see that any solution of <span class="math notranslate nohighlight">\(AX=B\)</span> must be a linear combination of the vectors <span class="math notranslate nohighlight">\(W_1\)</span> and <span class="math notranslate nohighlight">\(W_2\)</span> defined as follows.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} -3 \\ -9 \\  1 \\ 0 \end{array}\right] \hspace{1cm}
+W_2 = \left[ \begin{array}{r} 2 \\ 4 \\ 0 \\ 1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>The set <span class="math notranslate nohighlight">\(\{W_1, W_2\}\)</span> is linearly independent and forms a basis for the set of solutions to <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+</div>
+<div class="section" id="dimension">
+<h2>Dimension<a class="headerlink" href="#dimension" title="Permalink to this headline">¶</a></h2>
+<p>We now examine some sets of vectors that do not form bases.  By looking at these non-example we will uncover a concept that is related directly to bases.</p>
+<p>The following set of vectors is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 3 \\ 3 \\ 2 \\ -1 \\ 3  \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 2 \\ 0 \\ -2 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspace{0.7cm}
+V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right] \hspace{0.7cm}
+V_6 = \left[ \begin{array}{r} -1 \\ 0 \\ 2 \\ 2 \\ 1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>Although we can assemble a <span class="math notranslate nohighlight">\(5\times 6\)</span> matrix with these vectors as the columns, and compute the RREF as before, we should expect to find that the matrix does not have a pivot in each column due to its shape.  Recall that each row can have at most one pivot, which means that the matrix has at most 5 pivots.  Since there are 6 columns, one of the columns does not have a pivot.  This shows that the set of vectors is linearly dependent, and thus not a basis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   0.   0.   0.   0.  -1.6]
+ [ 0.   1.   0.   0.   0.   1.8]
+ [ 0.   0.   1.   0.   0.  -2.9]
+ [ 0.   0.   0.   1.   0.   0.6]
+ [ 0.   0.   0.   0.   1.   1.8]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following set of vectors is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 3 \\ 3 \\ 2 \\ -1 \\ 3  \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 2 \\ 0 \\ -2 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>The matrix made up of these column vectors has 5 rows and 4 columns.  There are at most 4 pivots since each column can contain no more than 1 pivot.  This means that there is at least one zero row in the RREF, which implies that the system <span class="math notranslate nohighlight">\(AX = B\)</span> is not consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>These two examples illustrate why any set of vectors that does not contain exactly five vectors cannot be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We might suspect that exactly five vectors are needed because the space is five-dimensional, and this is almost correct.  It is more accurate to say that <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> is five-dimensional <em>because a basis for the space must have five vectors</em>.  The <strong>dimension</strong> of a vector space (or subspace) is defined as the number of vectors in any basis for the space.</p>
+</div>
+<div class="section" id="coordinates">
+<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
+<p>We now understand that if we are given a basis <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and a vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, there is a unique linear combination of the basis vectors equal to <span class="math notranslate nohighlight">\(X\)</span>.  The <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(X\)</span> with respect to this basis is the unique set of weights <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, … <span class="math notranslate nohighlight">\(c_n\)</span> that satisfy the vector equation <span class="math notranslate nohighlight">\(X=c_1V_1 + c_2V_2 + ... c_nV_n\)</span>.  It becomes useful at this point to assign labels to bases that are under discussion.  For example, we might say that <span class="math notranslate nohighlight">\(\beta = \{V_1, V_2, V_3, ... V_n\}\)</span>, and refer to the coordinates of <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.  It is only natural to collect these weights into an <span class="math notranslate nohighlight">\(n\times 1\)</span> array, to which we will assign the notation <span class="math notranslate nohighlight">\([X]_{\beta}\)</span>.  Despite potential confusion, this array is referred to as the “coordinate vector”.</p>
+<p>To demonstrate, suppose that we use the basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> given in <strong>Example 1</strong>, and assign it the label <span class="math notranslate nohighlight">\(\beta\)</span>.  Consider then the calculation need to find of the coordinates of a vector <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 3 \\ 5 \\ -3 \\ -2 \\ -7 \end{array}\right]= 
+c_1\left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right] 
++c_2\left[ \begin{array}{r} 3 \\ 3 \\ 2 \\ -1 \\ 3  \end{array}\right]
++c_3\left[ \begin{array}{r} 2 \\ 0 \\ -2 \\ 2 \\ 2 \end{array}\right] 
++c_4\left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] 
++c_5\left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>To find the coordinates we need to solve the linear system <span class="math notranslate nohighlight">\(A[X]_{\beta} = X\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the matrix with the basis vectors as its columns, and <span class="math notranslate nohighlight">\([X]_{\beta}\)</span> is the vector of unknowns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">7</span><span class="p">]])</span>
+<span class="n">X_beta</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.]
+ [-1.]
+ [ 2.]
+ [-2.]
+ [-1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since calculating coordinates always involves solving a linear system, it can be helpful at times to remember that whenever we solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>, we are really finding the coordinates of <span class="math notranslate nohighlight">\(B\)</span> with respect to the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Find a basis for the set of solutions to the system <span class="math notranslate nohighlight">\(PX=0\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is defined as follows.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 &amp; 4 \\ -1 &amp; 1 &amp; 6 &amp; -2 &amp; 1 \\ -2 &amp; 1 &amp; 3 &amp; 0 &amp; -3 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Determine if the following set of vectors is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Give justification with an appropriate calculation.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \\ 2 \end{array}\right] \hspace{0.7cm} 
+W_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 2 \\ 4 \end{array}\right] \hspace{0.7cm}
+W_3 = \left[ \begin{array}{r} 0 \\ 0 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
+W_4 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Give an example of a set of three vectors that does <strong>not</strong> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Provide a calculation that shows why the example is not a basis.</p></li>
+<li><p>Calculate the dimension of the span of the following vectors.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \left[ \begin{array}{r} 1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspace{0.7cm} 
+U_2 = \left[ \begin{array}{r} 2 \\ -3 \\ 3 \\ -2 \end{array}\right] \hspace{0.7cm}
+U_3 = \left[ \begin{array}{r} 3 \\ -1 \\ 2 \\ 1 \end{array}\right] \hspace{0.7cm}
+U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Linear_Independence.html" title="previous page">Linear Independence</a>
+    <a class='right-next' id="next-link" href="Vector_Space_Examples.html" title="next page">Vector Space Examples</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix Representations &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Transformations in a Plane" href="Planar_Transformations.html" />
+    <link rel="prev" title="Linear Transformations" href="Linear_Transformations.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Change_Bases.html">
+     Change of Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Matrix_Representations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Matrix_Representations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-matrix-representations">
+   Standard matrix representations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2">
+   Example 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-using-rref">
+   Analysis using RREF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="matrix-representations">
+<h1>Matrix Representations<a class="headerlink" href="#matrix-representations" title="Permalink to this headline">¶</a></h1>
+<p><a id='go_here'></a>
+A key connection between linear transformations and matrix algebra is the fact that every linear transformation can be carried out by matrix multiplication.  It is natural then to associate the matrix with the linear transformation in some way.  Conversely, when carrying out matrix multiplication, it is quite natural to consider the associated linear transformation that it represents.  In this way, matrix multiplication can be viewed as a means of mapping vectors in one space to vectors in another.</p>
+<p>Instead of tackling the most general case of finding matrix representations, let’s consider a linear transformation from <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  The defining properties of linear transformations imply that it can be described just be specifying the images (output) of each element in a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Suppose that <span class="math notranslate nohighlight">\(T\)</span> is our transformation, <span class="math notranslate nohighlight">\(\beta = \{V_1, V_2,..., V_n\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and we know the images <span class="math notranslate nohighlight">\(T(V_1)\)</span>, <span class="math notranslate nohighlight">\(T(V_2)\)</span>, …, <span class="math notranslate nohighlight">\(T(V_n)\)</span>.  This is the only information we need to work out <span class="math notranslate nohighlight">\(T(X)\)</span> for an arbitrary <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  First we express <span class="math notranslate nohighlight">\(X\)</span> in terms of the basis, <span class="math notranslate nohighlight">\(X = c_1V_1 + c_2V_2 + ... c_nV_n\)</span>, then use the linearity of the transformation.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+T(X) = T(c_1V_1 + c_2V_2 + ... c_nV_n) = c_1T(V_1) + c_2T(V_2) + ... c_nT(V_n)
+\end{equation}
+\]</div>
+<p>In order to make the connection to matrices, we must recognize that the right-hand side of this equation can be expressed as a matrix-vector multiplication.  The columns of the matrix are the images of the basis vectors, and the vector is the coordinate vector of <span class="math notranslate nohighlight">\(X\)</span> <em>with respect to the basis</em> <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T(X) =  c_1T(V_1) + c_2T(V_2) + ... c_nT(V_n) = \left[ \begin{array}{c|c|c|c} &amp; &amp; &amp; \\
+T(V_1) &amp; T(V_2) &amp; ... &amp; T(V_n) \\ &amp; &amp; &amp; \end{array} \right]
+\left[ \begin{array}{c} c_1 \\ c_2 \\ \vdots \\ c_n \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>The matrix that represents the linear transformation thus depends on the basis that we choose to describe <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, which means that each choice of basis will give a different matrix.  In this section, we will restrict our attention to matrix representations associated with the standard basis.</p>
+<div class="section" id="standard-matrix-representations">
+<h2>Standard matrix representations<a class="headerlink" href="#standard-matrix-representations" title="Permalink to this headline">¶</a></h2>
+<p>When we choose the standard basis <span class="math notranslate nohighlight">\(\alpha = \{E_1, E_2, ..., E_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we will refer the the matrix representation of a linear transformation as the <strong>standard matrix representation</strong>.  We introduce a slightly different notation for this matrix, even though it is just an ordinary matrix like all the others we have used in previous chapters.  If we use <span class="math notranslate nohighlight">\(T\)</span> as the label for our transformation, we will use the notation <span class="math notranslate nohighlight">\(\left[T\right]\)</span> to represent the standard matrix representation of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</div>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<p>Consider the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^4\)</span>, with the following images defined.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T\left(\left[\begin{array}{r} 1\\0 \end{array}\right]\right)= \left[\begin{array}{r} 2\\0\\1\\1 \end{array}\right] \hspace{1cm}  
+T\left(\left[\begin{array}{r} 0\\1 \end{array}\right]\right)= \left[\begin{array}{r} 0\\1\\-1\\4 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The standard matrix representation is built using these images as columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[T\right] =\left[\begin{array}{rr} 2 &amp; 0 \\ 0 &amp; 1 \\ 1 &amp; -1 \\ 1 &amp; 4 \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<p>Now if <span class="math notranslate nohighlight">\(X\)</span> is some other vector in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, we can compute <span class="math notranslate nohighlight">\(T(X)\)</span> as the matrix-vector product <span class="math notranslate nohighlight">\(\left[T\right]X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[\begin{array}{r} 5 \\ -2 \end{array}\right] \hspace{1cm} \to \hspace{1cm}
+T(X) = \left[T\right]X =\left[\begin{array}{rr} 2 &amp; 0 \\ 0 &amp; 1 \\ 1 &amp; -1 \\ 1 &amp; 4 \end{array}\right] \left[\begin{array}{r} 5 \\ -2 \end{array}\right] = 
+5\left[\begin{array}{r} 2\\0\\1\\1 \end{array}\right] -
+2\left[\begin{array}{r} 0\\1\\-1\\4 \end{array}\right] = 
+\left[\begin{array}{r} 10\\2\\3\\-3 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>A linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^3\)</span> could be defined with a formula such as the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} x_1 - x_3 \\ 3x_1 -x_2 + 2x_3  \\ 2x_1 + 8x_2 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>In order to find the standard matrix representation of <span class="math notranslate nohighlight">\(L\)</span>, we first apply the formula to produce the images of the standard basis, and then assemble them to form <span class="math notranslate nohighlight">\(\left[L\right]\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L\left(\left[\begin{array}{r} 1\\0\\0 \end{array}\right]\right)= \left[\begin{array}{r} 1\\3\\2 \end{array}\right] \hspace{1cm}  
+L\left(\left[\begin{array}{r} 0\\1\\0 \end{array}\right]\right)= \left[\begin{array}{r} 0\\-1\\8 \end{array}\right] \hspace{1cm}  
+L\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{array}{r} -1\\2\\0 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[L\right] = \left[\begin{array}{rrr} 1 &amp; 0 &amp; -1 \\ 3 &amp; -1 &amp; 2 \\ 2 &amp; 8 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="analysis-using-rref">
+<h2>Analysis using RREF<a class="headerlink" href="#analysis-using-rref" title="Permalink to this headline">¶</a></h2>
+<p>Now that we are able to represent a linear transformation as a matrix-vector multiplication, we can use what we learned in the previous chapter to determine if linear transformations are invertible.  Suppose the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^m\)</span> has the standard matrix representation <span class="math notranslate nohighlight">\([T]\)</span>, and we want to know if there exists an inverse transformation <span class="math notranslate nohighlight">\(T^{-1}:\mathbb{R}^m \to \mathbb{R}^n\)</span>.  We need know if the linear system <span class="math notranslate nohighlight">\([T]X = B\)</span> has a unique soluition for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.</p>
+<p>Looking back to the discussion in <a class="reference internal" href="General_Linear_Systems.html"><span class="doc std std-doc">General Linear Systems</span></a> we see that the system <span class="math notranslate nohighlight">\([T]X = B\)</span> is inconsistent if the augmented matrix associated with this system has a pivot in the last column.  The only way that this is possible is if the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a <em>row with no pivot</em>, since there can be no more than one pivot per row.  We also found that <span class="math notranslate nohighlight">\([T]X=B\)</span> will have a unique solution when there is a pivot in each column of <span class="math notranslate nohighlight">\([T]\)</span>.  Thus <span class="math notranslate nohighlight">\([T]X=B\)</span> will have a unique solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> exactly when the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a pivot in each row and in each column.  In this case the linear transformation <span class="math notranslate nohighlight">\(T\)</span> will be invertible, and the matrix <span class="math notranslate nohighlight">\([T]\)</span> will have an inverse.</p>
+<p>There are two other properties of linear transformations that are very closely related to these.</p>
+<ul class="simple">
+<li><p>In the case that the linear system <span class="math notranslate nohighlight">\([T]X=B\)</span> has <em>at least one solution</em> for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, the transformation is said to be <strong>onto</strong> <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  In this case, for every vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, there is at least one vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> so that <span class="math notranslate nohighlight">\(T(X)=B\)</span>.  The transformation <span class="math notranslate nohighlight">\(T\)</span> is onto whenever the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a pivot in every row.</p></li>
+<li><p>In the case that the linear system <span class="math notranslate nohighlight">\([T]X=B\)</span> has <em>at most one solution</em> for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, the linear transformation is said to be <strong>one-to-one</strong>.  In this case, no two vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> get sent to the same vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  The transformation <span class="math notranslate nohighlight">\(T\)</span> is one-to-one whenever the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a pivot in every column.</p></li>
+</ul>
+<p><strong>A transformation is invertible if and only if it is both onto and one-to-one.</strong></p>
+<p>If we keep in mind that there can be at most one pivot per column and one pivot per row, we can make a further statement about these properties based on the relative size of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.  If <span class="math notranslate nohighlight">\(T:\mathbb{R}^n\to\mathbb{R}^m\)</span>, then <span class="math notranslate nohighlight">\(T\)</span> cannot be onto <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if <span class="math notranslate nohighlight">\(m&gt;n\)</span>, and cannot be one-to-one if <span class="math notranslate nohighlight">\(m&lt;n\)</span>.  Only when <span class="math notranslate nohighlight">\(m=n\)</span> is it <em>possible</em> for <span class="math notranslate nohighlight">\(T\)</span> to be invertible.</p>
+<p>Let’s look at our examples.  In <strong>Example 1</strong>, the matrix <span class="math notranslate nohighlight">\([T]\)</span> is <span class="math notranslate nohighlight">\(4\times 2\)</span>.  We know the matrix can have at most two pivots (at most one per column), so cannot have a pivot in each row.  To see if there is are indeed pivots in each column, we can compute the RREF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
+ [0. 1.]
+ [0. 0.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the transformation <span class="math notranslate nohighlight">\(T\)</span> is one-to-one, but is not onto.</p>
+<p>In <strong>Example 2</strong> the matrix <span class="math notranslate nohighlight">\([L]\)</span> is <span class="math notranslate nohighlight">\(3\times3\)</span> and we need to to compute the RREF to determine the pivot locations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the matrix representation has a pivot in each row and column, the transformation <span class="math notranslate nohighlight">\(L\)</span> is invertible.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>For each of the following linear transformations, find the standard matrix representation, and then determine if the transformation is onto, one-to-one, or invertible.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \end{array} \right]\right) = 
+\left[\begin{array}{c} x_1 + 2x_2 - x_3 -x_4 \\ x_2 -3x_3 +2x_4 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} x_1 -x_2 + 8x_3 \\ 4x_1 + 5x_2 - x_3 \\ -x_1 -x_2 + 3x_3 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Linear_Transformations.html" title="previous page">Linear Transformations</a>
+    <a class='right-next' id="next-link" href="Planar_Transformations.html" title="next page">Transformations in a Plane</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

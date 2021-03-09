@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Linear Systems &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Combinations" href="Linear_Combinations.html" />
+    <link rel="prev" title="Vector Spaces" href="Vector_Spaces.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/General_Linear_Systems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/General_Linear_Systems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduced-row-echelon-form">
+   Reduced row echelon form
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-positions-and-free-variables">
+   Pivot positions and free variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-positions-and-inconsistent-systems">
+   Pivot positions and inconsistent systems
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-positions-and-unique-solutions">
+   Pivot positions and unique solutions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivot-positions-and-system-analysis">
+   Pivot positions and system analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="general-linear-systems">
+<h1>General Linear Systems<a class="headerlink" href="#general-linear-systems" title="Permalink to this headline">¶</a></h1>
+<p>Before we begin to examine the vector space <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, it is important to make come conclusions about linear systems in general so that we will be prepared to answer some of the questions that arise.
+For any linear system, exactly one of the following statements is true:</p>
+<ol class="simple">
+<li><p>The system has no solutions.  (It is inconsistent.)</p></li>
+<li><p>The system has a unique solution.</p></li>
+<li><p>The system has an infinite collection of solutions.</p></li>
+</ol>
+<p>The objective of this section is to determine which of these three statements applies to a given system. The focus in the previous chapter was on systems that had unique solutions.  We begin to explore the other possibilities in more detail.  We also consider the more general case of a linear system with <span class="math notranslate nohighlight">\(m\)</span> equations and <span class="math notranslate nohighlight">\(n\)</span> unknowns, rather that the special case of systems that have an equal number of equations and unknowns.  The use of elimination on the associated augmented matrices will again prove to be very useful.</p>
+<div class="section" id="reduced-row-echelon-form">
+<h2>Reduced row echelon form<a class="headerlink" href="#reduced-row-echelon-form" title="Permalink to this headline">¶</a></h2>
+<p>In the previous chapter we discussed elimination, a method for using row operations to reduce a system to simpler system with the same solution.  We will now extend that idea further, using row operations to produce an equivalent system that is simpler still.  To do this we will apply row operations to a matrix until it is in a standard form known as <strong>reduced row echelon form</strong>.</p>
+<p>A matrix in reduced row echelon form (RREF) has the following properties.</p>
+<ul class="simple">
+<li><p>The first nonzero entry in each row is a 1.  These entries are again called the <strong>pivots</strong>.</p></li>
+<li><p>Each pivot is located to the right of the pivots in all rows above it.</p></li>
+<li><p>The entries above and below each pivot are 0.</p></li>
+<li><p>Rows that are all zeros are located below other rows.</p></li>
+</ul>
+<p>Here are some examples of matrices that are in reduced row echelon form.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; * \\ 0 &amp; 1 &amp; 0 &amp; * \\ 0 &amp; 0 &amp; 1 &amp; * \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{ccccc} 1 &amp; 0 &amp; * &amp; 0 &amp; *  \\ 0 &amp; 1 &amp; * &amp; 0 &amp; * 
+\\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; * \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cccccc} 1 &amp; * &amp; 0 &amp; 0 &amp; * &amp; * \\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; * &amp; * \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; * &amp; * \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The difference between RREF and the row echelon form we used earlier is that columns containing pivots are all zero except for the pivot itself.  It is also imporant to remember that there can be at most one pivot in each row, and at most one pivot in each column.</p>
+<p>We will make use of the function <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module for the calculations.  Try it out for some matrices made up of random integers.  Experiment by using matrices with different shapes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">C_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  0  2  0]
+ [-2 -2  2 -2 -2]
+ [ 1 -1  1  2  2]]
+
+
+[[ 1.   0.   0.   1.5  1.5]
+ [ 0.   1.   0.  -0.5  1.5]
+ [ 0.   0.   1.   0.   2. ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pivot-positions-and-free-variables">
+<h2>Pivot positions and free variables<a class="headerlink" href="#pivot-positions-and-free-variables" title="Permalink to this headline">¶</a></h2>
+<p>We first look at how the RREF of the <em>augmented coefficient matrix</em> can be used to help us write the solution to a system in the presence of <strong>free variables</strong>.  Free variables are those that are not uniquely determined by the system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+-2x_1 + 2x_2 - 2x_3 + 2x_4&amp; = &amp; 0\\
+x_1 - 2x_2 -2x_3 \hspace{1.2cm}&amp; = &amp; -1\\
+x_1 \hspace{1.2cm} + 2x_3 -2x_4 &amp; = &amp; 1
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  0. -2.  1.]
+ [ 0.  1.  0. -1.  1.]
+ [ 0.  0.  1.  0.  0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we look at the system that is represented by the RREF.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 \quad\quad\quad\quad -2x_4&amp; = &amp; 1\\
+ x_2 \quad\quad -x_4 &amp; = &amp; 1\\
+x_3 \quad\quad &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We see that <span class="math notranslate nohighlight">\(x_3 = 0\)</span>, and the other variables are related to each other through the first two equations.  This means that the value of <span class="math notranslate nohighlight">\(x_3\)</span> is uniquely determined by the system, while the values of the other variables are not.  In order to complete a solution we must choose a value for either one of <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, or <span class="math notranslate nohighlight">\(x_4\)</span>, and then use the first two equations to calculate values for the other two variables.  In order to be systematic, and to make the most efficient use of the RREF, we will always choose the free variables to be those that correspond to the columns in the array that do not contain a pivots.  In this case <span class="math notranslate nohighlight">\(x_4\)</span> will be the free variable since the fourth column does not have a pivot.  Now if we choose <span class="math notranslate nohighlight">\(x_4 = 2\)</span>, we can determine that <span class="math notranslate nohighlight">\(x_1=5\)</span> and <span class="math notranslate nohighlight">\(x_2 = 3\)</span>.  It is important to realize that <span class="math notranslate nohighlight">\(x_4\)</span> can take on <em>any value</em>.  Values for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> can then be calculated to complete a solution to the system.</p>
+<p>We might pause here to consider how to describe <em>all possible solutions</em> to this system.  One idea is to assign a parameter to the free variables, say <span class="math notranslate nohighlight">\(x_4 = s\)</span>, and then express the other variables in terms of the parameters.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 1 + 2s\\
+ x_2  &amp; = &amp; 1 + s\\
+x_3 &amp; = &amp; 0 \\
+x_4 &amp; = &amp; s
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The important point is that <strong>a linear system will have an infinite number of solutions if it contains one or more free variables.</strong>  The RREF is useful because we can tell at a glance if there are free variables.  If any columns are lacking a pivot, there are free variables in the system, which means that the system does not have a unique solution.</p>
+</div>
+<div class="section" id="pivot-positions-and-inconsistent-systems">
+<h2>Pivot positions and inconsistent systems<a class="headerlink" href="#pivot-positions-and-inconsistent-systems" title="Permalink to this headline">¶</a></h2>
+<p>We now turn our attention to the problem of determining if a linear system is consistent.  Again we will look at a specific example and make use of the RREF of the augmented coefficient matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - 2x_2 + 2x_3 &amp; = &amp; 0\\
+2x_1 + 2x_2 + 2x_3  &amp; = &amp; 1\\
+-x_2 - x_3 &amp; = &amp; -2 \\
+-2x_1 -x_2 - x_3 &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">D_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">D_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When we write the system represented by the RREF, we see clearly that the system has no solution.  (<em>Remember that the final column in the augmented coefficient matrix represents the right-hand sides of the equations.</em>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 0\\
+ x_2  &amp; = &amp; 0\\
+x_3 &amp; = &amp; 0 \\
+0 &amp; = &amp; 1
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We should be careful in our interpretation the RREF in this case.  We might be tempted to conclude that setting <span class="math notranslate nohighlight">\(x_1 = x_2 = x_3 = 0\)</span> satisfies three of the equations, but leaves one equation unsatisfied.  If we look back at the original system though, we can see that this is not the case.  Setting <span class="math notranslate nohighlight">\(x_1 = x_2 = x_3 = 0\)</span> only satisfies the first and last equations.</p>
+<p>Again, we want to draw a connection between pivot positions and our conclusion that the system is inconsistent.  An inconsistency arises if all the coefficients in a particular row are zero, but the right-hand side is nonzero.  In terms of pivots, this means that <strong>a linear system is inconsistent if there is a pivot in the last column of the augmented matrix</strong>.</p>
+</div>
+<div class="section" id="pivot-positions-and-unique-solutions">
+<h2>Pivot positions and unique solutions<a class="headerlink" href="#pivot-positions-and-unique-solutions" title="Permalink to this headline">¶</a></h2>
+<p>In the final example we consider the familar case where the system has a unique solution, and again consider
+the RREF of the associated augmented matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - 2x_2 + 2x_3 &amp; = &amp; 0\\
+-x_2 - x_3 &amp; = &amp; -2 \\
+-2x_1 -x_2 - x_3 &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">G_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">G_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.    0.    0.   -1.  ]
+ [ 0.    1.    0.    0.75]
+ [ 0.    0.    1.    1.25]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The fully reduced augmented matrix now gives the unique solution to the system directly.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; -1\\
+ x_2  &amp; = &amp; 0.75\\
+x_3 &amp; = &amp; 1.25
+\end{eqnarray*}
+\end{split}\]</div>
+<p>It is important to realize that there is a system has unique solution exactly when <em>the previous two cases do not occcur</em>.  To state this explicitly, a <strong>system will have a unique solution when the augmented matrix has a pivot in every column except for the last</strong>.</p>
+</div>
+<div class="section" id="pivot-positions-and-system-analysis">
+<h2>Pivot positions and system analysis<a class="headerlink" href="#pivot-positions-and-system-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We now summarize the solution sets for a system <span class="math notranslate nohighlight">\(AX=B\)</span>, based on the positions of pivots in the <span class="math notranslate nohighlight">\(m\times(n+1)\)</span> augmented matrix <span class="math notranslate nohighlight">\([A|B]\)</span>.  These pivot positions are revealed by computing the RREF.</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\([A|B]\)</span> has a pivot in the last column, the system has no solution.</p></li>
+<li><p>If any of the first <span class="math notranslate nohighlight">\(n\)</span> columns of <span class="math notranslate nohighlight">\([A|B]\)</span> <em>do not</em> have a pivot, the system does not have a unique solution due to the existence of a free variable.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\([A|B]\)</span> has a pivot in each column <em>except the last</em>, then the system has a unique solution.</p></li>
+</ul>
+<p>With these three statements we can determine if any given system <span class="math notranslate nohighlight">\(AX=B\)</span> has a unique solution, has infinite number of solutions, or has no solution at all.  This way of categorizing linear systems will be important for upcoming discussions.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Determine the number of solutions to the following system, then find all possible solutions.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 3\\
+x_1 \hspace{1.2cm} + x_3  &amp; = &amp; \hspace{0.3cm} 2\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Determine the number of solutions to the following system, then find all possible solutions.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 0\\
+x_1 \hspace{1.2cm} + x_3  &amp; = &amp; \hspace{0.3cm} 2\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Determine the number of solutions to the following system, then find all possible solutions.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 3\\
+x_1  +2x_2 + x_3  &amp; = &amp; \hspace{0.3cm} 0\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Construct an example of an inconsistent system with 2 equations and 4 unknowns.</p></li>
+<li><p>Explain why it is not possible for a system with 2 equations and 4 unknowns to have a unique solution.  Base your argument on pivot positions.</p></li>
+<li><p>Write a function that accepts the augmented matrix for a system and returns the number of free variables in that system.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Vector_Spaces.html" title="previous page">Vector Spaces</a>
+    <a class='right-next' id="next-link" href="Linear_Combinations.html" title="next page">Linear Combinations</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
