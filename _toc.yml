@@ -1,8 +1,8 @@
 - file: intro
-- file: FrontMatter
+- file: Jupyter_Introduction
   sections:
-    - file: Preface
-    - file: Jupyter_Introduction
+    - file: Python_Introduction
+    - file: Numpy_Introduction
 - file: Linear_Systems
   sections:
     - file: Gaussian_Elimination
@@ -35,7 +35,6 @@
     - file: Applications_IP
 - file: Eigenvalues
   sections:
-    - file: Geometrical_Interpretation
     - file: Diagonalization
     - file: Applications_EV
 
