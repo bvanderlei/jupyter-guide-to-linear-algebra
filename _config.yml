@@ -6,3 +6,10 @@ logo: logo.png
 latex:
   latex_documents:
     targetname: book.tex
+
+repository:
+  url: https://github.com/bvanderlei/jupyter-guide-to-linear-algebra
+  branch: main
+
+launch_buttons:
+  notebook_interface: "classic"
