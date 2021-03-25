@@ -274,11 +274,6 @@
   <a class="reference internal nav-link" href="#example-2-finding-lu-when-row-swaps-are-needed">
    Example 2:  Finding LU when row swaps are needed
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plu-routine">
-   PLU routine
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercises">
@@ -667,10 +662,10 @@ A &amp;=&amp; E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}U
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C=
-[[-5  4  4 -3]
- [-1  4 -4  2]
- [ 2  0 -1  4]
- [ 1 -5  3 -6]]
+[[ 5 -6 -4 -2]
+ [ 2  0 -2  1]
+ [-4  4 -6 -4]
+ [ 3 -5  0  0]]
 
 
 P=
@@ -681,10 +676,10 @@ P=
 
 
 PC=
-[[-5.  4.  4. -3.]
- [ 2.  0. -1.  4.]
- [-1.  4. -4.  2.]
- [ 1. -5.  3. -6.]]
+[[ 5. -6. -4. -2.]
+ [-4.  4. -6. -4.]
+ [ 2.  0. -2.  1.]
+ [ 3. -5.  0.  0.]]
 </pre></div>
 </div>
 </div>
@@ -827,9 +822,6 @@ PC=
  [ 3.  3.  1.  0.]]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Although this calculation did not give us exactly what we were seeking, it does shed light on another possibility.  If we look at the result in the last cell for a moment, we might notice that this matrix <em>would have the correct structure</em> if we rearranged the rows.  In fact it is no coincidence that the row swaps we need to perform to get a lower triangular matrix at this point are exactly the same row swaps that we carried out during the elimination.</p>
@@ -913,9 +905,6 @@ PC=
 </div>
 </div>
 <p>If we group the permutation matrices together, we can summarize the factorization by writing <span class="math notranslate nohighlight">\(PB=LU\)</span>.  We can understand this to mean that the matrix <span class="math notranslate nohighlight">\(B\)</span> with the rows reordered according to <span class="math notranslate nohighlight">\(P\)</span> does have an <span class="math notranslate nohighlight">\(LU\)</span> factorization.  (<em>Note that it is also possible to write this as <span class="math notranslate nohighlight">\(B=PLU\)</span>.  Maybe a good exercise!</em>)</p>
-</div>
-<div class="section" id="plu-routine">
-<h2>PLU routine<a class="headerlink" href="#plu-routine" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="exercises">
 <h3>Exercises:<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 </div>

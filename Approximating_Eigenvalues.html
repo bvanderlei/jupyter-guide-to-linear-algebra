@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approximating Eigenvalues &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications" href="Applications_EV.html" />
+    <link rel="prev" title="Diagonalization" href="Diagonalization.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Approximating_Eigenvalues.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Approximating_Eigenvalues.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power-method">
+   Power Method
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="approximating-eigenvalues">
+<h1>Approximating Eigenvalues<a class="headerlink" href="#approximating-eigenvalues" title="Permalink to this headline">¶</a></h1>
+<p>In this section we look at some methods that can be used to approximate the eigenvalues of a matrix <span class="math notranslate nohighlight">\(A\)</span>.  Although it is possible to find the exact eigenvalues for small matrices, the approach is not practical for moderately large matrices.</p>
+<p>Most introductory references on the subject demonstrate a direct way to compute eigenvalues of an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> by computing roots of an associated <span class="math notranslate nohighlight">\(n\)</span>th polynomial, known as the <em>characteristic polynomial</em>.  For example, suppose <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> are solutions to the quadratic equation <span class="math notranslate nohighlight">\(\lambda^2 - (a+d)\lambda + ad-bc = 0\)</span>, which can be written explicitly in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> using the quadratic formula.  The challenges with larger matrices are that the polynomial is more difficult to construct, and the roots cannot be easily found with a formula.</p>
+<p>The algorithms we describe in the section are iterative methods.  They generate a sequence of values <span class="math notranslate nohighlight">\(\{\lambda^{(1)}, \lambda^{(2)}, \lambda^{(3)}, ... \}\)</span> that approach a true eigenvalue of the matrix under consideration.</p>
+<div class="section" id="power-method">
+<h2>Power Method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
+<p>The first algorithm we introduce for approximating eigenvalues is known as the <strong>Power Method</strong>.  This method generates a sequence of vectors by repeated matrix multiplication.  Under suitable conditions, the sequence of vectors approaches the eigenvector associated with the eigenvalue that is largest in absolute value.</p>
+<p>For the simplest explanation, suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> diagonalizable matrix with eigenvectors <span class="math notranslate nohighlight">\(\{V_1, V_2, ... V_n\}\)</span>, and that <span class="math notranslate nohighlight">\(\lambda_1\)</span> is the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> that is largest in absolute value.  To begin the Power Method, we choose any nonzero vector and label it <span class="math notranslate nohighlight">\(X^{(0)}\)</span>.  We can express <span class="math notranslate nohighlight">\(X^{(0)}\)</span>  as a linear combination of the eigenvectors since they form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+X^{(0)} = c_1V_1 + c_2V_2 + ... c_nV_n
+\end{equation}
+\]</div>
+<p>We now form a sequence of vectors <span class="math notranslate nohighlight">\(X^{(1)}\)</span>, <span class="math notranslate nohighlight">\(X^{(2)}\)</span>, <span class="math notranslate nohighlight">\(X^{(3)}\)</span>, …, by setting <span class="math notranslate nohighlight">\(X^{(m)}= AX^{(m-1)}\)</span>.  Each of these vectors is easly expressed in terms of the eigenvectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+X^{(1)} = AX^{(0)} &amp; = &amp; c_1AV_1 + c_2AV_2 + ... c_nAV_n \\
+                   &amp; = &amp; c_1\lambda_1V_1 + c_2\lambda_2V_2 + ... c_n\lambda_nV_n \\
+X^{(2)} = AX^{(1)} &amp; = &amp; c_1\lambda_1AV_1 + c_2\lambda_2AV_2 + ... c_n\lambda_nAV_n \\
+                   &amp; = &amp; c_1\lambda_1^2V_1 + c_2\lambda_2^2V_2 + ... c_n\lambda_n^2V_n \\
+                   &amp; \vdots &amp; \\
+X^{(m)} = AX^{(m-1)} &amp; = &amp; c_1\lambda_1^{m-1}AV_1 + c_2\lambda_2^{m-1}AV_2 + ... c_n\lambda_n^{m-1}AV_n \\
+                   &amp; = &amp; c_1\lambda_1^mV_1 + c_2\lambda_2^mV_2 + ... c_n\lambda_n^mV_n 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>In the expression for <span class="math notranslate nohighlight">\(X^{(m)}\)</span>, we can then factor out <span class="math notranslate nohighlight">\(\lambda_1^m\)</span> to understand what happens as <span class="math notranslate nohighlight">\(m\)</span> gets large.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+X^{(m)} =  \lambda_1^m\left(c_1V_1 + c_2\left(\frac{\lambda_2}{\lambda_1}\right)^mV_2 + ... c_n\left(\frac{\lambda_n}{\lambda_1}\right)^mV_n\right) 
+\end{equation}
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(|\lambda_1| &gt; |\lambda_i|\)</span> for all <span class="math notranslate nohighlight">\(i\neq 1\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_i/\lambda_1|&lt; 1\)</span> and <span class="math notranslate nohighlight">\((\lambda_i/\lambda_1)^m\)</span> will approach zero as <span class="math notranslate nohighlight">\(m\)</span> gets large.  This means that if we repeatedly multiply a vector by the matrix <span class="math notranslate nohighlight">\(A\)</span>, eventually we will get a vector that is very nearly in the direction of the eigenvector that corresponds to the <span class="math notranslate nohighlight">\(\lambda_1\)</span>.</p>
+<p>Let’s demonstrate the calculation on the matrix shown here before we discuss further.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -10 &amp; 3 &amp; 7 &amp; 14 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length when as the Power Method is applied.  Since all components of the vectors get divided by the same factor, this doesn’t change the ultimate behavior of the sequence.  They still approach the direction of the eigenvector, but do not grow in magnitude due to the factor <span class="math notranslate nohighlight">\(\lambda_1^m\)</span>.</p>
+<p>We calculate <span class="math notranslate nohighlight">\(X^{(20)}\)</span> below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">],[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7.87666229e-13]
+ [5.77350269e-01]
+ [5.77350269e-01]
+ [5.77350269e-01]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now if <span class="math notranslate nohighlight">\(X\)</span> is the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> with unit magnitude, then <span class="math notranslate nohighlight">\(|AX| = |\lambda_1X| = |\lambda_1|\)</span>.  We can therefor approximate <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> with <span class="math notranslate nohighlight">\(|AX|\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.999999999989992
+</pre></div>
+</div>
+</div>
+</div>
+<p>It appears that 24 is an estimate for <span class="math notranslate nohighlight">\(\lambda_1\)</span>.   To determine if our calculation is correct, we can compare <span class="math notranslate nohighlight">\(AX\)</span> with <span class="math notranslate nohighlight">\(\lambda_1X\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span> <span class="o">-</span> <span class="mi">24</span><span class="o">*</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.04791739e-11]
+ [-4.72688555e-12]
+ [-4.72688555e-12]
+ [-7.87814258e-12]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeed the difference <span class="math notranslate nohighlight">\(AX-24X\)</span> small.  Note that in this case, we can even do the calculation with integer multiplication.  Notice that <span class="math notranslate nohighlight">\(X\)</span> has 0 in the first entry and the other entries are equal.  If we set these entries to 1, the result is easy to calculate even without the aid of the computer.  (<em>Remember that we can change the magnitude of an eigenvector and it is still an eigenvector.</em>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -10 &amp; 3 &amp; 7 &amp; 14 \end{array}\right]
+\left[ \begin{array}{r} 0 \\ 1\\ 1 \\ 1 \end{array}\right] =
+\left[ \begin{array}{r} 0 \\ 24\\ 24 \\ 24 \end{array}\right] = 24X
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">SLA</span>
+
+<span class="n">evalues</span><span class="p">,</span> <span class="n">evectors</span> <span class="o">=</span> <span class="n">SLA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evectors</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.40000000e+01+0.j -6.00000000e+00+0.j  6.00000000e+00+0.j
+ -3.99305433e-15+0.j]
+[ 4.94568128e-16 -5.77350269e-01 -5.77350269e-01 -5.77350269e-01]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Diagonalization.html" title="previous page">Diagonalization</a>
+    <a class='right-next' id="next-link" href="Applications_EV.html" title="next page">Applications</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

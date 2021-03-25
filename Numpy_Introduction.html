@@ -246,6 +246,18 @@
   <a class="reference internal nav-link" href="#matplotlib">
    Matplotlib
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     Example 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     Example 2
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -362,11 +374,87 @@ This is C, which is the entries of B formed into a new shape.
 <p>Many of the functions included in NumPy relate to linear algebra in some way.  We will demonstrate more of these functions as we make our way through the corresponding linear algebra topics.</p>
 <div class="section" id="random-module">
 <h3>Random module<a class="headerlink" href="#random-module" title="Permalink to this headline">¶</a></h3>
+<p>One way of testing code is to supply a lot of random input, and then check to see if the correct results are produced in each instance.  To produce the random inputs, we will make use of functions in the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module, which is contained within NumPy.  For example, we might use the <span class="math notranslate nohighlight">\(\texttt{rand}\)</span> function with no arguments to produce a random number between zero and one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8116692503791682
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each execution of the <span class="math notranslate nohighlight">\(\texttt{rand}\)</span> function yields a new random number.  Note that <span class="math notranslate nohighlight">\(\texttt{rand}\)</span> is a function contained in the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module, which is in turn contained in NumPy.  We therefore need do use the dot notation twice to access it.</p>
+<p>We can also generate a random array of numbers by supplying <span class="math notranslate nohighlight">\(\texttt{rand}\)</span> two arguments to specify the number of rows and columns in the array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.85319317 0.47510924]
+ [0.47130631 0.98897491]
+ [0.17017659 0.71327905]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want to generate random integers, we can use the <span class="math notranslate nohighlight">\(\texttt{randint}\)</span> function.  This function requires at least one argument to specify an upper bound on the numbers produced.  The code below produces a random number from among the integers 0 to 19.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>To generate a random array we have to specify the number of rows and columns using a <em>keyword argument</em> called <span class="math notranslate nohighlight">\(\texttt{size}\)</span>.  The use of a <em>keyword argument</em> requires slightly different syntax as shown in the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 6 2 1 2 2]
+ [5 2 3 6 3 3]
+ [8 5 1 2 7 6]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The use of <em>keyword arguments</em> is quite common in Python functions.  The advantage of this feature is that the arguments do not need to be provided in a prespecified order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2 1 9]
+ [7 5 6]]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>We provide two demonstrations for creating a figure with Matplotlib, with both following the same essential pattern.  We will provide some details of the necessary code, but will not attempt to describe the data structures in a rigorous way, or discuss the multitude of options that are available within the library.</p>
+<p>Matplotlib provides a wide range of plotting functionality, and many options to make precise customizations to the figures produced. We only provide explanations for how to create the specific type of figures that appear in the Jupyter Guide to Linear Algebra, most of which follow the same essential pattern.  We will provide a few details of the necessary code, but will not attempt to describe the data structures in a rigorous way, or discuss the multitude of options that are available within the library.</p>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <p>In the first figure, we will make a simple plot of five points with <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates.  The list of coordinates will be stored in a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -376,7 +464,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 </div>
-<p>The next code cell contains a minimal set of instructions needed to produce a plot.  The comments in the cell indicate the purpose of each line of code.</p>
+<p>The next code cell contains a minimal set of instructions needed to produce a plot.  The comments in the cell indicate the purpose of each line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Directs the graphical output to this notebook</span>
@@ -394,11 +482,11 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_16_0.png" src="_images/Numpy_Introduction_16_0.png" />
+<img alt="_images/Numpy_Introduction_25_0.png" src="_images/Numpy_Introduction_25_0.png" />
 </div>
 </div>
-<p>The <span class="math notranslate nohighlight">\(\texttt{subplots}\)</span> method creates two Matplotlib objects, the <em>Figure</em>, and the <em>Axes</em>.  The <em>Figure</em> is the fundamental object in Matplotlib.  The <em>Axes</em> object is contained within the <em>Figure</em>, and is the object we will interact with the most.  The <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method of the <em>Axes</em> object is the function that actually plots our set of coordinates on the <em>Axes</em>.  Note that we do not need a <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command to view the results.  Instead, the first line of code, <span class="math notranslate nohighlight">\(\texttt{%% matplotlib inline}\)</span>, directs all graphical output to this notebook.</p>
-<p>The plot produced by this basic use of the <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method has connected our data point coordinates with lines.  This is the <em>default</em> functionality of this method.  It is common for Matplotlib methods (and indeed methods in many other Python libraries) to have a default functionality which is produced by supplying the minimum number of arguments when the method is called, but also allow for additional arguments to be supplied which alter this default functionality.  In our example, we can supply the optional argument <span class="math notranslate nohighlight">\(\texttt{'b+'}\)</span> to the <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method to produce a plot with blue + symbols at the data coordinates instead of lines connecting them.</p>
+<p>The <span class="math notranslate nohighlight">\(\texttt{subplots}\)</span> method creates two Matplotlib objects, the <em>Figure</em>, and the <em>Axes</em>.  The <em>Figure</em> is the fundamental object in Matplotlib.  The <em>Axes</em> object is contained within the <em>Figure</em>, and is the object we will interact with the most.  The <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method of the <em>Axes</em> object is the function that actually plots our set of coordinates on the <em>Axes</em>.  Note that we do not need a <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command to view the results.  Instead, the first line of code, <span class="math notranslate nohighlight">\(\texttt{% matplotlib inline}\)</span>, directs all graphical output to this notebook.</p>
+<p>The plot produced by this basic use of the <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method has connected the data point coordinates with lines.  This is the <em>default</em> functionality of this method.  It is common for Matplotlib methods (and indeed methods in many other Python libraries) to have a default functionality which is produced by supplying the minimum number of arguments, but also allow for additional arguments to be supplied which alter this default functionality.  In our example, we can supply the optional argument <span class="math notranslate nohighlight">\(\texttt{'b+'}\)</span> to the <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method to produce a plot with blue + symbols at the data coordinates instead of lines connecting them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -407,7 +495,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_18_0.png" src="_images/Numpy_Introduction_18_0.png" />
+<img alt="_images/Numpy_Introduction_27_0.png" src="_images/Numpy_Introduction_27_0.png" />
 </div>
 </div>
 <p>Next, we show how to configure some of the many options available in such a plot.  Remember that the plot is actually being constructed in an <em>Axes</em> object, so all the options that affect elements of the plot are methods of that object.</p>
@@ -430,9 +518,12 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_20_0.png" src="_images/Numpy_Introduction_20_0.png" />
+<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p>In the next example, the aim will be to plot the curve <span class="math notranslate nohighlight">\(y=0.5x^2\)</span>, for <span class="math notranslate nohighlight">\(x\)</span> in the interval <span class="math notranslate nohighlight">\([-2,4]\)</span>.  In order to make use of the same method, we will need to generate a set of points that lie on the curve for <span class="math notranslate nohighlight">\(x\)</span> in the given interval.  The points that we specify will be connected straight lines, so we will want want to generate enough points to avoid the curve having a jagged appearance.  The NumPy method <span class="math notranslate nohighlight">\(\texttt{linspace}\)</span> provides an easy way to produce our points.  This method creates a NumPy array object with numbers spaced evenly over a specified interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -465,7 +556,7 @@ This is C, which is the entries of B formed into a new shape.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
 
-<span class="c1">## The grid option can be passed optional arguments that specify the linestyle (ls) used</span>
+<span class="c1">## The grid option will accept the keyword argument ls, which specifies the linestyle</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">);</span>
 
 <span class="c1">## This option adjusts the aspect ratio so that the x and y axes have the same length scale</span>
@@ -478,7 +569,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_24_0.png" src="_images/Numpy_Introduction_24_0.png" />
+<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -499,15 +590,17 @@ This is C, which is the entries of B formed into a new shape.
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">));</span>
 
-<span class="c1">## This option draws lines x=0 and y=0</span>
+<span class="c1">## This option draws lines x=0 and y=0 using keyword arguments color and linewidth</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_25_0.png" src="_images/Numpy_Introduction_25_0.png" />
+<img alt="_images/Numpy_Introduction_34_0.png" src="_images/Numpy_Introduction_34_0.png" />
 </div>
+</div>
+<p>Throughout the Jupyter Guide to Linear Algebra, we will often hide the code used to produce the graphics in order to keep the pages tidy for reading.</p>
 </div>
 </div>
 </div>

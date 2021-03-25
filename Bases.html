@@ -304,7 +304,7 @@
                 
   <div class="section" id="bases">
 <h1>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h1>
-<p>When working with vector spaces, or subspaces, it is often useful to express arbitrary vectors as linear combinations of a set of given vectors known as a basis.  A <strong>basis</strong> for a vector space (or subspace) is a collection of linearly independent vectors that span the space.  This definition pulls together the ideas of linear independence and spanning sets to describe a set of vectors which we will can understand as building blocks for a vector space.</p>
+<p>When working with vector spaces, or subspaces, it is often useful to express arbitrary vectors as linear combinations of a set of given vectors known as a basis.  A <strong>basis</strong> for a vector space (or subspace) is a collection of linearly independent vectors that span the space.  This definition pulls together the ideas of linear independence and spanning sets to describe a set of vectors which we can understand as building blocks for a vector space.</p>
 <p>Given a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and any vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, let us consider the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span>.  This vector equation represents a linear system that could also be represented by the matrix equation <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix that has the vectors <span class="math notranslate nohighlight">\(V_i\)</span> as its columns.  In previous sections we have made two important conclusions regarding this system.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at least one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p></li>
@@ -428,7 +428,7 @@ A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 \\ -2 &amp; 1 &amp; 3 
 </div>
 </div>
 <p>In this system, <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(_4\)</span> are free variables.  If we set <span class="math notranslate nohighlight">\(x_3 = t\)</span>, and <span class="math notranslate nohighlight">\(x_4=s\)</span>, then <span class="math notranslate nohighlight">\(x_1 = 2s -3t\)</span> and
-<span class="math notranslate nohighlight">\(x_2 = 4s -9t\)</span>.  we can write the components of a general solution vector <span class="math notranslate nohighlight">\(X\)</span> in terms of these parameters.</p>
+<span class="math notranslate nohighlight">\(x_2 = 4s -9t\)</span>.  We can write the components of a general solution vector <span class="math notranslate nohighlight">\(X\)</span> in terms of these parameters.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -508,7 +508,7 @@ V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspac
 </div>
 </div>
 </div>
-<p>These two examples illustrate why any set of vectors that does not contain exactly five vectors cannot be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We might suspect that exactly five vectors are needed because the space is five-dimensional, and this is almost correct.  It is more accurate to say that <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> is five-dimensional <em>because a basis for the space must have five vectors</em>.  The <strong>dimension</strong> of a vector space (or subspace) is defined as the number of vectors in any basis for the space.</p>
+<p>These two examples illustrate why any set of vectors that does not contain exactly five vectors cannot be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We might suspect that exactly five vectors are needed because the space is five-dimensional, and this is almost correct.  It is more accurate to say that <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> is five-dimensional <em>because</em> a basis for the space must have five vectors.  The <strong>dimension</strong> of a vector space (or subspace) is defined as the number of vectors in any basis for the space.</p>
 </div>
 <div class="section" id="coordinates">
 <h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>

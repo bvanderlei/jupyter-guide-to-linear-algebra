@@ -348,14 +348,14 @@ For any linear system, exactly one of the following statements is true:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -1  0  2  0]
- [-2 -2  2 -2 -2]
- [ 1 -1  1  2  2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2  1  0 -2  0]
+ [ 0  1 -1 -1 -2]
+ [ 0  2  0 -2 -2]]
 
 
-[[ 1.   0.   0.   1.5  1.5]
- [ 0.   1.   0.  -0.5  1.5]
- [ 0.   0.   1.   0.   2. ]]
+[[ 1.   0.   0.   0.5 -0.5]
+ [ 0.   1.   0.  -1.  -1. ]
+ [ 0.   0.   1.   0.   1. ]]
 </pre></div>
 </div>
 </div>
@@ -364,6 +364,7 @@ For any linear system, exactly one of the following statements is true:</p>
 <div class="section" id="pivot-positions-and-free-variables">
 <h2>Pivot positions and free variables<a class="headerlink" href="#pivot-positions-and-free-variables" title="Permalink to this headline">¶</a></h2>
 <p>We first look at how the RREF of the <em>augmented coefficient matrix</em> can be used to help us write the solution to a system in the presence of <strong>free variables</strong>.  Free variables are those that are not uniquely determined by the system.</p>
+<p>Let’s consider the following system as an example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}

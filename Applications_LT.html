@@ -193,9 +193,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Applications_LT.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Applications_LT.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -213,10 +213,58 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Applications_LT.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computer-graphics">
+   Computer Graphics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#translation">
+     Translation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -227,7 +275,190 @@
                 
   <div class="section" id="applications-of-linear-transformations">
 <h1>Applications of Linear Transformations<a class="headerlink" href="#applications-of-linear-transformations" title="Permalink to this headline">¶</a></h1>
-<p>One common area where linear transformations arise is in computer graphics.  We look at a few examples from this field.</p>
+<div class="section" id="computer-graphics">
+<h2>Computer Graphics<a class="headerlink" href="#computer-graphics" title="Permalink to this headline">¶</a></h2>
+<p>Computer graphics essentially consist of a large number of basic geometric shapes such as triangles or quadrilaterals, defined by their vertices (corners).  The ability to manipulate these shapes efficiently is a fundamental necessity in the field of computer graphics.  Linear transformations can be used to generate a complex shapes from a basic shapes through effects such as shearing and reflection, and can also be used to rotatate and translate shapes in order to create a sequence of images needed for an animated scene.</p>
+<p>The software responsible for rendering three-dimensional scenes in modern video games must process the coordinates of millions of vertices in each frame of animation.  Typical hardware used for running the software will be able to generate around 60 frames per second.  In addition to the placement of vertices in a scene, there are other computations required, such as those to provide color and shading, and then to project the three-dimensional scene onto the two-dimensional screen.  In this context, the efficiency of the alogrithms, software, and hardware all play a major role in the quality of the end result.</p>
+<p>The use of matrix multiplication to manipulate coordinates for computer graphics has two primary advantages.  Matrix representations can be used to merge multiple transformations together into a single transformation.  For example, instead of applying a rotation followed by a scaling transformation, the two operations can easily be merged into a single operation by multiplying the associated matrices as we did earlier.  The other advantage to organizing the calculations into matrix multiplications is that dedicated hardware (graphics processing units) is designed specifically to handle these calculations in large numbers.</p>
+<p>The construction of matrices to carry out rotations, reflections, and shears, has already been demonstrated in <a class="reference internal" href="Planar_Transformations.html"><span class="doc std std-doc">Planar Transformations</span></a>.  Here we show how to use matrix multiplication to carry out a translation, which is not a linear transformation.</p>
+<div class="section" id="translation">
+<h3>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>translation</strong> is a transformation that moves all points an equal amount in the same direction.  Shown below is an example where all points are shifted (translated) three units to the right, and one unit up by a transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2 \to \mathbb{R}^2\)</span>.  In the plot, we show several points which define a shape, and their corresponding images under the translation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline  
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1">## Compute translation by adding 3 to x coordinates and 1 to y coordinates</span>
+<span class="n">x_translated</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_translated</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">x_translated</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">3</span>
+    <span class="n">y_translated</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Translation&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Applications_LT_4_0.png" src="_images/Applications_LT_4_0.png" />
+</div>
+</div>
+<p>Translation of coordinates is useful in computer graphics, but it is not a linear transformation.  In order to see why, we write a formula for the image of a vector <span class="math notranslate nohighlight">\(X\)</span>, and then verify that <span class="math notranslate nohighlight">\(T(X+Y) \neq T(X)+T(Y)\)</span> for arbitrary vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T(X) = X + \left[ \begin{array}{r} 3 \\ 1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T(X+Y) = (X + Y) + \left[ \begin{array}{r} 3 \\ 1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T(X) + T(Y) = X + \left[ \begin{array}{r} 3 \\ 1 \end{array} \right] + Y + \left[ \begin{array}{r} 3 \\ 1 \end{array} \right]
+= (X + Y) + \left[ \begin{array}{r} 6 \\ 2 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>The fact that <span class="math notranslate nohighlight">\(T\)</span> is not linear implies that this transformation cannot be represented as a matrix multiplication in its current state.</p>
+<p>Since the use of translations are necessary, a standard method has been developed to incorporate matrix multiplication and the associated advantages.  The method requires that we view <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> as a plane within <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  We can then construct a linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^3\)</span> which will have the <em>effect of the translation</em> within that plane.  We demonstrate the details for the transformation defined above.</p>
+<p>First, we associate the coordinates <span class="math notranslate nohighlight">\((x_1,x_2)\)</span> of a point in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with the coordinates <span class="math notranslate nohighlight">\((x_1,x_2,1)\)</span> of a point in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> in the plane <span class="math notranslate nohighlight">\(x_3=1\)</span>.  These new coordinates are known as <em>homogeneous coordinates</em>.  We can then create a linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^3\)</span> that represents a shear that is parallel to the <span class="math notranslate nohighlight">\(x_1x_2\)</span>-plane, and in the direction of the desired translation.  The effect of <span class="math notranslate nohighlight">\(L\)</span> on points in the plane <span class="math notranslate nohighlight">\(x_3=1\)</span> is a translation within the <span class="math notranslate nohighlight">\(x_3=1\)</span> plane.  We define <span class="math notranslate nohighlight">\(L(X)=AX\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the following matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 3 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>Recall that the columns of <span class="math notranslate nohighlight">\(A\)</span> are the images of the standard basis vectors <span class="math notranslate nohighlight">\(\{E_1, E_2, E_3\}\)</span>.  In this case <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are unchanged, and <span class="math notranslate nohighlight">\(E_3\)</span> is sheared in the desired direction.  We observe that <span class="math notranslate nohighlight">\(L\)</span> has the intended effect.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L(X) = AX = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 3 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{array} \right]
+\left[ \begin{array}{r} x_1 \\ x_2 \\ 1 \end{array} \right] = 
+\left[ \begin{array}{c} x_1+3 \\ x_2+1 \\ 1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>Finally, we associate with <span class="math notranslate nohighlight">\(L(X)\)</span> the point in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> that has coordinates <span class="math notranslate nohighlight">\((x_1+3, x_2+1)\)</span>.</p>
+<p>Let’s have a look at the revised calculation with NumPy, that now makes use of the matrix multiplication.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 1. 1. 1. 1. 1. 1.]]
+[0 0 1 1 2 2 0]
+[[0 0 1 1 2 2 0]
+ [0 3 3 1 1 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Form a matrix of coordinates with rows x, y, 1</span>
+<span class="n">Ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Ones</span><span class="p">))</span>
+
+<span class="c1"># Define the matrix for the transfomation L</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1">## Compute translation by matrix multiplication</span>
+<span class="n">coords_translated</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@coords</span>
+
+<span class="c1">## Slice off the first and second rows.  These are the coords of the translated points</span>
+<span class="n">x_translated</span> <span class="o">=</span> <span class="n">coords_translated</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_translated</span> <span class="o">=</span> <span class="n">coords_translated</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Translation&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Applications_LT_9_0.png" src="_images/Applications_LT_9_0.png" />
+</div>
+</div>
+<p>If we look closely at the computation, we realize that this way of computing the coordinates of the translated shape actually requires <em>more operations</em> than the first attempt where we stepped through the array and manipulated the coordinates directly.  The important point to remember however is that the ability to represent the translation as a matrix multiplication means that we can merge it with another operation, such as rotation, in order to carry out both operations by multiplying by a single matrix.</p>
+<p>Translations of shapes in three dimensions can be done in a simlar way by associating each set of coordinate <span class="math notranslate nohighlight">\((x_1, x_2, x_3)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> with the point <span class="math notranslate nohighlight">\((x_1, x_2, x_3, 1)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Find a single matrix that represents a transformation that has the effect of a reflection about the line <span class="math notranslate nohighlight">\(x_1=x_2\)</span> followed by a shift four units to the left.</p></li>
+<li><p>Apply the transformation to the shape defined by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p></li>
+<li><p>Find a single matrix that represents a rotation about the point <span class="math notranslate nohighlight">\((1,2)\)</span>.  (<em>Hint:  Make use of a translation to bring the center of rotation to <span class="math notranslate nohighlight">\((0,0)\)</span></em>.)</p></li>
+</ol>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kwak, Jin Ho and Sungpyo Hong.  <em>Linear Algebra</em>. 2nd ed., Birkhauser., 2004.</p></li>
+<li><p>Lay, David, et al. <em>Linear Algebra and its Applications</em>. 5th ed., Pearson., 2016</p></li>
+<li><p>John Vince. <em>Mathematics for Computer Graphics</em>. 3rd ed., Springer., 2010</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

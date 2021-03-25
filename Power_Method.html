@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to the Jupyter Guide to Linear Algebra &#8212; Jupyter Guide to Linear Algebra</title>
+    <title>Power Method &#8212; Jupyter Guide to Linear Algebra</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to Jupyter" href="Jupyter_Introduction.html" />
+    <link rel="next" title="Applications" href="Applications_EV.html" />
+    <link rel="prev" title="Diagonalization" href="Diagonalization.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -92,12 +93,12 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
@@ -123,10 +124,27 @@
    Inner Products
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Power Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -170,9 +188,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Power_Method.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -190,29 +208,27 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Power_Method.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-use-this-guide">
-   How to use this Guide
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites-or-corequisites">
-   Prerequisites or Corequisites
-  </a>
- </li>
-</ul>
-
-        </nav>
         
     </div>
 </div>
@@ -221,29 +237,16 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-the-jupyter-guide-to-linear-algebra">
-<h1>Welcome to the Jupyter Guide to Linear Algebra<a class="headerlink" href="#welcome-to-the-jupyter-guide-to-linear-algebra" title="Permalink to this headline">¶</a></h1>
-<p>The Jupyter Guide to Linear Algebra covers many of the core topics that would appear in an introductory course on linear algebra, together with several applications.  The guide also provides a brief introduction to the Python programming langauge, with focus on the portions that are relevant to linear algebra computations, as well as some general guidance on programming.  In its current form, the Jupyter Guide to Linear Algebra is not intended to be a replacement for a textbook in a traditional university course, although it should prove useful to students in such courses.  The guide may also be useful to those who have some knowledge of linear algebra, and wish to learn how to carry out computations in Python, or experienced Jupyter users that would like to learn a bit about Linear Algebra.</p>
-<p>Features:</p>
-<ul class="simple">
-<li><p>Development of a module to be used along side of the Jupyter Guide to Linear Algebra, or independently.</p></li>
-<li><p>Exercises aimed at exploring linear algebra concepts, as well as exercises to practice writing Python code.</p></li>
-<li><p>Instruction on the basic use of NumPy, SciPy, and Matplotlib.</p></li>
-</ul>
-<p>The code supplied in Jupyter Guide to Linear Algebra performs all operations numerically.  We do not make use of SymPy to perform symbolic computations, which hide the practical challenges of accuracy and stability.  We will discover and acknowledge roundoff error very early in the guide, but we will not provide a detailed error analysis, nor advanced algorithms to minimize its impact.  We will also not be overly concerned with computational efficiency.  This resource is meant for a first course in linear algebra, and we will leave the larger challenges of numerical linear algebra for a second course.</p>
-<p>The Jupyter Guide to Linear Algebra presents the mathematics in a relatively informal way.  We offer explanations in place of proofs and do not follow a traditional model of definitions and theorems.  Instead our main objective is to present methods to solve problems, demonstrate how to carry out calculations, provide the basic terminology of linear algebra, and examine ways in which the abstract ideas can be used in practical ways.</p>
-<div class="section" id="how-to-use-this-guide">
-<h2>How to use this Guide<a class="headerlink" href="#how-to-use-this-guide" title="Permalink to this headline">¶</a></h2>
-<p>The real purpose of this material is for the reader to engage with the material by experimenting and trying out computations for themselves.  The Jupyter Guide to Linear Algebra is currently distributed in two forms, either a Jupyter book, or a collection of Jupyter notebooks.  The Jupyter book version may be found as a pdf or website.  If you are reading a pdf version, please find the digital version at <a class="reference external" href="https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/intro.html">bvanderlei.github.io/jupyter-guide-to-linear-algebra/intro.html</a>.</p>
-<p>If you are reading this on a website, you can launch the notebook for the current section in BinderHub by clicking the rocket icon in the upper right corner of the page.  This will create an interactive Jupyter session which may take a minute to load.  Once it is complete you can edit the notebook, run your own code, and download your work when you are finished.  If you are an experinced Jupyter user, you may also choose to download the notebooks directly.  The complete collection of notebooks can be found at <a class="reference external" href="https://github.com/bvanderlei/jupyter-guide-to-linear-algebra">github.com/bvanderlei/jupyter-guide-to-linear-algebra</a>.</p>
-</div>
-<div class="section" id="prerequisites-or-corequisites">
-<h2>Prerequisites or Corequisites<a class="headerlink" href="#prerequisites-or-corequisites" title="Permalink to this headline">¶</a></h2>
-<p>An introductory programming course, or an equivalent programming experience would be useful to the reader.  While we do introduce all of the syntax needed to write Python scripts, we do not delve into the details of traditional topics in an introductory programming course (data types, logic, iteration, and complex data structures).  We address the features of Python that we use most frequetly, and provide only brief mentions of those that are tangential to our goals.</p>
-<p>Some applications make use of Calculus and will be noted.  Full appreciation of these sections will require an introductory Calculus course.</p>
-<div class="toctree-wrapper compound">
-</div>
-</div>
+  <div class="section" id="power-method">
+<h1>Power Method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h1>
+<p>The diagonalization of a matrix gives us a shortcut for computing powers of a matrix.  This idea is the basis for the <strong>power method</strong>, which is an algorithm for approximating eigenvalues.</p>
+<p>If an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is diagonalizable with eigenvectors <span class="math notranslate nohighlight">\(\{V_1, V_2, ..., V_n\}\)</span>, then any vector <span class="math notranslate nohighlight">\(X\)</span> can be written as <span class="math notranslate nohighlight">\(X = c_1V_1 + c_2V_2 + ... c_nV_n\)</span>.  The product <span class="math notranslate nohighlight">\(A^mX\)</span> can be computed by scaling the eigenvector components.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+A^mX = c_1\lambda_1^mV_1 + c_2\lambda_2^mV_2 + ... c_n\lambda_n^mV_n
+\end{equation}
+\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -274,7 +277,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="Jupyter_Introduction.html" title="next page">Introduction to Jupyter</a>
+    <a class='left-prev' id="prev-link" href="Diagonalization.html" title="previous page">Diagonalization</a>
+    <a class='right-next' id="next-link" href="Applications_EV.html" title="next page">Applications</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

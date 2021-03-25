@@ -298,8 +298,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#row-space">
-   Row Space
+  <a class="reference internal nav-link" href="#column-space">
+   Column Space
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -379,7 +379,7 @@ x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
 <p>The next step is to introduce terminology to describe a collection of linear combinations.  The <strong>span</strong> of a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is the set of all possible linear combinations of vectors in the set.  For any coefficients <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span>, the vector <span class="math notranslate nohighlight">\(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> is said to be <em>in the span of</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
 <p>Given the direct connection between linear systems and linear combinations of vectors, we understand that when we are trying to determine if a given linear system as a solution, we are in fact trying to determine if a given vector, say <span class="math notranslate nohighlight">\(B\)</span>, is a linear combination of some set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  Making use of the new terminology, we could say that we are trying to determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
 <p>It is important to distinguish between the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> and the actual <em>set of vectors</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  The set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains only the vectors themselves, while the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains every vector that can be built as a linear combination of these vectors.  If we were to visualize these objects, the set of vectors would be a collection of arrows, while the span would be a multi-dimensional collection.  Again, it is easiest if we visualize an example in a two or three dimentions.</p>
-<p><font color=red> Figures here for 2d subspace, or similar. </font></p>
+<p><font color=red> Figures here for 2d subspace. </font></p>
 </div>
 <div class="section" id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
@@ -413,7 +413,7 @@ a_3\left[ \begin{array}{r} -1 \\ -1 \\ -1 \\ 0 \end{array}\right] =
 3a_1 -4a_2 \quad\quad &amp; = &amp; 2
 \end{eqnarray*}
 \end{split}\]</div>
-<p>Instead of finding values for <span class="math notranslate nohighlight">\(a_1\)</span>, <span class="math notranslate nohighlight">\(a_2\)</span>, and <span class="math notranslate nohighlight">\(a_3\)</span>, we will only do the elimination part of the solution process to determine if the system is consistent.</p>
+<p>We apply elimination to make a conclusion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -634,11 +634,11 @@ c_1X + c_2Y &amp; = &amp; c_1(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n) + c_2(b_
 <p>It is also true that any subspace can be described as the span of some set of vectors.  We will explore this idea in an upcoming section.</p>
 </div>
 </div>
-<div class="section" id="row-space">
-<h2>Row Space<a class="headerlink" href="#row-space" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="column-space">
+<h2>Column Space<a class="headerlink" href="#column-space" title="Permalink to this headline">¶</a></h2>
 <p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  If future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then the matrix-vector product <span class="math notranslate nohighlight">\(AX\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  If we recall that this product is formed by taking a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, we realize that the vector <span class="math notranslate nohighlight">\(AX\)</span> must be <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> by definition.  An important connection here is that the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent <em>if and only if</em> the vector <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
-<p>Although the concept of the row space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
+<p>Although the concept of the column space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, then the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>

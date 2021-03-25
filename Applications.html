@@ -286,26 +286,28 @@
   <a class="reference internal nav-link" href="#id1">
    Exercises
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#counting-paths">
-   Counting paths
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-cliques">
-   Finding Cliques
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   Exercises
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tournament-analysis">
-   Tournament Analysis
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#counting-paths">
+     Counting paths
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-cliques">
+     Finding Cliques
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Exercises
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tournament-analysis">
+     Tournament Analysis
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
@@ -714,8 +716,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>! is not included in the current alphabet.
-CSLFXDUSXZ.T U MW.GLJPCUE YZNHFJ
-WE RIDE AT DAWN  MAYBE SOONER.BW
+CSLFXDUSXZ.T U MW.GLJPCUE YZJRMN
+WE RIDE AT DAWN  MAYBE SOONER.JK
 </pre></div>
 </div>
 </div>
@@ -825,9 +827,8 @@ WE RIDE AT DAWN  MAYBE SOONER.BW
 <li><p>Create your own adjacency matrix and use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> to make a visualization of the associated graph.</p></li>
 <li><p>Edit your matrix and redraw the graph to see the changes.  Reuse the positions if you want the nodes to remain in the same locations.</p></li>
 </ol>
-</div>
 <div class="section" id="counting-paths">
-<h2>Counting paths<a class="headerlink" href="#counting-paths" title="Permalink to this headline">¶</a></h2>
+<h3>Counting paths<a class="headerlink" href="#counting-paths" title="Permalink to this headline">¶</a></h3>
 <p>One use of the adjacency matrix is in computation of paths from one node to another.  The <span class="math notranslate nohighlight">\((i,j)\)</span> entries in <em>powers</em> of the adjacency matrix will tell us the number of paths between nodes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> that have length equal to the power.  For example, if <span class="math notranslate nohighlight">\(B\)</span> is the adjacency matrix, then <span class="math notranslate nohighlight">\(B^3\)</span> contains information about paths of length 3.</p>
 <p>Let’s try it out for the previous example.</p>
 <div class="cell docutils container">
@@ -850,7 +851,7 @@ WE RIDE AT DAWN  MAYBE SOONER.BW
 <p>We see for example that <span class="math notranslate nohighlight">\(B^3_{50} = 2\)</span>.  This means that there are 2 paths of length 3 from node 5 to node 0.  Similarly we see that <span class="math notranslate nohighlight">\(B^3_{22} = 1\)</span>, which means that there is only 1 path of length 3 from node 2 back to itself.  Check the graph for yourself to verify these counts.</p>
 </div>
 <div class="section" id="finding-cliques">
-<h2>Finding Cliques<a class="headerlink" href="#finding-cliques" title="Permalink to this headline">¶</a></h2>
+<h3>Finding Cliques<a class="headerlink" href="#finding-cliques" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>clique</strong> is a set of three or more nodes within a graph such that there is an edge between each node in the clique <em>in both directions</em>.  In the example shown below, nodes 2, 3, and 4 form a clique.</p>
 <p><img alt="title" src="_images/Clique_example.png" /></p>
 <p>Note that node 1 in this graph is not part of the clique because it is not connected in both directions to nodes 2 and 4.  In order for a node to be included in the clique, it must be connected in both directions to <em>every other node in the clique.</em></p>
@@ -962,16 +963,16 @@ WE RIDE AT DAWN  MAYBE SOONER.BW
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 5. 1. 1. 0. 0. 0. 1. 0.]
- [0. 0. 6. 2. 3. 0. 0. 0. 1. 0.]
- [5. 6. 0. 0. 0. 5. 2. 6. 0. 6.]
- [1. 2. 0. 0. 0. 1. 3. 1. 0. 3.]
- [1. 3. 0. 0. 0. 1. 3. 1. 0. 2.]
- [0. 0. 5. 1. 1. 0. 0. 0. 1. 0.]
- [0. 0. 2. 3. 3. 0. 0. 0. 0. 0.]
- [0. 0. 6. 1. 1. 0. 0. 0. 2. 0.]
- [1. 1. 0. 0. 0. 1. 0. 2. 0. 1.]
- [0. 0. 6. 3. 2. 0. 0. 0. 1. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 2. 2. 1. 8. 3. 7. 1. 5. 1.]
+ [2. 0. 2. 1. 2. 4. 2. 1. 4. 0.]
+ [2. 2. 0. 1. 6. 1. 2. 0. 1. 3.]
+ [1. 1. 1. 0. 2. 1. 4. 1. 1. 0.]
+ [8. 2. 6. 2. 4. 8. 8. 5. 3. 1.]
+ [3. 4. 1. 1. 8. 2. 7. 1. 2. 2.]
+ [7. 2. 2. 4. 8. 7. 4. 2. 2. 2.]
+ [1. 1. 0. 1. 5. 1. 2. 0. 1. 1.]
+ [5. 4. 1. 1. 3. 2. 2. 1. 0. 4.]
+ [1. 0. 3. 0. 1. 2. 2. 1. 4. 0.]]
 </pre></div>
 </div>
 <img alt="_images/Applications_62_1.png" src="_images/Applications_62_1.png" />
@@ -980,14 +981,14 @@ WE RIDE AT DAWN  MAYBE SOONER.BW
 <p>Although the exact picture will change with each new random matrix, we will likely see that there are more than three nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>, and that this set of nodes defines more than one clique.  For a graph with 10 nodes, we can still see fairly easily how to sort the nodes into different cliques.  For large graphs we would want to make use of a sorting algorithm.</p>
 </div>
 <div class="section" id="id2">
-<h2>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Rerun the code above until it produces a graph that has at least 5 nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>.  Sort the nodes if they belong to different cliques.</p></li>
 <li><p>Write a code cell to sort the <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span> list into different cliques.  Print the result or store it in a list of lists.</p></li>
 </ol>
 </div>
 <div class="section" id="tournament-analysis">
-<h2>Tournament Analysis<a class="headerlink" href="#tournament-analysis" title="Permalink to this headline">¶</a></h2>
+<h3>Tournament Analysis<a class="headerlink" href="#tournament-analysis" title="Permalink to this headline">¶</a></h3>
 <p>In a <strong>dominance directed graph</strong> every node is connected to each other node, but only in one direction.  This means the in the adjacency matrix <span class="math notranslate nohighlight">\(D\)</span>, either <span class="math notranslate nohighlight">\(d_{ij} = 1\)</span>, or <span class="math notranslate nohighlight">\(d_{ji}=1\)</span>, but not both.  A dominance directed graph could be used to represent the results of a tournament where every player faced each other player exactly once, and either won or lost the competition.  An edge from player 2 to player 4 means that player 2 won.  Let’s look at an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1043,6 +1044,7 @@ WE RIDE AT DAWN  MAYBE SOONER.BW
 </div>
 </div>
 <p>Looking at the sum of the rows of <span class="math notranslate nohighlight">\(D + D^2\)</span> we see that player 2 has the highest rating in this particular tournament.</p>
+</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

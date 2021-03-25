@@ -278,11 +278,11 @@
                 
   <div class="section" id="transformations-in-a-plane">
 <h1>Transformations in a Plane<a class="headerlink" href="#transformations-in-a-plane" title="Permalink to this headline">¶</a></h1>
-<p>As discussed in the previous section, any linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be represented as the multiplication of a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix and a coordinate vector.  For now, the coordinates are with respect to the standard basis <span class="math notranslate nohighlight">\(\{e_1,e_2\}\)</span> as they were before.  The columns of the matrix are then the images of the the basis vectors.</p>
+<p>As discussed in the previous section, any linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be represented as the multiplication of a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix and a coordinate vector.  For now, the coordinates are with respect to the standard basis <span class="math notranslate nohighlight">\(\{E_1,E_2\}\)</span> as they were before.  The columns of the matrix are then the images of the the basis vectors.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-A = \left[ \begin{array}{c|c} T(e_1) &amp; T(e_2) \end{array} \right]
+A = \left[ \begin{array}{c|c} T(E_1) &amp; T(E_2) \end{array} \right]
 \end{equation}
 \]</div>
 <div class="section" id="example-1">
@@ -318,7 +318,7 @@ T\left(\left[ \begin{array}{r} c_1 \\ c_2  \end{array}\right]\right) = T\left(c_
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">T</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="n">coords</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
