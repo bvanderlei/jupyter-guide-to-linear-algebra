@@ -36,6 +36,7 @@
 - file: Eigenvalues
   sections:
     - file: Diagonalization
+    - file: Approximating_Eigenvalues
     - file: Applications_EV
 
     
