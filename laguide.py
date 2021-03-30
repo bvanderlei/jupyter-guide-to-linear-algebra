@@ -213,7 +213,10 @@ def BackSubstitution(U,Y):
         X[i] = Y[i]
         for j in range(i+1,m):
             X[i] -= U[i][j]*X[j]
-        X[i] /= U[i][i]
+        if (U[i][i] != 0):
+            X[i] /= U[i][i]
+        else:
+            print("Zero entry found in U pivot position",i,".")
     return X
 
 def RowReduction(A):

@@ -8,8 +8,8 @@
     - file: Gaussian_Elimination
     - file: Matrix_Algebra
     - file: Solving_Systems    
-    - file: LU_Factorization
     - file: Inverse_Matrices
+    - file: LU_Factorization
     - file: Applications
 - file: Vector_Spaces
   sections:
