@@ -23,7 +23,6 @@
   sections:
     - file: Matrix_Representations
     - file: Planar_Transformations
-    - file: Change_Bases    
     - file: Applications_LT
 - file: Inner_Products
   sections:
