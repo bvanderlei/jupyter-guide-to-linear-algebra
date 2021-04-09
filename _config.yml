@@ -13,3 +13,4 @@ repository:
 
 launch_buttons:
   notebook_interface: "classic"
+  thebe: true
