@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Applications &#8212; Jupyter Guide to Linear Algebra</title>
+    <title>Applications of Vector Spaces &#8212; Jupyter Guide to Linear Algebra</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -50,9 +50,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -141,7 +141,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Applications
+     Applications of Vector Spaces
     </a>
    </li>
   </ul>
@@ -236,6 +236,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -260,6 +263,16 @@
    Exercises
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#information-retrieval">
+   Information Retrieval
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -271,9 +284,9 @@
         
               <div>
                 
-  <div class="section" id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
-<p>In some cases, linear systems arise naturally through a vector equation</p>
+  <div class="section" id="applications-of-vector-spaces">
+<h1>Applications of Vector Spaces<a class="headerlink" href="#applications-of-vector-spaces" title="Permalink to this headline">¶</a></h1>
+<p>When an object is made up of multiple components it is often useful to represent the object as a vector, with one entry per component.  The examples discussed in this section involve molecules, which are made up of atoms, and text documents, which are made up of words.  In some cases equations involving the objects give rise to vector equations.  In other instances there are reasons to perform operations on the vectors using matrix algebra.</p>
 <div class="section" id="chemical-equations">
 <h2>Chemical Equations<a class="headerlink" href="#chemical-equations" title="Permalink to this headline">¶</a></h2>
 <p>In balancing a chemical equation, we seek to determine a number of molecules of reactant that form a number of molecules of reactant, while maintaining an equal number of each type of atom on both sides of the equation.  Here is an example for the combustion of ethanol</p>
@@ -370,14 +383,127 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
 \end{equation}
 \]</div>
 </div>
+<div class="section" id="information-retrieval">
+<h2>Information Retrieval<a class="headerlink" href="#information-retrieval" title="Permalink to this headline">¶</a></h2>
+<p>A well-known idea in information retrieval is that of the <strong>vector space model</strong>, which represents documents in a database as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Algorithms which aim to search the database for documents that are most relevant to keyword searches can then make use of the vector representation.  We provide some simple examples of how such algorithms might work.</p>
+<p>Let’s begin by with the modeling a document with a vector.  All we really need is a list of <span class="math notranslate nohighlight">\(n\)</span> words that will be searchable in our database.  This list could be a list of each distinct word in the whole collection of documents, but there are many common words in English that we might disqualify as keywords since they appear abundantly in all documents (the, as, in, it, etc.).  Each document in the database can now be represented by a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, with the <span class="math notranslate nohighlight">\(n\)</span>th entry set to 1 if the corresponding keyword appears in the document, and 0 otherwise.</p>
+<p>For example, suppose our database is simply a list of webpages with content related to information retrieval.  Our set of keywords might be the following.</p>
+<p><strong>{algorithm, engine, information, google, computations, matrix, optimization, retrieval, search, theory }</strong></p>
+<p>Each webpage in the database is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{10}\)</span>, with entries corresponding to these words.  It is most convenient to write these vectors as <span class="math notranslate nohighlight">\(1\times 10\)</span> row vectors rather than <span class="math notranslate nohighlight">\(10\times 1\)</span> column vectors  For example, <em>Search Engine Algorithms</em> would be represented as <span class="math notranslate nohighlight">\([0, 1, 1, 0, 0, 0, 1, 0, 0, 0]\)</span>.  Our database then is represented by a <span class="math notranslate nohighlight">\(n\times 10\)</span> matrix that has a row for each title.  Suppose for the sake of our example that we have the following 6 titles.</p>
+<ul class="simple">
+<li><p>Search Engine Algorithms</p></li>
+<li><p>How Google Search Optimization Works</p></li>
+<li><p>Information Retrieval Theory</p></li>
+<li><p>Matrix Models of Information Retrieval</p></li>
+<li><p>Theory Behind Search Engines</p></li>
+<li><p>Computations in Information Retrieval</p></li>
+</ul>
+<p>We will build a vector for each title, and then assemble them into a matrix <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">T4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">T5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">T6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">T3</span><span class="p">,</span><span class="n">T4</span><span class="p">,</span><span class="n">T5</span><span class="p">,</span><span class="n">T6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 1 0 0 0 0 0 0 1 0]
+ [0 0 0 1 0 0 1 0 1 0]
+ [0 0 1 0 0 0 0 1 0 1]
+ [0 0 1 0 0 1 0 1 0 0]
+ [0 1 0 0 0 0 0 0 1 1]
+ [0 0 1 0 0 0 0 1 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s consider how we might perform a search of the keywords.  Suppose we want to search for entries matching the words “information”, “retrieval”, and “theory”.  We can build a <span class="math notranslate nohighlight">\(10\times 1\)</span> query vector <span class="math notranslate nohighlight">\(X\)</span> that has entries of 1 corresponding to these keywords.  In this case, the query vector is <span class="math notranslate nohighlight">\([0, 0, 1, 0, 0, 0, 0, 1, 0, 1]^T\)</span>.  The matrix-vector product <span class="math notranslate nohighlight">\(DX\)</span> will now contain entries that represent the number of words from the search that match each title in the database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">D</span><span class="nd">@X</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0]
+ [0]
+ [3]
+ [2]
+ [1]
+ [2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The third entry of <span class="math notranslate nohighlight">\(DX\)</span> is the largest, which means that the third webpage in the database best matches the list of keywords in the search.  The last three titles might also be reported as partial search matches.  Note that the database search is nothing more than a single matrix multiplication, followed by a search of the vector <span class="math notranslate nohighlight">\(DX\)</span> to find the largest entries.</p>
+<p>There are other possible ways that the documents in the database might be represented.   One approach might be to let the <span class="math notranslate nohighlight">\(n\)</span>th entry in each document vector equal the frequency of the corresponding word in that document.  For example, if the 7th keyword appears 53 times in a document, the vector representing that document would have 53 as the 7th entry.  The effect would be that a document that contains many instances of a matching keyword would be ranked higher in the search that a document with fewer instances of the word.</p>
+<p>Another idea is to set the <span class="math notranslate nohighlight">\(n\)</span>th entry equal to the relative frequency of the associated keyword in that document.  The <strong>relative frequency</strong> is the frequency divided by the total number of all keywords in the document.  Shown below is an example what a keyword count might look like if there were only 10 searchable words.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keyword</p></th>
+<th class="head"><p>Document 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>algorithm</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>engine</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-even"><td><p>information</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>google</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>compuations</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>matrix</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>optimization</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>retrieval</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>search</p></td>
+<td><p>31</p></td>
+</tr>
+<tr class="row-odd"><td><p>theory</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are a total of 100 keyword matches, so each entry would be divided by 100 and the row vector corresponding to document 1 would be <span class="math notranslate nohighlight">\([0.19, 0.23, 0, 0.02, 0, 0.11, 0, 0.1, 0.31, 0.04]\)</span>  In practice the number of searchable words and the number of words in each document might be tens of thousands each.  The query vector is again a column vector with entries of 1 corresponding to the words in the search, and all other entries set to zero.  The search is executed by a single matrix multiplication, followed by a search of the resulting vector for the largest entry.  The effect of this representation would be similar to that using frequency, but now a document with 50 matches in 30000 words would be rated higher than a document with 50 matches in 100000 words.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Berry, Michael W. and Murray Browne. <em>Understanding Serach Engines: Mathematical Modeling and Text Retrieval</em>. 2nd ed., SIAM, 2005</p></li>
+<li><p>Lay, David, et al. <em>Linear Algebra and its Applications</em>. 5th ed., Pearson., 2016</p></li>
+<li><p>Leon, Steven J. <em>Linear Algebra with Applications</em>. 9th ed., Pearson., 2015</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

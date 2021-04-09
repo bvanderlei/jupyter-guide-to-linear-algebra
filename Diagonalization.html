@@ -50,9 +50,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -141,7 +141,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Applications_EV.html">
-     Applications
+     Applications of Eigenvalues and Eigenvectors
     </a>
    </li>
   </ul>
@@ -221,6 +221,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -469,16 +472,16 @@ AX = A(V_1 + 2V_2) = AV_1 + 2AV_2 = \lambda_1V_1 + 2\lambda_2V_2 = 3V_1 + 2V_2
 </div>
 <div class="section" id="computation-with-scipy">
 <h2>Computation with SciPy<a class="headerlink" href="#computation-with-scipy" title="Permalink to this headline">¶</a></h2>
-<p>We now demonstrate how to compute eigenvalues and eigenvectors for any square matrix using the function <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> from the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module of the SciPy library.  This function accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> array representing a matrix and returns two arrays, one containing the eigenvalues, the other the eigenvectors.  We examine the usage by supplying our projection matrix as the argument.</p>
+<p>We now demonstrate how to compute eigenvalues and eigenvectors for any square matrix using the function <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> from the SciPy <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module.  This function accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> array representing a matrix and returns two arrays, one containing the eigenvalues, the other the eigenvectors.  We examine the usage by supplying our projection matrix as the argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">SLA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">evalues</span><span class="p">,</span><span class="n">evectors</span> <span class="o">=</span> <span class="n">SLA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">evalues</span><span class="p">,</span><span class="n">evectors</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">)</span>
 </pre></div>
@@ -546,7 +549,7 @@ B = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 0  \\ 2 &amp; -1 &amp; 4 \\  0 &am
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">evalues</span><span class="p">,</span> <span class="n">evectors</span> <span class="o">=</span> <span class="n">SLA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">evalues</span><span class="p">,</span> <span class="n">evectors</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -661,6 +664,7 @@ B = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 3 &amp; -2 &amp; 1 \\  1 &am
 \end{split}\]</div>
 <ul class="simple">
 <li><p>Write a function that accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> as an argument, and returns the three matrices <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(S^{-1}\)</span> such that <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>.  Make use of the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p></li>
+<li><p>Construct a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix that is not diagonal and has eigenvalues 2, 4, and 10.</p></li>
 </ul>
 </div>
 </div>
@@ -669,8 +673,8 @@ B = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 3 &amp; -2 &amp; 1 \\  1 &am
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

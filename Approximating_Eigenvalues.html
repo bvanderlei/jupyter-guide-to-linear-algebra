@@ -50,14 +50,14 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applications" href="Applications_EV.html" />
+    <link rel="next" title="Applications of Eigenvalues and Eigenvectors" href="Applications_EV.html" />
     <link rel="prev" title="Diagonalization" href="Diagonalization.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -141,7 +141,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Applications_EV.html">
-     Applications
+     Applications of Eigenvalues and Eigenvectors
     </a>
    </li>
   </ul>
@@ -221,6 +221,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -240,6 +243,28 @@
    Power Method
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverse-power-method">
+   Inverse Power Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shifts">
+     Shifts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -253,8 +278,8 @@
                 
   <div class="section" id="approximating-eigenvalues">
 <h1>Approximating Eigenvalues<a class="headerlink" href="#approximating-eigenvalues" title="Permalink to this headline">¶</a></h1>
-<p>In this section we look at some methods that can be used to approximate the eigenvalues of a matrix <span class="math notranslate nohighlight">\(A\)</span>.  Although it is possible to find the exact eigenvalues for small matrices, the approach is not practical for moderately large matrices.</p>
-<p>Most introductory references on the subject demonstrate a direct way to compute eigenvalues of an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> by computing roots of an associated <span class="math notranslate nohighlight">\(n\)</span>th polynomial, known as the <em>characteristic polynomial</em>.  For example, suppose <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
+<p>In this section we look at some methods that can be used to approximate the eigenvalues of a matrix <span class="math notranslate nohighlight">\(A\)</span>.  Although it is possible to find the exact eigenvalues for small matrices, the approach is impractical for larger matrices.</p>
+<p>Most introductory textbooks demonstrate a direct way to compute eigenvalues of an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> by computing roots of an associated <span class="math notranslate nohighlight">\(n\)</span>th degree polynomial, known as the <em>characteristic polynomial</em>.  For example, suppose <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -262,7 +287,7 @@ A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 <p>The eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> are solutions to the quadratic equation <span class="math notranslate nohighlight">\(\lambda^2 - (a+d)\lambda + ad-bc = 0\)</span>, which can be written explicitly in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> using the quadratic formula.  The challenges with larger matrices are that the polynomial is more difficult to construct, and the roots cannot be easily found with a formula.</p>
-<p>The algorithms we describe in the section are iterative methods.  They generate a sequence of values <span class="math notranslate nohighlight">\(\{\lambda^{(1)}, \lambda^{(2)}, \lambda^{(3)}, ... \}\)</span> that approach a true eigenvalue of the matrix under consideration.</p>
+<p>The algorithms we describe in the section are iterative methods.  They generate a sequence of vectors <span class="math notranslate nohighlight">\(\{X^{(1)}, X^{(2)}, X^{(3)}, ... \}\)</span> that approach a true eigenvector of the matrix under consideration.  An approximation of the corresponding eigenvalue can then be computed by multiplying the approximate eigenvector by <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="section" id="power-method">
 <h2>Power Method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
 <p>The first algorithm we introduce for approximating eigenvalues is known as the <strong>Power Method</strong>.  This method generates a sequence of vectors by repeated matrix multiplication.  Under suitable conditions, the sequence of vectors approaches the eigenvector associated with the eigenvalue that is largest in absolute value.</p>
@@ -273,7 +298,7 @@ A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
 X^{(0)} = c_1V_1 + c_2V_2 + ... c_nV_n
 \end{equation}
 \]</div>
-<p>We now form a sequence of vectors <span class="math notranslate nohighlight">\(X^{(1)}\)</span>, <span class="math notranslate nohighlight">\(X^{(2)}\)</span>, <span class="math notranslate nohighlight">\(X^{(3)}\)</span>, …, by setting <span class="math notranslate nohighlight">\(X^{(m)}= AX^{(m-1)}\)</span>.  Each of these vectors is easly expressed in terms of the eigenvectors.</p>
+<p>We now form a sequence of vectors <span class="math notranslate nohighlight">\(X^{(1)}\)</span>, <span class="math notranslate nohighlight">\(X^{(2)}\)</span>, <span class="math notranslate nohighlight">\(X^{(3)}\)</span>, …, by setting <span class="math notranslate nohighlight">\(X^{(m)}= AX^{(m-1)}\)</span>.  Each of these vectors is also easly expressed in terms of the eigenvectors.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -294,24 +319,30 @@ X^{(m)} =  \lambda_1^m\left(c_1V_1 + c_2\left(\frac{\lambda_2}{\lambda_1}\right)
 \end{equation}
 \]</div>
 <p>If <span class="math notranslate nohighlight">\(|\lambda_1| &gt; |\lambda_i|\)</span> for all <span class="math notranslate nohighlight">\(i\neq 1\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_i/\lambda_1|&lt; 1\)</span> and <span class="math notranslate nohighlight">\((\lambda_i/\lambda_1)^m\)</span> will approach zero as <span class="math notranslate nohighlight">\(m\)</span> gets large.  This means that if we repeatedly multiply a vector by the matrix <span class="math notranslate nohighlight">\(A\)</span>, eventually we will get a vector that is very nearly in the direction of the eigenvector that corresponds to the <span class="math notranslate nohighlight">\(\lambda_1\)</span>.</p>
-<p>Let’s demonstrate the calculation on the matrix shown here before we discuss further.</p>
+<p>Let’s demonstrate the calculation on the matrix shown here before we discuss the method further.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
 A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -10 &amp; 3 &amp; 7 &amp; 14 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length when as the Power Method is applied.  Since all components of the vectors get divided by the same factor, this doesn’t change the ultimate behavior of the sequence.  They still approach the direction of the eigenvector, but do not grow in magnitude due to the factor <span class="math notranslate nohighlight">\(\lambda_1^m\)</span>.</p>
-<p>We calculate <span class="math notranslate nohighlight">\(X^{(20)}\)</span> below.</p>
+<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length as the Power Method is applied.  If the vectors in the squence are not scaled, their magnitudes will grow of <span class="math notranslate nohighlight">\(\lambda_1&gt;1\)</span> or decay if <span class="math notranslate nohighlight">\(\lambda_1&lt;1\)</span>.    Since all components of the vectors get divided by the same factor when the vector is scaled, this step doesn’t change the ultimate behavior of the sequence.  The scaled sequence of vectors still approaches the direction of the eigenvector.</p>
+<p>We choose an arbitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span> and calculate <span class="math notranslate nohighlight">\(X^{(20)}\)</span> using the following rule.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+X^{(m)}=\frac{AX^{(m-1)}}{||AX^{(m-1)}||}
+\end{equation}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">],[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">]])</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">):</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">):</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
@@ -321,15 +352,15 @@ A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7.87666229e-13]
- [5.77350269e-01]
- [5.77350269e-01]
- [5.77350269e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.57522143e-12]
+ [-5.77350269e-01]
+ [-5.77350269e-01]
+ [-5.77350269e-01]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now if <span class="math notranslate nohighlight">\(X\)</span> is the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> with unit magnitude, then <span class="math notranslate nohighlight">\(|AX| = |\lambda_1X| = |\lambda_1|\)</span>.  We can therefor approximate <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> with <span class="math notranslate nohighlight">\(|AX|\)</span>.</p>
+<p>Now if <span class="math notranslate nohighlight">\(X\)</span> is the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> with unit magnitude, then <span class="math notranslate nohighlight">\(|AX| = |\lambda_1X| = |\lambda_1|\)</span>.  We can therefore approximate <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> with <span class="math notranslate nohighlight">\(|AX|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">))</span>
@@ -337,7 +368,7 @@ A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.999999999989992
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.000000000020005
 </pre></div>
 </div>
 </div>
@@ -350,10 +381,10 @@ A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.04791739e-11]
- [-4.72688555e-12]
- [-4.72688555e-12]
- [-7.87814258e-12]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4.09556833e-11]
+ [-9.45021839e-12]
+ [-9.45021839e-12]
+ [-1.57509561e-11]]
 </pre></div>
 </div>
 </div>
@@ -367,24 +398,330 @@ AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 
 \left[ \begin{array}{r} 0 \\ 24\\ 24 \\ 24 \end{array}\right] = 24X
 \end{equation}
 \end{split}\]</div>
+<p>In practice, we do not know how many iterations we need to perform in order to get a good approximation of the eigenvector eigenvalue.  Instead we should specify a condition upon which we will be satisfied with the approximation and terminate the iteration.  For example, since <span class="math notranslate nohighlight">\(||AX^{(m)}||\approx \lambda_1\)</span> and <span class="math notranslate nohighlight">\(AX^{(m)}\approx \lambda_1X^{(m)}\)</span> we might require that <span class="math notranslate nohighlight">\(AX^{(m)} - ||AX^{(m)}||X^{(m)} &lt; \epsilon\)</span> for some small number <span class="math notranslate nohighlight">\(\epsilon\)</span> known as a tolerance.  This condition ensures that <span class="math notranslate nohighlight">\(X^{(m)}\)</span> functions roughly like an eigenvector.  It is also best to include in the code a limit on the number of iterations that will be carried out.  This ensures that the computation will eventually end, even if a satisfactory result has not yet been achieved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">SLA</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
 
-<span class="n">evalues</span><span class="p">,</span> <span class="n">evectors</span> <span class="o">=</span> <span class="n">SLA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">evectors</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1">## Compute difference in stopping condition</span>
+<span class="c1">## Assign Y = AX to avoid computing AX multiple times</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">X</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">MAX_ITERATIONS</span> <span class="ow">and</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1">## Compute difference in stopping condition</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">Y</span> <span class="o">-</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span><span class="n">X</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the difference is:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.40000000e+01+0.j -6.00000000e+00+0.j  6.00000000e+00+0.j
- -3.99305433e-15+0.j]
-[ 4.94568128e-16 -5.77350269e-01 -5.77350269e-01 -5.77350269e-01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector is approximately:
+[[ 1.65181395e-06]
+ [-5.77350269e-01]
+ [-5.77350269e-01]
+ [-5.77350269e-01]] 
+
+Magnitude of the eigenvalue is approximately:
+24.000020980823063 
+
+Magnitude of the difference is:
+4.3284704411637657e-05
 </pre></div>
 </div>
 </div>
 </div>
+<p>A more common condition to require is that <span class="math notranslate nohighlight">\(||X^{(m)} - X^{(m-1})|| &lt; \epsilon\)</span> for a given tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span>.  This condition mere requires that the vectors in the sequence get close to one another, not that they are actually approximate an eigenvector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">difference</span> <span class="o">=</span> <span class="n">X</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">MAX_ITERATIONS</span> <span class="ow">and</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">):</span>
+    <span class="n">X_previous</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1">## Compute difference in stopping condition</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_previous</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the difference is:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector is approximately:
+[[ 2.64294012e-05]
+ [-5.77350269e-01]
+ [-5.77350269e-01]
+ [-5.77350269e-01]] 
+
+Magnitude of the eigenvalue is approximately:
+24.000020980823063 
+
+Magnitude of the difference is:
+8.434774776930161e-05
+</pre></div>
+</div>
+</div>
+</div>
+<p>While the Power Method is easy to understand and apply, it does have disadvantages.  The most apparent disadvantage is that the method only applies to the largest eigenvalue.  This is not a huge detriment since applications often only require an approximation of the largest eigenvalue.  Also, as we will demonstrate below, it is possible to easily modify the method to approximate the other eigenvalues.  A more significant disadvantage is that the rate at which the sequence converges can be slow in some circumstances.  For example, we can see that if <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> is close to <span class="math notranslate nohighlight">\(|\lambda_2|\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_1/\lambda_2|^m\)</span> approaches zero more slowly as <span class="math notranslate nohighlight">\(m\)</span> gets large.  The Power Method may fail to converge at all if <span class="math notranslate nohighlight">\(|\lambda_1| = |\lambda_2|\)</span>, which occurs if <span class="math notranslate nohighlight">\(\lambda_1 = -\lambda_2\)</span>, or if <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are a complex conjugate pair.  Additionally, the method may perform poorly if the <span class="math notranslate nohighlight">\(V_1\)</span> component of <span class="math notranslate nohighlight">\(X^{(0)}\)</span> is too small.</p>
+</div>
+<div class="section" id="inverse-power-method">
+<h2>Inverse Power Method<a class="headerlink" href="#inverse-power-method" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Inverse Power Method</strong> is a modified version of the Power Method that allows us to approximate eigenvalues that are <em>not the largest</em>.  All that is needed to make the modification is two simple facts that relate changes in a matrix to changes in the eigenvalues of that matrix.  Let’s suppose that <span class="math notranslate nohighlight">\(A\)</span> is an invertible <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and correpsonding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  If we multiply this equation by <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we get <span class="math notranslate nohighlight">\(V=\lambda A^{-1}V\)</span>, which can then be divided by <span class="math notranslate nohighlight">\(\lambda\)</span> to illustrate the useful fact.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+A^{-1}V = \frac{1}{\lambda}V
+\end{equation}
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(\lambda\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda^{-1}\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>.  Furthermore the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is also an eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  The important point here is that if <span class="math notranslate nohighlight">\(\lambda_n\)</span> is the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda_n^{-1}\)</span> is the <em>largest</em> eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  If we want to approximate the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, we can just apply the Power Method to <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<p>We demonstrate the calculation for the following <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Again we choose an aribitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span>, and generate a sequence of vectors by mulitplying by <span class="math notranslate nohighlight">\(A^{-1}\)</span> and scaling the result to unit length.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+X^{(m)}=\frac{A^{-1}X^{(m-1)}}{||A^{-1}X^{(m-1)}||}
+\end{equation}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">difference</span> <span class="o">=</span> <span class="n">X</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">MAX_ITERATIONS</span> <span class="ow">and</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">):</span>
+    <span class="n">X_previous</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1">## Compute difference in stopping condition</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_previous</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A inverse is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A_inv</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector is approximately:
+[[-4.47193123e-01]
+ [ 6.14168469e-05]
+ [-8.94437425e-01]] 
+
+Magnitude of the eigenvalue is A inverse is approximately:
+0.3333371476391265 
+
+Magnitude of the eigenvalue is A is approximately:
+2.999931351114087 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The exact value of the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 3, which again can be verified by calculation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AV = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
+\left[ \begin{array}{r} 1 \\ 0\\ 2 \end{array}\right] =
+\left[ \begin{array}{r} 3 \\ 0 \\ 6 \end{array}\right] = 3V
+\end{equation}
+\end{split}\]</div>
+<p>In our discussion of <a class="reference internal" href="Inverse_Matrices.html"><span class="doc std std-doc">Inverse Matrices</span></a> we noted that the construction of an inverse matrix is quite expensive since it requires the solution of <span class="math notranslate nohighlight">\(n\)</span> systems of size <span class="math notranslate nohighlight">\(n\times n\)</span>.  An alternative to constructing <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing the  <span class="math notranslate nohighlight">\(X^{(m)}=A^{-1}X^{(m-1)}\)</span> is to solve the system <span class="math notranslate nohighlight">\(AX^{(m)}=X^{(m-1)}\)</span> to obtain <span class="math notranslate nohighlight">\(X^{(m)}\)</span>.  This means that we solve one <span class="math notranslate nohighlight">\(n\times n\)</span> system for every iteration.  This appears to require more work than the construction of <span class="math notranslate nohighlight">\(A^{-1}\)</span>, but in fact it is less since every system involves the same coefficient matrix.  We can therefore save much work by performing elimination only once and storing the result in an <span class="math notranslate nohighlight">\(LU\)</span> factorization.  With the the matrix <span class="math notranslate nohighlight">\(A\)</span> factored, each system <span class="math notranslate nohighlight">\(AX^{(m)}=X^{(m-1)}\)</span> only requires one forward substitution and one backward substitution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">difference</span> <span class="o">=</span> <span class="n">X</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">LU_factorization</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu_factor</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">MAX_ITERATIONS</span> <span class="ow">and</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">):</span>
+    <span class="n">X_previous</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">(</span><span class="n">LU_factorization</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_previous</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue of A inverse is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">(</span><span class="n">LU_factorization</span><span class="p">,</span><span class="n">X</span><span class="p">)),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector is approximately:
+[[-4.47193123e-01]
+ [ 6.14168469e-05]
+ [-8.94437425e-01]] 
+
+Magnitude of the eigenvalue of A inverse is approximately:
+0.3333371476391265 
+
+Magnitude of the eigenvalue is A is approximately:
+2.999931351114087 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="shifts">
+<h3>Shifts<a class="headerlink" href="#shifts" title="Permalink to this headline">¶</a></h3>
+<p>Using a small modification to the Inverse Power Method, we can also approximate eigenvalues that are not the smallest.  For this variation of the method, we need to observe that if we “shift” the diagonal entries of a matrix by a scalar <span class="math notranslate nohighlight">\(\mu\)</span>, all of the eigenvalues of the matrix are also shifted by <span class="math notranslate nohighlight">\(\mu\)</span>.  Let <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and corresponding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  Then <span class="math notranslate nohighlight">\((A-\mu I)V = AV - \mu V = \lambda V - \mu V = (\lambda-\mu)V\)</span>, which means that <span class="math notranslate nohighlight">\(V\)</span> is also an eigenvector of the matrix <span class="math notranslate nohighlight">\((A-\mu I)\)</span> corresponding to the eigenvalue <span class="math notranslate nohighlight">\(\lambda -\mu\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\frac{1}{\lambda_1-\mu}, \frac{1}{\lambda_2-\mu}, \frac{1}{\lambda_3-\mu}, ....,\frac{1}{\lambda_n-\mu} 
+\end{equation}
+\]</div>
+<p>This is useful because it allows us to now use the Inverse Power Method to approximate the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> that lies closest to <span class="math notranslate nohighlight">\(\mu\)</span>.  For example, if <span class="math notranslate nohighlight">\(\mu\)</span> is closest to <span class="math notranslate nohighlight">\(\lambda_2\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_2-\mu| &lt; |\lambda_i -\mu|\)</span> for all other <span class="math notranslate nohighlight">\(i\neq 2\)</span>, which means that <span class="math notranslate nohighlight">\((\lambda_2-\mu)\)</span> can be approximated by applying the Inverse Power Method to <span class="math notranslate nohighlight">\((A-\mu I)\)</span>.</p>
+<p>We demonstrate the computation of the middle eigenvalue of the matrix from the previous example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>By using the Inverse Power Method we determined that the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 3.  Applying the Power Method directly will show that the largest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 12.  Since the third eigenvalue must lie somewhere inbetween these extremes, we choose <span class="math notranslate nohighlight">\(\mu\)</span> to be exactly in the middle at <span class="math notranslate nohighlight">\(7.5\)</span>.  Note that once we have a good approximation to the eigenvector with <span class="math notranslate nohighlight">\(X^{(m)}\)</span>, we can approximate the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> with <span class="math notranslate nohighlight">\(||AX^{(m)}||\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">MAX_ITERATIONS</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">X</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="n">Shifted_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">-</span><span class="n">mu</span><span class="o">*</span><span class="n">I</span>
+<span class="n">LU_factorization</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu_factor</span><span class="p">(</span><span class="n">Shifted_A</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">MAX_ITERATIONS</span> <span class="ow">and</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tolerance</span><span class="p">):</span>
+    <span class="n">X_previous</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">(</span><span class="n">LU_factorization</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1">## Compute difference in stopping condition</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">X_previous</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector is approximately:
+[[0.44232587]
+ [0.88465174]
+ [0.14744196]] 
+
+Eigenvalue is A is approximately:
+6.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix from the Inverse Power Method example.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Use the Power Method to approximate the largest eigenvalue <span class="math notranslate nohighlight">\(\lambda_1\)</span>.  Verify that the exact value of <span class="math notranslate nohighlight">\(\lambda_1\)</span> is 12.</p></li>
+<li><p>Apply the Inverse Power Method with a shift of <span class="math notranslate nohighlight">\(\mu = 10\)</span>.  Explain why the results differ from those in the example.</p></li>
+<li><p>Apply the Inverse Power Method with a shift 0f <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequece of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X^{(0)} = \left[ \begin{array}{r} 1 \\ 0  \\ 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(B\)</span> be the following matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrrr} -2 &amp; -18 &amp; 6 \\ -11 &amp; 3 &amp; 11 \\ -27 &amp; 15 &amp; 31 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Apply the Power Method and Inverse Power Method with shifts to approximate all eigenvalues of the matrix <span class="math notranslate nohighlight">\(B\)</span>. (<em>Note that one of the eigenvalues of this matrix is negative.</em>)</p></li>
+<li><p>Check your results using the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Burden, Richard L. et al. <em>Numerical Analysis</em>. 10th ed., Cengage Learning, 2014</p></li>
+<li><p>Golub, Gene H. and Charles F. Van Loan. <em>Matrix Computations</em>., The Johns Hopkins University Press, 1989</p></li>
+</ul>
 </div>
 </div>
 
@@ -392,8 +729,8 @@ AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -417,7 +754,7 @@ AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Diagonalization.html" title="previous page">Diagonalization</a>
-    <a class='right-next' id="next-link" href="Applications_EV.html" title="next page">Applications</a>
+    <a class='right-next' id="next-link" href="Applications_EV.html" title="next page">Applications of Eigenvalues and Eigenvectors</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

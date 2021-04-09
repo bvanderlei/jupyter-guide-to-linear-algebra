@@ -50,14 +50,14 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="LU Factorization" href="LU_Factorization.html" />
+    <link rel="next" title="Inverse Matrices" href="Inverse_Matrices.html" />
     <link rel="prev" title="Matrix Algebra" href="Matrix_Algebra.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -125,18 +125,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="LU_Factorization.html">
-     LU Factorization
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="Inverse_Matrices.html">
      Inverse Matrices
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Applications.html">
-     Applications
+     Applications of Linear Systems and Matrix Algebra
     </a>
    </li>
   </ul>
@@ -236,6 +236,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -302,14 +305,6 @@
 <li><p>Perform back substitution on the triangular system that elimination produces.</p></li>
 </ol>
 <p>It is also beneficial to consider how we might write the code now so that it will it can reuse it for other tasks later.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="back-substitution-routine">
 <h2>Back Substitution routine<a class="headerlink" href="#back-substitution-routine" title="Permalink to this headline">¶</a></h2>
 <p>We will start with the back substitution step, since that is the easier part.  If the elimination step is successful, we will have an upper triangular system <span class="math notranslate nohighlight">\(UX=B\)</span> that has the following form.</p>
@@ -324,7 +319,10 @@
 <p>We will put the code in a function so that that it is easy to reuse later.  For this function, let’s suppose that we are given the upper triangular matrix <span class="math notranslate nohighlight">\(U\)</span> and the known vector <span class="math notranslate nohighlight">\(B\)</span> and we want to find the vector <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(UX=B\)</span>.  Note we could make other assumptions, such as the matrix <span class="math notranslate nohighlight">\(U\)</span> having diagonal entries equal to 1, but if we make fewer assumptions, the code will be more useful later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">BackSubstitution</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="k">def</span> <span class="nf">BackSubstitution</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1">#     U is a NumPy array that represents an upper triangular square mxm matrix.  </span>
 <span class="c1">#     B is a NumPy array that represents an mx1 vector     </span>
@@ -338,7 +336,10 @@
         <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
             <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zero entry found in U pivot position&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">X</span>
 </pre></div>
 </div>
@@ -399,15 +400,14 @@
 \end{equation}
 \end{split}\]</div>
 <p>It is important to notice that each row can contain at most one pivot and each column can contain at most one pivot.</p>
-<p>Before presenting the code to find the row echelon form of a matrix, we first discuss the matrices we will be working with in the case that we are solving the a <span class="math notranslate nohighlight">\(AX=B\)</span> that has a unique solution.  We recall from the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> that the same row operations needed to bring <span class="math notranslate nohighlight">\(A\)</span> to row echelon form must also be applied to <span class="math notranslate nohighlight">\(B\)</span>.  In practice we can join <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> together to form what we call an <strong>augmented matrix</strong>, and carry out the row operations on this single matrix.  Here is an example of the augmented matrix associated with the system <span class="math notranslate nohighlight">\(AX=B\)</span>.</p>
+<p>Before presenting the code to find the row echelon form of a matrix, we first discuss the matrices we will be working with in the case that we are solving the a <span class="math notranslate nohighlight">\(AX=B\)</span> that has a unique solution.  We recall from the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> that the same row operations needed to bring <span class="math notranslate nohighlight">\(A\)</span> to row echelon form must also be applied to <span class="math notranslate nohighlight">\(B\)</span>.  In practice we can join <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> together to form what we call an <strong>augmented matrix</strong>, and carry out the row operations on this single matrix.  Here is an example of the augmented matrix, which we will write as <span class="math notranslate nohighlight">\([A|B]\)</span>, associated with the system <span class="math notranslate nohighlight">\(AX=B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
 AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array}\right]
 \left[ \begin{array}{r} x_1 \\ x_2 \end{array}\right]=
 \left[ \begin{array}{r} 0\\ 7  \end{array}\right] \hspace{1cm} \to \hspace{1cm}
-\left[ \begin{array}{rrr} 3 &amp; -1 &amp; 0 \\ 5 &amp; 2 &amp; 7 \end{array}\right]
-\hspace{1cm} \mbox{augmented matrix}
+[A|B] = \left[ \begin{array}{rr|r} 3 &amp; -1 &amp; 0 \\ 5 &amp; 2 &amp; 7 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 <p>In our current objective, <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(n\times n\)</span>, which means that the augmented matrix we need to process will be <span class="math notranslate nohighlight">\(n\times(n+1)\)</span>.  We are also assuming at this point that the system <span class="math notranslate nohighlight">\(AX=B\)</span> has a unique solution.  If this is true the augmented matrix will have a pivot in each of the first <span class="math notranslate nohighlight">\(n\)</span> columns, with the pivot positions lying along the diagonal line of entries starting at the top left entry.  If the row echelon form of the augmented matrix has a zero in any of these positions, our solution process breaks down as shown in the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> examples.</p>
@@ -462,7 +462,8 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NumericalReductionExample</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">RowReduction</span><span class="p">(</span><span class="n">NumericalReductionExample</span><span class="p">))</span>
+<span class="n">reduction_result</span> <span class="o">=</span> <span class="n">RowReduction</span><span class="p">(</span><span class="n">NumericalReductionExample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reduction_result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -475,8 +476,27 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<p>There are two things that we observe in this example.  First and most obvious is that the entries are all displayed in scientific notation.  The more disturbing observation is that the result is not exactly what we wanted.  The elimination process is supposed to produce zeros for all the entries below the main diagonal, but in this case there is one entry that is not <span class="math notranslate nohighlight">\(\texttt{0.000}\)</span>.  Instead it is an extremely small number, close to <span class="math notranslate nohighlight">\(10^{-17}\)</span>.  At this point we might question the code and start looking for errors, but the problem here does not lie with the code.  The issue here is something deeper, and involves the precision limitations of the computer.  When the computer carries out the operations of arithmetic it does not always work with exact numbers.  In most cases the results get rounded off to a number that the machine can represent.  This limitation is known as <strong>roundoff error</strong> and it is the reason we do not get exactly zero for all of the entries below the diagonal.</p>
-<p>Roundoff error can present a significant challenge if we work with large arrays, and the errors are allowed to accumulate and compound.  There are strategies that can be employed to mitigate this error, and we will revisit this dicussion in a later section.  For now we will carry on with elimination with the awareness that the results we get are not always <em>exactly correct</em>.</p>
+<p>There are two things that we observe in this example.  First and most obvious is that the entries are all displayed in scientific notation.  The more disturbing observation is that the result is not exactly what we wanted.  The elimination process is supposed to produce zeros for all the entries below the main diagonal, but in this case there is one entry that is not <span class="math notranslate nohighlight">\(\texttt{0.000}\)</span>.  Instead it is an extremely small number, close to <span class="math notranslate nohighlight">\(10^{-17}\)</span>.</p>
+<p>At this point we might question the code and start looking for errors, but the problem here does not lie with the code.  The issue here is something more fundamental, and involves the way numbers are represented in the calculation and precision limitations of the computer.  For example, the number <span class="math notranslate nohighlight">\(1/3\)</span>, which has a decimal representation that consists of an infinite string of <span class="math notranslate nohighlight">\(3\)</span>s, cannot be represented <em>exactly</em> using a finite decimal representation.  This means that the arrays representing the system may be slightly incorrect even before any calculations are performed.  As the computer carries out the operations of arithmetic must rounded off results to a numbers can be represented exactly.  This inherent limitation is known as <strong>roundoff error</strong> and it is the reason we do not get exactly zero for all of the entries below the diagonal.</p>
+<p>In this example, we can see that the entries that should be zero are indeed very close to zero.  If we want to display the results in a format that is more readable, we can use the NumPy function <span class="math notranslate nohighlight">\(\texttt{round}\)</span> to round all of the entries to a specified number of digits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rounded_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">reduction_result</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rounded_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.       -0.857143  0.857143 -1.142857]
+ [-0.        1.        0.584906  0.188679]
+ [-0.       -0.        1.        0.708464]
+ [-0.       -0.        0.        1.      ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note, we should only use the rounded results for the purpose of displaying results.  If we were to carry on and solve a system, or perform some other calculation, we should use the original results rather than the rounded version.</p>
+<p>Roundoff error can present a significant challenge if we work with large arrays, and the errors are allowed to accumulate and compound.  There are strategies that can be employed to mitigate this error, and ensure that usable results can be obtained.  Any software that must provide reliable results must account for roundoff error.  We will carry on with simple version of elimination with the awareness that the results we get are not always <em>exactly correct</em>.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
@@ -569,10 +589,10 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.00000000e+00]
- [-2.22044605e-16]
- [-2.22044605e-16]
- [ 4.44089210e-16]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.06581410e-14]
+ [ 7.10542736e-15]
+ [-2.13162821e-14]
+ [-1.50990331e-14]]
 </pre></div>
 </div>
 </div>
@@ -596,10 +616,10 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.33226763e-15]
- [-1.44328993e-15]
- [ 0.00000000e+00]
- [-1.11022302e-16]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.33066907e-16]
+ [-2.77555756e-15]
+ [ 3.33066907e-16]
+ [ 1.11022302e-16]]
 </pre></div>
 </div>
 </div>
@@ -640,8 +660,8 @@ Here is an example of a matrix in reduced row echelon form.</p></li>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -665,7 +685,7 @@ Here is an example of a matrix in reduced row echelon form.</p></li>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Matrix_Algebra.html" title="previous page">Matrix Algebra</a>
-    <a class='right-next' id="next-link" href="LU_Factorization.html" title="next page">LU Factorization</a>
+    <a class='right-next' id="next-link" href="Inverse_Matrices.html" title="next page">Inverse Matrices</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

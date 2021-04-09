@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discrete Dynamical Systems &#8212; Jupyter Guide to Linear Algebra</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Jupyter Guide to Linear Algebra
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Jupyter_Introduction.html">
+   Introduction to Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Systems.html">
+   Linear Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vector_Spaces.html">
+   Vector Spaces
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Linear_Transformations.html">
+   Linear Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inner_Products.html">
+   Inner Products
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Eigenvalues.html">
+   Eigenvalues
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Dynamical_Systems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Dynamical_Systems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Discrete Dynamical Systems
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infectious-disease-model">
+   Infectious Disease Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#navigating-webpages">
+   Navigating Webpages
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="discrete-dynamical-systems">
+<h1>Discrete Dynamical Systems<a class="headerlink" href="#discrete-dynamical-systems" title="Permalink to this headline">¶</a></h1>
+<p>As we saw in the previous chapter, it is often useful to describe a structure that has multiple components with a single vector.  If that structure is changing in time due to some process, it is typical to refer to the vector as a <strong>state vector</strong> since it describes the <em>state</em> of the structure at some particular time.  It is quite common to model such dynamic processes at discrete times and use linear transformations to model the evolution of the state vector from one time to the next.</p>
+<p>Let’s suppose that we aim to describe sequence of vectors at times <span class="math notranslate nohighlight">\(t=1, 2, 3,\)</span>… with state vectors <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span>, <span class="math notranslate nohighlight">\(X_3\)</span>…. at those times.  We propose to calculate the state vector <span class="math notranslate nohighlight">\(X_t\)</span> based only on the previous state vector <span class="math notranslate nohighlight">\(X_{t-1}\)</span>.  If we model the transition from <span class="math notranslate nohighlight">\(X_{t-1}\)</span> to <span class="math notranslate nohighlight">\(X_t\)</span> with a linear transformation, then there is a matrix such that <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>.  This sort of model is known as a <strong>discrete dynamical system</strong> and is used in many areas from economics to biology.</p>
+</div>
+<div class="section" id="infectious-disease-model">
+<h1>Infectious Disease Model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h1>
+<p>In this example we consider a basic model of an infectious disease that is spreading within a population.  A well known family of models for this scenario is known as the <span class="math notranslate nohighlight">\(SIR\)</span> models.  The acronym comes from a basic modeling assumption that the population is divided into three categories: Susceptible, Infectious, and Recovered.  As the disease, spreads a portion of the Susceptible individuals become Infectious, and a portion of Infectious individuals become Recovered.  We will consider a small variation in the model which assumes that a portion of Recovered individuals return to the Susceptible category.  This variation would be a more accurate model for a disease which can be contracted multiple times.</p>
+<p>We suppose that the population is completely homogeneous in all regards, so that all individuals in a given category have the same probabilities to move to the next category.</p>
+<p>To model real-world epidemics, it is necessary to estimate some parameters that specify how quickly individuals move among the categories.  These parameters will be important in making any predictions with the model.  For our demonstration, we will create an example.  Let us suppose that our state vectors describe the population at time intervals of 1 week, and that every week, 5% of the Susceptible population becomes Infectious, and 20% of the Infectious population becomes Recovered.  We also suppose that 15% of the Recovered population again becomes Susceptible every week.</p>
+<p>If we let <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span> represent the percentage of the three categories of the population at time <span class="math notranslate nohighlight">\(t\)</span>, we can write equations based on the modeling assumptions that allows us to calculate the values based on <span class="math notranslate nohighlight">\(s_{t-1}\)</span>, <span class="math notranslate nohighlight">\(i_{t-1}\)</span>, and <span class="math notranslate nohighlight">\(r_{t-1}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+s_t &amp; = &amp; 0.95s_{t-1} \hspace{2cm} + 0.15r_{t-1} \\
+i_t &amp; = &amp; 0.05s_{t-1}  + 0.80i_{t-1} \\
+r_t &amp; = &amp; \hspace{2cm} 0.20i_{t-1} + 0.85r_{t-1} 
+\end{eqnarray}
+\end{split}\]</div>
+<p>Now we can define <span class="math notranslate nohighlight">\(X_t\)</span> as the vector with components <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, so that the equations can be written using matrix multiplication.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
+\left[ \begin{array}{rrr} 0.95 &amp; 0 &amp; 0.15 \\ 0.05 &amp; 0.80 &amp; 0 \\ 0 &amp; 0.20 &amp; 0.85 \end{array}\right]
+\left[ \begin{array}{r} s_{t-1} \\ i_{t-1} \\ r_{t-1}  \end{array}\right]=
+AX_{t-1}
+\end{equation}
+\end{split}\]</div>
+<p>The linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^3\)</span> defined by this matrix multiplication maps the state of the
+population at time <span class="math notranslate nohighlight">\(t-1\)</span>, to the state of the population at time <span class="math notranslate nohighlight">\(t\)</span>.  For an example let’s label the initial state vector <span class="math notranslate nohighlight">\(X_0\)</span>, and consider what happens if initially 5% of the population is infective, and the other 95% of the population is susceptible.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_0 = \left[ \begin{array}{r} 0.95 \\ 0.05 \\ 0  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>We compute <span class="math notranslate nohighlight">\(X_1 = AX_0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.85</span><span class="p">]])</span>
+
+<span class="c1">## X at time 0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1">## Compute X at the next time</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.9025]
+ [0.0875]
+ [0.01  ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Applying the transformation again gives <span class="math notranslate nohighlight">\(X_2 = AX_1 = A^2X_0\)</span>, the state of the population at time <span class="math notranslate nohighlight">\(t=2\)</span>.  In general, <span class="math notranslate nohighlight">\(n\)</span> repeated applications of the transformation yield <span class="math notranslate nohighlight">\(X_n = A^nX_0\)</span>, the state of the population <span class="math notranslate nohighlight">\(n\)</span> weeks into the future.  Let’s compute <span class="math notranslate nohighlight">\(X_{50}\)</span> as an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## X at time 0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.63157999]
+ [0.15789071]
+ [0.2105293 ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In such models attention is typically focused on the ultimate behaviour of the state vector.  We want to know if the composition of the population reaches an equilibrium, or continues to change.  If it reaches an equilibrium, can we calculate it directly, instead of applying the matrix multiplication a large number of times?  We will address these questions in Chapter 5, when we learn more about computing <span class="math notranslate nohighlight">\(A^n\)</span> efficiently.</p>
+</div>
+<div class="section" id="navigating-webpages">
+<h1>Navigating Webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h1>
+<p>Browsing webpages can also be modeled using a discrete dynamical system.  In this model, the entries of the state vector <span class="math notranslate nohighlight">\(X_t\)</span>, represent the probability that the browser is on a particular page at time <span class="math notranslate nohighlight">\(t\)</span>.  Advancing in time represents the browser moving from one page to another.  Many pages contain links to other pages.  The model assumes that the browser is more likely to follow a link to a new page rather than navigating to a new unlinked page.  The goal is to build a linear transformation <span class="math notranslate nohighlight">\(L\)</span>, defined by a matrix multiplication, which maps the vector of probabilities at time <span class="math notranslate nohighlight">\(t-1\)</span> to the vector of probabilities at time <span class="math notranslate nohighlight">\(t\)</span> based on the link structure of the pages.  Such a model was the foundation of the PageRank algorithm, which is the basis of Google’s very successful search engine.</p>
+<p>To build the required matrix <span class="math notranslate nohighlight">\(A\)</span>, the entries <span class="math notranslate nohighlight">\(a_{ij}\)</span> are set to the probability that the browser navigates to page <span class="math notranslate nohighlight">\(i\)</span> from page <span class="math notranslate nohighlight">\(j\)</span>.  For fixed column <span class="math notranslate nohighlight">\(j\)</span>, the entries represent a  probability distribution that describes location of the browser at the next step.  The entries in each column therefore must add to one.  Let’s make some additional assumptions to complete the model.</p>
+<ul class="simple">
+<li><p>The browser follows a link with probability 0.8.</p></li>
+<li><p>All links on a page are equally likely to be followed.</p></li>
+<li><p>A browser not following a link is equally likely to reach any new page at the next step.</p></li>
+<li><p>The browser always changes pages at each step</p></li>
+</ul>
+<p>These assumptions completely define the matrix.  If we let <span class="math notranslate nohighlight">\(n\)</span> be the number of webpages in the model, <span class="math notranslate nohighlight">\(A\)</span> will be an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with zeros on its main diagonal due to the last assumption.  If we focus on a particular page <span class="math notranslate nohighlight">\(j\)</span>, There are a total of <span class="math notranslate nohighlight">\(n-1\)</span> nonzero entries since <span class="math notranslate nohighlight">\(a_{jj} = 0\)</span>.  If page <span class="math notranslate nohighlight">\(j\)</span> has links to <span class="math notranslate nohighlight">\(k\)</span> different pages, then <span class="math notranslate nohighlight">\(a_{ij} = 0.8/k + 0.2/(n-1)\)</span> if <span class="math notranslate nohighlight">\(i\)</span> is the index of one of the link linked pages, and <span class="math notranslate nohighlight">\(a_{ij} = 0.2/(n-1)\)</span> if <span class="math notranslate nohighlight">\(i\)</span> is the index of one of the unlinked pages.</p>
+<p>Here is an example of what such a matrix would look like with <span class="math notranslate nohighlight">\(n=5\)</span>, page 1 linking to pages 2 and 5, page 2 linking to page 5, page 3 linking to page 2, page 4 linking to pages 1 and 2, and page 5 linking to all other pages.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{ccccc} 
+0 &amp; 0.05 &amp; 0.05 &amp; 0.45 &amp; 0.25 \\ 
+0.45 &amp; 0 &amp; 0.85 &amp; 0.45 &amp; 0.25  \\
+0.05 &amp; 0.05 &amp; 0 &amp; 0.05 &amp; 0.25  \\
+0.05 &amp; 0.05 &amp; 0.05 &amp; 0 &amp; 0.25  \\
+0.45 &amp; 0.85 &amp; 0.05 &amp; 0.05 &amp; 0  \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>To complete the model example, we specify <span class="math notranslate nohighlight">\(X_0\)</span>.  In this case the interpretation is easiest if we take <span class="math notranslate nohighlight">\(X_0\)</span> to be a vector with a one entry equal to one, and all other entries equal to zero.  For example, the following choice of <span class="math notranslate nohighlight">\(X_0\)</span> means that the browser starts the navigation at page 4.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Applying the transformation once gives <span class="math notranslate nohighlight">\(X_1 = AX_0\)</span> which gives a vector that contains the probabilities that the browser is at each of the pages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">X_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">X_1</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X_0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.45]
+ [0.45]
+ [0.05]
+ [0.  ]
+ [0.05]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Applying the transformation <span class="math notranslate nohighlight">\(n\)</span> times gives <span class="math notranslate nohighlight">\(X_n\)</span>, the vector that contains the probabilities of the browser being at each of the pages after <span class="math notranslate nohighlight">\(n\)</span> steps of navigation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15277035]
+ [0.29525499]
+ [0.11062482]
+ [0.11062482]
+ [0.33072501]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with the population model, the interest lies in predicting the probabilities in <span class="math notranslate nohighlight">\(X_n\)</span> when <span class="math notranslate nohighlight">\(n\)</span> is large, and thus determining what pages a browser is more likely to visit after this sort of random navigation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],</span>
+             <span class="p">[</span><span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">],])</span>
+<span class="c1">#A = A.transpose()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.2   0.075 0.075]
+ [0.075 0.2   0.075 0.2   0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.2   0.2   0.075 0.075 0.075 0.075 0.075 0.075 0.075 0.075]
+ [0.075 0.075 0.075 0.075 0.075 0.2   0.2   0.075 0.075 0.075]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ben Vanderlei<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

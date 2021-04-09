@@ -50,14 +50,14 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Change of Bases" href="Change_Bases.html" />
+    <link rel="next" title="Applications of Linear Transformations" href="Applications_LT.html" />
     <link rel="prev" title="Matrix Representations" href="Matrix_Representations.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -127,11 +127,6 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Transformations in a Plane
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Change_Bases.html">
-     Change of Bases
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,6 +221,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -512,8 +510,8 @@ we can simply multiply the matrices that represent the individual transformation
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -537,7 +535,7 @@ we can simply multiply the matrices that represent the individual transformation
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Matrix_Representations.html" title="previous page">Matrix Representations</a>
-    <a class='right-next' id="next-link" href="Change_Bases.html" title="next page">Change of Bases</a>
+    <a class='right-next' id="next-link" href="Applications_LT.html" title="next page">Applications of Linear Transformations</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

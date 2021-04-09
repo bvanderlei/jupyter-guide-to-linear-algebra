@@ -50,9 +50,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -216,6 +216,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -243,6 +246,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   SciPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matplotlib">
    Matplotlib
   </a>
@@ -258,6 +266,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
  </li>
 </ul>
 
@@ -383,7 +396,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8116692503791682
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9797176700341242
 </pre></div>
 </div>
 </div>
@@ -398,9 +411,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.85319317 0.47510924]
- [0.47130631 0.98897491]
- [0.17017659 0.71327905]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.91859848 0.96400349]
+ [0.88573284 0.14325752]
+ [0.84026707 0.25667134]]
 </pre></div>
 </div>
 </div>
@@ -413,7 +426,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
 </pre></div>
 </div>
 </div>
@@ -427,9 +440,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 6 2 1 2 2]
- [5 2 3 6 3 3]
- [8 5 1 2 7 6]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7 7 9 4 6 8]
+ [8 4 2 0 4 7]
+ [1 6 4 9 9 9]]
 </pre></div>
 </div>
 </div>
@@ -442,10 +455,22 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2 1 9]
- [7 5 6]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[6 3 2]
+ [6 8 5]]
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scipy">
+<h2>SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
+<p>The SciPy library contains robust and efficient functions for a range of purposes related to scientific computing.  We will be making use of the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module, which contains many routines useful in linear algebra.  We note that some of the code in the Jupyter Guide to Linear Algebra duplicates functionality found in the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module, but this code is not meant to be a reliable alternative.  The code presented here is written for the purpose of explaining the theory of linear algebra and giving a simple illustration of what is required to carry out the typical calculations required.</p>
+<p>We will wait to demonstrate the functions in the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module until after we have discussed enough linear algebra to understand their purpose.  The module will be imported with the alias <span class="math notranslate nohighlight">\(\texttt{sla}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -467,11 +492,11 @@ This is C, which is the entries of B formed into a new shape.
 <p>The next code cell contains a minimal set of instructions needed to produce a plot.  The comments in the cell indicate the purpose of each line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Directs the graphical output to this notebook</span>
-<span class="o">%</span> <span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="c1">## Imports the module and assigns a short alias for convenience</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Imports the module and assigns a short alias for convenience</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">## Directs the graphical output to this notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1">## The subplots method returns a Figure object and an Axes object</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -482,7 +507,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_25_0.png" src="_images/Numpy_Introduction_25_0.png" />
+<img alt="_images/Numpy_Introduction_27_0.png" src="_images/Numpy_Introduction_27_0.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(\texttt{subplots}\)</span> method creates two Matplotlib objects, the <em>Figure</em>, and the <em>Axes</em>.  The <em>Figure</em> is the fundamental object in Matplotlib.  The <em>Axes</em> object is contained within the <em>Figure</em>, and is the object we will interact with the most.  The <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method of the <em>Axes</em> object is the function that actually plots our set of coordinates on the <em>Axes</em>.  Note that we do not need a <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command to view the results.  Instead, the first line of code, <span class="math notranslate nohighlight">\(\texttt{% matplotlib inline}\)</span>, directs all graphical output to this notebook.</p>
@@ -495,7 +520,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_27_0.png" src="_images/Numpy_Introduction_27_0.png" />
+<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
 </div>
 </div>
 <p>Next, we show how to configure some of the many options available in such a plot.  Remember that the plot is actually being constructed in an <em>Axes</em> object, so all the options that affect elements of the plot are methods of that object.</p>
@@ -518,7 +543,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
+<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
 </div>
 </div>
 </div>
@@ -569,7 +594,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
+<img alt="_images/Numpy_Introduction_35_0.png" src="_images/Numpy_Introduction_35_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -597,11 +622,18 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_34_0.png" src="_images/Numpy_Introduction_34_0.png" />
+<img alt="_images/Numpy_Introduction_36_0.png" src="_images/Numpy_Introduction_36_0.png" />
 </div>
 </div>
 <p>Throughout the Jupyter Guide to Linear Algebra, we will often hide the code used to produce the graphics in order to keep the pages tidy for reading.</p>
 </div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Harris, C. R. et. al. <a class="reference external" href="https://www.nature.com/articles/s41586-020-2649-2"><em>Array Programming with NumPy</em></a>., Nature 585, 357-362, 2020.</p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/gist/rpmuller/5920182">A Crash Course in Python for Scientists</a></p></li>
+</ul>
 </div>
 </div>
 
@@ -609,8 +641,8 @@ This is C, which is the entries of B formed into a new shape.
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

@@ -50,15 +50,13 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applications of Linear Transformations" href="Applications_LT.html" />
-    <link rel="prev" title="Transformations in a Plane" href="Planar_Transformations.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,7 +96,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
@@ -114,32 +112,10 @@
    Vector Spaces
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="Matrix_Representations.html">
-     Matrix Representations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Planar_Transformations.html">
-     Transformations in a Plane
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Change of Bases
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Applications_LT.html">
-     Applications of Linear Transformations
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Inner_Products.html">
@@ -234,8 +210,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -258,8 +234,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Planar_Transformations.html" title="previous page">Transformations in a Plane</a>
-    <a class='right-next' id="next-link" href="Applications_LT.html" title="next page">Applications of Linear Transformations</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

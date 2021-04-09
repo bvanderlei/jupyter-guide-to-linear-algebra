@@ -50,15 +50,15 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Matrix Representations" href="Matrix_Representations.html" />
-    <link rel="prev" title="Applications" href="Applications_VS.html" />
+    <link rel="prev" title="Applications of Vector Spaces" href="Applications_VS.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -127,11 +127,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="Planar_Transformations.html">
      Transformations in a Plane
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Change_Bases.html">
-     Change of Bases
     </a>
    </li>
    <li class="toctree-l2">
@@ -226,6 +221,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -560,8 +558,8 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -584,7 +582,7 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Applications_VS.html" title="previous page">Applications</a>
+    <a class='left-prev' id="prev-link" href="Applications_VS.html" title="previous page">Applications of Vector Spaces</a>
     <a class='right-next' id="next-link" href="Matrix_Representations.html" title="next page">Matrix Representations</a>
 
     </div>

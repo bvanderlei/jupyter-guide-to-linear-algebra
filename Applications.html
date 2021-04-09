@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Applications &#8212; Jupyter Guide to Linear Algebra</title>
+    <title>Applications of Linear Systems and Matrix Algebra &#8212; Jupyter Guide to Linear Algebra</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -50,15 +50,15 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Vector Spaces" href="Vector_Spaces.html" />
-    <link rel="prev" title="Inverse Matrices" href="Inverse_Matrices.html" />
+    <link rel="prev" title="LU Factorization" href="LU_Factorization.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -125,18 +125,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="LU_Factorization.html">
-     LU Factorization
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="Inverse_Matrices.html">
      Inverse Matrices
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Applications
+     Applications of Linear Systems and Matrix Algebra
     </a>
    </li>
   </ul>
@@ -236,6 +236,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -325,8 +328,8 @@
         
               <div>
                 
-  <div class="section" id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="applications-of-linear-systems-and-matrix-algebra">
+<h1>Applications of Linear Systems and Matrix Algebra<a class="headerlink" href="#applications-of-linear-systems-and-matrix-algebra" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -716,8 +719,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>! is not included in the current alphabet.
-CSLFXDUSXZ.T U MW.GLJPCUE YZJRMN
-WE RIDE AT DAWN  MAYBE SOONER.JK
+CSLFXDUSXZ.T U MW.GLJPCUE YZQN C
+WE RIDE AT DAWN  MAYBE SOONER.UK
 </pre></div>
 </div>
 </div>
@@ -963,16 +966,16 @@ WE RIDE AT DAWN  MAYBE SOONER.JK
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 2. 2. 1. 8. 3. 7. 1. 5. 1.]
- [2. 0. 2. 1. 2. 4. 2. 1. 4. 0.]
- [2. 2. 0. 1. 6. 1. 2. 0. 1. 3.]
- [1. 1. 1. 0. 2. 1. 4. 1. 1. 0.]
- [8. 2. 6. 2. 4. 8. 8. 5. 3. 1.]
- [3. 4. 1. 1. 8. 2. 7. 1. 2. 2.]
- [7. 2. 2. 4. 8. 7. 4. 2. 2. 2.]
- [1. 1. 0. 1. 5. 1. 2. 0. 1. 1.]
- [5. 4. 1. 1. 3. 2. 2. 1. 0. 4.]
- [1. 0. 3. 0. 1. 2. 2. 1. 4. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 1. 6. 3. 1. 5. 2. 0. 7. 6.]
+ [1. 0. 5. 5. 1. 2. 1. 0. 6. 3.]
+ [6. 5. 0. 0. 1. 0. 2. 1. 1. 2.]
+ [3. 5. 0. 0. 0. 1. 5. 3. 1. 1.]
+ [1. 1. 1. 0. 0. 3. 4. 1. 2. 1.]
+ [5. 2. 0. 1. 3. 0. 1. 0. 1. 2.]
+ [2. 1. 2. 5. 4. 1. 0. 0. 2. 5.]
+ [0. 0. 1. 3. 1. 0. 0. 0. 1. 1.]
+ [7. 6. 1. 1. 2. 1. 2. 1. 2. 5.]
+ [6. 3. 2. 1. 1. 2. 5. 1. 5. 2.]]
 </pre></div>
 </div>
 <img alt="_images/Applications_62_1.png" src="_images/Applications_62_1.png" />
@@ -1059,8 +1062,8 @@ WE RIDE AT DAWN  MAYBE SOONER.JK
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1083,7 +1086,7 @@ WE RIDE AT DAWN  MAYBE SOONER.JK
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Inverse_Matrices.html" title="previous page">Inverse Matrices</a>
+    <a class='left-prev' id="prev-link" href="LU_Factorization.html" title="previous page">LU Factorization</a>
     <a class='right-next' id="next-link" href="Vector_Spaces.html" title="next page">Vector Spaces</a>
 
     </div>

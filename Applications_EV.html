@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Applications &#8212; Jupyter Guide to Linear Algebra</title>
+    <title>Applications of Eigenvalues and Eigenvectors &#8212; Jupyter Guide to Linear Algebra</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -50,9 +50,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -140,7 +140,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Applications
+     Applications of Eigenvalues and Eigenvectors
     </a>
    </li>
   </ul>
@@ -187,9 +187,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Applications_EV.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Applications_EV.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -207,10 +207,54 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Applications_EV.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infectious-disease-model">
+   Infectious Disease Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#navigating-webpages">
+   Navigating Webpages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -219,17 +263,285 @@
         
               <div>
                 
-  <div class="section" id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
-<p>The importance of eigenvalues becomes apparent when we continue to apply matrix multiplication.  In this last section we look at the connection between eigenvalues and dynamical systems.</p>
+  <div class="section" id="applications-of-eigenvalues-and-eigenvectors">
+<h1>Applications of Eigenvalues and Eigenvectors<a class="headerlink" href="#applications-of-eigenvalues-and-eigenvectors" title="Permalink to this headline">¶</a></h1>
+<p>With the concepts related to eigenvalues and eigenvectors in place, we return to examine <a class="reference internal" href="Applications_LT.html"><span class="doc std std-doc">Discrete Dynamical Systems</span></a>.</p>
+<div class="section" id="infectious-disease-model">
+<h2>Infectious Disease Model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h2>
+<p>For the <span class="math notranslate nohighlight">\(SIRS\)</span> model of infectious disease, we had the following discrete dynamical system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
+\left[ \begin{array}{rrr} 0.95 &amp; 0 &amp; 0.15 \\ 0.05 &amp; 0.80 &amp; 0 \\ 0 &amp; 0.20 &amp; 0.85 \end{array}\right]
+\left[ \begin{array}{r} s_{t-1} \\ i_{t-1} \\ r_{t-1}  \end{array}\right]=
+AX_{t-1}
+\end{equation}
+\end{split}\]</div>
+<p>Given an initial condition <span class="math notranslate nohighlight">\(X_0\)</span>, we know that <span class="math notranslate nohighlight">\(X_n = A^nX_0\)</span>.  We are interested in determining the behaviour of the system for large <span class="math notranslate nohighlight">\(n\)</span>.  We might now recognize that this calculation is exactly the same as the Power Method from the previous section, and therefore expect that the sequence of vectors produced should tend toward the eigenvector corresponding to the largest eigenvalue.</p>
+<p>In this case the components of the vector have individual meaning, so let’s calculate the first 30 iterations and plot <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span> to get a sense of how they are changing.  For this calculation we store each vector <span class="math notranslate nohighlight">\(X_t\)</span> as a column in an array named <span class="math notranslate nohighlight">\(\texttt{results}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.85</span><span class="p">]])</span>
+
+<span class="c1">## T is final time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1">## X at time 0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1">## The first column of results contains the initial values </span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">np</span> <span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">results</span><span class="p">,</span><span class="n">X</span><span class="p">))</span>
+
+<span class="c1">## t contains the time indices 0, 1, 2, ..., T</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">T</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">## s, i, r values are the rows of the results array</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1">## The optional label keyword argument provides text that can be used to create a legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;b+&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Susceptible&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Infective&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="s1">&#39;g+&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Removed&quot;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Applications_EV_2_0.png" src="_images/Applications_EV_2_0.png" />
+</div>
+</div>
+<p>Based on the calculation it appears that the state of the population has reached an <em>equilibrium</em> after 20 weeks.  In the equilibrium state, each category of the population, <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(I\)</span>, and <span class="math notranslate nohighlight">\(R\)</span>, have as many individuals entering the category as leaving it.  In terms of the matrix equation, if <span class="math notranslate nohighlight">\(X\)</span> is the vector that contains the equilibrium values of <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> must be a solution to the equation <span class="math notranslate nohighlight">\(AX=X\)</span>, since <span class="math notranslate nohighlight">\(X_{t-1}=X_t\)</span> when the components not changing.  The equation <span class="math notranslate nohighlight">\(AX=X\)</span> implies that <span class="math notranslate nohighlight">\(X\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> corresponding to an eigenvalue of one.</p>
+<p>The equation <span class="math notranslate nohighlight">\(AX=X\)</span> represents a linear system, even though it is not written in the typical form.  We can rearrange it to look more familiar by using the tools of matrix algebra.  The key is to recognize that <span class="math notranslate nohighlight">\(X\)</span> can be written as <span class="math notranslate nohighlight">\(IX\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.  This gives <span class="math notranslate nohighlight">\(AX=IX\)</span>, which can be rewritten as <span class="math notranslate nohighlight">\((A-I)X = 0\)</span>.  This matrix equation is the type with which we have been working throughout the previous chapters.</p>
+<p>Before attempting to solve the system <span class="math notranslate nohighlight">\((A-I)X = 0\)</span>, we first recognize it as a <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">Homogeneous Systems</span></a> and apply some reasoning based on our knowledge of linear systems.  We know that the solution set of a homogeneous system certainly contains the trivial solution <span class="math notranslate nohighlight">\(X=0\)</span>.  Therefore if there is also a nonzero solution to <span class="math notranslate nohighlight">\((A-I)X=0\)</span>, the system must have an infinite number of solutions since linear systems always have zero, exactly one, or an infinite number of solutions.  If the system <span class="math notranslate nohighlight">\((A-I)X=0\)</span> does not have a unique solution there must be a free variable, which means that one of the columns of the matrix <span class="math notranslate nohighlight">\(A-I\)</span> will not have a pivot. In this case the direct methods of solution based on <span class="math notranslate nohighlight">\(LU\)</span> or <span class="math notranslate nohighlight">\(QR\)</span> factorizations will fail.  We must go back to the basic row operations and calculate the RREF of the augmented matrix <span class="math notranslate nohighlight">\([(A-I)|0]\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ZERO</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">augmented_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">I</span><span class="p">,</span><span class="n">ZERO</span><span class="p">))</span>
+<span class="n">reduced_matrix</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">augmented_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reduced_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.    0.   -3.    0.  ]
+ [ 0.    1.   -0.75  0.  ]
+ [ 0.    0.    0.    0.  ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the reduced system for the equilibrium values <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>, we can take <span class="math notranslate nohighlight">\(r\)</span> as the free variable and write <span class="math notranslate nohighlight">\(s=3r\)</span> and <span class="math notranslate nohighlight">\(i=0.75r\)</span>.  For any value of <span class="math notranslate nohighlight">\(r\)</span>, a vector of the following form is an eigenvector for <span class="math notranslate nohighlight">\(A-I\)</span>, corresponding to the eigenvalue one.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+r\left[ \begin{array}{r} 3 \\ 0.75 \\ 1  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Although this eigenvector is not unique, there is one more constraint on our equilibrium values that we have not yet addressed.  The variables <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span> represent percentages of the population in each category, therefore we must also require that <span class="math notranslate nohighlight">\(s+i+r = 1\)</span> in order for the results to be meaningful in the application.  This gives the equation <span class="math notranslate nohighlight">\(3r + 0.75r + r = 1\)</span>, which gives the unique equilibrium values of <span class="math notranslate nohighlight">\(r = 4/19\)</span>, <span class="math notranslate nohighlight">\(s=12/19\)</span>, and <span class="math notranslate nohighlight">\(i=3/19\)</span>.  If we carry out a large number of iterations, we see that the computed values are very close to the theoretical equilibrium values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## T is final time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1">## X at time 0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.95</span><span class="p">],[</span><span class="mf">0.05</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected values of s, i, r:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r =&quot;</span><span class="p">,</span><span class="mi">12</span><span class="o">/</span><span class="mi">19</span><span class="p">,</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">19</span><span class="p">,</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">/</span><span class="mi">19</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computed values of s, i, r at time &quot;</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected values of s, i, r:
+r = 0.631578947368421 i = 0.15789473684210525 i = 0.21052631578947367 
+
+Computed values of s, i, r at time  100 :
+[[0.63157895]
+ [0.15789474]
+ [0.21052632]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results agree nicely with our analysis, but there are two remaining questions:</p>
+<ol class="simple">
+<li><p>Why does it <span class="math notranslate nohighlight">\(s_t+i_t+r_t = 1\)</span> for every <span class="math notranslate nohighlight">\(t\)</span> in the calculation, even though this constraint does not appear to be enforced?</p></li>
+<li><p>What are the results if we change the initial population composition given by <span class="math notranslate nohighlight">\(X_0\)</span>?</p></li>
+</ol>
+<p>The answer to the first question is simple, but not immediately obvious.  If we add the three equations that define <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, we find that <span class="math notranslate nohighlight">\(s_t+i_t+r_t = s_{t-1} + i_{t-1} + r_{t-1}\)</span>.  This means that as long as the three equations are true, the sum <span class="math notranslate nohighlight">\(s_t+i_t+r_t\)</span> does not change carry the iteration forward in time.  Since we start with the components of <span class="math notranslate nohighlight">\(X_0\)</span> summing to one, the components of <span class="math notranslate nohighlight">\(X_t\)</span> will sum to one for all other <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>In order to answer the second question, we assume that we start with an arbitrary <span class="math notranslate nohighlight">\(X_0\)</span>, although we will require that the components of <span class="math notranslate nohighlight">\(X_0\)</span> to be nonnegative and add to one so that the results are meaningful in the application.  As we did when considering the Power Method, we write <span class="math notranslate nohighlight">\(X_0\)</span> as a linear combination of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>, the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>.  This makes  it easy to express <span class="math notranslate nohighlight">\(X_t = A^tX_0\)</span> in terms of the eigenvectors as well, just as did before.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+X_0 &amp; = &amp; c_1V_1 + c_2V_2 + c_3V_3 \\
+X_t &amp; = &amp; c_1\lambda_1^tV_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Based on the results of our calculations, we expect that <span class="math notranslate nohighlight">\(\lambda_1 = 1\)</span> is the largest eigenvalue.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+X_t  =  c_1V_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3 
+\end{equation}
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(|\lambda_2|&lt; 1\)</span> and <span class="math notranslate nohighlight">\(|\lambda_3|&lt; 1\)</span> then the second the third terms will approach zero as <span class="math notranslate nohighlight">\(t\)</span> gets large and <span class="math notranslate nohighlight">\(X_t\)</span> will approach the direction of <span class="math notranslate nohighlight">\(V_1\)</span>.  We use SciPy to verify that <span class="math notranslate nohighlight">\(\lambda_2\)</span> and <span class="math notranslate nohighlight">\(\lambda_3\)</span> are in fact a pair of complex numbers with magnitude less than one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+<span class="n">EVAL</span><span class="p">,</span> <span class="n">EVEC</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">EVAL</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1">## The absolute function finds the absolute value of real numbers, or magnitude of complex numbers.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">EVAL</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">EVAL</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. +0.j         0.8+0.08660254j 0.8-0.08660254j] 
+
+0.8046738469715539
+0.8046738469715539
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore unless <span class="math notranslate nohighlight">\(c_1 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_t\)</span> approach the dirction of <span class="math notranslate nohighlight">\(V_1\)</span>.  The case where <span class="math notranslate nohighlight">\(c_1 = 0\)</span> corresponds to initial conditions with negative entries, which are not relevant in the application.  The conclusion is that <span class="math notranslate nohighlight">\(X_t\)</span> will approach the equilibrium state for all meaningful initial configurations of the population.</p>
+</div>
+<div class="section" id="navigating-webpages">
+<h2>Navigating Webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h2>
+<p>In the dynamical system <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>, the entries in the state vector <span class="math notranslate nohighlight">\(X_t\)</span> can represent probabilities that a web browser is on a particular page after <span class="math notranslate nohighlight">\(t\)</span> steps of random browsing defined by the matrix <span class="math notranslate nohighlight">\(A\)</span>, which is build using the link structure among the web pages.  The matrix and initial condition previously considered are given below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccccc} 
+0 &amp; 0.05 &amp; 0.05 &amp; 0.45 &amp; 0.25 \\ 
+0.45 &amp; 0 &amp; 0.85 &amp; 0.45 &amp; 0.25  \\
+0.05 &amp; 0.05 &amp; 0 &amp; 0.05 &amp; 0.25  \\
+0.05 &amp; 0.05 &amp; 0.05 &amp; 0 &amp; 0.25  \\
+0.45 &amp; 0.85 &amp; 0.05 &amp; 0.05 &amp; 0  \\
+\end{array}\right]
+\hspace{2cm}
+X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Just as with the infectious disease model, we can determine an equilibrium probability distribution by finding the vector <span class="math notranslate nohighlight">\(X\)</span> that solves <span class="math notranslate nohighlight">\(AX = X\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">0.45</span><span class="p">,</span><span class="mf">0.85</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">A_I</span> <span class="o">=</span> <span class="n">A</span><span class="o">-</span><span class="n">I</span>
+<span class="n">reduced_matrix</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reduced_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.          0.          0.         -0.46185348]
+ [ 0.          1.          0.          0.         -0.89261338]
+ [ 0.          0.          1.          0.         -0.33444562]
+ [ 0.          0.          0.          1.         -0.33444562]
+ [ 0.          0.          0.          0.          0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case <span class="math notranslate nohighlight">\(x_5\)</span> is a free variable, and we have <span class="math notranslate nohighlight">\(x_4 = x_3 = 0.33444562x_5\)</span>, <span class="math notranslate nohighlight">\(x_2 = 0.89261338x_5\)</span>, and <span class="math notranslate nohighlight">\(x_1 = 0.46185348x_5\)</span>.  Since these values represent a collection of probabilities, we require that their sum is one.  We can calculate the approximate value of <span class="math notranslate nohighlight">\(x_5\)</span> and the corresponding values of the other entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_5</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">-</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">-</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">-</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">x_4</span> <span class="o">=</span> <span class="o">-</span><span class="n">x_5</span><span class="o">*</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">x_3</span> <span class="o">=</span> <span class="o">-</span><span class="n">x_5</span><span class="o">*</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">x_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">x_5</span><span class="o">*</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">x_1</span> <span class="o">=</span> <span class="o">-</span><span class="n">x_5</span><span class="o">*</span><span class="n">reduced_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">equilibrium_probabilities</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_1</span><span class="p">,</span><span class="n">x_2</span><span class="p">,</span><span class="n">x_3</span><span class="p">,</span><span class="n">x_4</span><span class="p">,</span><span class="n">x_5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">equilibrium_probabilities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.15276175186876034, 0.2952390508202478, 0.11062057893944714, 0.11062057893944714, 0.33075803943209753)
+</pre></div>
+</div>
+</div>
+</div>
+<p>To verify the calculations we can again compare these values to those we get if we compute <span class="math notranslate nohighlight">\(X_t\)</span> for large <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## T is final time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="c1">## X at time 0</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.15276175]
+ [0.29523905]
+ [0.11062058]
+ [0.11062058]
+ [0.33075804]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all all meaningful intial states.</p></li>
+<li><p>Perform an analyis similar to the that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
+\left[ \begin{array}{rrr} 0.95 &amp; 0 &amp; 0.05 \\ 0.05 &amp; 0.80 &amp; 0 \\ 0 &amp; 0.20 &amp; 0.95 \end{array}\right]
+\left[ \begin{array}{r} s_{t-1} \\ i_{t-1} \\ r_{t-1}  \end{array}\right]=
+AX_{t-1}
+\end{equation}
+\end{split}\]</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

@@ -50,15 +50,15 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applications" href="Applications.html" />
-    <link rel="prev" title="LU Factorization" href="LU_Factorization.html" />
+    <link rel="next" title="LU Factorization" href="LU_Factorization.html" />
+    <link rel="prev" title="Solving Systems using Elimination" href="Solving_Systems.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -124,19 +124,19 @@
      Solving Systems using Elimination
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="LU_Factorization.html">
-     LU Factorization
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Inverse Matrices
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Applications.html">
-     Applications
+     Applications of Linear Systems and Matrix Algebra
     </a>
    </li>
   </ul>
@@ -236,6 +236,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -256,6 +259,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverse-matrices-with-scipy">
+   Inverse Matrices with SciPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -273,14 +281,6 @@
                 
   <div class="section" id="inverse-matrices">
 <h1>Inverse Matrices<a class="headerlink" href="#inverse-matrices" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>In this section we consider the idea of inverse matrices and desribe a common method for their construction.</p>
 <p>As a motivation for the upcoming calculations, let’s again consider the system of linear equations written in the matrix algebra form.</p>
 <div class="math notranslate nohighlight">
@@ -346,6 +346,14 @@ I
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Solve CY = I3</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">I3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
@@ -375,20 +383,27 @@ I
 <span class="n">Y4</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">I4</span><span class="p">)</span>
 
 <span class="n">C_inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Y1</span><span class="p">,</span><span class="n">Y2</span><span class="p">,</span><span class="n">Y3</span><span class="p">,</span><span class="n">Y4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C_inverse</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">C_inverse</span><span class="nd">@C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">C</span><span class="nd">@C_inverse</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C inverse:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">C_inverse</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C inverse times C:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">C_inverse</span><span class="nd">@C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C times C inverse:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">C</span><span class="nd">@C_inverse</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.83333333  0.5        -0.16666667 -0.5       ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C inverse:
+[[ 0.83333333  0.5        -0.16666667 -0.5       ]
  [-2.08333333 -1.25        0.66666667  2.25      ]
  [-0.08333333 -0.25        0.16666667  0.25      ]
- [-0.33333333  0.          0.16666667  0.        ]] 
- [[ 1.00000000e+00  0.00000000e+00 -1.11022302e-16  1.11022302e-16]
+ [-0.33333333  0.          0.16666667  0.        ]]
+
+C inverse times C:
+[[ 1.00000000e+00  0.00000000e+00 -1.11022302e-16  1.11022302e-16]
  [ 0.00000000e+00  1.00000000e+00  0.00000000e+00  4.44089210e-16]
  [ 5.55111512e-17  0.00000000e+00  1.00000000e+00 -5.55111512e-17]
- [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]] 
- [[ 1.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]
+ [ 0.00000000e+00  0.00000000e+00  0.00000000e+00  1.00000000e+00]]
+
+C times C inverse:
+[[ 1.00000000e+00  0.00000000e+00  0.00000000e+00  0.00000000e+00]
  [-1.11022302e-16  1.00000000e+00  5.55111512e-17  0.00000000e+00]
  [ 0.00000000e+00  0.00000000e+00  1.00000000e+00  0.00000000e+00]
  [-3.33066907e-16  0.00000000e+00  1.11022302e-16  1.00000000e+00]]
@@ -396,7 +411,48 @@ I
 </div>
 </div>
 </div>
-<p>We will write a Python function to compute the inverse of a matrix in this way, but in practice, finding the inverse of a matrix is a terribly inefficient way of solving a linear system.  We have to solve <span class="math notranslate nohighlight">\(n\)</span> systems to just to find the inverse of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix, so it appears that it takes <span class="math notranslate nohighlight">\(n\)</span> times the amount of work that it would to just solve the system by elimination.  Suppose however that we needed to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span> for <em>many different vectors</em> <span class="math notranslate nohighlight">\(B\)</span>, but the same coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>.  In that case it might seema appealing to have <span class="math notranslate nohighlight">\(A^{-1}\)</span>, but from a computational standpoint it is still more efficient to use the <span class="math notranslate nohighlight">\(LU\)</span> factorization.</p>
+<p>Similar to the situation in the previous section, some of the entries that should be zero are not exactly zero due to roundoff error.  Again, we can display a rounded version to read the results more easily.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">C</span><span class="nd">@C_inverse</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  0.  0.  0.]
+ [-0.  1.  0.  0.]
+ [ 0.  0.  1.  0.]
+ [-0.  0.  0.  1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will next write a Python function to compute the inverse of a matrix.  In practice finding the inverse of a matrix is a terribly inefficient way of solving a linear system.  We have to solve <span class="math notranslate nohighlight">\(n\)</span> systems to just to find the inverse of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix, so it appears that it takes <span class="math notranslate nohighlight">\(n\)</span> times the amount of work that it would to just solve the system by elimination.  Suppose however that we needed to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span> for <em>many different vectors</em> <span class="math notranslate nohighlight">\(B\)</span>, but the same coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>.  In that case it might seem appealing to construct <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<p>In order to keep the computation somewhat efficient, we want to avoid repeating the row operations as much as possible.  In order to construct <span class="math notranslate nohighlight">\(A^{-1}\)</span> we need to solve the system <span class="math notranslate nohighlight">\(AX_i=Y_i\)</span>, where <span class="math notranslate nohighlight">\(Y_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>th column of <span class="math notranslate nohighlight">\(I\)</span>.  This will produce <span class="math notranslate nohighlight">\(X\)</span>, which is the <span class="math notranslate nohighlight">\(i\)</span>th column of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  Instead of performing elimination on each augmented matrix <span class="math notranslate nohighlight">\([A|Y_i]\)</span>, we can augment <span class="math notranslate nohighlight">\(A\)</span> with the entire matrix <span class="math notranslate nohighlight">\(I\)</span> and perform the required operations on all <span class="math notranslate nohighlight">\(Y_i\)</span> at the same time.  For example, if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix, we will have the following augmented matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+[A|I] = \left[ \begin{array}{rrrr|rrrr} 
+* &amp; * &amp; * &amp; * &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 
+* &amp; * &amp; * &amp; * &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+* &amp; * &amp; * &amp; * &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+* &amp; * &amp; * &amp; * &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ 
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is invertible, the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> routine from the previous section should return a matrix of the following form.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+[A|I] = \left[ \begin{array}{rrrr|rrrr} 
+* &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\ 
+0 &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; * &amp; * &amp; * &amp; * &amp; * \\ 
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>We can then call the <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> function once for each column in the right half of this matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -449,6 +505,29 @@ I
 </div>
 </div>
 </div>
+<div class="section" id="inverse-matrices-with-scipy">
+<h2>Inverse Matrices with SciPy<a class="headerlink" href="#inverse-matrices-with-scipy" title="Permalink to this headline">¶</a></h2>
+<p>The SciPy method <span class="math notranslate nohighlight">\(\texttt{inv}\)</span> is used to compute inverse matrices.  The usage is exactly the same as the function we just created.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+
+<span class="n">C_inverse</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.83333333  0.5        -0.16666667 -0.5       ]
+ [-2.08333333 -1.25        0.66666667  2.25      ]
+ [-0.08333333 -0.25        0.16666667  0.25      ]
+ [-0.33333333  0.          0.16666667  0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Providing a non-invertible matrix to <span class="math notranslate nohighlight">\(\texttt{inv}\)</span> will result in an error being raised by the Python interpreter.</p>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -461,8 +540,8 @@ I
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -485,8 +564,8 @@ I
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="LU_Factorization.html" title="previous page">LU Factorization</a>
-    <a class='right-next' id="next-link" href="Applications.html" title="next page">Applications</a>
+    <a class='left-prev' id="prev-link" href="Solving_Systems.html" title="previous page">Solving Systems using Elimination</a>
+    <a class='right-next' id="next-link" href="LU_Factorization.html" title="next page">LU Factorization</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

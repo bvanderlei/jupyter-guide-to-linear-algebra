@@ -50,9 +50,9 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -125,18 +125,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="LU_Factorization.html">
-     LU Factorization
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="Inverse_Matrices.html">
      Inverse Matrices
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Applications.html">
-     Applications
+     Applications of Linear Systems and Matrix Algebra
     </a>
    </li>
   </ul>
@@ -236,6 +236,9 @@
         
         
         
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -505,14 +508,14 @@ A(BC) = (AB)C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 10 -16 -22]
- [  2  22  22]
- [ 22  -1 -12]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8 59 41]
+ [ 2  9 21]
+ [ 0 26 44]]
 
 
-[[ 8 19  7]
- [-4  4 -8]
- [10 30  8]]
+[[ 15  35 -25]
+ [ 20  40 -22]
+ [-10   8   6]]
 </pre></div>
 </div>
 </div>
@@ -617,17 +620,16 @@ I_2 C = CI_3 = C
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="n">I5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0.],
-       [0., 1., 0., 0., 0.],
-       [0., 0., 1., 0., 0.],
-       [0., 0., 0., 1., 0.],
-       [0., 0., 0., 0., 1.]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]]
 </pre></div>
 </div>
 </div>
@@ -644,25 +646,25 @@ I_2 C = CI_3 = C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -6   1  -5  -6   3]
- [ -4  -9  -6  -7   2]
- [  7  -9   8   0  -4]
- [  5 -10   2 -10   0]
- [  2  -3  -9  -1  -1]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1   2   9   5   2]
+ [  3 -10  -5  -8  -3]
+ [  6   2  -2  -7  -2]
+ [ -7  -2  -1   9  -7]
+ [  9  -4  -5  -4  -9]]
 
 
-[[ -6.   1.  -5.  -6.   3.]
- [ -4.  -9.  -6.  -7.   2.]
- [  7.  -9.   8.   0.  -4.]
- [  5. -10.   2. -10.   0.]
- [  2.  -3.  -9.  -1.  -1.]]
+[[  1.   2.   9.   5.   2.]
+ [  3. -10.  -5.  -8.  -3.]
+ [  6.   2.  -2.  -7.  -2.]
+ [ -7.  -2.  -1.   9.  -7.]
+ [  9.  -4.  -5.  -4.  -9.]]
 
 
-[[ -6.   1.  -5.  -6.   3.]
- [ -4.  -9.  -6.  -7.   2.]
- [  7.  -9.   8.   0.  -4.]
- [  5. -10.   2. -10.   0.]
- [  2.  -3.  -9.  -1.  -1.]]
+[[  1.   2.   9.   5.   2.]
+ [  3. -10.  -5.  -8.  -3.]
+ [  6.   2.  -2.  -7.  -2.]
+ [ -7.  -2.  -1.   9.  -7.]
+ [  9.  -4.  -5.  -4.  -9.]]
 </pre></div>
 </div>
 </div>
@@ -794,8 +796,8 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "bvanderlei/jupyter-guide-to-linear-algebra",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
