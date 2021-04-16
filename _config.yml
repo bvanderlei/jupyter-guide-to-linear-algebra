@@ -1,7 +1,7 @@
 # Book settings
 title: Jupyter Guide to Linear Algebra
 author: Ben Vanderlei
-logo: logo.png
+logo: reflection_logo.png
 
 latex:
   latex_documents:
