@@ -31,8 +31,8 @@ T = patches.FancyArrowPatch((1,1),(8.5,2.5),connectionstyle='arc3,rad=-0.25',
                             **options)
 ax.add_patch(T)
 
-ax.set_xlim(0,15)
-ax.set_ylim(0,8)
+ax.set_xlim(-2,15)
+ax.set_ylim(0,7)
 ax.set_aspect('equal')
 ax.set_xticks([])
 ax.set_yticks([])
