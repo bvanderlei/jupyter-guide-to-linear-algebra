@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 14 12:07:23 2020
+Created on Wed Oct 14, 2020
 
 @author: Ben Vanderlei
 
 The purpose of this module is to contain all code that is reused
-throughout the LA Guide.
+throughout the Jupyter Guide to Linear Algebra.
 """
 
 import numpy as np
