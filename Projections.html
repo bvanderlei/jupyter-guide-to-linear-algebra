@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Projections &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Applications of Inner Products" href="Applications_IP.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Projections.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -254,13 +258,19 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-orthogonal-projection-in-mathbb-r-2">
+   Example 1:  Orthogonal Projection in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^2\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-nonorthogonal-projection-in-mathbb-r-2">
+   Example 2  Nonorthogonal Projection in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^2\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -279,12 +289,12 @@
         
               <div>
                 
-  <div class="section" id="projections">
+  <section id="projections">
 <h1>Projections<a class="headerlink" href="#projections" title="Permalink to this headline">¶</a></h1>
 <p>At the start of the chapter, we considered the projection of one vector onto the direction of another, and how to use that projection to decompose the vector into two orthogonal components.  We then considered the higher dimensional analogy of projecting a vector onto a subspace and, using that projection to decompose the vector into orthogonal components.   In this section, we concentrate these concepts, and consider projections as linear transformations which have applications beyond vector decomposition.</p>
 <p>A linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^n\)</span> is a <strong>projection</strong> if <span class="math notranslate nohighlight">\(T\circ T = T\)</span>.  The result of applying a projection once is the same as the result of applying it twice.  We can understand the effect of a projection as the collapsing of a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  Once a vector as been projected onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, any further projection onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has no effect.</p>
-<div class="section" id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-orthogonal-projection-in-mathbb-r-2">
+<h2>Example 1:  Orthogonal Projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-orthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>We look first at an orthogonal projection onto the <span class="math notranslate nohighlight">\(x_1\)</span>-axis in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.  This transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be defined with the following formula.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -330,9 +340,9 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 <img alt="_images/Projections_3_0.png" src="_images/Projections_3_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-2-nonorthogonal-projection-in-mathbb-r-2">
+<h2>Example 2  Nonorthogonal Projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-2-nonorthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s consider <span class="math notranslate nohighlight">\(T:\mathbb{R}^2 \to \mathbb{R}^2\)</span> defined by <span class="math notranslate nohighlight">\(T(X) = PX\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -478,8 +488,8 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 \end{equation}
 \]</div>
 <p>In general, projections take all vectors onto one subspace, in the direction of another subspace.</p>
-</div>
-<div class="section" id="orthogonal-projections">
+</section>
+<section id="orthogonal-projections">
 <h2>Orthogonal Projections<a class="headerlink" href="#orthogonal-projections" title="Permalink to this headline">¶</a></h2>
 <p>Having observed that projections can be carried out in an arbitrary direction, we now focus attention on how to define a matrix <span class="math notranslate nohighlight">\(P\)</span> that carries out <strong>orthogonal projection</strong> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  That is, for a vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we want the projection matrix <span class="math notranslate nohighlight">\(P\)</span> such that <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(E = B-\hat{B}\)</span> to be orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  In fact, we have already seen the necessary calculations for these projections.</p>
 <p>In the simplest example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is one-dimensional with basis <span class="math notranslate nohighlight">\(\{V\}\)</span>, with <span class="math notranslate nohighlight">\(V\)</span> a vector of unit length.  In our discussion of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">orthogonalization</span></a> we worked out the following formula.</p>
@@ -524,8 +534,8 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 \end{split}\]</div>
 <p>Each of the matrices <span class="math notranslate nohighlight">\(U_i^TU_i\)</span> projects <span class="math notranslate nohighlight">\(B\)</span> onto the direction of <span class="math notranslate nohighlight">\(U_i\)</span>.  The sum of all of the individual projections gives us <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and the sum of all the projection matrices gives us <span class="math notranslate nohighlight">\(P U_1U_1^T + U_2U_2^T + ... + U_mU_m^T\)</span>.</p>
 <p>We can also realize that the formula <span class="math notranslate nohighlight">\(P = A(A^TA)^{-1}A^T\)</span> for the general case still applies.  Let’s take <span class="math notranslate nohighlight">\(Q\)</span> to be the matrix with <span class="math notranslate nohighlight">\(U_i\)</span> as columns.  Since <span class="math notranslate nohighlight">\(Q\)</span> is an orthogonal matrix, <span class="math notranslate nohighlight">\(Q^TQ= I\)</span>, and <span class="math notranslate nohighlight">\(P =  Q(Q^TQ)^{-1}Q^T = QQ^T\)</span>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -576,7 +586,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

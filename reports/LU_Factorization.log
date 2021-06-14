@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "c:\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\anaconda3\lib\asyncio\base_events.py", line 584, in run_until_complete
+    return future.result()
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(E3,'\n')
+print(sla.inv(E3))
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+[1;32m<ipython-input-5-a94f4be4cf45>[0m in [0;36m<module>[1;34m[0m
+[0;32m      1[0m [0mprint[0m[1;33m([0m[0mE3[0m[1;33m,[0m[1;34m'\n'[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m----> 2[1;33m [0mprint[0m[1;33m([0m[0msla[0m[1;33m.[0m[0minv[0m[1;33m([0m[0mE3[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m
+[1;31mNameError[0m: name 'sla' is not defined
+NameError: name 'sla' is not defined
+

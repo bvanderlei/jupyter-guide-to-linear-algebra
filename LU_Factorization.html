@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>LU Factorization &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Applications of Linear Systems and Matrix Algebra" href="Applications.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/LU_Factorization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -254,28 +258,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1-using-lu-factorization-to-solve-a-system">
-   Example 1:  Using LU Factorization to Solve a System
+  <a class="reference internal nav-link" href="#example-1-soving-a-system-using-lu-factorization">
+   Example 1:  Soving a system using LU factorization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elementary-matrices">
-   Elementary Matrices
+   Elementary matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-finding-an-lu-factorization">
-   Example 2:  Finding an LU Factorization
+   Example 2:  Finding an LU factorization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#permutation-matrices">
-   Permutation Matrices
+   Permutation matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-3-factoring-with-row-swaps">
-   Example 3:  Factoring with Row Swaps
+   Example 3:  Factoring with row swaps
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -285,7 +289,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   Exercises:
+   Exercises
   </a>
  </li>
 </ul>
@@ -299,15 +303,15 @@
         
               <div>
                 
-  <div class="section" id="lu-factorization">
+  <section id="lu-factorization">
 <h1>LU Factorization<a class="headerlink" href="#lu-factorization" title="Permalink to this headline">¶</a></h1>
 <p>We saw in the last section that given two matrices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, of compatible shapes, we are able to define the product matrix <span class="math notranslate nohighlight">\(C=AB\)</span> in a useful way.  In this section we discuss the factorization of a matrix.  One might naturally ask if it is possible to start with matrix <span class="math notranslate nohighlight">\(C\)</span> and determine the two matrix factors <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.  As it turns out, a useful course of action is to look for matrix factors that have a particular structure.</p>
 <p>One such factorization, that is closely related to the elimination process, is known as the LU Factorization.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span>, we will look for matrices <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> such that</p>
-<ol class="simple">
+<ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(LU = A\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(L\)</span> is a lower triangular matrix with main diagonal entries equal to 1.</p></li>
 <li><p><span class="math notranslate nohighlight">\(U\)</span> is an upper triangular matrix.</p></li>
-</ol>
+</ul>
 <p>Here is a visualization of what we are seeking.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -317,7 +321,7 @@ L = \left[ \begin{array}{cccc} 1 &amp; 0 &amp; 0 &amp; 0 \\ * &amp; 1 &amp; 0 &a
 U = \left[ \begin{array}{cccc} * &amp; * &amp; * &amp; * \\ 0 &amp; * &amp; * &amp; * \\ 0 &amp; 0 &amp; * &amp; * \\ 0 &amp; 0 &amp; 0 &amp; *  \end{array}\right]\hspace{1cm}
 \end{equation}
 \end{split}\]</div>
-<p>Before we tackle the problem of calculating <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> from a known matrix <span class="math notranslate nohighlight">\(A\)</span>, let’s see why such a factorization is useful.  Suppose that we have found <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> so that <span class="math notranslate nohighlight">\(A=LU\)</span> and we wish to solve the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Another way to write the problem is <span class="math notranslate nohighlight">\(LUX=B\)</span>.  We can then define another unknown <span class="math notranslate nohighlight">\(Y\)</span>, by saying that <span class="math notranslate nohighlight">\(UX=Y\)</span> and exchange the a single system <span class="math notranslate nohighlight">\(AX=B\)</span> for following two systems.</p>
+<p>Before we tackle the problem of calculating <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> from a known matrix <span class="math notranslate nohighlight">\(A\)</span>, let’s see why such a factorization is useful.  Suppose that we have found <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span> so that <span class="math notranslate nohighlight">\(A=LU\)</span> and we wish to solve the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Another way to write the problem is <span class="math notranslate nohighlight">\(LUX=B\)</span>.  We can then define another unknown <span class="math notranslate nohighlight">\(Y\)</span> by saying that <span class="math notranslate nohighlight">\(UX=Y\)</span>, and exchange the a single system <span class="math notranslate nohighlight">\(AX=B\)</span> for following two systems.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -325,26 +329,28 @@ UX &amp; = &amp; Y\\
 LY &amp; = &amp; B 
 \end{eqnarray*}
 \end{split}\]</div>
-<p>While it is true that we have in fact doubled the number of equations, the two systems that we have are triangular and can be solved easily with back (or forward) substitution.  Let’s see an example with actual numbers.</p>
-<div class="section" id="example-1-using-lu-factorization-to-solve-a-system">
-<h2>Example 1:  Using LU Factorization to Solve a System<a class="headerlink" href="#example-1-using-lu-factorization-to-solve-a-system" title="Permalink to this headline">¶</a></h2>
+<p>While it is true that we have in fact doubled the number of equations, the two systems that we have are triangular and can be solved easily with back (or forward) substitution.  The first example shows the details for specific system.</p>
+<section id="example-1-soving-a-system-using-lu-factorization">
+<h2>Example 1:  Soving a system using LU factorization<a class="headerlink" href="#example-1-soving-a-system-using-lu-factorization" title="Permalink to this headline">¶</a></h2>
 <p>We want to solve the system of equations.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
 \left[ \begin{array}{ccc} 3 &amp; -1 &amp; -2 \\ 6 &amp; -1 &amp; 0  \\ -3 &amp; 5 &amp; 20  \end{array}\right]X = 
 \left[ \begin{array}{c} -4 \\ -8 \\ 6  \end{array}\right]\hspace{1cm}
-\end{equation}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(X\)</span> is an unknown <span class="math notranslate nohighlight">\(3\times 1\)</span> vector.  Suppose we also have computed <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
 L = \left[ \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 2 &amp; 1 &amp; 0  \\ -1 &amp; 4 &amp; 1  \end{array}\right] \hspace{2cm} 
 U = \left[ \begin{array}{ccc} 3 &amp; -1 &amp; -2 \\ 0 &amp; 1 &amp; 4  \\ 0 &amp; 0 &amp; 2  \end{array}\right] 
-\end{equation}
 \end{split}\]</div>
-<p>(<em>Check for yourself by hand and with Python that LU = A!</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Use Python to check for yourself that LU = A.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now let’s write out the systems <span class="math notranslate nohighlight">\(UX=Y\)</span> and <span class="math notranslate nohighlight">\(LY = B\)</span>.  For the sake of clarity, we leave the matrix notation aside for a moment and use the variables <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, and <span class="math notranslate nohighlight">\(x_3\)</span> for the entries of <span class="math notranslate nohighlight">\(X\)</span> and the variables <span class="math notranslate nohighlight">\(y_1\)</span>, <span class="math notranslate nohighlight">\(y_2\)</span>, and <span class="math notranslate nohighlight">\(y_3\)</span> for the entries of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -359,16 +365,15 @@ y_2 + 4y_3 &amp; = &amp; -8\\
 \end{eqnarray*}
 \end{split}\]</div>
 <p>Now the solution is a matter of substitution.  The last equation tells us <span class="math notranslate nohighlight">\(y_3\)</span>.  From there we work backwards to find <span class="math notranslate nohighlight">\(y_2\)</span> and <span class="math notranslate nohighlight">\(y_1\)</span>.  Then we go the first three equations to determine the <span class="math notranslate nohighlight">\(x\)</span> values in a similar way, starting this time with the very first equation and working our way down.</p>
-</div>
-<div class="section" id="elementary-matrices">
-<h2>Elementary Matrices<a class="headerlink" href="#elementary-matrices" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="elementary-matrices">
+<h2>Elementary matrices<a class="headerlink" href="#elementary-matrices" title="Permalink to this headline">¶</a></h2>
 <p>In order to understand how we can construct the LU factorization through elimination, it helpful to see that the steps of elimination can be carried out by multiplication with special matrices called <strong>elementary matrices</strong>.  Elementary matrices are the result of applying either a <span class="math notranslate nohighlight">\(\texttt{RowScale}\)</span> or <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> operation to the identity matrix of compatible shape.  (<em>Remember that rearranging the rows is only necessary if a 0 arises in a pivot position.  We will address row swaps shortly.</em>)</p>
 <p>For an example, let’s apply one of these operations to a <span class="math notranslate nohighlight">\(4\times 4\)</span> identity matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
 
 <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
@@ -391,7 +396,7 @@ y_2 + 4y_3 &amp; = &amp; -8\\
 </div>
 </div>
 </div>
-<p>The <span class="math notranslate nohighlight">\(E\)</span> that we get is the result of adding -3 times the first row of <span class="math notranslate nohighlight">\(I\)</span> to the third row of <span class="math notranslate nohighlight">\(I\)</span>.  The interesting property of the elementry matrix <span class="math notranslate nohighlight">\(E\)</span> is that if we multiply another matrix <span class="math notranslate nohighlight">\(A\)</span> by <span class="math notranslate nohighlight">\(E\)</span>, the result will be a the matrix we would get by applying the same row operation to <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>The <span class="math notranslate nohighlight">\(E\)</span> that we get is the result of adding -3 times the first row of <span class="math notranslate nohighlight">\(I\)</span> to the third row of <span class="math notranslate nohighlight">\(I\)</span>.  The interesting property of the elementary matrix <span class="math notranslate nohighlight">\(E\)</span> is that if we multiply another matrix <span class="math notranslate nohighlight">\(A\)</span> by <span class="math notranslate nohighlight">\(E\)</span>, the result will be a the matrix we would get by applying the same row operation to <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">13</span><span class="p">]])</span>
@@ -414,9 +419,9 @@ y_2 + 4y_3 &amp; = &amp; -8\\
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="example-2-finding-an-lu-factorization">
-<h2>Example 2:  Finding an LU Factorization<a class="headerlink" href="#example-2-finding-an-lu-factorization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-2-finding-an-lu-factorization">
+<h2>Example 2:  Finding an LU factorization<a class="headerlink" href="#example-2-finding-an-lu-factorization" title="Permalink to this headline">¶</a></h2>
 <p>We can now carry out the elimination by applying a sequence of elementary matrices <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_3\)</span>,…to <span class="math notranslate nohighlight">\(A\)</span>.  Let’s see how it works for the matrix above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,17 +482,21 @@ A &amp;=&amp; E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}U
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]
  [2. 0. 0. 1.]] 
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">a94f4be4cf45</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">E3</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E3</span><span class="p">))</span>
 
-[[ 1.  0. -0.  0.]
- [-0.  1.  0.  0.]
- [ 0.  0.  1.  0.]
- [-2.  0.  0.  1.]]
+<span class="ne">NameError</span>: name &#39;sla&#39; is not defined
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>Mulitiplying two lower triangular matrices together produces a lower triangular matrix.  Look at any example and try to figure out why.</p></li>
+<li><p>Multiplying two lower triangular matrices together produces a lower triangular matrix.  Look at any example and try to figure out why.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -546,7 +555,7 @@ A &amp;=&amp; E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}U
 </div>
 </div>
 </div>
-<p>The nonzero lower triangular entries in <span class="math notranslate nohighlight">\(E_3^{-1}E_4^{-1}E_5^{-1}\)</span> are the same as the corresponding entries of <span class="math notranslate nohighlight">\(E_3^{-1}\)</span>, <span class="math notranslate nohighlight">\(E_4^{-1}\)</span>, and <span class="math notranslate nohighlight">\(E_5^{-1}\)</span>.  This means that the entries in <span class="math notranslate nohighlight">\(L\)</span> are just the scale factors used in our application of <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>, multiplied by -1.  Now that we understand how these elementary matrices combine to produce <span class="math notranslate nohighlight">\(L\)</span>, we don’t actually need to construct them.  We can just compute <span class="math notranslate nohighlight">\(L\)</span> as we do the row operations by keeping track of the scale factors</p>
+<p>The nonzero lower triangular entries in <span class="math notranslate nohighlight">\(E_3^{-1}E_4^{-1}E_5^{-1}\)</span> are the same as the corresponding entries of <span class="math notranslate nohighlight">\(E_3^{-1}\)</span>, <span class="math notranslate nohighlight">\(E_4^{-1}\)</span>, and <span class="math notranslate nohighlight">\(E_5^{-1}\)</span>.  This means that the entries in <span class="math notranslate nohighlight">\(L\)</span> are just the scale factors used in our application of <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>, multiplied by -1.  Now that we understand how these elementary matrices combine to produce <span class="math notranslate nohighlight">\(L\)</span>, we don’t actually need to construct them.  We can just compute <span class="math notranslate nohighlight">\(L\)</span> as we do the row operations by keeping track of the scale factors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
@@ -579,9 +588,9 @@ LU:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="permutation-matrices">
-<h2>Permutation Matrices<a class="headerlink" href="#permutation-matrices" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="permutation-matrices">
+<h2>Permutation matrices<a class="headerlink" href="#permutation-matrices" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen in the previous section, it is sometimes necessary to rearrange the rows of a matrix when performing elimination.  This row operation can also be done by multiplying the matrix with an elementary matrix.  Let’s build a matrix <span class="math notranslate nohighlight">\(P\)</span> that performs an exchange of rows 2 and 3 in a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix.  Again, we can do this by performing the same row operation on the identity matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -597,10 +606,10 @@ LU:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:
-[[ 3 -2  4 -1]
- [-4 -4 -6  2]
- [ 2  0 -4  1]
- [-3 -3  5  0]]
+[[ 0 -3  3 -3]
+ [ 5  1 -6  5]
+ [ 4 -1 -2  0]
+ [-5  2 -4  4]]
 
 P:
 [[1. 0. 0. 0.]
@@ -609,10 +618,10 @@ P:
  [0. 0. 0. 1.]]
 
 PC:
-[[ 3. -2.  4. -1.]
- [ 2.  0. -4.  1.]
- [-4. -4. -6.  2.]
- [-3. -3.  5.  0.]]
+[[ 0. -3.  3. -3.]
+ [ 4. -1. -2.  0.]
+ [ 5.  1. -6.  5.]
+ [-5.  2. -4.  4.]]
 </pre></div>
 </div>
 </div>
@@ -634,10 +643,10 @@ PC:
 </div>
 </div>
 <p>Note that if a permutation represents more than a single row exchange, then its inverse must represent those row exhanges applied in the reverse order.</p>
-</div>
-<div class="section" id="example-3-factoring-with-row-swaps">
-<h2>Example 3:  Factoring with Row Swaps<a class="headerlink" href="#example-3-factoring-with-row-swaps" title="Permalink to this headline">¶</a></h2>
-<p>In order to understand how the row swaps are incorporated into the factorization, it is most helpful to see an example.  In this <span class="math notranslate nohighlight">\(4\times 4\)</span> example, we will use our <span class="math notranslate nohighlight">\(\texttt{lag}\)</span> routines to carry out the elimination and build the corresponding elementary matrices along the way.  For the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> operations, we will label the elementary matrix with an <span class="math notranslate nohighlight">\(L\)</span>, and for the <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span> operations we will use the label <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</section>
+<section id="example-3-factoring-with-row-swaps">
+<h2>Example 3:  Factoring with row swaps<a class="headerlink" href="#example-3-factoring-with-row-swaps" title="Permalink to this headline">¶</a></h2>
+<p>In order to understand how the row swaps are incorporated into the factorization, it is most helpful to see an example.  In this <span class="math notranslate nohighlight">\(4\times 4\)</span> example, we will use our <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> functions to carry out the elimination and build the corresponding elementary matrices along the way.  For the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> operations, we will label the elementary matrix with an <span class="math notranslate nohighlight">\(L\)</span>, and for the <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span> operations we will use the label <span class="math notranslate nohighlight">\(P\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
@@ -732,7 +741,7 @@ PC:
 </div>
 </div>
 </div>
-<p>I terms of matrix multiplication, we have carried out the matrix product <span class="math notranslate nohighlight">\(P_2L_4P_1L_3L_2L_1B = U\)</span>, as we can check.</p>
+<p>In terms of matrix multiplication, we have carried out the matrix product <span class="math notranslate nohighlight">\(P_2L_4P_1L_3L_2L_1B = U\)</span>, as we can check.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
@@ -767,7 +776,7 @@ PC:
 </div>
 </div>
 </div>
-<p>Although this matrix does not have the correct structure, we might notice that it is only a matter of rearranging the rows to produce a lower triangluar matrix.  In fact, the row swaps that are needed here are <em>exactly the same</em> as those used in the elimination process.</p>
+<p>Although this matrix does not have the correct structure, we might notice that it is only a matter of rearranging the rows to produce a lower triangular matrix.  In fact, the row swaps that are needed here are <em>exactly the same</em> as those used in the elimination process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">P2</span><span class="nd">@P1@possible_L</span>
@@ -782,17 +791,12 @@ PC:
  [4. 0. 0. 1.]]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Now let’s put all of this together to make the factorization of <span class="math notranslate nohighlight">\(B\)</span>.  Elimination gives us that <span class="math notranslate nohighlight">\(B = (P_2L_4P_1L_3L_2L_1)^{-1}U\)</span>, but the matrix <span class="math notranslate nohighlight">\((P_2L_4P_1L_3L_2L_1)^{-1}\)</span> is not lower triangular.  We can produce a lower triangular factor by multiplying by the permutation matrices that produce the required row swaps.</p>
 <div class="math notranslate nohighlight">
 \[
-\begin{equation}
 P_2P_1B = P_2P_1(P_2L_4P_1L_3L_2L_1)^{-1}U
-\end{equation}
 \]</div>
 <p>We will label <span class="math notranslate nohighlight">\(P_2P_1(P_2L_4P_1L_3L_2L_1)^{-1}\)</span> as <span class="math notranslate nohighlight">\(L\)</span>, since it now has the correct structure.  The end result is that <span class="math notranslate nohighlight">\(B=PLU\)</span> where <span class="math notranslate nohighlight">\(P=(P_2P_1)^{-1}\)</span>.  To compute the inverse of the permutation matrix, we can simply apply the row swaps in the reverse order, so that <span class="math notranslate nohighlight">\(P=P_1P_2\)</span>.</p>
 <div class="cell docutils container">
@@ -802,6 +806,8 @@ P_2P_1B = P_2P_1(P_2L_4P_1L_3L_2L_1)^{-1}U
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PLU</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">P</span><span class="nd">@L@U</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1">## Note the optional argument sep=&#39;&#39; to print eliminates the space usually included between printed items</span>
 </pre></div>
 </div>
 </div>
@@ -912,13 +918,15 @@ PLU
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plu-factorization-with-scipy">
+</section>
+<section id="plu-factorization-with-scipy">
 <h2>PLU factorization with SciPy<a class="headerlink" href="#plu-factorization-with-scipy" title="Permalink to this headline">¶</a></h2>
-<p>The SciPy function for finding <span class="math notranslate nohighlight">\(PLU\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.  This function accepts the array to be factored as an argument, and returns three arrays representing <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(L\)</span>, and <span class="math notranslate nohighlight">\(U\)</span>, in that order.</p>
+<p>The SciPy <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> function for finding <span class="math notranslate nohighlight">\(PLU\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.  This function accepts the array to be factored as an argument, and returns three arrays representing <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(L\)</span>, and <span class="math notranslate nohighlight">\(U\)</span>, in that order.  To store these arrays for later use, we need to provide three names that will be assigned to the output of <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="n">P</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -984,9 +992,9 @@ PLU
 </div>
 </div>
 <p>The results returned from <span class="math notranslate nohighlight">\(\texttt{lu_factor}\)</span> are not the same as those returned from <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.  The underlying factorization is the same, but the information is compressed into a more efficient format.</p>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises:<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> using the given <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(U\)</span>.</p></li>
 </ul>
@@ -999,12 +1007,35 @@ L = \left[ \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 0  \\ -1 &amp
 U = \left[ \begin{array}{ccc} 5 &amp; 2 &amp; 1 \\ 0 &amp; 1 &amp; -1  \\ 0 &amp; 0 &amp; 3  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>Write a function called <span class="math notranslate nohighlight">\(\texttt{ForwardSubstitution}\)</span> that will solve a lower triangular system <span class="math notranslate nohighlight">\(LY=B\)</span>.  It will be helpful to go back and look at the code for <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Use SciPy to compute the <span class="math notranslate nohighlight">\(PLU\)</span> factorization of a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.  Replicate the results using the row operations functions in <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1055,7 +1086,7 @@ U = \left[ \begin{array}{ccc} 5 &amp; 2 &amp; 1 \\ 0 &amp; 1 &amp; -1  \\ 0 &amp
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

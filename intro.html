@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Welcome to the Jupyter Guide to Linear Algebra &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,22 +35,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -76,7 +74,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -170,9 +168,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -184,11 +182,35 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
 
     </div>
 
@@ -221,7 +243,7 @@
         
               <div>
                 
-  <div class="section" id="welcome-to-the-jupyter-guide-to-linear-algebra">
+  <section id="welcome-to-the-jupyter-guide-to-linear-algebra">
 <h1>Welcome to the Jupyter Guide to Linear Algebra<a class="headerlink" href="#welcome-to-the-jupyter-guide-to-linear-algebra" title="Permalink to this headline">¶</a></h1>
 <p>The Jupyter Guide to Linear Algebra covers many of the core topics that would appear in an introductory course on linear algebra, together with several applications.  The guide also provides a brief introduction to the Python programming langauge, with focus on the portions that are relevant to linear algebra computations, as well as some general guidance on programming.  In its current form, the Jupyter Guide to Linear Algebra is not intended to be a replacement for a textbook in a traditional university course, although it should prove useful to students in such courses.  The guide may also be useful to those who have some knowledge of linear algebra, and wish to learn how to carry out computations in Python, or experienced Jupyter users that would like to learn a bit about Linear Algebra.</p>
 <p>Features:</p>
@@ -231,20 +253,21 @@
 <li><p>Instruction on the basic use of NumPy, SciPy, and Matplotlib.</p></li>
 </ul>
 <p>The code supplied in Jupyter Guide to Linear Algebra performs all operations numerically.  We do not make use of SymPy to perform symbolic computations, which hide the practical challenges of accuracy and stability.  We will discover and acknowledge roundoff error very early in the guide, but we will not provide a detailed error analysis, nor advanced algorithms to minimize its impact.  We will also not be overly concerned with computational efficiency.  This resource is meant for a first course in linear algebra, and we will leave the larger challenges of numerical linear algebra for a second course.</p>
-<p>The Jupyter Guide to Linear Algebra presents the mathematics in a relatively informal way.  We offer explanations in place of proofs and do not follow a traditional model of definitions and theorems.  Instead our main objective is to present methods to solve problems, demonstrate how to carry out calculations, provide the basic terminology of linear algebra, and examine ways in which the abstract ideas can be used in practical ways.</p>
-<div class="section" id="how-to-use-this-guide">
+<p>The Jupyter Guide to Linear Algebra presents the mathematics in a relatively informal way.  We offer explanations in place of proofs, and do not follow a traditional model of definitions and theorems.  Instead, our main objective is to present methods to solve problems, demonstrate how to carry out calculations, provide the basic terminology of linear algebra, and examine ways in which the abstract ideas can be used in practical ways.</p>
+<section id="how-to-use-this-guide">
 <h2>How to use this Guide<a class="headerlink" href="#how-to-use-this-guide" title="Permalink to this headline">¶</a></h2>
-<p>The real purpose of this material is for the reader to engage with the material by experimenting and trying out computations for themselves.  The Jupyter Guide to Linear Algebra is currently distributed in two forms, either a Jupyter book, or a collection of Jupyter notebooks.  The Jupyter book version may be found as a pdf or website.  If you are reading a pdf version, please find the digital version at <a class="reference external" href="https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/intro.html">bvanderlei.github.io/jupyter-guide-to-linear-algebra/intro.html</a>.</p>
-<p>If you are reading this on a website, you can launch the notebook for the current section in BinderHub by clicking the rocket icon in the upper right corner of the page.  This will create an interactive Jupyter session which may take a minute to load.  Once it is complete you can edit the notebook, run your own code, and download your work when you are finished.  If you are an experinced Jupyter user, you may also choose to download the notebooks directly.  The complete collection of notebooks can be found at <a class="reference external" href="https://github.com/bvanderlei/jupyter-guide-to-linear-algebra">github.com/bvanderlei/jupyter-guide-to-linear-algebra</a>.</p>
-</div>
-<div class="section" id="prerequisites-or-corequisites">
+<p>The real purpose of this book is for the reader to engage with the material by experimenting and trying out computations for themselves.  The Jupyter Guide to Linear Algebra is currently distributed in two forms, either a Jupyter book, or a collection of Jupyter notebooks.  The Jupyter book version may be found as a pdf or website.  If you are reading a pdf version, please find the digital version at <a class="reference external" href="https://bvanderlei.github.io/jupyter-guide-to-linear-algebra/intro.html">bvanderlei.github.io/jupyter-guide-to-linear-algebra</a>.</p>
+<p>If you are reading this online, you can launch the Jupyter notebook for the current section in BinderHub by clicking the rocket icon in the upper right corner of the page and selecting the Binder option.  This will create an interactive Jupyter session which may take a minute to load.  Once it is complete you can edit the notebook, run your own code, and download your work when you are finished.  Alternatively, you can select the Live Code option from the launch button.  This will make the code on each page live while keeping the rest of the content in static.</p>
+<p>If you are an experinced Jupyter user, you may also choose to download the notebooks directly.  The complete collection of notebooks can be found at <a class="reference external" href="https://github.com/bvanderlei/jupyter-guide-to-linear-algebra">github.com/bvanderlei/jupyter-guide-to-linear-algebra</a>.</p>
+</section>
+<section id="prerequisites-or-corequisites">
 <h2>Prerequisites or Corequisites<a class="headerlink" href="#prerequisites-or-corequisites" title="Permalink to this headline">¶</a></h2>
 <p>An introductory programming course, or an equivalent programming experience would be useful to the reader.  While we do introduce all of the syntax needed to write Python scripts, we do not delve into the details of traditional topics in an introductory programming course (data types, logic, iteration, and complex data structures).  We address the features of Python that we use most frequetly, and provide only brief mentions of those that are tangential to our goals.</p>
 <p>Some applications make use of Calculus and will be noted.  Full appreciation of these sections will require an introductory Calculus course.</p>
 <div class="toctree-wrapper compound">
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -294,7 +317,7 @@
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

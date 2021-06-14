@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Applications of Linear Systems and Matrix Algebra &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Vector Spaces" href="Vector_Spaces.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Applications.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -284,11 +288,6 @@
   <a class="reference internal nav-link" href="#graph-theory">
    Graph Theory
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Exercises
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#counting-paths">
@@ -301,13 +300,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Exercises
+    <a class="reference internal nav-link" href="#tournament-analysis">
+     Tournament Analysis
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tournament-analysis">
-     Tournament Analysis
+    <a class="reference internal nav-link" href="#id1">
+     Exercises
     </a>
    </li>
   </ul>
@@ -328,35 +327,31 @@
         
               <div>
                 
-  <div class="section" id="applications-of-linear-systems-and-matrix-algebra">
+  <section id="applications-of-linear-systems-and-matrix-algebra">
 <h1>Applications of Linear Systems and Matrix Algebra<a class="headerlink" href="#applications-of-linear-systems-and-matrix-algebra" title="Permalink to this headline">¶</a></h1>
+<p>The need to solve linear systems arises in a wide variety of fields.  We show in this section an example of the linear system that arises in fitting a curve to a data set.  We also discuss the application of matrix algebra to cryptography and graph theory.</p>
+<section id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<p>Interpolation is the process of estimating unknown data values that fall between known values.  This process commonly involves fitting a curve through the known set of data points in order to make predictions about the unknown values.  The curve is described by a set of parameters, and “fitting the curve” means choosing the parameters such that the curve best represents the data.  A simple way to fit a curve is to require that it passes through all the data provided.</p>
+<p>Let’s look at the the data points <span class="math notranslate nohighlight">\((2,8)\)</span>, <span class="math notranslate nohighlight">\((5,12)\)</span>, <span class="math notranslate nohighlight">\((6,14)\)</span>, and <span class="math notranslate nohighlight">\((15,15)\)</span> as an example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-<span class="kn">import</span> <span class="nn">hillcipher</span> <span class="k">as</span> <span class="nn">hc</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="interpolation">
-<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
-<p>Interpolation is the process of estimating unknown data values that fall between known values.  This process commonly involves fitting a curve through the known set of data points in order to make predictions about the unknown values.  The curve is described by a set of parameters, and “fitting the curve” means choosing the parameters such that the curve best represents the data.  A simple way to fit a curve is to require that it passes through all the data provided.</p>
-<p>Let’s look at the the data points <span class="math notranslate nohighlight">\((2,8)\)</span>, <span class="math notranslate nohighlight">\((5,12)\)</span>, <span class="math notranslate nohighlight">\((6,14)\)</span>, and <span class="math notranslate nohighlight">\((15,15)\)</span> as an example.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -381,7 +376,7 @@ a_0 + 6a_1 + 6^2a_2 + 6^3a_3 &amp; = &amp; 14\\
 a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 \end{eqnarray*}
 \end{split}\]</div>
-<p>We assemble the matrix <span class="math notranslate nohighlight">\(A\)</span> and righthand side vector <span class="math notranslate nohighlight">\(B\)</span> as NumPy arrays.</p>
+<p>We assemble the matrix <span class="math notranslate nohighlight">\(A\)</span> and right-hand side vector <span class="math notranslate nohighlight">\(B\)</span> as NumPy arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -392,7 +387,7 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
         <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
         
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -401,7 +396,8 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.000e+00 2.000e+00 4.000e+00 8.000e+00]
  [1.000e+00 5.000e+00 2.500e+01 1.250e+02]
  [1.000e+00 6.000e+00 3.600e+01 2.160e+02]
- [1.000e+00 1.500e+01 2.250e+02 3.375e+03]]
+ [1.000e+00 1.500e+01 2.250e+02 3.375e+03]] 
+
 [[ 8.]
  [12.]
  [14.]
@@ -435,12 +431,13 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 
 <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span><span class="n">y_fit</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span><span class="n">y_fit</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -448,25 +445,26 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 <img alt="_images/Applications_10_0.png" src="_images/Applications_10_0.png" />
 </div>
 </div>
-<p>Although the curve that we produce does indeed pass through each of the data points, this polynomial is not be the best model of the underlying process.  One concern is that the curve does not seem to connect the third and fourth data point in a direct way, but rather exhibits an oscillation.  Fitting curves to data in order to make predictions is a much larger discussion that we will avoid at this time.  In a later chapter we will revisit the problem and consider the idea of finding a curve that best fits the data <em>without actually passing through each point</em>.</p>
-</div>
-<div class="section" id="cryptography">
+<p>Although the curve that we produce does indeed pass through each of the data points, this polynomial may not be the best model of the underlying process.  One potential concern is that the curve does not seem to connect the third and fourth data point in a direct way, but rather exhibits an oscillation.  When constructing a curve to fit a set of data points, there are other factors that may be more important than simply requiring that the curve passes through each point.  In a later chapter we will revisit the problem and consider the idea of finding a curve that “fits” the data without actually passing through each point.</p>
+</section>
+<section id="cryptography">
 <h2>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
-<p>One of the primary goals of cryptography is to secure communications by encoding messages.  The encoded message is difficult to read by anyone except for the intended recipient, who posseses some secret knowledge that allows them to reverse the process and decode the message.  The original message is known as <em>plaintext</em>, and the encoded message is known as <em>ciphertext</em>.  We demonstrate here the well-known Hill Ciper, which is a method of transforming plaintext to ciphertext using familiar matrix multiplication.</p>
-<div class="section" id="encryption">
+<p>One of the primary goals of cryptography is to secure communications by encoding messages.  The encoded message is difficult to read by anyone except for the intended recipient, who possesses some secret knowledge that allows them to reverse the process and decode the message.  The original message is known as <em>plaintext</em>, and the encoded message is known as <em>ciphertext</em>.  We demonstrate here the well-known Hill Cipher, which is a method of transforming plaintext to ciphertext using familiar matrix multiplication.</p>
+<section id="encryption">
 <h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h3>
 <p>Let’s assume that the plaintext and ciphertext will be made up of characters from the same predefined <em>alphabet</em>.  This alphabet can contain letters, numbers, punctuation, and any number of other symbols that might be appropriate.  We also need a square invertible matrix <span class="math notranslate nohighlight">\(B\)</span>, called the encryption matrix.  Given these parameters, we take the following steps to get from plaintext to ciphertext.</p>
 <ol class="simple">
-<li><p>Translate the plaintext from alphabet charaters into a list of numbers.</p></li>
+<li><p>Translate the plaintext from alphabet characters into a list of numbers.</p></li>
 <li><p>Divide the list of numbers into a collection of <span class="math notranslate nohighlight">\(N\times 1\)</span> vectors.  Use these numbers as columns in a plaintext array <span class="math notranslate nohighlight">\(P\)</span>.</p></li>
 <li><p>Apply the cipher by multiplying each vector by the matrix <span class="math notranslate nohighlight">\(B\)</span>.  This produces a ciphertext array <span class="math notranslate nohighlight">\(C=BP\)</span>.</p></li>
 <li><p>Translate the columns of <span class="math notranslate nohighlight">\(C\)</span> back into a string of alphabet characters.</p></li>
 </ol>
-<p>In order to get started, we first need a way to exchange a message that includes letters, numbers, and possibly other characters, into to a message that consists of only numbers.  The easiest thing to do is to substitute each possible character in the message for a number.  For example we might let A=1, B=2, C=3, and so on.  In order to make this process less obvious, we might scramble the order of the numbers (A=23, B=5, C=12, …), or substitute single numbers for common groups of letters (TH=32, EE=20, ING=17, …).  However we choose to convert our message from text to numbers, there will still be patterns that remain among the numbers due to the natural patterns of the underlying language.</p>
+<p>In order to get started, we first need a way to transform a message that includes letters, numbers, and possibly other characters, into to a message that consists of only numbers.  The easiest thing to do is to substitute each possible character in the message for a number.  For example we might let A=1, B=2, C=3, and so on.  In order to make this process less obvious, we might scramble the order of the numbers (A=23, B=5, C=12, …), or substitute single numbers for common groups of letters (TH=32, EE=20, ING=17, …).  However we choose to convert our message from text to numbers, there will still be patterns that remain among the numbers due to the natural patterns of the underlying language.</p>
 <p>For the purpose of this demonstration, we will make use of a list named <span class="math notranslate nohighlight">\(\texttt{alphabet}\)</span> to convert between letters and numbers.  This list is included in the <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module, which contains some other functions that we will need.  If we print the list, we can see that it contains a space, a period, a question mark, and all uppercase letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hc</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hillcipher</span> <span class="k">as</span> <span class="nn">hc</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hc</span><span class="o">.</span><span class="n">alphabet</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -518,7 +516,6 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
     
 <span class="n">array_message</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">number_message</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array_message</span><span class="p">)</span>
-<span class="c1">#print(len(array_message))</span>
 </pre></div>
 </div>
 </div>
@@ -533,11 +530,9 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 <p>The next step is to arrange our numerical message into the plaintext array <span class="math notranslate nohighlight">\(P\)</span> which must have dimensions compatible with our encryption matrix <span class="math notranslate nohighlight">\(B\)</span>.  We will choose <span class="math notranslate nohighlight">\(B\)</span> to be a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix for this example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{equation}
 B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -3 &amp; 2 \\ 2 &amp; 0 &amp; -4 &amp; 4 \\ 2 &amp; 1 &amp; -1 &amp; -1 \end{array}\right]
-\end{equation}
 \end{split}\]</div>
-<p>We now take the plaintext message and break it into chunks which contain 4 numbers each.  (<em>Note that if the number of characters in our message is not divisible by 4, we can add extra characters at the end.</em>)  Each chunk will form a column of <span class="math notranslate nohighlight">\(P\)</span>, and we will have as many columns as needed to accomodate the entire message.  We make use of the <span class="math notranslate nohighlight">\(\texttt{reshape}\)</span> and <span class="math notranslate nohighlight">\(\texttt{transpose}\)</span> methods to manipulate the entries in the array.</p>
+<p>We now take the plaintext message and break it into chunks which contain 4 numbers each.  (<em>Note that if the number of characters in our message is not divisible by 4, we can add extra characters at the end.</em>)  Each chunk will form a column of <span class="math notranslate nohighlight">\(P\)</span>, and we will have as many columns as needed to accommodate the entire message.  We make use of the <span class="math notranslate nohighlight">\(\texttt{reshape}\)</span> and <span class="math notranslate nohighlight">\(\texttt{transpose}\)</span> methods to manipulate the entries in the array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the number of chucks needed.</span>
@@ -612,8 +607,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 </div>
 <p>Notice that this last step of the process cannot be reversed.  It is not possible to start with the encrypted message and determine the ciphertext array <span class="math notranslate nohighlight">\(C\)</span>.  Indeed, there are an infinite number of matrices that could have generated this same encrypted message since any of the entries can be have a multiple of 29 added to it.</p>
-</div>
-<div class="section" id="decryption">
+</section>
+<section id="decryption">
 <h3>Decryption<a class="headerlink" href="#decryption" title="Permalink to this headline">¶</a></h3>
 <p>If the encryption matrix is known, the process can be reversed by multiplying by the inverse matrix to get the plaintext array <span class="math notranslate nohighlight">\(P = B^{-1}C\)</span>.  As we just noted however, we cannot reconstruct <span class="math notranslate nohighlight">\(C\)</span> from the encrypted message.  To overcome this difficulty, we need to find the <em>modular inverse</em> of the matrix <span class="math notranslate nohighlight">\(B\)</span>.  That is, we need a matrix <span class="math notranslate nohighlight">\(B^{-1}\)</span> such that the entries of <span class="math notranslate nohighlight">\(B^{-1}B\)</span> are congruent to the entries of <span class="math notranslate nohighlight">\(I\)</span> in the modular arithmetic.  *Note that we use the same symbol for the modular inverse as we do for the usual inverse matrix.</p>
 <p>The method for finding the modular inverse is beyond our scope, but we will make use of the <span class="math notranslate nohighlight">\(\texttt{ModularInverseMatrix}\)</span> function in the <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module to calculate <span class="math notranslate nohighlight">\(B^{-1}\)</span> for the purpose of demonstration.</p>
@@ -670,9 +665,9 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
  [22 27 27  3 16 28 26 19 28 24 26 22 24 23 21]
  [16  4 10 26 12 23 12  3  8 15 15 20 22 16  9]
  [22 28 21  7  3 24  8 21 10  6  1  4 24 14 22]]
-
-
-[[  5100  15300   9000  -8700   3600   4350   6600   7050   2700   5250
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  5100  15300   9000  -8700   3600   4350   6600   7050   2700   5250
     1950   4200   6600   6300   6750]
  [  1950   1350  -1650   5700  -2400   1200  -5400   -450  -9450  -4350
    -8700  -2400   4350   -450    750]
@@ -702,8 +697,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 <p>The <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module contains two functions that carry out the same steps we have demonstrated here to encrypt/decrypt a message using the included alphabet.  The following cell shows how they are called.</p>
 <div class="cell docutils container">
@@ -719,20 +714,36 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>! is not included in the current alphabet.
-CSLFXDUSXZ.T U MW.GLJPCUE YZQN C
-WE RIDE AT DAWN  MAYBE SOONER.UK
+CSLFXDUSXZ.T U MW.GLJPCUE YZ?KOL
+WE RIDE AT DAWN  MAYBE SOONER.RE
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note that these functions do some error checking of the original message to be sure that all letters are in uppercase, and no characters outside the alphabet are included in the message that gets encrypted.</p>
-<ol class="simple">
+<ul class="simple">
 <li><p>Create your own encryption matrix and apply the steps above to encrypt a message of your choosing.  Check the results with those produced by <span class="math notranslate nohighlight">\(\texttt{HillCipherEncryption}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Create your own alphabet list to translate messages into numbers.</p></li>
-</ol>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="graph-theory">
+</div>
+</section>
+</section>
+<section id="graph-theory">
 <h2>Graph Theory<a class="headerlink" href="#graph-theory" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>directed graph</strong> is defined as a set of nodes together with ordered pairs of nodes which define directed edges.  For example, a graph might consist of nodes labeled 0, 1, 2, and 3, and edges (0,1), (1,3), (2,0), (2,1), and (3,1).    The graph can be visualized using points for the nodes and arrows for the edges.</p>
 <p><img alt="title" src="_images/Graph_example.png" /></p>
@@ -752,6 +763,9 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
  [0 1 0 0]]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>For the visualizations we use functions included in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.  These functions make use of <span class="math notranslate nohighlight">\(\texttt{matplotlib}\)</span> and a module called <span class="math notranslate nohighlight">\(\texttt{networkx}\)</span>.  The first function we will use is called <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span>, which requires an adjacency matrix in the form of a NumPy array.</p>
@@ -762,7 +776,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_43_0.png" src="_images/Applications_43_0.png" />
+<img alt="_images/Applications_46_0.png" src="_images/Applications_46_0.png" />
 </div>
 </div>
 <p>The function produces a visualization with <span class="math notranslate nohighlight">\(\texttt{matplotlib}\)</span>, and then returns a Python object containing the positions of the nodes used in making the picture.  Notice that the nodes in this picture are in a different arrangement than in the first picture.  Both pictures represent the same graph so long as edges connect the nodes in the same way.  When we call the function <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span>, it will generate suitable positions for the nodes <em>unless we supply it with pre-defined positions.</em>  We only need to use supply node positions if we want to replicate previous node positions, or if we draw additional features on a graph under consideration.</p>
@@ -778,7 +792,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_45_0.png" src="_images/Applications_45_0.png" />
+<img alt="_images/Applications_48_0.png" src="_images/Applications_48_0.png" />
 </div>
 </div>
 <p>If we use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> this way</p>
@@ -793,7 +807,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_47_0.png" src="_images/Applications_47_0.png" />
+<img alt="_images/Applications_50_0.png" src="_images/Applications_50_0.png" />
 </div>
 </div>
 <p>For the discussion in this section we will place two restrictions on the edges.</p>
@@ -820,17 +834,10 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
  [0 0 0 0 1 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_49_1.png" src="_images/Applications_49_1.png" />
+<img alt="_images/Applications_52_1.png" src="_images/Applications_52_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Create your own adjacency matrix and use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> to make a visualization of the associated graph.</p></li>
-<li><p>Edit your matrix and redraw the graph to see the changes.  Reuse the positions if you want the nodes to remain in the same locations.</p></li>
-</ol>
-<div class="section" id="counting-paths">
+<section id="counting-paths">
 <h3>Counting paths<a class="headerlink" href="#counting-paths" title="Permalink to this headline">¶</a></h3>
 <p>One use of the adjacency matrix is in computation of paths from one node to another.  The <span class="math notranslate nohighlight">\((i,j)\)</span> entries in <em>powers</em> of the adjacency matrix will tell us the number of paths between nodes <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> that have length equal to the power.  For example, if <span class="math notranslate nohighlight">\(B\)</span> is the adjacency matrix, then <span class="math notranslate nohighlight">\(B^3\)</span> contains information about paths of length 3.</p>
 <p>Let’s try it out for the previous example.</p>
@@ -852,8 +859,8 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <p>We see for example that <span class="math notranslate nohighlight">\(B^3_{50} = 2\)</span>.  This means that there are 2 paths of length 3 from node 5 to node 0.  Similarly we see that <span class="math notranslate nohighlight">\(B^3_{22} = 1\)</span>, which means that there is only 1 path of length 3 from node 2 back to itself.  Check the graph for yourself to verify these counts.</p>
-</div>
-<div class="section" id="finding-cliques">
+</section>
+<section id="finding-cliques">
 <h3>Finding Cliques<a class="headerlink" href="#finding-cliques" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>clique</strong> is a set of three or more nodes within a graph such that there is an edge between each node in the clique <em>in both directions</em>.  In the example shown below, nodes 2, 3, and 4 form a clique.</p>
 <p><img alt="title" src="_images/Clique_example.png" /></p>
@@ -883,7 +890,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
  [0 0 0 0 1 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_56_1.png" src="_images/Applications_56_1.png" />
+<img alt="_images/Applications_58_1.png" src="_images/Applications_58_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -924,7 +931,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_59_0.png" src="_images/Applications_59_0.png" />
+<img alt="_images/Applications_61_0.png" src="_images/Applications_61_0.png" />
 </div>
 </div>
 <p>Let’s try one more example with a larger graph that we build at random.</p>
@@ -944,7 +951,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_61_0.png" src="_images/Applications_61_0.png" />
+<img alt="_images/Applications_63_0.png" src="_images/Applications_63_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -966,31 +973,24 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 1. 6. 3. 1. 5. 2. 0. 7. 6.]
- [1. 0. 5. 5. 1. 2. 1. 0. 6. 3.]
- [6. 5. 0. 0. 1. 0. 2. 1. 1. 2.]
- [3. 5. 0. 0. 0. 1. 5. 3. 1. 1.]
- [1. 1. 1. 0. 0. 3. 4. 1. 2. 1.]
- [5. 2. 0. 1. 3. 0. 1. 0. 1. 2.]
- [2. 1. 2. 5. 4. 1. 0. 0. 2. 5.]
- [0. 0. 1. 3. 1. 0. 0. 0. 1. 1.]
- [7. 6. 1. 1. 2. 1. 2. 1. 2. 5.]
- [6. 3. 2. 1. 1. 2. 5. 1. 5. 2.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 0. 0. 0. 0. 2. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 2. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0. 0. 2. 0.]
+ [0. 2. 0. 0. 0. 0. 0. 0. 3. 0.]
+ [2. 0. 0. 0. 0. 0. 0. 2. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 2. 0. 0. 0.]
+ [0. 0. 0. 0. 2. 3. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0. 0. 0. 0.]]
 </pre></div>
 </div>
-<img alt="_images/Applications_62_1.png" src="_images/Applications_62_1.png" />
+<img alt="_images/Applications_64_1.png" src="_images/Applications_64_1.png" />
 </div>
 </div>
 <p>Although the exact picture will change with each new random matrix, we will likely see that there are more than three nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>, and that this set of nodes defines more than one clique.  For a graph with 10 nodes, we can still see fairly easily how to sort the nodes into different cliques.  For large graphs we would want to make use of a sorting algorithm.</p>
-</div>
-<div class="section" id="id2">
-<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
-<li><p>Rerun the code above until it produces a graph that has at least 5 nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>.  Sort the nodes if they belong to different cliques.</p></li>
-<li><p>Write a code cell to sort the <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span> list into different cliques.  Print the result or store it in a list of lists.</p></li>
-</ol>
-</div>
-<div class="section" id="tournament-analysis">
+</section>
+<section id="tournament-analysis">
 <h3>Tournament Analysis<a class="headerlink" href="#tournament-analysis" title="Permalink to this headline">¶</a></h3>
 <p>In a <strong>dominance directed graph</strong> every node is connected to each other node, but only in one direction.  This means the in the adjacency matrix <span class="math notranslate nohighlight">\(D\)</span>, either <span class="math notranslate nohighlight">\(d_{ij} = 1\)</span>, or <span class="math notranslate nohighlight">\(d_{ji}=1\)</span>, but not both.  A dominance directed graph could be used to represent the results of a tournament where every player faced each other player exactly once, and either won or lost the competition.  An edge from player 2 to player 4 means that player 2 won.  Let’s look at an example.</p>
 <div class="cell docutils container">
@@ -1009,7 +1009,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
  [1 0 0 0 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_65_1.png" src="_images/Applications_65_1.png" />
+<img alt="_images/Applications_67_1.png" src="_images/Applications_67_1.png" />
 </div>
 </div>
 <p>In this scenario the sum of the rows of <span class="math notranslate nohighlight">\(D\)</span> indicate how many wins were earned by each player.  In the example, players 2 and 3 both earned 3 wins, player 0 earned 2 wins, and players 1 and 4 earned a single win each.  In order to distinguish the tournament standings between players 2 and 3, we might also look at all the two-step paths between players using the matrix <span class="math notranslate nohighlight">\(D^2\)</span>.</p>
@@ -1047,16 +1047,89 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
 </div>
 </div>
 <p>Looking at the sum of the rows of <span class="math notranslate nohighlight">\(D + D^2\)</span> we see that player 2 has the highest rating in this particular tournament.</p>
+</section>
+<section id="id1">
+<h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create your own adjacency matrix and use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> to make a visualization of the associated graph.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Edit your matrix and redraw the graph to see the changes.  Reuse the positions if you want the nodes to remain in the same locations.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Rerun the code in the two cells below until it produces a graph that has at least 5 nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>.  Sort the nodes if they belong to different cliques.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">):</span>
+            <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            
+<span class="n">big_graph_positions</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">DrawGraph</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="references">
+<div class="cell_output docutils container">
+<img alt="_images/Applications_76_0.png" src="_images/Applications_76_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">C_3</span> <span class="o">=</span> <span class="n">C</span><span class="nd">@C@C</span>            
+<span class="n">clique_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">C_3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">clique_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_3</span><span class="p">)</span>
+<span class="n">lag</span><span class="o">.</span><span class="n">HighlightSubgraph</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">big_graph_positions</span><span class="p">,</span><span class="n">clique_nodes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4. 0. 5. 1. 1. 0. 2. 2. 7. 6.]
+ [0. 0. 0. 0. 0. 2. 4. 0. 1. 1.]
+ [5. 0. 2. 2. 2. 0. 1. 1. 2. 6.]
+ [1. 0. 2. 0. 0. 1. 4. 1. 5. 2.]
+ [1. 0. 2. 0. 0. 0. 1. 1. 4. 1.]
+ [0. 2. 0. 1. 0. 0. 0. 1. 0. 0.]
+ [2. 4. 1. 4. 1. 0. 0. 4. 1. 1.]
+ [2. 0. 1. 1. 1. 1. 4. 0. 2. 5.]
+ [7. 1. 2. 5. 4. 0. 1. 2. 2. 8.]
+ [6. 1. 6. 2. 1. 0. 1. 5. 8. 4.]]
+</pre></div>
+</div>
+<img alt="_images/Applications_77_1.png" src="_images/Applications_77_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a code cell to sort the <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span> list into different cliques.  Print the result or store it in a list of lists.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Anton, Howard and Chris Rorres. <em>Elementary Linear Algebra Applications Version</em>. 8th ed., John Wiley &amp; Sons Inc., 2000.</p></li>
 <li><p>Kwak, Jin Ho and Sungpyo Hong.  <em>Linear Algebra</em>. 2nd ed., Birkhauser., 2004.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1107,7 +1180,7 @@ WE RIDE AT DAWN  MAYBE SOONER.UK
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

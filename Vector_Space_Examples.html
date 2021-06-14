@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Vector Space Examples &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Applications of Vector Spaces" href="Applications_VS.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Vector_Space_Examples.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -279,10 +283,10 @@
         
               <div>
                 
-  <div class="section" id="vector-space-examples">
+  <section id="vector-space-examples">
 <h1>Vector Space Examples<a class="headerlink" href="#vector-space-examples" title="Permalink to this headline">¶</a></h1>
 <p>With some of the basic concepts of vector spaces in place, we now return to the abstraction of understanding the vector space as a collection of objects and algebraic operations that satisfy certain properties.</p>
-<div class="section" id="example-1-polynomials">
+<section id="example-1-polynomials">
 <h2>Example 1: Polynomials<a class="headerlink" href="#example-1-polynomials" title="Permalink to this headline">¶</a></h2>
 <p>The collection of all polynomials with degree three or less, together with typical algebraic operations, constitutes a vector space.  This vector space is commonly written with the symbol <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>.  If we take two elements from <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>, <span class="math notranslate nohighlight">\(p = 2x^3 - x^2 + 6x -8\)</span> and <span class="math notranslate nohighlight">\(q = x^3 - 3x^2 -4x -3\)</span> for example, the linear combination <span class="math notranslate nohighlight">\(p+2q = 4x^3 - 7x^2 -2x -14\)</span> is well-defined, and is another element in <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>.  Indeed any linear combination of polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span> will be some other polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span> by the usual rules of algebra.</p>
 <div class="math notranslate nohighlight">
@@ -336,8 +340,8 @@ c_1 -5c_2 + 7c_3 + 8c_4 &amp; = &amp; 0 \\
 </div>
 </div>
 <p>There is nothing exceptional about polynomials that make up <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>.  In general, the collection of polynomials of degree <span class="math notranslate nohighlight">\(n\)</span> or less, known as <span class="math notranslate nohighlight">\(\mathbb{P}_n\)</span>, is also a vector space for any choice of <span class="math notranslate nohighlight">\(n\)</span>.</p>
-</div>
-<div class="section" id="example-2-matrices">
+</section>
+<section id="example-2-matrices">
 <h2>Example 2: Matrices<a class="headerlink" href="#example-2-matrices" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference internal" href="Matrix_Algebra.html"><span class="doc std std-doc">Matrix Algebra</span></a>, we pointed out that the matrices with only one column are commonly referred to as vectors, and that the algebra of matrices does not need to be defined in any special way to work on those with a single column.  The algebraic machinery required to compute linear combinations of matrices in general is no different than that required to compute linear combinations of those with a single column.  Perhaps it is then natural to think that matrices with multiple columns are as much a vector as those with a single column.  In one sense the single column matrix, which we have been calling a vector, is just a special type of matrix.  Based on the formal definition of a vector space however, the collection of all matrices of a given shape constitute a vector space, since the operations of matrix addition and scalar multiplication satisfy all the algebraic requirements.  In this sense <em>the matrices are vectors</em> since they are objects that make up a vector space.  No doubt this langauge is confusing.</p>
 <p>As an concrete example, we consider the collection of all <span class="math notranslate nohighlight">\(2\times 3\)</span> matrices, to which we will assign the symbol <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 3}\)</span>.  If we select two aribtrary matrices from this collection, and form an arbitrary linear combination, we will get another <span class="math notranslate nohighlight">\(2\times 3\)</span> matrix.</p>
@@ -378,8 +382,8 @@ B = \left[ \begin{array}{ccc} 2 &amp; 0 &amp; 5 \\ 1 &amp; -1 &amp; 2  \end{arra
 \end{equation}
 \end{split}\]</div>
 <p>The coordinate vector <span class="math notranslate nohighlight">\(\left[B\right]_{\alpha}\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span> that gives us a description of how to assemble the matrix <span class="math notranslate nohighlight">\(B\)</span> as a linear combination of the elements in the basis <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-</div>
-<div class="section" id="example-3-functions">
+</section>
+<section id="example-3-functions">
 <h2>Example 3:  Functions<a class="headerlink" href="#example-3-functions" title="Permalink to this headline">¶</a></h2>
 <p>For a third example, we look at the collection of all continuous functions on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>, which is given the symbol <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span>.  If <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are two such functions, and <span class="math notranslate nohighlight">\(c\)</span> a scalar, we can define <span class="math notranslate nohighlight">\(cf\)</span> and <span class="math notranslate nohighlight">\(f+g\)</span> using the algebra of functions.</p>
 <div class="math notranslate nohighlight">
@@ -390,8 +394,8 @@ B = \left[ \begin{array}{ccc} 2 &amp; 0 &amp; 5 \\ 1 &amp; -1 &amp; 2  \end{arra
 \end{eqnarray*}
 \end{split}\]</div>
 <p>These algebraic combinations of functions satisfy all the requirements to make <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> a vector space.  This space is quite different from the other examples in that it does not have a finite dimension.  Any basis for <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> must contain an infinite number of functions.  For this reason, we cannot easily do calculations such as those in the previous example to determine if a set of functions are linearly indpendent.  We will however make use of this example in a later application.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -442,7 +446,7 @@ B = \left[ \begin{array}{ccc} 2 &amp; 0 &amp; 5 \\ 1 &amp; -1 &amp; 2  \end{arra
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

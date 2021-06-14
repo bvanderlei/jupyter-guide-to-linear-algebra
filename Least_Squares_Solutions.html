@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Least Squares Solutions &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Projections" href="Projections.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Least_Squares_Solutions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -254,8 +258,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-two-inconsistent-equations">
+   Example 1:  Two Inconsistent Equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -264,18 +268,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-four-inconsistent-equations">
+   Example 2:  Four Inconsistent Equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#best-approximation">
-   Best approximation
+   Best Approximation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3-qr-factorization">
-   Example 3: QR factorization
+  <a class="reference internal nav-link" href="#qr-factorization-to-solve-normal-equations">
+   QR Factorization to Solve Normal Equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -294,13 +298,13 @@
         
               <div>
                 
-  <div class="section" id="least-squares-solutions">
+  <section id="least-squares-solutions">
 <h1>Least Squares Solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this headline">¶</a></h1>
-<p>In this section we address the problem of inconsistent systems, and the common resolution known as least squares solutions.</p>
-<p>In the case that <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, there is no vector <span class="math notranslate nohighlight">\(X\)</span> such that the two vectors <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same.  A natural idea then is to choose a vector <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are as close as possible.  To do this we define the error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span>, and choose the <span class="math notranslate nohighlight">\(X\)</span> that minimizes <span class="math notranslate nohighlight">\(|E|\)</span>.  This choice of <span class="math notranslate nohighlight">\(X\)</span> is known as the <strong>least squares solution</strong> to the system <span class="math notranslate nohighlight">\(AX=B\)</span>, and we will assign it the symbol <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The direct approach to this formulation of the problem requires the use of calculus to minimize <span class="math notranslate nohighlight">\(|E|\)</span>, but we will take a different approach that only requires inner products and projections.  We will first give the solution to the least squares problem with only a visual explanation.  After some examples, we will provide a more rigorous explanation.</p>
+<p>In this section we address the problem of inconsistent systems, and the common resolution known as the least squares solution.</p>
+<p>In the case that <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, there is no vector <span class="math notranslate nohighlight">\(X\)</span> such that the two vectors <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same.  A natural idea then is to choose a vector <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are as close as possible.  To do this we define the error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span>, and choose the <span class="math notranslate nohighlight">\(X\)</span> that minimizes <span class="math notranslate nohighlight">\(||E||\)</span>.  This choice of <span class="math notranslate nohighlight">\(X\)</span> is known as the <strong>least squares solution</strong> to the system <span class="math notranslate nohighlight">\(AX=B\)</span>, and we will assign it the symbol <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The direct approach to this formulation of the problem requires the use of calculus to minimize <span class="math notranslate nohighlight">\(||E||\)</span>, but we will take a different approach that only requires inner products and projections.  We will first give the solution to the least squares problem and provide only a visual explanation.  After some examples, we will give a more rigorous explanation.</p>
 <p>Recall that if the system <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, the vector <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.  <strong>The error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span> has minimum magnitude exactly when it is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span></strong>.  We can easily visualize this if in the case that <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> as a one dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
-<div class="section" id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-two-inconsistent-equations">
+<h2>Example 1:  Two Inconsistent Equations<a class="headerlink" href="#example-1-two-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider a simple example of an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -308,7 +312,7 @@
 \left[\begin{array}{rr} 3 &amp; 9 \\ 1 &amp; 3 \end{array}\right]X = \left[\begin{array}{r} 2 \\ 4 \end{array}\right]    
 \end{equation}
 \end{split}\]</div>
-<p>In this example, the second column of <span class="math notranslate nohighlight">\(A\)</span> is a multiple of the first, so the <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> is a one-dimensional space that contains only multiples of these vectors.  Since <span class="math notranslate nohighlight">\(B\)</span> is not a multiple of either column, <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
+<p>In this example, the second column of <span class="math notranslate nohighlight">\(A\)</span> is a multiple of the first, so <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> is a one-dimensional space that contains only multiples of these vectors.  Since <span class="math notranslate nohighlight">\(B\)</span> is not a multiple of either column, <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -345,7 +349,7 @@
 <img alt="_images/Least_Squares_Solutions_3_0.png" src="_images/Least_Squares_Solutions_3_0.png" />
 </div>
 </div>
-<p>Let’s look at the relationship between <span class="math notranslate nohighlight">\(AX\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> for an arbitrary <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Let’s look at the relationship between <span class="math notranslate nohighlight">\(AX\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> for an arbitrary vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -379,7 +383,7 @@
 <img alt="_images/Least_Squares_Solutions_5_0.png" src="_images/Least_Squares_Solutions_5_0.png" />
 </div>
 </div>
-<p>We can see that <span class="math notranslate nohighlight">\(|E|\)</span> is a measure between <span class="math notranslate nohighlight">\(B\)</span> and a vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, and that <span class="math notranslate nohighlight">\(|E|\)</span> will be minimized if we choose <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This is the least squares solution we refer to as <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The closest vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to <span class="math notranslate nohighlight">\(B\)</span> is the <em>orthogonal projection</em> of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\hat{B}\)</span> for this projection so that we now have <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.</p>
+<p>We can see that <span class="math notranslate nohighlight">\(||E||\)</span> is a measure of the distance between <span class="math notranslate nohighlight">\(B\)</span> and a vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, and that <span class="math notranslate nohighlight">\(||E||\)</span> will be minimized if we choose <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This is the least squares solution we refer to as <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The closest vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to <span class="math notranslate nohighlight">\(B\)</span> is the <em>orthogonal projection</em> of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\hat{B}\)</span> for this projection so that we now have <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -436,25 +440,25 @@ x_1 &amp; = &amp; 1-3s \\
 x_2 &amp; = &amp; s
 \end{eqnarray*}
 \end{split}\]</div>
-<p>In this particular example, there is not a unique least squares solution since many vectors solve the matrix equation <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.</p>
-</div>
-<div class="section" id="normal-equations">
+<p>In this particular example, which is meant to show a clear picture of <span class="math notranslate nohighlight">\(E\)</span>, there is not a unique least squares solution since many vectors solve the matrix equation <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>.  Inconsistent systems that arise in applications typically do have a unique least squares solution.</p>
+</section>
+<section id="normal-equations">
 <h2>Normal equations<a class="headerlink" href="#normal-equations" title="Permalink to this headline">¶</a></h2>
-<p>If we assume for now that the error <span class="math notranslate nohighlight">\(E=AX-B\)</span> will have minimum magnitude when it is orthogonal to the column space of <span class="math notranslate nohighlight">\(A\)</span>, we can use our knowledge of the fundamental subspaces to solve the least squares problem when the column space is of higher dimension.  Recall from a previous section that any vector orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> must lie in <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.  This means that <span class="math notranslate nohighlight">\(A^TE=0\)</span> for the least squares solution.  Filling in <span class="math notranslate nohighlight">\(E=AX-B\)</span> gives us the system <span class="math notranslate nohighlight">\(A^T(AX-B)=0\)</span>, which can be written as <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>.  These equations are referred to as the <strong>normal equations</strong>.</p>
-</div>
-<div class="section" id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>If we assume for now that the error <span class="math notranslate nohighlight">\(E=AX-B\)</span> will have minimum magnitude when it is orthogonal to the column space of <span class="math notranslate nohighlight">\(A\)</span>, we can use our knowledge of the fundamental subspaces to solve the least squares problem when the column space is of higher dimension.  Recall from a previous section that any vector orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> must lie in <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.  This means that <span class="math notranslate nohighlight">\(A^TE=0\)</span> for the least squares solution.  Filling in <span class="math notranslate nohighlight">\(E=AX-B\)</span> gives us the system <span class="math notranslate nohighlight">\(A^T(AX-B)=0\)</span>, which can be written as <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>.  This system of equations is referred to as the <strong>normal equations</strong>.</p>
+</section>
+<section id="example-2-four-inconsistent-equations">
+<h2>Example 2:  Four Inconsistent Equations<a class="headerlink" href="#example-2-four-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
 <p>Although the method of least squares can be applied to any inconsistent system, it is usually associated with systems that have more equations than unknowns.  These systems are called overdetermined, and here is one such example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
 2x_1 + x_2 &amp; = &amp; 0 \\
-2x_2 - x_2 &amp; = &amp; 2 \\
+2x_1 - x_2 &amp; = &amp; 2 \\
 3x_1 + 2x_2 &amp; = &amp; 1 \\
-5x_2 + 2x_2 &amp; = &amp; -2
+5x_1 + 2x_2 &amp; = &amp; -2
 \end{eqnarray*}
 \end{split}\]</div>
-<p>To verify that the system is indeed inconsistent, we can compute the RREF of the augmented matrix.</p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the <span class="math notranslate nohighlight">\(4\times 2\)</span> coefficient matrix, and let <span class="math notranslate nohighlight">\(B\)</span> be the vector of the right-hand sides of the equations.  To verify that the system is indeed inconsistent, we can compute the RREF of the augmented matrix <span class="math notranslate nohighlight">\(\left[A|B\right]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
@@ -501,7 +505,7 @@ x_2 &amp; = &amp; s
 </div>
 </div>
 </div>
-<p>The normal equations are a $2\times 2 system, which can be solved using elimination.</p>
+<p>The normal equations are a <span class="math notranslate nohighlight">\(2\times 2\)</span> system, which can be solved using elimination.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -529,8 +533,8 @@ Magnitude of minimum error is: 2.5874933722078426
 </div>
 </div>
 </div>
-<p>In this example, there is a unique vector <span class="math notranslate nohighlight">\(\hat{X}\)</span> that minimizes <span class="math notranslate nohighlight">\(|E|\)</span>.  Remember from the previous example that <span class="math notranslate nohighlight">\(\hat{X}\)</span> is the vector such that <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>, where <span class="math notranslate nohighlight">\(\hat{B}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  Note however that when we find the solution using the normal equations, we do not actually need to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span>.</p>
-<p>We have not provided proof yet that <span class="math notranslate nohighlight">\(\hat{X}\)</span> minimizes <span class="math notranslate nohighlight">\(|E|\)</span>, but we could provide some numerical evidence by computing <span class="math notranslate nohighlight">\(|E|\)</span> for other vectors that are “near” <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  For example, we might compute <span class="math notranslate nohighlight">\(|E|\)</span> for a vector <span class="math notranslate nohighlight">\(X\)</span> that has components that are within one of <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  We will use the random module to generate a typical vector.</p>
+<p>In this example, there is a unique vector <span class="math notranslate nohighlight">\(\hat{X}\)</span> that minimizes <span class="math notranslate nohighlight">\(||E||\)</span>.  Remember from the previous example that <span class="math notranslate nohighlight">\(\hat{X}\)</span> is the vector such that <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span>, where <span class="math notranslate nohighlight">\(\hat{B}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  Note however that when we find the solution using the normal equations, we do not actually need to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span>.</p>
+<p>We have not provided proof yet that <span class="math notranslate nohighlight">\(\hat{X}\)</span> minimizes <span class="math notranslate nohighlight">\(||E||\)</span>, but we could provide some numerical evidence by computing <span class="math notranslate nohighlight">\(||E||\)</span> for other vectors that are “near” <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  For example, we might compute <span class="math notranslate nohighlight">\(||E||\)</span> for a vector <span class="math notranslate nohighlight">\(X\)</span> that has components that are within one of <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  We will use the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to generate a typical vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -542,38 +546,35 @@ Magnitude of minimum error is: 2.5874933722078426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.98497777]
- [-0.12274413]]
-Magnitude of error is: 7.138443683413962
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.63780161]
+ [-0.15225869]]
+Magnitude of error is: 5.081165032339
 </pre></div>
 </div>
 </div>
 </div>
-<p>Running the code in this cell does not prove that <span class="math notranslate nohighlight">\(|E|\)</span> is at miniumum for <span class="math notranslate nohighlight">\(X=\hat{X}\)</span>, even if we were to put it in a loop and execute it a million times.  It does allows us to demonstrate some evidence to augment our reasoning.  Another thing we might do is let <span class="math notranslate nohighlight">\(X= \delta P\)</span>, and plot <span class="math notranslate nohighlight">\(|E|\)</span> as a function of <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
+<p>Running the code in this cell does not prove that <span class="math notranslate nohighlight">\(||E||\)</span> is at miniumum for <span class="math notranslate nohighlight">\(X=\hat{X}\)</span>, even if we were to put it in a loop and execute it a million times.  It does allows us to demonstrate some evidence to augment our reasoning.  Another thing we might do to gather evidence is let <span class="math notranslate nohighlight">\(X= \delta P\)</span>, and plot <span class="math notranslate nohighlight">\(||E||\)</span> as a function of <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">E_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Set the number of vectors to be tested.</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">E_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1">## P is the random vector defined in the previous cell.  </span>
+<span class="c1">## The output of this cell will change with each execution of the previous cell.</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">X_hat</span> <span class="o">+</span> <span class="n">delta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">P</span>
     <span class="n">E_delta</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="o">-</span><span class="n">B</span><span class="p">)</span>
     
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="n">E_delta</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
-
-
-<span class="c1">#ax.set_xlim(-2,2)</span>
-<span class="c1">#ax.set_ylim(0,10)</span>
-<span class="c1">#ax.set_xticks(np.arange(-2,2,step = 1))</span>
-<span class="c1">#ax.set_yticks(np.arange(0,10,step = 1))</span>
-
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="n">E_delta</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;xkcd:brick red&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\delta$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$|E_{\delta}|$&#39;</span><span class="p">);</span>
-
-<span class="c1">#ax.axvline(color=&#39;k&#39;,linewidth = 1)</span>
-<span class="c1">#ax.axhline(color=&#39;k&#39;,linewidth = 1)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,9 +582,9 @@ Magnitude of error is: 7.138443683413962
 <img alt="_images/Least_Squares_Solutions_19_0.png" src="_images/Least_Squares_Solutions_19_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="best-approximation">
-<h2>Best approximation<a class="headerlink" href="#best-approximation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="best-approximation">
+<h2>Best Approximation<a class="headerlink" href="#best-approximation" title="Permalink to this headline">¶</a></h2>
 <p>Although numerical evidence and the plot of <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> may convince us that <span class="math notranslate nohighlight">\(||E||\)</span> is minimum when <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span> are orthogonal, we have not yet given proof of the fact.  To accomplish this, we need to show that <span class="math notranslate nohighlight">\(||B-Y|| \ge ||B-\hat{B}||\)</span> where <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This can be explained using properties of the dot product.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -595,10 +596,10 @@ Magnitude of error is: 7.138443683413962
  &amp; \ge &amp; ||B-\hat{B}||^2
 \end{eqnarray*}
 \end{split}\]</div>
-<p>The first key fact is that <span class="math notranslate nohighlight">\((\hat{B}-Y)\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> so <span class="math notranslate nohighlight">\((\hat{B}-Y) \cdot (B-\hat{B}) = 0\)</span>.  We also need to observe that magnitudes of vectors can never be negative since they are sums of squares.  Indeed, the only vector with magniude zero is the vector with all zero entries.  In particular, this means that <span class="math notranslate nohighlight">\(||\hat{B}-Y||^2 \ge 0\)</span>.</p>
-</div>
-<div class="section" id="example-3-qr-factorization">
-<h2>Example 3: QR factorization<a class="headerlink" href="#example-3-qr-factorization" title="Permalink to this headline">¶</a></h2>
+<p>The first key fact is that <span class="math notranslate nohighlight">\((\hat{B}-Y)\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> so <span class="math notranslate nohighlight">\((\hat{B}-Y) \cdot (B-\hat{B}) = 0\)</span>.  We also need to observe that magnitudes of vectors can never be negative since they are sums of squares.  Indeed, the only vector with magntiude zero is the vector with all zero entries.  In particular, this means that <span class="math notranslate nohighlight">\(||\hat{B}-Y||^2 \ge 0\)</span>.</p>
+</section>
+<section id="qr-factorization-to-solve-normal-equations">
+<h2>QR Factorization to Solve Normal Equations<a class="headerlink" href="#qr-factorization-to-solve-normal-equations" title="Permalink to this headline">¶</a></h2>
 <p>In this final example, we consider making use of the <span class="math notranslate nohighlight">\(QR\)</span> factorization to solve the normal equations.  If we have insert <span class="math notranslate nohighlight">\(A=QR\)</span> into the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>, we will see a simplification.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -626,11 +627,60 @@ RX &amp; = &amp; Q^TB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Verify that the following system is inconsistent, the find the least squares solution.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+    x_2 + x_3 &amp; = &amp; 3 \\
+3x_1 - x_2 - 2x_3 &amp; = &amp; 2 \\
+x_1 - 2x_2 - x_3 &amp; = &amp; 1 \\
+4x_1 + 2x_2 + 4x_3 &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
+</div>
+<ul class="simple">
+<li><p>Another way to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span> is to find an orthogonal basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, find the projection of <span class="math notranslate nohighlight">\(B\)</span> in the direction of each of those basis elements, and then add up these projections.  Demonstrate this calculation using <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> from <strong>Example 2</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Explain why an inconsistent system, <span class="math notranslate nohighlight">\(AX=B\)</span>, does not have a unique least squares solution if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly dependent.</p></li>
+<li><p>Demonstrate that the following inconsistent system does not have a unique least squares solution.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+    x_2 - x_3 &amp; = &amp; 3 \\
+3x_1 - x_2 + 4x_3 &amp; = &amp; 2 \\
+x_1 - 2x_2 + 3x_3 &amp; = &amp; 1 \\
+4x_1 + 2x_2 + 2x_3 &amp; = &amp; 0
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -681,7 +731,7 @@ RX &amp; = &amp; Q^TB
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

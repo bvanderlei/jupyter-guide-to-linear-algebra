@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>QR Factorization &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Orthogonal Subspaces" href="Orthogonal_Subspaces.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/QR_Factorization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -254,13 +258,33 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#structure-of-orthogonalization">
+   Structure of Orthogonalization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solving-a-linear-system">
-   Solving a Linear System
+  <a class="reference internal nav-link" href="#example-1-finding-a-qr-factorization">
+   Example 1:  Finding a QR Factorization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qr-factorization-function">
+   QR Factorization Function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-solving-a-linear-system">
+   Example 2:  Solving a Linear System
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qr-factorization-with-scipy">
+   QR Factorization with SciPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
 </ul>
@@ -274,10 +298,12 @@
         
               <div>
                 
-  <div class="section" id="qr-factorization">
+  <section id="qr-factorization">
 <h1>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h1>
-<p>In Chapter 1 we saw that the LU factorization essentially captured the elimination process and stored the result in a way that allowed us to use elimination to solve similar systems without having to carry out the elimination again.  The QR factorization does accomplishes something similar for the orthogonalization process.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span> with linearly independent columns, the QR factorization of <span class="math notranslate nohighlight">\(A\)</span> is a pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, <span class="math notranslate nohighlight">\(R\)</span> is upper triangular, and <span class="math notranslate nohighlight">\(QR=A\)</span>.
-If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangluar.  Suppose for example that <span class="math notranslate nohighlight">\(A\)</span> has 6 rows and 4 columns.</p>
+<p>In Chapter 1 we saw that the LU factorization essentially captured the elimination process and stored the result in a way that allowed us to use elimination to solve similar systems without having to carry out the elimination again.  The QR factorization accomplishes something similar for the orthogonalization process.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span> with linearly independent columns, the QR factorization of <span class="math notranslate nohighlight">\(A\)</span> is a pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, <span class="math notranslate nohighlight">\(R\)</span> is upper triangular, and <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
+<section id="structure-of-orthogonalization">
+<h2>Structure of Orthogonalization<a class="headerlink" href="#structure-of-orthogonalization" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  The matrix <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangluar.  For example, if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(6\times 4\)</span> matrix, the matrices have the following structures, with the <span class="math notranslate nohighlight">\(A_i\)</span> and <span class="math notranslate nohighlight">\(U_i\)</span> being vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -314,8 +340,9 @@ U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right]
 <span class="math notranslate nohighlight">\(r_{22} = U_2\cdot A_2\)</span>.</p>
 <p>Carrying out the same reasoning for the last two columns, we find that in general <span class="math notranslate nohighlight">\(r_{ij} = U_i\cdot A_j\)</span> and that <span class="math notranslate nohighlight">\(r_{ij} = 0\)</span> for <span class="math notranslate nohighlight">\(i&gt;j\)</span> because the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, ..., U_i\}\)</span> is equal to the span of <span class="math notranslate nohighlight">\(\{A_1, A_2, ..., A_i\}\)</span>.</p>
 <p>To arrive at this conclusion this more succinctly, we could multiply the equation <span class="math notranslate nohighlight">\(A=QR\)</span> by <span class="math notranslate nohighlight">\(Q^T\)</span>, which gives <span class="math notranslate nohighlight">\(Q^TA=Q^TQR\)</span> and <span class="math notranslate nohighlight">\(Q^TA = R\)</span> since <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  If we then understand the matrix product <span class="math notranslate nohighlight">\(Q^TA\)</span> as a collection of dot products between rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(A\)</span>, we have again that <span class="math notranslate nohighlight">\(r_{ij} = U_i \cdot A_j\)</span>.</p>
-<div class="section" id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-1-finding-a-qr-factorization">
+<h2>Example 1:  Finding a QR Factorization<a class="headerlink" href="#example-1-finding-a-qr-factorization" title="Permalink to this headline">¶</a></h2>
 <p>Let’s compute the QR factorization for a specific <span class="math notranslate nohighlight">\(6\times 4 \)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -338,9 +365,8 @@ A = \left[ \begin{array}{rrrr}
 
 <span class="c1"># Define A</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-<span class="c1"># Slice out the colums of A for processing</span>
+<span class="c1"># Slice out the columns of A for processing</span>
 <span class="n">A_1</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">A_2</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">A_3</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
@@ -358,10 +384,13 @@ A = \left[ \begin{array}{rrrr}
 <span class="c1"># Assemble the matrix Q</span>
 
 <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span><span class="n">U_3</span><span class="p">,</span><span class="n">U_4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># Check that Q is orthogonal</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QTQ&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="c1"># Compute R</span>
 
@@ -369,40 +398,46 @@ A = \left[ \begin{array}{rrrr}
 
 <span class="c1">#  Check</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">Q</span><span class="nd">@R</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q</span><span class="nd">@R</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3  2  0]
- [ 0 -1 -1  0]
- [ 2  2  1  1]
- [-1  1  3  4]
- [-4  0  1 -2]
- [ 0 -1 -2  5]]
-[[ 1.  0. -0.  0.]
- [ 0.  1. -0.  0.]
- [-0. -0.  1.  0.]
- [ 0.  0.  0.  1.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q
 [[ 0.21320072  0.71960864 -0.32643805  0.03625532]
  [ 0.         -0.2638565   0.01525411 -0.00954087]
  [ 0.42640143  0.38379127 -0.10982963  0.09922508]
  [-0.21320072  0.33581737  0.74745161  0.52474801]
  [-0.85280287  0.28784346 -0.32338723 -0.07251063]
- [ 0.         -0.2638565  -0.46677591  0.84150499]]
+ [ 0.         -0.2638565  -0.46677591  0.84150499]] 
 
+QTQ
+[[ 1.  0. -0.  0.]
+ [ 0.  1. -0.  0.]
+ [-0. -0.  1.  0.]
+ [ 0.  0.  0.  1.]] 
 
-[[ 4.69041576e+00  1.27920430e+00 -6.39602149e-01  1.27920430e+00]
- [ 4.44089210e-16  3.78993883e+00  3.90987361e+00 -1.67908683e-01]
- [-1.33226763e-15 -1.83186799e-15  2.07455958e+00  1.19287176e+00]
- [ 4.99600361e-16  3.33066907e-16  4.44089210e-16  6.55076331e+00]]
+Q
+[[ 0.21320072  0.71960864 -0.32643805  0.03625532]
+ [ 0.         -0.2638565   0.01525411 -0.00954087]
+ [ 0.42640143  0.38379127 -0.10982963  0.09922508]
+ [-0.21320072  0.33581737  0.74745161  0.52474801]
+ [-0.85280287  0.28784346 -0.32338723 -0.07251063]
+ [ 0.         -0.2638565  -0.46677591  0.84150499]] 
 
+R
+[[ 4.69041576  1.2792043  -0.63960215  1.2792043 ]
+ [ 0.          3.78993883  3.90987361 -0.16790868]
+ [-0.         -0.          2.07455958  1.19287176]
+ [ 0.          0.          0.          6.55076331]] 
 
-[[ 1.  3.  2.  0.]
+QR
+[[ 1.  3.  2. -0.]
  [-0. -1. -1. -0.]
  [ 2.  2.  1.  1.]
  [-1.  1.  3.  4.]
@@ -412,7 +447,10 @@ A = \left[ \begin{array}{rrrr}
 </div>
 </div>
 </div>
-<p>Of course if we want carry out the factorization in general, it would be helpful to write the code in more general way, and tuck it into a function.</p>
+</section>
+<section id="qr-factorization-function">
+<h2>QR Factorization Function<a class="headerlink" href="#qr-factorization-function" title="Permalink to this headline">¶</a></h2>
+<p>It is helpful to write some code in a more general way so that we may easily carry out the factorization an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requrement with a comment in the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -449,13 +487,13 @@ A = \left[ \begin{array}{rrrr}
 </div>
 </div>
 </div>
-<p>One point to note here is that this function returns the pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span>.  In order to receive both results, we need to assign a pair of names.</p>
+<p>One point to note here is that our function returns the pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span>.  In order to receive both results, we need to assign a pair of names to the output.  This is exactly the same behavior as the SciPy function we used in Chapter 1 to compute the <a class="reference internal" href="LU_Factorization.html"><span class="doc std std-doc">PLU factorization</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -468,18 +506,18 @@ A = \left[ \begin{array}{rrrr}
  [ 0.         -0.2638565  -0.46677591  0.84150499]]
 
 
-[[ 4.69041576e+00  1.27920430e+00 -6.39602149e-01  1.27920430e+00]
- [ 4.44089210e-16  3.78993883e+00  3.90987361e+00 -1.67908683e-01]
- [-1.33226763e-15 -1.83186799e-15  2.07455958e+00  1.19287176e+00]
- [ 4.99600361e-16  3.33066907e-16  4.44089210e-16  6.55076331e+00]]
+[[ 4.69041576  1.2792043  -0.63960215  1.2792043 ]
+ [ 0.          3.78993883  3.90987361 -0.16790868]
+ [-0.         -0.          2.07455958  1.19287176]
+ [ 0.          0.          0.          6.55076331]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="solving-a-linear-system">
-<h2>Solving a Linear System<a class="headerlink" href="#solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
-<p>It turns out that the orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization also provides another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifys to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
+</section>
+<section id="example-2-solving-a-linear-system">
+<h2>Example 2:  Solving a Linear System<a class="headerlink" href="#example-2-solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
+<p>The orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization provides us another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifys to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
 <p>Let’s try it out on a <span class="math notranslate nohighlight">\(4\times 4\)</span> system.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -498,32 +536,146 @@ A = \left[ \begin{array}{rrrr}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">BackSubstitution</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">]])</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">BackSubstitution</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Check that AX = B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  3  0 -1]
- [-1  0  2  0]
- [-1 -1  4  2]
- [ 0  3 -3  2]]
-[[-1.00000000e+00]
- [ 1.00000000e+00]
- [-1.75198215e-16]
- [ 1.00000000e+00]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.]
+ [ 1.]
+ [-0.]
+ [ 1.]] 
+
+[[0.]
+ [1.]
+ [2.]
+ [5.]]
 </pre></div>
 </div>
 </div>
 </div>
 <p>In some situations, we might find that we are solving several systems such as <span class="math notranslate nohighlight">\(AX=B_1\)</span>, <span class="math notranslate nohighlight">\(AX=B_2\)</span>, <span class="math notranslate nohighlight">\(AX=B_3\)</span>, …, that involve the same matrix but different right hand sides.  In these situations it is useful to solve the systems with a factorization such as <span class="math notranslate nohighlight">\(QR\)</span> or <span class="math notranslate nohighlight">\(LU\)</span>, because the factorization does not need to be recomputed for each system.</p>
+</section>
+<section id="qr-factorization-with-scipy">
+<h2>QR Factorization with SciPy<a class="headerlink" href="#qr-factorization-with-scipy" title="Permalink to this headline">¶</a></h2>
+<p>The SciPy function for finding <span class="math notranslate nohighlight">\(QR\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{qr}\)</span>.  The basic use is exactly the same as our <span class="math notranslate nohighlight">\(\texttt{QRfactorization}\)</span> function.  We apply <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> to the matrix in the example and compare the results with our own computations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+
+<span class="n">Qs</span><span class="p">,</span><span class="n">Rs</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;laguid Q</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SciPy Q</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">Qs</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;laguide R</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SciPy R</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">Rs</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>laguid Q
+[[ 0.81649658  0.20254787  0.53410762 -0.08388532]
+ [-0.40824829  0.35445878  0.37110075 -0.75496791]
+ [-0.40824829  0.05063697  0.69711449  0.58719726]
+ [ 0.          0.91146543 -0.30173612  0.27961774]]
+
+SciPy Q
+[[-0.81649658 -0.20254787 -0.53410762 -0.08388532]
+ [ 0.40824829 -0.35445878 -0.37110075 -0.75496791]
+ [ 0.40824829 -0.05063697 -0.69711449  0.58719726]
+ [-0.         -0.91146543  0.30173612  0.27961774]]
+
+laguide R
+[[ 2.44948974  2.85773803 -2.44948974 -1.63299316]
+ [-0.          3.29140294 -1.82293086  1.72165692]
+ [ 0.         -0.          4.43586779  0.25664911]
+ [ 0.          0.         -0.          1.81751534]]
+
+SciPy R
+[[-2.44948974 -2.85773803  2.44948974  1.63299316]
+ [ 0.         -3.29140294  1.82293086 -1.72165692]
+ [ 0.          0.         -4.43586779 -0.25664911]
+ [ 0.          0.          0.          1.81751534]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Although the results are displayed are close, we note that the entries of the SciPy are the negative of those we produced.  The SciPy function does not actually use the Gram Schmidt process, but instead approaches the factorization from an entirely different direction.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Carry out the Gram-Schmidt algorithm on the following set of vectors to produce an orthonormal set <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span>.  <strong>Do not</strong> use the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the SciPy <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 0 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ 1 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 2 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Check your results by verifying that <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is an orthonormal set and that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> equals the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.  (Reread <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">Linear_Combinations</span></a> if you are unsure how to verify the two spans are equal.)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Check your results against those obtained using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Predict what will happen if we attempt to find the QR factorization of matrix with <em>linearly dependent</em> columns.</p></li>
+<li><p>Try to compute the QR factorization on the following matrix with <em>linearly dependent</em> columns.  Try both the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrr} 
+1 &amp; 3 &amp; -1  \\ 
+0 &amp; -1 &amp; 1  \\ 
+2 &amp; 2 &amp; 2  \\
+1 &amp; 1 &amp; 1  \\
+1 &amp; 0 &amp; 2  \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -574,7 +726,7 @@ A = \left[ \begin{array}{rrrr}
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

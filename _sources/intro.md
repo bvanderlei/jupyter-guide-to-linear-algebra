@@ -12,7 +12,7 @@ Features:
 
 The code supplied in Jupyter Guide to Linear Algebra performs all operations numerically.  We do not make use of SymPy to perform symbolic computations, which hide the practical challenges of accuracy and stability.  We will discover and acknowledge roundoff error very early in the guide, but we will not provide a detailed error analysis, nor advanced algorithms to minimize its impact.  We will also not be overly concerned with computational efficiency.  This resource is meant for a first course in linear algebra, and we will leave the larger challenges of numerical linear algebra for a second course.   
 
-The Jupyter Guide to Linear Algebra presents the mathematics in a relatively informal way.  We offer explanations in place of proofs and do not follow a traditional model of definitions and theorems.  Instead our main objective is to present methods to solve problems, demonstrate how to carry out calculations, provide the basic terminology of linear algebra, and examine ways in which the abstract ideas can be used in practical ways.
+The Jupyter Guide to Linear Algebra presents the mathematics in a relatively informal way.  We offer explanations in place of proofs, and do not follow a traditional model of definitions and theorems.  Instead, our main objective is to present methods to solve problems, demonstrate how to carry out calculations, provide the basic terminology of linear algebra, and examine ways in which the abstract ideas can be used in practical ways.
 
 ### How to use this Guide
 

@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to Jupyter &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,22 +35,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -77,7 +75,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -197,8 +195,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -215,6 +212,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Jupyter_Introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -259,12 +261,12 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-jupyter">
+  <section id="introduction-to-jupyter">
 <h1>Introduction to Jupyter<a class="headerlink" href="#introduction-to-jupyter" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://jupyter.org/">Jupyter</a> is a web application that allows users to create and share documents called notebooks.  Jupyter notebooks can contain text, equations, and graphics, as well as live Python code with which the user can interact.  <a class="reference external" href="https://www.python.org/">Python</a> is a very popular computer language for a wide range of applications, including scientific computing, and is known for being a language that is easy to learn for novice programmers.</p>
-<p>The purpose of this introduction is to provide enough instruction on the use of Jupyter and Python to for the reader to successfully navigate and engage with the Jupyter Guide to Linear Algebra.  There are a vast number of
+<p>The purpose of this introduction is to provide enough instruction on the use of Jupyter and Python for the reader to successfully navigate and engage with the Jupyter Guide to Linear Algebra.  There are a vast number of
 resources available online for those that wish to learn more about these topics.  Some references are supplied at the end of the section.</p>
-<div class="section" id="cells">
+<section id="cells">
 <h2>Cells<a class="headerlink" href="#cells" title="Permalink to this headline">¶</a></h2>
 <p>The Jupyter Guide to Linear Algebra is made up of a number of Jupyter notebooks.  Each notebook consists of a number of cells.  Every cell is either a <strong>markdown cell</strong>, or a <strong>code cell</strong>.  The markdown cells mostly contain text and [LaTex] instructions.  When executed, these cells generate the all of the formatted text and formulas that you see as you read through the guide.  The code cells contain instructions, written in Python, to be executed by the Notebook.  Code cells will not produce much visual output to the Notebook unless they contain instructions to do so.</p>
 <p>All cells in the Notebooks, markdown and code, must be executed in order to produce output and results.  To execute a cell, select the cell and press ‘Shift + Enter’.  You can select a cell by clicking it, or by moving up/down with the arrow keys.  In order to fully engage with the notebooks, you will also want to edit cells to change the outputs.  To change a cell you will have to enter <strong>edit mode</strong>.  When not in edit mode, the notebook is said to be in <strong>command mode</strong>.</p>
@@ -277,8 +279,8 @@ resources available online for those that wish to learn more about these topics.
 <li><p><strong>If there is anything amiss in the code cell, a Python error will be displayed</strong>.  These errors might be difficult to decipher at first, but with a little practice in reading the messages you will be able to understand the common errors that arise.  <strong>If there is anything amiss in a markdown cell, there will be no error message</strong>, although the displayed text or formula may not look correct.  The markdown cells are not executed in the same sense as the code cells.</p></li>
 <li><p><strong>All markdown cells are executed when you open the notebook, but code cells are not</strong>.  This means that when you first open a notebook, the formatted text and formulas produced by the markdown cells will be displayed.  Clicking on the markdown cells will not do anything other than select the cell, and pressing ‘Shift + Enter’ will not display anything new since the output is already displayed.  By contrast, the output from the code cells might be displayed, but the code in the cell does not get executed by the Notebook until the cell has been run explicity by selecting the cell and pressing ‘Shift + Enter’.  It will be quite common for the code in once cell to depend on code in earlier cell.  <strong>If the code cells are executed in the wrong order, we may get error messages or other unexpected results.</strong></p></li>
 </ul>
-</div>
-<div class="section" id="menus">
+</section>
+<section id="menus">
 <h2>Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h2>
 <p>At the top of the Notebook there are several dropdown menus, some of which are quite common and easy to understand.</p>
 <ul class="simple">
@@ -286,21 +288,23 @@ resources available online for those that wish to learn more about these topics.
 <li><p>The <em>Edit</em> menu contains several options for manipulating cells within the Notebook.  The common cell operations include cutting, copying, adding, deleting, merging, etc.</p></li>
 <li><p>The <em>View</em> menu contains some display options.</p></li>
 <li><p>The <em>Cell</em> menu offers different options to run collections of cells, rather than individual cells.  It also contains the <em>Cell Type</em> option, which toggles cells between code and markdown.</p></li>
-<li><p>The <em>Kernal</em> menu interacts with the Python interpreter.  It is occasionally necessary to restart the kernal to reload a module, or interrupt the kernal if something goes wrong, but most of the time interaction with the kernal is not needed for routine operations.</p></li>
+<li><p>The <em>Kernel</em> menu interacts with the Python interpreter.  It is occasionally necessary to restart the kernal to reload a module, or interrupt the kernal if something goes wrong, but most of the time interaction with the kernal is not needed for routine operations.</p></li>
 <li><p>The <em>Widget</em> menu interacts with widgets, which are dynamic elements that can be added to Notebooks.  We will not make use of widgets in our Notebooks.</p></li>
 <li><p>The <em>Help</em> menu offers documentation about the Notebook environment as well as links to external references.</p></li>
 </ul>
 <p>Located just below the menus is a tool bar which contains buttons for the most common operations.</p>
-</div>
-<div class="section" id="resources">
+</section>
+<section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">A Gallery of Interesting Jupyter Notebooks</a></p></li>
+<li><p><a class="reference external" href="https://programminghistorian.org/en/lessons/jupyter-notebooks">The Programming Historian</a></p></li>
+<li><p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook Documentation</a></p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -351,7 +355,7 @@ resources available online for those that wish to learn more about these topics.
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

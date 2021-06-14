@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Approximating Eigenvalues &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Applications of Eigenvalues and Eigenvectors" href="Applications_EV.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -202,8 +202,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -220,6 +219,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Approximating_Eigenvalues.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -276,7 +280,7 @@
         
               <div>
                 
-  <div class="section" id="approximating-eigenvalues">
+  <section id="approximating-eigenvalues">
 <h1>Approximating Eigenvalues<a class="headerlink" href="#approximating-eigenvalues" title="Permalink to this headline">¶</a></h1>
 <p>In this section we look at some methods that can be used to approximate the eigenvalues of a matrix <span class="math notranslate nohighlight">\(A\)</span>.  Although it is possible to find the exact eigenvalues for small matrices, the approach is impractical for larger matrices.</p>
 <p>Most introductory textbooks demonstrate a direct way to compute eigenvalues of an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> by computing roots of an associated <span class="math notranslate nohighlight">\(n\)</span>th degree polynomial, known as the <em>characteristic polynomial</em>.  For example, suppose <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
@@ -288,7 +292,7 @@ A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
 \end{split}\]</div>
 <p>The eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> are solutions to the quadratic equation <span class="math notranslate nohighlight">\(\lambda^2 - (a+d)\lambda + ad-bc = 0\)</span>, which can be written explicitly in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> using the quadratic formula.  The challenges with larger matrices are that the polynomial is more difficult to construct, and the roots cannot be easily found with a formula.</p>
 <p>The algorithms we describe in the section are iterative methods.  They generate a sequence of vectors <span class="math notranslate nohighlight">\(\{X^{(1)}, X^{(2)}, X^{(3)}, ... \}\)</span> that approach a true eigenvector of the matrix under consideration.  An approximation of the corresponding eigenvalue can then be computed by multiplying the approximate eigenvector by <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<div class="section" id="power-method">
+<section id="power-method">
 <h2>Power Method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
 <p>The first algorithm we introduce for approximating eigenvalues is known as the <strong>Power Method</strong>.  This method generates a sequence of vectors by repeated matrix multiplication.  Under suitable conditions, the sequence of vectors approaches the eigenvector associated with the eigenvalue that is largest in absolute value.</p>
 <p>For the simplest explanation, suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> diagonalizable matrix with eigenvectors <span class="math notranslate nohighlight">\(\{V_1, V_2, ... V_n\}\)</span>, and that <span class="math notranslate nohighlight">\(\lambda_1\)</span> is the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> that is largest in absolute value.  To begin the Power Method, we choose any nonzero vector and label it <span class="math notranslate nohighlight">\(X^{(0)}\)</span>.  We can express <span class="math notranslate nohighlight">\(X^{(0)}\)</span>  as a linear combination of the eigenvectors since they form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
@@ -352,7 +356,7 @@ X^{(m)}=\frac{AX^{(m-1)}}{||AX^{(m-1)}||}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.57522143e-12]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.57523994e-12]
  [-5.77350269e-01]
  [-5.77350269e-01]
  [-5.77350269e-01]]
@@ -381,10 +385,10 @@ X^{(m)}=\frac{AX^{(m-1)}}{||AX^{(m-1)}||}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4.09556833e-11]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-4.09570156e-11]
  [-9.45021839e-12]
  [-9.45021839e-12]
- [-1.57509561e-11]]
+ [-1.57545088e-11]]
 </pre></div>
 </div>
 </div>
@@ -439,10 +443,10 @@ AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 
  [-5.77350269e-01]] 
 
 Magnitude of the eigenvalue is approximately:
-24.000020980823063 
+24.00002098082306 
 
 Magnitude of the difference is:
-4.3284704411637657e-05
+4.3284704409694366e-05
 </pre></div>
 </div>
 </div>
@@ -485,17 +489,17 @@ Magnitude of the difference is:
  [-5.77350269e-01]] 
 
 Magnitude of the eigenvalue is approximately:
-24.000020980823063 
+24.00002098082306 
 
 Magnitude of the difference is:
-8.434774776930161e-05
+8.434774776937697e-05
 </pre></div>
 </div>
 </div>
 </div>
 <p>While the Power Method is easy to understand and apply, it does have disadvantages.  The most apparent disadvantage is that the method only applies to the largest eigenvalue.  This is not a huge detriment since applications often only require an approximation of the largest eigenvalue.  Also, as we will demonstrate below, it is possible to easily modify the method to approximate the other eigenvalues.  A more significant disadvantage is that the rate at which the sequence converges can be slow in some circumstances.  For example, we can see that if <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> is close to <span class="math notranslate nohighlight">\(|\lambda_2|\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_1/\lambda_2|^m\)</span> approaches zero more slowly as <span class="math notranslate nohighlight">\(m\)</span> gets large.  The Power Method may fail to converge at all if <span class="math notranslate nohighlight">\(|\lambda_1| = |\lambda_2|\)</span>, which occurs if <span class="math notranslate nohighlight">\(\lambda_1 = -\lambda_2\)</span>, or if <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are a complex conjugate pair.  Additionally, the method may perform poorly if the <span class="math notranslate nohighlight">\(V_1\)</span> component of <span class="math notranslate nohighlight">\(X^{(0)}\)</span> is too small.</p>
-</div>
-<div class="section" id="inverse-power-method">
+</section>
+<section id="inverse-power-method">
 <h2>Inverse Power Method<a class="headerlink" href="#inverse-power-method" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>Inverse Power Method</strong> is a modified version of the Power Method that allows us to approximate eigenvalues that are <em>not the largest</em>.  All that is needed to make the modification is two simple facts that relate changes in a matrix to changes in the eigenvalues of that matrix.  Let’s suppose that <span class="math notranslate nohighlight">\(A\)</span> is an invertible <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and correpsonding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  If we multiply this equation by <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we get <span class="math notranslate nohighlight">\(V=\lambda A^{-1}V\)</span>, which can then be divided by <span class="math notranslate nohighlight">\(\lambda\)</span> to illustrate the useful fact.</p>
 <div class="math notranslate nohighlight">
@@ -620,7 +624,7 @@ Magnitude of the eigenvalue is A is approximately:
 </div>
 </div>
 </div>
-<div class="section" id="shifts">
+<section id="shifts">
 <h3>Shifts<a class="headerlink" href="#shifts" title="Permalink to this headline">¶</a></h3>
 <p>Using a small modification to the Inverse Power Method, we can also approximate eigenvalues that are not the smallest.  For this variation of the method, we need to observe that if we “shift” the diagonal entries of a matrix by a scalar <span class="math notranslate nohighlight">\(\mu\)</span>, all of the eigenvalues of the matrix are also shifted by <span class="math notranslate nohighlight">\(\mu\)</span>.  Let <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and corresponding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  Then <span class="math notranslate nohighlight">\((A-\mu I)V = AV - \mu V = \lambda V - \mu V = (\lambda-\mu)V\)</span>, which means that <span class="math notranslate nohighlight">\(V\)</span> is also an eigenvector of the matrix <span class="math notranslate nohighlight">\((A-\mu I)\)</span> corresponding to the eigenvalue <span class="math notranslate nohighlight">\(\lambda -\mu\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -682,9 +686,9 @@ Eigenvalue is A is approximately:
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="exercises">
+</section>
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix from the Inverse Power Method example.</p>
 <div class="math notranslate nohighlight">
@@ -695,7 +699,27 @@ A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &am
 \end{split}\]</div>
 <ul class="simple">
 <li><p>Use the Power Method to approximate the largest eigenvalue <span class="math notranslate nohighlight">\(\lambda_1\)</span>.  Verify that the exact value of <span class="math notranslate nohighlight">\(\lambda_1\)</span> is 12.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+
+<span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Apply the Inverse Power Method with a shift of <span class="math notranslate nohighlight">\(\mu = 10\)</span>.  Explain why the results differ from those in the example.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Apply the Inverse Power Method with a shift 0f <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequece of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -704,6 +728,13 @@ A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &am
 X^{(0)} = \left[ \begin{array}{r} 1 \\ 0  \\ 0 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Let <span class="math notranslate nohighlight">\(B\)</span> be the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -713,17 +744,33 @@ B = \left[ \begin{array}{rrrr} -2 &amp; -18 &amp; 6 \\ -11 &amp; 3 &amp; 11 \\ -
 \end{split}\]</div>
 <ul class="simple">
 <li><p>Apply the Power Method and Inverse Power Method with shifts to approximate all eigenvalues of the matrix <span class="math notranslate nohighlight">\(B\)</span>. (<em>Note that one of the eigenvalues of this matrix is negative.</em>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Check your results using the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
-<div class="section" id="references">
+</div>
+</div>
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Burden, Richard L. et al. <em>Numerical Analysis</em>. 10th ed., Cengage Learning, 2014</p></li>
 <li><p>Golub, Gene H. and Charles F. Van Loan. <em>Matrix Computations</em>., The Johns Hopkins University Press, 1989</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -774,7 +821,7 @@ B = \left[ \begin{array}{rrrr} -2 &amp; -18 &amp; 6 \\ -11 &amp; 3 &amp; 11 \\ -
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Transformations in a Plane &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Applications of Linear Transformations" href="Applications_LT.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -202,8 +202,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -220,6 +219,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Planar_Transformations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -274,7 +278,7 @@
         
               <div>
                 
-  <div class="section" id="transformations-in-a-plane">
+  <section id="transformations-in-a-plane">
 <h1>Transformations in a Plane<a class="headerlink" href="#transformations-in-a-plane" title="Permalink to this headline">¶</a></h1>
 <p>As discussed in the previous section, any linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be represented as the multiplication of a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix and a coordinate vector.  For now, the coordinates are with respect to the standard basis <span class="math notranslate nohighlight">\(\{E_1,E_2\}\)</span> as they were before.  The columns of the matrix are then the images of the the basis vectors.</p>
 <div class="math notranslate nohighlight">
@@ -283,7 +287,7 @@
 A = \left[ \begin{array}{c|c} T(E_1) &amp; T(E_2) \end{array} \right]
 \end{equation}
 \]</div>
-<div class="section" id="example-1">
+<section id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p>As a first example let us consider the transformation defined by the following images.</p>
 <div class="math notranslate nohighlight">
@@ -359,8 +363,8 @@ T\left(\left[ \begin{array}{r} c_1 \\ c_2  \end{array}\right]\right) = T\left(c_
 </div>
 </div>
 <p>We observe that the result of the transformation is that the polygon has been streched in the horizontal direction.  Such a transformation is commonly called a horizontal shear.</p>
-</div>
-<div class="section" id="example-2">
+</section>
+<section id="example-2">
 <h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have a set of vectors stored in the <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> matrix, let’s look at another transformation that is defined by the matrix <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -404,8 +408,8 @@ B = \left[ \begin{array}{cc} -1 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
 </div>
 </div>
 <p>We see that this transformation reflects points around the vertical axis.</p>
-</div>
-<div class="section" id="example-3">
+</section>
+<section id="example-3">
 <h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
 <p>In the last example, we choose an angle <span class="math notranslate nohighlight">\(\theta\)</span>, and write down the matrix that represents the rotation counterclockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span>.  Basic trigonometry can be used to calculate the columns in this case.</p>
 <div class="math notranslate nohighlight">
@@ -448,8 +452,8 @@ R = \left[ \begin{array}{cc} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \c
 <img alt="_images/Planar_Transformations_8_0.png" src="_images/Planar_Transformations_8_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-4">
+</section>
+<section id="example-4">
 <h2>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h2>
 <p>One of the powerful aspects of representing linear transformations as matrices is that we can form compositions by matrix multiplicationi.  For example,  in order to find the matrix that represents the composition <span class="math notranslate nohighlight">\(B\circ R\)</span>, the rotation from Example 3, followed by the reflection of Example 2,
 we can simply multiply the matrices that represent the individual transformations.</p>
@@ -495,16 +499,41 @@ we can simply multiply the matrices that represent the individual transformation
 <img alt="_images/Planar_Transformations_10_0.png" src="_images/Planar_Transformations_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<ul class="simple">
 <li><p>Find a matrix that represents a vertical shear followed by the rotatation in Example 4.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Create a new matrix of coordinates, apply one of the transformations in the Examples and plot the results.</p></li>
-</ol>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -555,7 +584,7 @@ we can simply multiply the matrices that represent the individual transformation
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

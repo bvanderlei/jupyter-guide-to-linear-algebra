@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Applications of Eigenvalues and Eigenvectors &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Approximating Eigenvalues" href="Approximating_Eigenvalues.html" />
@@ -76,7 +76,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -201,8 +201,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -219,6 +218,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Applications_EV.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -263,10 +267,10 @@
         
               <div>
                 
-  <div class="section" id="applications-of-eigenvalues-and-eigenvectors">
+  <section id="applications-of-eigenvalues-and-eigenvectors">
 <h1>Applications of Eigenvalues and Eigenvectors<a class="headerlink" href="#applications-of-eigenvalues-and-eigenvectors" title="Permalink to this headline">¶</a></h1>
 <p>With the concepts related to eigenvalues and eigenvectors in place, we return to examine <a class="reference internal" href="Applications_LT.html"><span class="doc std std-doc">Discrete Dynamical Systems</span></a>.</p>
-<div class="section" id="infectious-disease-model">
+<section id="infectious-disease-model">
 <h2>Infectious Disease Model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h2>
 <p>For the <span class="math notranslate nohighlight">\(SIRS\)</span> model of infectious disease, we had the following discrete dynamical system.</p>
 <div class="math notranslate nohighlight">
@@ -428,8 +432,8 @@ X_t  =  c_1V_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3
 </div>
 </div>
 <p>Therefore unless <span class="math notranslate nohighlight">\(c_1 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_t\)</span> approach the dirction of <span class="math notranslate nohighlight">\(V_1\)</span>.  The case where <span class="math notranslate nohighlight">\(c_1 = 0\)</span> corresponds to initial conditions with negative entries, which are not relevant in the application.  The conclusion is that <span class="math notranslate nohighlight">\(X_t\)</span> will approach the equilibrium state for all meaningful initial configurations of the population.</p>
-</div>
-<div class="section" id="navigating-webpages">
+</section>
+<section id="navigating-webpages">
 <h2>Navigating Webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h2>
 <p>In the dynamical system <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>, the entries in the state vector <span class="math notranslate nohighlight">\(X_t\)</span> can represent probabilities that a web browser is on a particular page after <span class="math notranslate nohighlight">\(t\)</span> steps of random browsing defined by the matrix <span class="math notranslate nohighlight">\(A\)</span>, which is build using the link structure among the web pages.  The matrix and initial condition previously considered are given below.</p>
 <div class="math notranslate nohighlight">
@@ -517,11 +521,20 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all all meaningful intial states.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
 <li><p>Perform an analyis similar to the that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -533,8 +546,15 @@ X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
 AX_{t-1}
 \end{equation}
 \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -584,7 +604,7 @@ AX_{t-1}
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

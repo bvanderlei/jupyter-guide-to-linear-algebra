@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Applications of Vector Spaces &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Linear Transformations" href="Linear_Transformations.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Applications_VS.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -257,11 +261,13 @@
   <a class="reference internal nav-link" href="#chemical-equations">
    Chemical Equations
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#information-retrieval">
@@ -284,10 +290,10 @@
         
               <div>
                 
-  <div class="section" id="applications-of-vector-spaces">
+  <section id="applications-of-vector-spaces">
 <h1>Applications of Vector Spaces<a class="headerlink" href="#applications-of-vector-spaces" title="Permalink to this headline">¶</a></h1>
 <p>When an object is made up of multiple components it is often useful to represent the object as a vector, with one entry per component.  The examples discussed in this section involve molecules, which are made up of atoms, and text documents, which are made up of words.  In some cases equations involving the objects give rise to vector equations.  In other instances there are reasons to perform operations on the vectors using matrix algebra.</p>
-<div class="section" id="chemical-equations">
+<section id="chemical-equations">
 <h2>Chemical Equations<a class="headerlink" href="#chemical-equations" title="Permalink to this headline">¶</a></h2>
 <p>In balancing a chemical equation, we seek to determine a number of molecules of reactant that form a number of molecules of reactant, while maintaining an equal number of each type of atom on both sides of the equation.  Here is an example for the combustion of ethanol</p>
 <div class="math notranslate nohighlight">
@@ -352,18 +358,25 @@ x_1\left[\begin{array}{c} 2 \\ 6 \\ 1 \end{array}\right]
 C_2H_5OH + 3O_2 \to 2CO_2 + 3H_2O
 \end{equation}
 \]</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<p>Set up and solve a linear system to balance each chemical equation.</p>
 <ul class="simple">
 <li><p>Combustion of methane:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
-C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O
+C_3H_8 + O_2 \to CO_2 + H_2O
 \end{equation}
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>Aluminum reaction with sulfuric acid</p></li>
 </ul>
@@ -373,6 +386,13 @@ C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O
 Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
 \end{equation}
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>Silver tarnish</p></li>
 </ul>
@@ -382,8 +402,16 @@ Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
 Ag + H_2S + O_2 \to Ag_2S + H_2O
 \end{equation}
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
-<div class="section" id="information-retrieval">
+</div>
+</div>
+</section>
+</section>
+<section id="information-retrieval">
 <h2>Information Retrieval<a class="headerlink" href="#information-retrieval" title="Permalink to this headline">¶</a></h2>
 <p>A well-known idea in information retrieval is that of the <strong>vector space model</strong>, which represents documents in a database as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Algorithms which aim to search the database for documents that are most relevant to keyword searches can then make use of the vector representation.  We provide some simple examples of how such algorithms might work.</p>
 <p>Let’s begin by with the modeling a document with a vector.  All we really need is a list of <span class="math notranslate nohighlight">\(n\)</span> words that will be searchable in our database.  This list could be a list of each distinct word in the whole collection of documents, but there are many common words in English that we might disqualify as keywords since they appear abundantly in all documents (the, as, in, it, etc.).  Each document in the database can now be represented by a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, with the <span class="math notranslate nohighlight">\(n\)</span>th entry set to 1 if the corresponding keyword appears in the document, and 0 otherwise.</p>
@@ -487,16 +515,16 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
 </tbody>
 </table>
 <p>There are a total of 100 keyword matches, so each entry would be divided by 100 and the row vector corresponding to document 1 would be <span class="math notranslate nohighlight">\([0.19, 0.23, 0, 0.02, 0, 0.11, 0, 0.1, 0.31, 0.04]\)</span>  In practice the number of searchable words and the number of words in each document might be tens of thousands each.  The query vector is again a column vector with entries of 1 corresponding to the words in the search, and all other entries set to zero.  The search is executed by a single matrix multiplication, followed by a search of the resulting vector for the largest entry.  The effect of this representation would be similar to that using frequency, but now a document with 50 matches in 30000 words would be rated higher than a document with 50 matches in 100000 words.</p>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Berry, Michael W. and Murray Browne. <em>Understanding Serach Engines: Mathematical Modeling and Text Retrieval</em>. 2nd ed., SIAM, 2005</p></li>
 <li><p>Lay, David, et al. <em>Linear Algebra and its Applications</em>. 5th ed., Pearson., 2016</p></li>
 <li><p>Leon, Steven J. <em>Linear Algebra with Applications</em>. 9th ed., Pearson., 2015</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -547,7 +575,7 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

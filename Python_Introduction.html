@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to Python &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction to NumPy and Matplotlib" href="Numpy_Introduction.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -197,8 +197,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -215,6 +214,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Python_Introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -284,10 +288,10 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-python">
+  <section id="introduction-to-python">
 <h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">¶</a></h1>
 <p>This section includes many cells which contain Python code.  The output from each cell is visible directly below the cell.  We provide an explanation for each piece of code as well as some suggestions for the reader to experiment with.  In order to engage with the notebook and see new results, edit the code cell, then press ‘Shift + Enter’.</p>
-<div class="section" id="calculations-variable-assignments-and-printing">
+<section id="calculations-variable-assignments-and-printing">
 <h2>Calculations, variable assignments, and printing<a class="headerlink" href="#calculations-variable-assignments-and-printing" title="Permalink to this headline">¶</a></h2>
 <p>The first thing we might try is the use of code cells as a calculator.  Indeed this works in a straightforward way.  Run the cell below to see how it works.  Experiment with the input to see how to enter various operations.  (Note that you can get exponents by using the ** operator.)</p>
 <div class="cell docutils container">
@@ -342,21 +346,38 @@ The result of the calculation 32/5 is 6.4
 <p>The text within the quotes is a Python object known as a <strong>string</strong>.  Just as with the value of <span class="math notranslate nohighlight">\(\texttt{b}\)</span>, we could assign the string object a name if we plan to reuse it.  Python offers many powerful ways to manipulate and process strings, but our primary use of strings is to display informative messages about our numerical results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_message</span> <span class="o">=</span> <span class="s2">&quot;The result of the calculation is &quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result_message</span> <span class="o">=</span> <span class="s2">&quot;The result of the calculation is&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result_message</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result_message</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="mi">37</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The result of the calculation is  6.4
-The result of the calculation is  236.8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The result of the calculation is 6.4
+The result of the calculation is 236.8
 </pre></div>
 </div>
 </div>
 </div>
+<p>It is sometimes easier to read output if there are extra space to break up the lines.  We frequently print out the special string <span class="math notranslate nohighlight">\(\texttt{'\n'}\)</span>, which adds an extra line break.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result_message</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_message</span><span class="p">,</span><span class="n">b</span><span class="o">*</span><span class="mi">37</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="functions">
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The result of the calculation is 6.4 
+
+The result of the calculation is 236.8
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command offers several other ways to manipulate the basic format of the output it produces.  We will comment on these options as they are used.</p>
+</section>
+<section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>Quite often we write a bit of code that we would like to reuse.  Maybe it was tricky to figure out, or just tedious to type, and we want to save time and effort by making use of the code we’ve already written.  We could just copy and paste code from here to there, but that quickly becomes a chore as the amount of code we need continues to grow.</p>
 <p>One simple way to reuse code is to define a <strong>function</strong>.  We can think of a function as a new command that will carry out whatever instructions we would like to include.  Sometimes we will find it useful to provide the function with information in order for it to do its job.  Other times we might ask that the function return some information to us when it has finished its job.  Let’s look at a couple of examples.</p>
@@ -385,9 +406,9 @@ The result of the calculation is  236.8
 <p>When we call the function, we need to include the parentheses () as part of the call.  In this example the parentheses are empty because we are not passing any information to the function.  Let’s write another function that allows us to provide it with a measurement in inches, and have it print out the measurement in centimeters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CentimeterToInchConversion</span><span class="p">(</span><span class="n">inches</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">InchtoCentimeterConversion</span><span class="p">(</span><span class="n">inches</span><span class="p">):</span>
     <span class="n">cm</span> <span class="o">=</span> <span class="n">inches</span><span class="o">*</span><span class="mf">2.54</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span><span class="n">cm</span><span class="p">,</span><span class="s2">&quot;centimeters in&quot;</span><span class="p">,</span><span class="n">inches</span><span class="p">,</span><span class="s2">&quot;inches.&quot;</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">inches</span><span class="p">,</span><span class="s2">&quot;inches equals&quot;</span><span class="p">,</span><span class="n">cm</span><span class="p">,</span><span class="s2">&quot;centimeters.&quot;</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -395,12 +416,12 @@ The result of the calculation is  236.8
 <p>Again, nothing actually happens until we call the function.  This time when we call though, we will need to provide a numer that the function will interpret as the variable <span class="math notranslate nohighlight">\(\texttt{inches}\)</span>.  The objects that we pass into functions are known as <strong>arguments</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CentimeterToInchConversion</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InchtoCentimeterConversion</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 5.842 centimeters in 2.3 inches.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3 inches equals 5.842 centimeters.
 </pre></div>
 </div>
 </div>
@@ -408,7 +429,7 @@ The result of the calculation is  236.8
 <p>In the final example we will provide the function with the measurement in centimeters, and it will <em>return to us</em> the measurement in centimeters without printing anything.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ReturnCentimeterToInchConversion</span><span class="p">(</span><span class="n">inches</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ReturnInchtoCentimeterConversion</span><span class="p">(</span><span class="n">inches</span><span class="p">):</span>
     <span class="n">cm</span> <span class="o">=</span> <span class="n">inches</span><span class="o">*</span><span class="mf">2.54</span>
     <span class="k">return</span> <span class="n">cm</span>
 </pre></div>
@@ -418,19 +439,19 @@ The result of the calculation is  236.8
 <p>And again we must call the function to carry out the code.  This time however, the function creates an object that represents the value being returned.  In order to make use of this object we must assign it a name as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">ReturnCentimeterToInchConversion</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our result is&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">ReturnInchtoCentimeterConversion</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our result is&quot;</span><span class="p">,</span><span class="n">result</span><span class="p">,</span><span class="s2">&quot;centimeters.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our result is 5.842
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our result is 5.842 centimeters.
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="conditional-statements">
+</section>
+<section id="conditional-statements">
 <h2>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h2>
 <p>It is quite common that we will want some commands to be carried out only in certain conditions.  If we are carrying out division for example, we might want to be certain we are not dividing by zero.  The <span class="math notranslate nohighlight">\(\texttt{if}\)</span> keyword lets us check a condition before proceeding with any associated commands.  The structure of an <em>if block</em> is similar to that of a function definition.  The <span class="math notranslate nohighlight">\(\texttt{if}\)</span> keyword is followed with a condition and a colon, then all associated commands <strong>are indented</strong> to indicate that they are only to be executed when the condition is true.</p>
 <div class="cell docutils container">
@@ -506,8 +527,8 @@ The result of the calculation is  236.8
 </div>
 </div>
 <p>Blocks of code that get repeated like this are known as <strong>loops</strong>.  The commands in the <em>while block</em> are said to be “inside the loop”.</p>
-</div>
-<div class="section" id="iterations">
+</section>
+<section id="iterations">
 <h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
 <p>The most common type of loop that we will use is created with the <span class="math notranslate nohighlight">\(\texttt{for}\)</span> keyword, and is thus known as a <em>for loop</em>.  The commands inside a <em>for loop</em> get repeated once for each object in a specified collection.  For our purposes, the collection of objects will almost always be a set of numbers generated using the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> command.  The combination of <span class="math notranslate nohighlight">\(\texttt{for}\)</span> and <span class="math notranslate nohighlight">\(\texttt{range}\)</span> is easiest to understand by looking at some examples.</p>
 <div class="cell docutils container">
@@ -527,8 +548,7 @@ The result of the calculation is  236.8
 </div>
 </div>
 </div>
-<p>In this first example every number in <span class="math notranslate nohighlight">\(\texttt{range(5)}\)</span> gets printed.  We can see that <span class="math notranslate nohighlight">\(\texttt{range(5)}\)</span> contains the numbers from 0 to 4, and in general <span class="math notranslate nohighlight">\(\texttt{range(n)}\)</span> will contain the numbers 0 to <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>It may appear strange that the collection is 0 to 4 instead of 1 to 5, but counts beginning with zero are rather common in computing.  We can specify any starting number we like by providing another argument to the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> function.</p>
+<p>In this first example every number in <span class="math notranslate nohighlight">\(\texttt{range(5)}\)</span> gets printed.  We can see that <span class="math notranslate nohighlight">\(\texttt{range(5)}\)</span> contains the numbers from 0 to 4.  In general <span class="math notranslate nohighlight">\(\texttt{range(n)}\)</span> will generate the numbers 0 to <span class="math notranslate nohighlight">\(n-1\)</span>.  It may appear strange that the collection is 0 to 4 instead of 1 to 5, but counts beginning with zero are common in programming languages.  We can specify any starting number we like by providing another argument to the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
@@ -548,7 +568,7 @@ The result of the calculation is  236.8
 </div>
 </div>
 </div>
-<p>We can also provide the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> function a third parameter to specify the <em>spacing</em> between numbers.</p>
+<p>We can also provide the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> function a third argument to specify the <em>spacing</em> between numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
@@ -586,8 +606,8 @@ The result of the calculation is  236.8
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="comments">
+</section>
+<section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Often it is useful to include some plain text inside the code cell to help provide a description or explanation.  Such text is called a <strong>comment</strong>.  Comments are not interpreted as Python code, so we can write anything we like to help us document the code.  There are two ways to accomplish this.</p>
 <ol class="simple">
@@ -630,7 +650,7 @@ The result of the calculation is  236.8
 </div>
 </div>
 </div>
-<p>The important point here is that the previous two cells do exactly the same thing.  The comments have no effect on the calculation or the output.  The following cell with no comments does exactly the same thing as well.</p>
+<p>The important point here is that the previous two cells do exactly the same thing.  The comments have no effect on the calculation or the output.  The following cell with no comments also does exactly the same thing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">142</span>
@@ -645,8 +665,8 @@ The result of the calculation is  236.8
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="importing-libraries">
+</section>
+<section id="importing-libraries">
 <h2>Importing Libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this headline">¶</a></h2>
 <p>The core of the Python language does not contain all the functionality that we will need for linear algebra.  In order to access more tools we will <strong>import</strong> some Python modules.  For example, some basic functions that you might find on a scientific calculator are not part of the Python language, but are included in the math module.  A simple way to import this module is with the code <span class="math notranslate nohighlight">\(\texttt{import math}\)</span>.  The cell below shows some examples of how we might use the module.</p>
 <div class="cell docutils container">
@@ -669,14 +689,14 @@ The cosine of pi/10 is approximately 0.9510565162951535
 </div>
 </div>
 <p>Note that when we use the square root function, we need to use the call <span class="math notranslate nohighlight">\(\texttt{math.sqrt}\)</span> instead of just <span class="math notranslate nohighlight">\(\texttt{sqrt}\)</span>.  This is because the square root function is actually a part of the <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module, and is not in the basic set of Python commands.  The use of this dot notation is ubiquitous in Python.  Whenever <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> is contained within <span class="math notranslate nohighlight">\(\texttt{object1}\)</span>, we access <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> by using <span class="math notranslate nohighlight">\(\texttt{object1.object2}\)</span>.</p>
-</div>
-<div class="section" id="exercises">
+</section>
+<section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Write a function that accepts two arguments, <span class="math notranslate nohighlight">\(\texttt{a}\)</span> and <span class="math notranslate nohighlight">\(\texttt{b}\)</span>, and returns the remainder of <span class="math notranslate nohighlight">\(\texttt{a/b}\)</span>.  (<em>There is a built-in Python operator that does this, but try to come up with a way to do it for yourself.</em>)</p></li>
 </ul>
-</div>
-<div class="section" id="resources">
+</section>
+<section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://nbviewer.jupyter.org/gist/rpmuller/5920182">A Crash Course in Python for Scientists</a></p></li>
@@ -684,8 +704,8 @@ The cosine of pi/10 is approximately 0.9510565162951535
 <li><p><a class="reference external" href="https://realpython.com/">Real Python</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/">The Python Tutorial</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -736,7 +756,7 @@ The cosine of pi/10 is approximately 0.9510565162951535
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

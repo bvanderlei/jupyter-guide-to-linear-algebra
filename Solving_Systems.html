@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Solving Systems using Elimination &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Inverse Matrices" href="Inverse_Matrices.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Solving_Systems.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -254,34 +258,22 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#back-substitution-routine">
-   Back Substitution routine
+  <a class="reference internal nav-link" href="#back-substitution-function">
+   Back substitution function
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#row-reduction-routine">
-   Row Reduction routine
+  <a class="reference internal nav-link" href="#row-reduction-function">
+   Row reduction function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-system-function">
+   System system function
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#system-solve-routine">
-   System Solve routine
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise">
-     Exercise
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
    Exercises
   </a>
  </li>
@@ -296,17 +288,17 @@
         
               <div>
                 
-  <div class="section" id="solving-systems-using-elimination">
+  <section id="solving-systems-using-elimination">
 <h1>Solving Systems using Elimination<a class="headerlink" href="#solving-systems-using-elimination" title="Permalink to this headline">¶</a></h1>
-<p>In this section we discuss the code needed to solve the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> using elimination.  We will restrict objective to the case where <span class="math notranslate nohighlight">\(A\)</span> is a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, and the the system has exactly one solution. The more general case requires more knowledge of the underlying theory and will be addressed in a later chapter.</p>
+<p>In this section we discuss the code needed to solve the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> using elimination.  We will restrict our objective to the case where <span class="math notranslate nohighlight">\(A\)</span> is a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, and the the system has exactly one solution. The more general case requires more knowledge of the underlying theory and will be addressed in a later chapter.</p>
 <p>When writing code to perform a complex problem, it is often a good idea to first break up the task, and write code to carry out smaller pieces.  Once we have code to reliably perform the small tasks, we can assemble the pieces to solve the larger problem.  In our case we will break down the solution method into two parts.</p>
 <ol class="simple">
 <li><p>Carry out elimination on the associated augmented matrix.</p></li>
-<li><p>Perform back substitution on the triangular system that elimination produces.</p></li>
+<li><p>Perform back substitution on the triangular system produced by elimination.</p></li>
 </ol>
-<p>It is also beneficial to consider how we might write the code now so that it will it can reuse it for other tasks later.</p>
-<div class="section" id="back-substitution-routine">
-<h2>Back Substitution routine<a class="headerlink" href="#back-substitution-routine" title="Permalink to this headline">¶</a></h2>
+<p>It is also beneficial to consider how we might write the code now so that we can reuse it for other tasks later.</p>
+<section id="back-substitution-function">
+<h2>Back substitution function<a class="headerlink" href="#back-substitution-function" title="Permalink to this headline">¶</a></h2>
 <p>We will start with the back substitution step, since that is the easier part.  If the elimination step is successful, we will have an upper triangular system <span class="math notranslate nohighlight">\(UX=B\)</span> that has the following form.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -316,7 +308,7 @@
 \left[ \begin{array}{r}  * \\  *  \\ * \\ *  \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>We will put the code in a function so that that it is easy to reuse later.  For this function, let’s suppose that we are given the upper triangular matrix <span class="math notranslate nohighlight">\(U\)</span> and the known vector <span class="math notranslate nohighlight">\(B\)</span> and we want to find the vector <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(UX=B\)</span>.  Note we could make other assumptions, such as the matrix <span class="math notranslate nohighlight">\(U\)</span> having diagonal entries equal to 1, but if we make fewer assumptions, the code will be more useful later.</p>
+<p>We will put the code in a function so that that it is easy to reuse later.  For this function, let’s suppose that we are given the upper triangular matrix <span class="math notranslate nohighlight">\(U\)</span> and the known vector <span class="math notranslate nohighlight">\(B\)</span> and we want to find the vector <span class="math notranslate nohighlight">\(X\)</span> so that <span class="math notranslate nohighlight">\(UX=B\)</span>.  Note we could make other assumptions, such as the matrix <span class="math notranslate nohighlight">\(U\)</span> having diagonal entries equal to 1.  The fewer such assumptions we make, the more useful the code will be later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -351,7 +343,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make up an upper triangular matrix.  Could we make a random upper triangular matrix here?  What could go wrong?</span>
 <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>  
 <span class="c1"># We will choose the solution X_true.  We can put in any numbers we like here. </span>
-<span class="n">X_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">X_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">U</span><span class="nd">@X_true</span>
 <span class="c1"># Call the function.  It should produce the same array as X_true if it works correctly.</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">BackSubstitution</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
@@ -361,25 +353,25 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.]
  [4.]
- [6.]]
+ [3.]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Before discussing the elimination step, we should make a note that this <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> function <em>will fail</em> if any of the diagonal entries of <span class="math notranslate nohighlight">\(U\)</span> are zero.  We should keep this in mind when using this code in the future.</p>
-</div>
-<div class="section" id="row-reduction-routine">
-<h2>Row Reduction routine<a class="headerlink" href="#row-reduction-routine" title="Permalink to this headline">¶</a></h2>
-<p>Elimination is the larger and more complex part of the solution method.  It is also a common task that will arise in future sections, so we will want some code that we can reuse at a later point.  We want a function that will carry out all the steps of elimination, and just return the end result.  It is not necessary to see all the inividual row operations that took place in order solve the problem.  Ideally, we would like the function to carry out the elimination on arrays of any size or shape, and also be able to <em>make the decision</em> to perform row swaps when necessary.</p>
-<p>To clarify the goal, the function should accept an arbitrary array and produce an array that has the following properties.</p>
-<ul class="simple">
+<p>Before discussing the elimination step, we should make a note that this <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> function <em>will fail</em> to produce meaningful results if any of the diagonal entries of <span class="math notranslate nohighlight">\(U\)</span> are zero.  We should keep this in mind when using this code in the future.</p>
+</section>
+<section id="row-reduction-function">
+<h2>Row reduction function<a class="headerlink" href="#row-reduction-function" title="Permalink to this headline">¶</a></h2>
+<p>Elimination is the larger and more complex part of the solution method.  It is also a common task that will arise in future sections, so we will want some code that we can reuse at a later point.  We want a function that will carry out all the steps of elimination, and just return the end result.  It is not necessary to see all the individual row operations that took place as part of the process.  Ideally we would like the function to carry out the elimination on arrays of any size or shape, and also be able to <em>make the decision</em> to perform row swaps when necessary.</p>
+<p>Let’s clarify the goal. The function should accept an arbitrary array and return an array that has the following properties.</p>
+<ol class="simple">
 <li><p>The first nonzero entry in each row is a 1.  These entries are the pivots.</p></li>
 <li><p>Each pivot is located to the right of the pivots in all rows above it.</p></li>
 <li><p>The entries below each pivot are 0.</p></li>
-<li><p>Rows that are all zeros are located below other rows.</p></li>
-</ul>
+<li><p>Rows that are all zeros are located below rows that contain nonzero entries.</p></li>
+</ol>
 <p>Such a matrix is said to be in a <strong>row echelon form</strong>.  Here are three examples of matrices in the form that we seek.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -456,8 +448,15 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<p>Note that in this routine we make use of the row operations written earlier.  Since those functions are note written in <em>this notebook</em>, we need to import them from the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
+<p>Note that in this routine we make use of the row operations written earlier.  Since those functions are not written in <em>this notebook</em>, we need to import them from the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
 <p>Let’s test the routine on a random array.  Run the code on several random matrices of different sizes and shapes.  Does it always work?  Do you notice any unusual results?  Does it depend on the size or shape?  Does it depend on the range of numbers used?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1">## Try out RowReduction here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>If you run this test enough times, you are likely to come across an example where the results look a little different.  Here is one such case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,7 +476,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <p>There are two things that we observe in this example.  First and most obvious is that the entries are all displayed in scientific notation.  The more disturbing observation is that the result is not exactly what we wanted.  The elimination process is supposed to produce zeros for all the entries below the main diagonal, but in this case there is one entry that is not <span class="math notranslate nohighlight">\(\texttt{0.000}\)</span>.  Instead it is an extremely small number, close to <span class="math notranslate nohighlight">\(10^{-17}\)</span>.</p>
-<p>At this point we might question the code and start looking for errors, but the problem here does not lie with the code.  The issue here is something more fundamental, and involves the way numbers are represented in the calculation and precision limitations of the computer.  For example, the number <span class="math notranslate nohighlight">\(1/3\)</span>, which has a decimal representation that consists of an infinite string of <span class="math notranslate nohighlight">\(3\)</span>s, cannot be represented <em>exactly</em> using a finite decimal representation.  This means that the arrays representing the system may be slightly incorrect even before any calculations are performed.  As the computer carries out the operations of arithmetic must rounded off results to a numbers can be represented exactly.  This inherent limitation is known as <strong>roundoff error</strong> and it is the reason we do not get exactly zero for all of the entries below the diagonal.</p>
+<p>At this point we might question the code and start looking for errors, but the problem here does not lie with the code.  The issue here is something more fundamental, and involves the way numbers are represented in the calculation and precision limitations of the computer.  For example, the number <span class="math notranslate nohighlight">\(1/3\)</span>, which has a decimal representation that consists of an infinite string of <span class="math notranslate nohighlight">\(3\)</span>s, cannot be represented <em>exactly</em> using a finite decimal representation.  This means that the arrays representing the system may be slightly incorrect even before any calculations are performed.  As the computer carries out the operations of arithmetic, the results must be rounded off to numbers that can be represented exactly.  This inherent limitation is known as <strong>roundoff error</strong> and it is the reason we do not get exactly zero for all of the entries below the diagonal.</p>
 <p>In this example, we can see that the entries that should be zero are indeed very close to zero.  If we want to display the results in a format that is more readable, we can use the NumPy function <span class="math notranslate nohighlight">\(\texttt{round}\)</span> to round all of the entries to a specified number of digits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,25 +495,18 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <p>Note, we should only use the rounded results for the purpose of displaying results.  If we were to carry on and solve a system, or perform some other calculation, we should use the original results rather than the rounded version.</p>
-<p>Roundoff error can present a significant challenge if we work with large arrays, and the errors are allowed to accumulate and compound.  There are strategies that can be employed to mitigate this error, and ensure that usable results can be obtained.  Any software that must provide reliable results must account for roundoff error.  We will carry on with simple version of elimination with the awareness that the results we get are not always <em>exactly correct</em>.</p>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Try out the code on two different arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>.</p></li>
-<li><p>Is it possible to test random arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>?</p></li>
-</ul>
-</div>
-<div class="section" id="system-solve-routine">
-<h2>System Solve routine<a class="headerlink" href="#system-solve-routine" title="Permalink to this headline">¶</a></h2>
-<p>Now we can combine the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> and the <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> routines together to carry out the solution algorithm for the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  A simple possibility is that the user of the function will supply <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, and the function will return the solution <span class="math notranslate nohighlight">\(X\)</span>.  Let’s list the steps that need to be completed.</p>
+<p>Roundoff error can present a significant challenge if we work with large arrays, and the errors are allowed to accumulate and compound.  There are strategies that can be employed to mitigate this error, and ensure that usable results can be obtained.  Any software that must provide reliable results must account for roundoff error.  We will carry on with our simple version of elimination with the awareness that the results we get are not always <em>exactly correct</em>.</p>
+</section>
+<section id="system-system-function">
+<h2>System system function<a class="headerlink" href="#system-system-function" title="Permalink to this headline">¶</a></h2>
+<p>Now we can combine the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> and the <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> functions together to carry out the solution algorithm for the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Let us assume that the user of the function will supply <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, and the function will return the solution <span class="math notranslate nohighlight">\(X\)</span>.  Here are the steps that need to be completed.</p>
 <ol class="simple">
 <li><p>Build the associated augmented matrix.</p></li>
 <li><p>Apply <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span>.</p></li>
 <li><p>Split the matrix.</p></li>
 <li><p>Apply <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> and return the result.</p></li>
 </ol>
-<p>Note that there are other ways we could build our routine.  We could require the user to supply the augmented matrix for example, but then that means the user (us) has to do step 1 everytime they use this routine.  It is better to let the function handle that step.</p>
+<p>Note that there are other ways we could build our function.  We could require the user to supply the augmented matrix for example, but then that means the user (which is likely us!) has to do step 1 every time they use this function.  It is better to let the function handle that step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
@@ -531,7 +523,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SolveSystem accepts only square arrays.&quot;</span><span class="p">)</span>
         <span class="k">return</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># n is number of rows and columns in A</span>
-
+    
     <span class="c1"># 1. Join A and B to make the augmented matrix</span>
     <span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">))</span>
 
@@ -555,9 +547,10 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 <span class="c1"># We will choose the solution X_true</span>
 <span class="n">X_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
 <span class="c1"># Now make B so that the solution to AX=B is X_true</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X_true</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
@@ -566,7 +559,8 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6]
  [-1]
- [ 4]]
+ [ 4]] 
+
 [[1.]
  [1.]
  [1.]]
@@ -589,58 +583,55 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.06581410e-14]
- [ 7.10542736e-15]
- [-2.13162821e-14]
- [-1.50990331e-14]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.77635684e-15]
+ [-8.88178420e-16]
+ [-8.88178420e-16]
+ [ 1.77635684e-15]]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="exercise">
-<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Set up a similar test using <span class="math notranslate nohighlight">\(\text{np.random.rand}\)</span> to get random floats as matrix entries.</p></li>
+<li><p>Try out the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> function on two different arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>.  Is it possible to test random arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="c1"># We set X_true for a random solution</span>
-<span class="n">X_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># Now make B so that the solution to AX=B is X_true</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X_true</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
-<span class="c1"># Print the difference in computed solution and actual solution</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X_true</span><span class="o">-</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.33066907e-16]
- [-2.77555756e-15]
- [ 3.33066907e-16]
- [ 1.11022302e-16]]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Use <span class="math notranslate nohighlight">\(\texttt{np.random.rand(n,n)}\)</span> to generate a coefficient matrix with entries that are random floats.  Create a  linear system with a known solution using this matrix, and test <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span>.</p></li>
-<li><p>Modify <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> to compute what is known as the <strong>reduced row echelon form</strong>.  Name the new function <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.<br />
-A matrix in reduced row echelon form should have the following properties.</p>
-<ul>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Experiment to see what might go wrong using <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> on a matrix that is <em>not</em> <span class="math notranslate nohighlight">\(n\times (n+1)\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A matrix is said to be in <strong>reduced row echelon form</strong> if it satisfies the following properties.</p>
+<ol class="simple">
 <li><p>The first nonzero entry in each row is a 1.  These entries are the pivots.</p></li>
 <li><p>Each pivot is located to the right of the pivots in all rows above it.</p></li>
 <li><p>The entries below <strong>and above</strong> each pivot are 0.</p></li>
-<li><p>Rows that are all zeros are located below other rows.
-Here is an example of a matrix in reduced row echelon form.</p></li>
-</ul>
-</li>
-</ul>
+<li><p>Rows that are all zeros are located below other rows.</p></li>
+</ol>
+<p>Here is an example of a matrix in reduced row echelon form.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -649,12 +640,37 @@ Here is an example of a matrix in reduced row echelon form.</p></li>
 \end{split}\]</div>
 <p>Note that for the system represented by the augmented matrix in the first example, the solution is given by the entries in the final column.  There is no need for back substitution if the augmented matrix is in reduced row echelon form.</p>
 <ul class="simple">
-<li><p>Test your <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span> on random <span class="math notranslate nohighlight">\(3\times 4\)</span> matrices, then on random <span class="math notranslate nohighlight">\(n\times (n+1)\)</span> matrices.</p></li>
-<li><p>Construct a <span class="math notranslate nohighlight">\(3 \times 3\)</span> system with a known solution and compare the solutions produced using <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span> with those produced using <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p></li>
-<li><p>Experiment to see what might go wrong using <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> on a matrix that is <em>not</em> <span class="math notranslate nohighlight">\(n\times (n+1)\)</span>.</p></li>
+<li><p>Modify <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> to compute the reduced row echelon form of a matrix.  Name the new function <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
 </div>
 </div>
+</div>
+<ul class="simple">
+<li><p>Test your <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span> on random <span class="math notranslate nohighlight">\(3\times 4\)</span> matrices, then on random <span class="math notranslate nohighlight">\(n\times (n+1)\)</span> matrices.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Construct a <span class="math notranslate nohighlight">\(3 \times 3\)</span> system with a known solution and compare the solutions produced using <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span> with those produced using <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -705,7 +721,7 @@ Here is an example of a matrix in reduced row echelon form.</p></li>
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

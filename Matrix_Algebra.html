@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Matrix Algebra &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Solving Systems using Elimination" href="Solving_Systems.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -217,8 +217,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -235,6 +234,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Matrix_Algebra.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -256,11 +260,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operations-on-matrices">
    Operations on Matrices
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -292,13 +291,11 @@
   <a class="reference internal nav-link" href="#matrix-multiplication-by-columns">
    Matrix multiplication by columns
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
-     Exercises
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
  </li>
 </ul>
 
@@ -311,9 +308,9 @@
         
               <div>
                 
-  <div class="section" id="matrix-algebra">
+  <section id="matrix-algebra">
 <h1>Matrix Algebra<a class="headerlink" href="#matrix-algebra" title="Permalink to this headline">¶</a></h1>
-<p>In this section we look at matrix algebra and some of its common properties  We will also see how operations involving matrices are connected to linear systems of equations.</p>
+<p>In this section we look at matrix algebra and some of its common properties.  We will also see how operations involving matrices are connected to linear systems of equations.</p>
 <p>A <strong>matrix</strong> is two-dimensional array of numbers.  When we do computations with matrices using NumPy, we will be using arrays just as we did before.  Let’s write down some of examples of matrices and give them names.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -324,7 +321,7 @@ C = \left[ \begin{array}{rr} -2 &amp; 1 \\ 4 &amp; 1 \end{array}\right] \hspace{
 D = \left[ \begin{array}{r} 2 \\ 6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>When discussing matrices it is common to talk about their dimensions, or shape, by specifying the number of rows and columns.  The number of rows is usually listed first.  For our examples, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(2\times 2\)</span> matrices, <span class="math notranslate nohighlight">\(B\)</span> is a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix, and <span class="math notranslate nohighlight">\(D\)</span> is a <span class="math notranslate nohighlight">\(2 \times 1 \)</span> matrix.  Matrices that have only 1 column, such as <span class="math notranslate nohighlight">\(D\)</span>, are commonly refered to as <strong>vectors</strong>.  We will adhere to this convention as well, but do be aware that when we make statements about matrices, we are also making statements about vectors even if we don’t explicitly mention them.  We will also adopt the common convention of using uppercase letters to name matrices.</p>
+<p>When discussing matrices it is common to talk about their dimensions, or shape, by specifying the number of rows and columns.  The number of rows is usually listed first.  For our examples, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(2\times 2\)</span> matrices, <span class="math notranslate nohighlight">\(B\)</span> is a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix, and <span class="math notranslate nohighlight">\(D\)</span> is a <span class="math notranslate nohighlight">\(2 \times 1 \)</span> matrix.  Matrices that have only 1 column, such as <span class="math notranslate nohighlight">\(D\)</span>, are commonly referred to as <strong>vectors</strong>.  We will adhere to this convention as well, but do be aware that when we make statements about matrices, we are also making statements about vectors even if we don’t explicitly mention them.  We will also adopt the common convention of using uppercase letters to name matrices.</p>
 <p>It is also necessary to talk about the individual entries of matrices.  The common notation for this is a lowercase letter with subscripts to denote the position of the entry in the matrix.  So <span class="math notranslate nohighlight">\(b_{12}\)</span> refers to the 0 in the first row and second column of the matrix <span class="math notranslate nohighlight">\(B\)</span>.  If we are talking about generic positions, we might use variables in the subscripts, such as <span class="math notranslate nohighlight">\(a_{ij}\)</span>.</p>
 <p>Let’s create these matrices as NumPy arrays before further discussion.</p>
 <div class="cell docutils container">
@@ -333,7 +330,14 @@ D = \left[ \begin{array}{r} 2 \\ 6 \end{array}\right]
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2]
+ [6]]
 </pre></div>
 </div>
 </div>
@@ -353,7 +357,7 @@ Array B has 3 columns.
 </div>
 </div>
 </div>
-<div class="section" id="operations-on-matrices">
+<section id="operations-on-matrices">
 <h2>Operations on Matrices<a class="headerlink" href="#operations-on-matrices" title="Permalink to this headline">¶</a></h2>
 <p>There are three algebraic operations for matrices that we will need to perform.  For our definitions let us suppose that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(m \times n\)</span> matrices, <span class="math notranslate nohighlight">\(B\)</span> is an <span class="math notranslate nohighlight">\(n \times k\)</span> matrix, and <span class="math notranslate nohighlight">\(c\)</span> is a number.  When discussing algebra involving matrices and numbers, the numbers are usually referred to as <strong>scalars</strong>.</p>
 <ol class="simple">
@@ -361,29 +365,23 @@ Array B has 3 columns.
 </ol>
 <div class="math notranslate nohighlight">
 \[
-\begin{equation}
 (cA)_{ij} = ca_{ij}
-\end{equation}
 \]</div>
 <ol class="simple">
 <li><p>Two matrices that <em>have the same shape</em> can be added.  The result is that all corresponding entries are added.</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[
-\begin{equation}
 (A+C)_{ij} = a_{ij} + c_{ij}
-\end{equation}
 \]</div>
 <ol class="simple">
-<li><p>If the number of columns of matrix <span class="math notranslate nohighlight">\(A\)</span> is equal to the number of rows of matrix <span class="math notranslate nohighlight">\(B\)</span>, the matrices can be multipled in that order.  The result will be a new matrix <span class="math notranslate nohighlight">\(AB\)</span> that has the same number of rows as <span class="math notranslate nohighlight">\(A\)</span> and the same number of columns as <span class="math notranslate nohighlight">\(B\)</span>.  The entries <span class="math notranslate nohighlight">\((AB)_{ij}\)</span> will be the following combination of the entries of row <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(A\)</span> and column <span class="math notranslate nohighlight">\(j\)</span> of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>If the number of columns of matrix <span class="math notranslate nohighlight">\(A\)</span> is equal to the number of rows of matrix <span class="math notranslate nohighlight">\(B\)</span>, the matrices can be multiplied in the order <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>.  The result will be a new matrix <span class="math notranslate nohighlight">\(AB\)</span>, that has the same number of rows as <span class="math notranslate nohighlight">\(A\)</span> and the same number of columns as <span class="math notranslate nohighlight">\(B\)</span>.  The entries <span class="math notranslate nohighlight">\((AB)_{ij}\)</span> will be the following combination of the entries of row <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(A\)</span> and column <span class="math notranslate nohighlight">\(j\)</span> of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
 </ol>
 <div class="math notranslate nohighlight">
 \[
-\begin{equation}
 (AB)_{ij} = \sum_{k=1}^n a_{ik}b_{kj}
-\end{equation}
 \]</div>
-<p>The last operation, known as <strong>matrix multiplication</strong>, is the most complex and least intuitive of the three.  No doubt this last formula is a bit indimidating the first time we read it.  Let’s give some examples to clarify.</p>
+<p>The last operation, known as <strong>matrix multiplication</strong>, is the most complex and least intuitive of the three.  No doubt this last formula is a bit intimidating the first time we read it.  Let’s give some examples to clarify.</p>
 <ol class="simple">
 <li><p>The multiplication of a number and a matrix:</p></li>
 </ol>
@@ -427,22 +425,18 @@ AB = \left[ \begin{array}{rr} 1 &amp; 3 \\ 2 &amp; 1 \end{array}\right]
 <p>These matrix operations are all built into NumPy, but we have to use the symbol <span class="math notranslate nohighlight">\(\texttt{&#64;}\)</span> instead of <span class="math notranslate nohighlight">\(\texttt{*}\)</span> for matrix multiplication.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">C</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="nd">@B</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 9]
- [6 3]]
-
+ [6 3]] 
 
 [[-1  4]
- [ 6  2]]
-
+ [ 6  2]] 
 
 [[ 0 -6  7]
  [ 5 -2  9]]
@@ -450,30 +444,8 @@ AB = \left[ \begin{array}{rr} 1 &amp; 3 \\ 2 &amp; 1 \end{array}\right]
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
-<p>Calculate</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(-2E\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(G+F\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(4F-G\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(HG\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(GE\)</span></p></li>
-</ul>
-<p>using the following matrices.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{equation}
-E = \left[ \begin{array}{r} 5 \\ -2 \end{array}\right] \hspace{1cm} 
-F = \left[ \begin{array}{rr} 1 &amp; 6 \\ 2 &amp; 0 \\ -1 &amp; -1 \end{array}\right] \hspace{1cm}
-G = \left[ \begin{array}{rr} 2 &amp; 0\\ -1 &amp; 3 \\ -1 &amp; 6 \end{array}\right] \hspace{1cm}
-H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp; 4 &amp; -1\end{array}\right]
-\end{equation}
-\end{split}\]</div>
-<p>Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p>
-</div>
-<div class="section" id="properties-of-matrix-operations">
+</section>
+<section id="properties-of-matrix-operations">
 <h2>Properties of matrix operations<a class="headerlink" href="#properties-of-matrix-operations" title="Permalink to this headline">¶</a></h2>
 <p>It is useful to observe that some common algebraic properties hold true for matrix multiplication.  Let <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> be matrices, and <span class="math notranslate nohighlight">\(k\)</span> be a scalar.  The associative and distributive properties stated here hold for matrix multiplication.</p>
 <div class="math notranslate nohighlight">
@@ -495,7 +467,7 @@ A(BC) = (AB)C
 \end{equation}
 \]</div>
 <p>These statements only make sense of course if the matrices have dimensions that allow for the operations.</p>
-<p>It is also worth noting that the commutative property does not generally hold for matrix multiplication.  Suppose for example that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both <span class="math notranslate nohighlight">\(3\times 3\)</span> matrices.  It is not true in general that <span class="math notranslate nohighlight">\(AB = BA\)</span>.  One example with random matrices is enough to prove this point.</p>
+<p>It is also worth noting that the commutative property does not generally hold for matrix multiplication.  Suppose for example that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both <span class="math notranslate nohighlight">\(3\times 3\)</span> matrices.  It is <strong>not true in general</strong> that <span class="math notranslate nohighlight">\(AB = BA\)</span>.  One example with random matrices is enough to prove this point.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -508,20 +480,20 @@ A(BC) = (AB)C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8 59 41]
- [ 2  9 21]
- [ 0 26 44]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-24  -8 -12]
+ [-22 -22  12]
+ [ 16   8  14]]
 
 
-[[ 15  35 -25]
- [ 20  40 -22]
- [-10   8   6]]
+[[-32   4 -16]
+ [-32  18 -16]
+ [-20  20 -18]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="matrix-transposes">
+</section>
+<section id="matrix-transposes">
 <h2>Matrix transposes<a class="headerlink" href="#matrix-transposes" title="Permalink to this headline">¶</a></h2>
 <p>Another common idea that we will find useful is that of the matrix transpose.  The <strong>transpose</strong> of a matrix <span class="math notranslate nohighlight">\(A\)</span> is another matrix, <span class="math notranslate nohighlight">\(A^T\)</span>, defined so that its columns are the rows of <span class="math notranslate nohighlight">\(A\)</span>.  To build <span class="math notranslate nohighlight">\(A^T\)</span>, we simple swap the row index with the column index for every entry, <span class="math notranslate nohighlight">\(a^T_{ij} = a_{ji}\)</span>.  One example should be enough to clarify this definition.</p>
 <div class="math notranslate nohighlight">
@@ -531,7 +503,7 @@ A = \left[ \begin{array}{rrr} 5 &amp; 4 &amp; 0 \\ 1 &amp; 8 &amp; 3 \\ 6 &amp; 
 A^T = \left[ \begin{array}{rrr} 5 &amp; 1 &amp; 6 \\ 4 &amp; 8 &amp; 7 \\ 0 &amp; 3 &amp; 2\end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
-<p>Numpy array objects have a method named <span class="math notranslate nohighlight">\(\texttt{transpose}\)</span> for this purpose.</p>
+<p>NumPy array objects have a method named <span class="math notranslate nohighlight">\(\texttt{transpose}\)</span> for this purpose.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
@@ -558,8 +530,8 @@ A^T = \left[ \begin{array}{rrr} 5 &amp; 1 &amp; 6 \\ 4 &amp; 8 &amp; 7 \\ 0 &amp
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="application-to-linear-systems">
+</section>
+<section id="application-to-linear-systems">
 <h2>Application to linear systems<a class="headerlink" href="#application-to-linear-systems" title="Permalink to this headline">¶</a></h2>
 <p>A very important example of matrix multiplication is that where a known matrix multiplies an <em>unknown</em> vector to produce a known vector.  If we let <span class="math notranslate nohighlight">\(A\)</span> be the known matrix, <span class="math notranslate nohighlight">\(B\)</span> be the known vector, and <span class="math notranslate nohighlight">\(X\)</span> be the unknown vector, we can write the matrix equation <span class="math notranslate nohighlight">\(AX=B\)</span> to describe this scenario.  Let’s write a specific example.</p>
 <div class="math notranslate nohighlight">
@@ -589,10 +561,10 @@ x_1 + 3x_2 - 2x_3 &amp; = &amp; 0\\
 \end{eqnarray*}
 \end{split}\]</div>
 <p>In this context, the matrix <span class="math notranslate nohighlight">\(A\)</span> is known as the <strong>coefficient matrix</strong>.</p>
-</div>
-<div class="section" id="identity-matrices">
+</section>
+<section id="identity-matrices">
 <h2>Identity Matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">¶</a></h2>
-<p>An <strong>identity matrix</strong> is a square matrix that behaves similar to the number 1 with respect to ordinary multiplication.  Identity matrices, labeled with <span class="math notranslate nohighlight">\(I\)</span>, are made up of ones along the main diagonal, and zeroes everywhere else.  Below is the <span class="math notranslate nohighlight">\(4 \times 4\)</span> version of <span class="math notranslate nohighlight">\(I\)</span>.</p>
+<p>An <strong>identity matrix</strong> is a square matrix that behaves similar to the number 1 with respect to ordinary multiplication.  Identity matrices, labeled with <span class="math notranslate nohighlight">\(I\)</span>, are made up of ones along the main diagonal, and zeros everywhere else.  Below is the <span class="math notranslate nohighlight">\(4 \times 4\)</span> version of <span class="math notranslate nohighlight">\(I\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -606,17 +578,7 @@ I = \left[ \begin{array}{ccc} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &am
 AI = IA = A
 \end{equation}
 \]</div>
-<p>Notes:</p>
-<ol class="simple">
-<li><p>Actual calculation with identity matrices is rather uncommon, but the idea is useful for symbolic calculations and progressing further with the theory.</p></li>
-<li><p>If we are discussing a non-square matrix, then we must take care to use the correct size identity matrix depending on the order of multiplication.  For example, if <span class="math notranslate nohighlight">\(C\)</span> is a <span class="math notranslate nohighlight">\(2\times 3\)</span> matrix, <span class="math notranslate nohighlight">\(I_2\)</span> is the <span class="math notranslate nohighlight">\(2\times 2\)</span> identity, and <span class="math notranslate nohighlight">\(I_3\)</span> is the <span class="math notranslate nohighlight">\(3\times 3 \)</span> identity, we would have the following result.</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}
-I_2 C = CI_3 = C
-\end{equation}
-\]</div>
+<p>The NumPy function <span class="math notranslate nohighlight">\(\texttt{eye}\)</span> generates an identity function of the specified size.  Note we only need to provide <span class="math notranslate nohighlight">\(\texttt{eye}\)</span> with one parameter since the identity matrix must be square.  We show here the product of <span class="math notranslate nohighlight">\(I\)</span> with a random <span class="math notranslate nohighlight">\(5\times 5\)</span> matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -646,31 +608,42 @@ I_2 C = CI_3 = C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1   2   9   5   2]
- [  3 -10  -5  -8  -3]
- [  6   2  -2  -7  -2]
- [ -7  -2  -1   9  -7]
- [  9  -4  -5  -4  -9]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5  7 -4 -1  6]
+ [-9 -6 -1 -2 -5]
+ [ 2  5  5 -1  8]
+ [ 9 -5  2 -7 -2]
+ [-4  8  9  2  8]]
 
 
-[[  1.   2.   9.   5.   2.]
- [  3. -10.  -5.  -8.  -3.]
- [  6.   2.  -2.  -7.  -2.]
- [ -7.  -2.  -1.   9.  -7.]
- [  9.  -4.  -5.  -4.  -9.]]
+[[ 5.  7. -4. -1.  6.]
+ [-9. -6. -1. -2. -5.]
+ [ 2.  5.  5. -1.  8.]
+ [ 9. -5.  2. -7. -2.]
+ [-4.  8.  9.  2.  8.]]
 
 
-[[  1.   2.   9.   5.   2.]
- [  3. -10.  -5.  -8.  -3.]
- [  6.   2.  -2.  -7.  -2.]
- [ -7.  -2.  -1.   9.  -7.]
- [  9.  -4.  -5.  -4.  -9.]]
+[[ 5.  7. -4. -1.  6.]
+ [-9. -6. -1. -2. -5.]
+ [ 2.  5.  5. -1.  8.]
+ [ 9. -5.  2. -7. -2.]
+ [-4.  8.  9.  2.  8.]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="matrix-vector-multiplication">
+<p>Notes:</p>
+<ol class="simple">
+<li><p>Actual calculation with identity matrices is rather uncommon, but the idea is useful for symbolic calculations and progressing further with the theory.</p></li>
+<li><p>If we are discussing a non-square matrix, then we must take care to use the correct size identity matrix depending on the order of multiplication.  For example, if <span class="math notranslate nohighlight">\(C\)</span> is a <span class="math notranslate nohighlight">\(2\times 3\)</span> matrix, <span class="math notranslate nohighlight">\(I_2\)</span> is the <span class="math notranslate nohighlight">\(2\times 2\)</span> identity, and <span class="math notranslate nohighlight">\(I_3\)</span> is the <span class="math notranslate nohighlight">\(3\times 3 \)</span> identity, we would have the following result.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+I_2 C = CI_3 = C
+\end{equation}
+\]</div>
+</section>
+<section id="matrix-vector-multiplication">
 <h2>Matrix-vector multiplication<a class="headerlink" href="#matrix-vector-multiplication" title="Permalink to this headline">¶</a></h2>
 <p>One special case of matrix multiplication deserves close attention, the case where one of the matrices is a vector.  This case is so important that it is commonly discussed separately and given a special name, <strong>matrix-vector multiplication</strong>.  Let’s suppose that <span class="math notranslate nohighlight">\(P\)</span> is our matrix and that its shape is <span class="math notranslate nohighlight">\(n \times m\)</span>, and <span class="math notranslate nohighlight">\(Y\)</span> is our vector which is <span class="math notranslate nohighlight">\(m \times 1\)</span>.  The product <span class="math notranslate nohighlight">\(PY\)</span> then is a <span class="math notranslate nohighlight">\(n \times 1\)</span> vector.  It is the relationship between this new vector and the columns of the matrix <span class="math notranslate nohighlight">\(P\)</span> that makes this situation important.</p>
 <p>Let’s have a look with a specific example.</p>
@@ -694,8 +667,8 @@ PY = \left[ \begin{array}{rrr} 1 &amp; 3 &amp; -2 \\ 5 &amp; 2 &amp; 0 \\ 4 &amp
 \end{equation}
 \end{split}\]</div>
 <p>This is the same operation that we were doing before, but now we see that this product is a result of adding the columns of <span class="math notranslate nohighlight">\(P\)</span> after first multiplying each be the corresponding entry in <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-</div>
-<div class="section" id="matrix-multiplication-by-columns">
+</section>
+<section id="matrix-multiplication-by-columns">
 <h2>Matrix multiplication by columns<a class="headerlink" href="#matrix-multiplication-by-columns" title="Permalink to this headline">¶</a></h2>
 <p>We can extend the calculation of matrix-vector multiplication to better understand exactly what is produced by matrix-matrix multiplication.  Suppose for example that <span class="math notranslate nohighlight">\(Y\)</span> from the earlier calculation was actually the third column of a <span class="math notranslate nohighlight">\(3\times 4\)</span> matrix <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -718,12 +691,9 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="nd">@X</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -732,18 +702,15 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3 -2]
  [ 5  2  0]
  [ 4  2 -1]
- [ 2  2  0]]
-
+ [ 2  2  0]] 
 
 [[ 0  6  2  6]
  [-1  1 -3  4]
- [ 0  2  4  8]]
-
+ [ 0  2  4  8]] 
 
 [[ 2]
  [-3]
- [ 4]]
-
+ [ 4]] 
 
 [[-15]
  [  4]
@@ -767,9 +734,36 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 </pre></div>
 </div>
 <p>this is indeed valid code, but the array <span class="math notranslate nohighlight">\(X\)</span> is not exactly what we expect.  Instead we get an array with the correct entries, but not the correct shape.  It is possible to make this work, but let’s avoid this complication.</p>
-<div class="section" id="exercises">
-<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
-<p>Define NumPy arrays for the following matrices.</p>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(-2E\)</span>, <span class="math notranslate nohighlight">\(G+F\)</span>, <span class="math notranslate nohighlight">\(4F-G\)</span>, <span class="math notranslate nohighlight">\(HG\)</span>, and <span class="math notranslate nohighlight">\(GE\)</span> using the following matrix definitions.  Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E = \left[ \begin{array}{r} 5 \\ -2 \end{array}\right] \hspace{1cm} 
+F = \left[ \begin{array}{rr} 1 &amp; 6 \\ 2 &amp; 0 \\ -1 &amp; -1 \end{array}\right] \hspace{1cm}
+G = \left[ \begin{array}{rr} 2 &amp; 0\\ -1 &amp; 3 \\ -1 &amp; 6 \end{array}\right] \hspace{1cm}
+H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp; 4 &amp; -1\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Define NumPy arrays for the matrices <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(G\)</span> given below.</p>
+<ul>
+<li><p>Multiply the second and third column of <span class="math notranslate nohighlight">\(H\)</span> with the first and second row of <span class="math notranslate nohighlight">\(G\)</span>.  Use slicing to make subarrays.  Does the result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
+<li><p>Multiply the first and second row of <span class="math notranslate nohighlight">\(H\)</span> with the second and third column of <span class="math notranslate nohighlight">\(G\)</span>.  Does this result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
+</ul>
+</li>
+</ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -777,20 +771,15 @@ H = \left[ \begin{array}{rrr} 3 &amp; 3 &amp; -1  \\ -3 &amp; 0 &amp; 8 \\  1 &a
 G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3 &amp; 0 \\ 2 &amp; 2 &amp; 4 &amp; 6\end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<ol class="simple">
-<li><p>Multiply the second and third column of <span class="math notranslate nohighlight">\(H\)</span> with the first and second row of <span class="math notranslate nohighlight">\(G\)</span>.  Use slicing to make subarrays.  Does the result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
-<li><p>Multiply the first and second row of <span class="math notranslate nohighlight">\(H\)</span> with the second and third column of <span class="math notranslate nohighlight">\(G\)</span>.  Does this result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -841,7 +830,7 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

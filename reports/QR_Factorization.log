@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "c:\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\anaconda3\lib\asyncio\base_events.py", line 584, in run_until_complete
+    return future.result()
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+from laguide import DotProduct as Dot
+from laguide import Magnitude
+
+# Define A
+A = np.array([[1, 3, 2, 0], [0, -1, -1, 0], [2, 2, 1, 1], [-1, 1, 3, 4],[-4, 0, 1, -2],[0, -1, -2, 5]])
+
+# Slice out the columns of A for processing
+A_1 = A[:,0:1]
+A_2 = A[:,1:2]
+A_3 = A[:,2:3]
+A_4 = A[:,3:4]
+
+# Carry out Gram-Schmidt process
+U_1 = A_1/Magnitude(A_1)
+W_2 = A_2 - Dot(A_2,U_1)*U_1
+U_2 = W_2/Magnitude(W_2)
+W_3 = A_3 - Dot(A_3,U_1)*U_1 - Dot(A_3,U_2)*U_2
+U_3 = W_3/Magnitude(W_3)
+W_4 = A_4 - Dot(A_4,U_1)*U_1 - Dot(A_4,U_2)*U_2 - Dot(A_4,U_3)*U_3
+U_4 = W_4/Magnitude(W_4)
+
+# Assemble the matrix Q
+
+print("Q")
+print(Q,'\n')
+Q = np.hstack((U_1,U_2,U_3,U_4))
+
+# Check that Q is orthogonal
+
+print("QTQ")
+print(np.round(Q.transpose()@Q),'\n')
+
+# Compute R
+
+R = Q.transpose()@A
+
+#  Check
+
+print("Q")
+print(Q,'\n')
+print("R")
+print(np.round(R,8),'\n')
+print("QR")
+print(np.round(Q@R))
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+[1;32m<ipython-input-1-a535ba59c4c8>[0m in [0;36m<module>[1;34m[0m
+[0;32m     24[0m [1;33m[0m[0m
+[0;32m     25[0m [0mprint[0m[1;33m([0m[1;34m"Q"[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m---> 26[1;33m [0mprint[0m[1;33m([0m[0mQ[0m[1;33m,[0m[1;34m'\n'[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     27[0m [0mQ[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0mhstack[0m[1;33m([0m[1;33m([0m[0mU_1[0m[1;33m,[0m[0mU_2[0m[1;33m,[0m[0mU_3[0m[1;33m,[0m[0mU_4[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     28[0m [1;33m[0m[0m
+
+[1;31mNameError[0m: name 'Q' is not defined
+NameError: name 'Q' is not defined
+

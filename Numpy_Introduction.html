@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Introduction to NumPy and Matplotlib &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +26,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,27 +35,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Linear Systems" href="Linear_Systems.html" />
@@ -77,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="_static/reflection_logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
@@ -197,8 +197,7 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -215,6 +214,11 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Numpy_Introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -283,11 +287,11 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-numpy-and-matplotlib">
+  <section id="introduction-to-numpy-and-matplotlib">
 <h1>Introduction to NumPy and Matplotlib<a class="headerlink" href="#introduction-to-numpy-and-matplotlib" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://numpy.org/">Numpy</a> is an essential Python package for carrying out the calculations needed for linear algebra as well as other areas of scientific computing.  <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> is a extensive Python package for producing a wide variety of plots.  In this section we will demonstrate a few of the basic elements of these packages that will be used repeatedly throughout the Jupyter Guide to Linear Algebra.</p>
 <p>It should be noted that NumPy is used for many of the actual calculations encounted in linear algebra, while we use Matplotlib only to make useful visual representations of the concepts.  The ability to use of NumPy therefore will be crucial, while the understanding of Matplotlib is not explicitly required to engage with the content of the guide.  The Matplotlib demonstration below also contains more complex details that might be difficult to digest until the reader gains some experience with Python.  For these reasons, The reader may choose to skip the introduction to Matplotlib and return at a later point if interest arises.</p>
-<div class="section" id="numpy">
+<section id="numpy">
 <h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
 <p>Almost every calculation that we do in linear algebra will involve working with arrays of numbers.  An array can be thought of as a collection of numbers arranged into rows and columns to form a rectangle, such as the example below, which has 2 rows and 4 columns.</p>
 <div class="math notranslate nohighlight">
@@ -385,7 +389,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <p>Many of the functions included in NumPy relate to linear algebra in some way.  We will demonstrate more of these functions as we make our way through the corresponding linear algebra topics.</p>
-<div class="section" id="random-module">
+<section id="random-module">
 <h3>Random module<a class="headerlink" href="#random-module" title="Permalink to this headline">¶</a></h3>
 <p>One way of testing code is to supply a lot of random input, and then check to see if the correct results are produced in each instance.  To produce the random inputs, we will make use of functions in the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module, which is contained within NumPy.  For example, we might use the <span class="math notranslate nohighlight">\(\texttt{rand}\)</span> function with no arguments to produce a random number between zero and one.</p>
 <div class="cell docutils container">
@@ -396,7 +400,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9797176700341242
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8361859313599466
 </pre></div>
 </div>
 </div>
@@ -411,9 +415,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.91859848 0.96400349]
- [0.88573284 0.14325752]
- [0.84026707 0.25667134]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.62133788 0.93755211]
+ [0.5819091  0.51302633]
+ [0.76478866 0.38152046]]
 </pre></div>
 </div>
 </div>
@@ -426,7 +430,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
 </pre></div>
 </div>
 </div>
@@ -440,9 +444,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[7 7 9 4 6 8]
- [8 4 2 0 4 7]
- [1 6 4 9 9 9]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 9 3 6 9 2]
+ [5 4 1 8 9 0]
+ [6 8 1 5 0 1]]
 </pre></div>
 </div>
 </div>
@@ -455,15 +459,15 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[6 3 2]
- [6 8 5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[8 1 5]
+ [8 2 4]]
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="scipy">
+</section>
+</section>
+<section id="scipy">
 <h2>SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
 <p>The SciPy library contains robust and efficient functions for a range of purposes related to scientific computing.  We will be making use of the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module, which contains many routines useful in linear algebra.  We note that some of the code in the Jupyter Guide to Linear Algebra duplicates functionality found in the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module, but this code is not meant to be a reliable alternative.  The code presented here is written for the purpose of explaining the theory of linear algebra and giving a simple illustration of what is required to carry out the typical calculations required.</p>
 <p>We will wait to demonstrate the functions in the <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module until after we have discussed enough linear algebra to understand their purpose.  The module will be imported with the alias <span class="math notranslate nohighlight">\(\texttt{sla}\)</span>.</p>
@@ -474,13 +478,13 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="matplotlib">
+</section>
+<section id="matplotlib">
 <h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib provides a wide range of plotting functionality, and many options to make precise customizations to the figures produced. We only provide explanations for how to create the specific type of figures that appear in the Jupyter Guide to Linear Algebra, most of which follow the same essential pattern.  We will provide a few details of the necessary code, but will not attempt to describe the data structures in a rigorous way, or discuss the multitude of options that are available within the library.</p>
-<div class="section" id="example-1">
+<section id="example-1">
 <h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
-<p>In the first figure, we will make a simple plot of five points with <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates.  The list of coordinates will be stored in a NumPy array.</p>
+<p>In the first figure, we will make a simple plot of four points with <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates.  The list of coordinates will be stored in a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">])</span>
@@ -523,6 +527,18 @@ This is C, which is the entries of B formed into a new shape.
 <img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
 </div>
 </div>
+<p>Another alternative when we interested in plotting data points is the <span class="math notranslate nohighlight">\(\texttt{scatter}\)</span> method, for which we can use the same syntax.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
+</div>
+</div>
 <p>Next, we show how to configure some of the many options available in such a plot.  Remember that the plot is actually being constructed in an <em>Axes</em> object, so all the options that affect elements of the plot are methods of that object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,11 +559,11 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
+<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="example-2">
+</section>
+<section id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p>In the next example, the aim will be to plot the curve <span class="math notranslate nohighlight">\(y=0.5x^2\)</span>, for <span class="math notranslate nohighlight">\(x\)</span> in the interval <span class="math notranslate nohighlight">\([-2,4]\)</span>.  In order to make use of the same method, we will need to generate a set of points that lie on the curve for <span class="math notranslate nohighlight">\(x\)</span> in the given interval.  The points that we specify will be connected straight lines, so we will want want to generate enough points to avoid the curve having a jagged appearance.  The NumPy method <span class="math notranslate nohighlight">\(\texttt{linspace}\)</span> provides an easy way to produce our points.  This method creates a NumPy array object with numbers spaced evenly over a specified interval.</p>
 <div class="cell docutils container">
@@ -594,7 +610,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_35_0.png" src="_images/Numpy_Introduction_35_0.png" />
+<img alt="_images/Numpy_Introduction_37_0.png" src="_images/Numpy_Introduction_37_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -622,20 +638,20 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_36_0.png" src="_images/Numpy_Introduction_36_0.png" />
+<img alt="_images/Numpy_Introduction_38_0.png" src="_images/Numpy_Introduction_38_0.png" />
 </div>
 </div>
 <p>Throughout the Jupyter Guide to Linear Algebra, we will often hide the code used to produce the graphics in order to keep the pages tidy for reading.</p>
-</div>
-</div>
-<div class="section" id="references">
+</section>
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Harris, C. R. et. al. <a class="reference external" href="https://www.nature.com/articles/s41586-020-2649-2"><em>Array Programming with NumPy</em></a>., Nature 585, 357-362, 2020.</p></li>
 <li><p><a class="reference external" href="https://nbviewer.jupyter.org/gist/rpmuller/5920182">A Crash Course in Python for Scientists</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -686,7 +702,7 @@ This is C, which is the entries of B formed into a new shape.
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
 
 
     

@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "c:\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\anaconda3\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\anaconda3\lib\asyncio\base_events.py", line 584, in run_until_complete
+    return future.result()
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\anaconda3\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+% matplotlib inline
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+options = {"head_width":0.1, "head_length":0.2, "length_includes_head":True}
+
+ax.arrow(0,0,2,3,fc='b',ec='b',**options)
+ax.arrow(0,0,4,2,fc='b',ec='b',**options)
+ax.arrow(0,0,2.8,1.4,fc='b',ec='r',**options)
+ax.arrow(2.8,1.4,-0.8,1.6,fc='b',ec='r',**options)
+
+ax.text(1,2,'$B$')
+ax.text(3.2,1.2,'$V$')
+ax.text(2,0.6,'$\hat{B}$')
+ax.text(2.5,2.5,'$E$')
+ax.text(1,1,'$\\theta$')
+
+
+ax.set_xlim(0,5)
+ax.set_xlabel('$x_1$')
+ax.set_ylim(0,5)
+ax.set_ylabel('$x_2$')
+ax.set_aspect('equal')
+
+ax.grid(True,ls=':')
+------------------
+
+
+UsageError: Line magic function `%` not found.
+
