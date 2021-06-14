@@ -312,7 +312,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
 
 <span class="k">def</span> <span class="nf">BackSubstitution</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
 <span class="c1"># =============================================================================</span>
@@ -405,7 +404,9 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 <p>In our current objective, <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(n\times n\)</span>, which means that the augmented matrix we need to process will be <span class="math notranslate nohighlight">\(n\times(n+1)\)</span>.  We are also assuming at this point that the system <span class="math notranslate nohighlight">\(AX=B\)</span> has a unique solution.  If this is true the augmented matrix will have a pivot in each of the first <span class="math notranslate nohighlight">\(n\)</span> columns, with the pivot positions lying along the diagonal line of entries starting at the top left entry.  If the row echelon form of the augmented matrix has a zero in any of these positions, our solution process breaks down as shown in the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+
+<span class="k">def</span> <span class="nf">RowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
 <span class="c1"># =============================================================================</span>
 <span class="c1"># A is a NumPy array that represents an augmented matrix of dimension n x (n+1)</span>
 <span class="c1"># associated with a linear system.  RowReduction returns B, a NumPy array that</span>
@@ -583,10 +584,10 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.77635684e-15]
- [-8.88178420e-16]
- [-8.88178420e-16]
- [ 1.77635684e-15]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.0000000e+00]
+ [-8.8817842e-16]
+ [-4.4408921e-16]
+ [-8.8817842e-16]]
 </pre></div>
 </div>
 </div>

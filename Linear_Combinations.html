@@ -263,13 +263,19 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-span-in-mathbb-r-4">
+   Example 1:  Span in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^4\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-span-in-mathbb-r-4">
+   Example 2:  Span in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^4\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -278,8 +284,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3">
-   Example 3
+  <a class="reference internal nav-link" href="#example-3-sets-of-vectors-that-span-a-space">
+   Example 3:  Sets of vectors that span a space
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -306,7 +312,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#column-space">
-   Column Space
+   Column space
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -380,7 +386,7 @@ x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
 \left[ \begin{array}{r} 0 \\ 14  \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>The connection to linear combinations now becomes clear if we consider the columns of the coeffiecient matrix as vectors.  Finding the solution to the linear system of equations is equivalent to finding the <em>linear combination</em> of these column vectors that matches the vector on the right hand side of the equation.</p>
+<p>The connection to linear combinations now becomes clear if we consider the columns of the coefficient matrix as vectors.  Finding the solution to the linear system of equations is equivalent to finding the <em>linear combination</em> of these column vectors that matches the vector on the right hand side of the equation.</p>
 <section id="spans">
 <h2>Spans<a class="headerlink" href="#spans" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to introduce terminology to describe a collection of linear combinations.  The <strong>span</strong> of a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is the set of all possible linear combinations of vectors in the set.  For any coefficients <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span>, the vector <span class="math notranslate nohighlight">\(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> is said to be <em>in the span of</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
@@ -388,8 +394,8 @@ x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
 <p>It is important to distinguish between the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> and the actual <em>set of vectors</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  The set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains only the vectors themselves, while the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains every vector that can be built as a linear combination of these vectors.  If we were to visualize these objects, the set of vectors would be a collection of arrows, while the span would be a multi-dimensional collection.  Again, it is easiest if we visualize an example in a two or three dimensions.</p>
 <p><img alt="span" src="_images/Span_big.png" /></p>
 </section>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-span-in-mathbb-r-4">
+<h2>Example 1:  Span in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span><a class="headerlink" href="#example-1-span-in-mathbb-r-4" title="Permalink to this headline">¶</a></h2>
 <p>We can now apply our experience in solving systems to finding linear combinations.  Suppose we want to determine if <span class="math notranslate nohighlight">\(B\)</span> lies in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> given the following definitions.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -442,7 +448,7 @@ a_3\left[ \begin{array}{r} -1 \\ -1 \\ -1 \\ 0 \end{array}\right] =
 </div>
 </div>
 </div>
-<p>Since there is no pivot in the last column, the system is consistent.  Recall that the key row operation in the elimination process replaces one row with the sum of itself and the multiple of another row.  In other words, the rows can be replaced with a specific <em>linear combination</em> of rows.  The row of zeros in the reduced matrix indicates that one of the four equations in the original system was in fact a linear combination of the other equations.  (<em>We don’t know for sure which equation was redundant since the rows might have been shuffled during elimination.</em>)  The remaining set of equations is triangluar and we can get the solution with back substitution as before (<span class="math notranslate nohighlight">\(a_1 = 2\)</span>, <span class="math notranslate nohighlight">\(a_2 = 1\)</span>, <span class="math notranslate nohighlight">\(a_3=2\)</span>).</p>
+<p>Since there is no pivot in the last column, the system is consistent.  Recall that the key row operation in the elimination process replaces one row with the sum of itself and the multiple of another row.  In other words, the rows can be replaced with a specific <em>linear combination</em> of rows.  The row of zeros in the reduced matrix indicates that one of the four equations in the original system was in fact a linear combination of the other equations.  (<em>We don’t know for sure which equation was redundant since the rows might have been shuffled during elimination.</em>)  The remaining set of equations is triangular and we can get the solution with back substitution as before (<span class="math notranslate nohighlight">\(a_1 = 2\)</span>, <span class="math notranslate nohighlight">\(a_2 = 1\)</span>, <span class="math notranslate nohighlight">\(a_3=2\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -452,8 +458,8 @@ a_3 &amp; = &amp; 2
 \end{eqnarray*}
 \end{split}\]</div>
 </section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<section id="example-2-span-in-mathbb-r-4">
+<h2>Example 2:  Span in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span><a class="headerlink" href="#example-2-span-in-mathbb-r-4" title="Permalink to this headline">¶</a></h2>
 <p>As another example, let’s determine if the vector given as <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -514,8 +520,8 @@ a_2 - 0.5a_3 &amp; = &amp; 0\\
 \end{split}\]</div>
 <p>The defining characteristic of an inconsistent system is that the RREF of the augmented matrix has a row with a pivot in the rightmost column.  Such a row represents the equation <span class="math notranslate nohighlight">\(0=1\)</span>.  We can now realize that the system <span class="math notranslate nohighlight">\(AX=B\)</span> <em>could be inconsistent</em> if the RREF of the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> contains at least one row with all zero entries.  This idea allows us to make a general statement about the existence of solutions.  <strong>A linear system <span class="math notranslate nohighlight">\(AX=B\)</span> has a solution for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in every row</strong></p>
 </section>
-<section id="example-3">
-<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<section id="example-3-sets-of-vectors-that-span-a-space">
+<h2>Example 3:  Sets of vectors that span a space<a class="headerlink" href="#example-3-sets-of-vectors-that-span-a-space" title="Permalink to this headline">¶</a></h2>
 <p>We provide two coefficient matrices and their RREFs to demonstrate the possibilities.  It should be emphasized that we are now discussing coefficient matrices, rather than the augmented matrices.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -569,7 +575,7 @@ R = \left[ \begin{array}{rrrr}
 <p>It is frequently useful to consider vector subspaces, which we will simply refer to as subspaces.   A <strong>subspace</strong> is a portion of a vector space with the property that any linear combination of vectors in the subspace is another vector that is also in the subspace.  To put it formally, if <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> are vectors that belong to a given subspace, and <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are any scalars, then the vector <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2\)</span> also belongs to the subspace.</p>
 <section id="subspace-example">
 <h3>Subspace example<a class="headerlink" href="#subspace-example" title="Permalink to this headline">¶</a></h3>
-<p>The set of vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that have middle component equal to zero is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  To understand why, we need to look at an arbitrary linear combination of two arbitrary vectors in the subspace, and verify that the linear combination is also in the subspace.  If we let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the vectors with arbitary first and third components and calculate the linear combination, we see that the linear combination also has zero as its middle component and is thus in the subspace.</p>
+<p>The set of vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that have middle component equal to zero is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  To understand why, we need to look at an arbitrary linear combination of two arbitrary vectors in the subspace, and verify that the linear combination is also in the subspace.  If we let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the vectors with arbitrary first and third components and calculate the linear combination, we see that the linear combination also has zero as its middle component and is thus in the subspace.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -642,7 +648,7 @@ c_1X + c_2Y &amp; = &amp; c_1(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n) + c_2(b_
 </section>
 </section>
 <section id="column-space">
-<h2>Column Space<a class="headerlink" href="#column-space" title="Permalink to this headline">¶</a></h2>
+<h2>Column space<a class="headerlink" href="#column-space" title="Permalink to this headline">¶</a></h2>
 <p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  If future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then the matrix-vector product <span class="math notranslate nohighlight">\(AX\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  If we recall that this product is formed by taking a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, we realize that the vector <span class="math notranslate nohighlight">\(AX\)</span> must be <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> by definition.  An important connection here is that the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent <em>if and only if</em> the vector <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
 <p>Although the concept of the column space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, then the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>

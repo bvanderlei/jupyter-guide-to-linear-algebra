@@ -244,12 +244,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#power-method">
-   Power Method
+   Power method
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#inverse-power-method">
-   Inverse Power Method
+   Inverse power method
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -293,7 +293,7 @@ A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
 <p>The eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> are solutions to the quadratic equation <span class="math notranslate nohighlight">\(\lambda^2 - (a+d)\lambda + ad-bc = 0\)</span>, which can be written explicitly in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> using the quadratic formula.  The challenges with larger matrices are that the polynomial is more difficult to construct, and the roots cannot be easily found with a formula.</p>
 <p>The algorithms we describe in the section are iterative methods.  They generate a sequence of vectors <span class="math notranslate nohighlight">\(\{X^{(1)}, X^{(2)}, X^{(3)}, ... \}\)</span> that approach a true eigenvector of the matrix under consideration.  An approximation of the corresponding eigenvalue can then be computed by multiplying the approximate eigenvector by <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <section id="power-method">
-<h2>Power Method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
+<h2>Power method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
 <p>The first algorithm we introduce for approximating eigenvalues is known as the <strong>Power Method</strong>.  This method generates a sequence of vectors by repeated matrix multiplication.  Under suitable conditions, the sequence of vectors approaches the eigenvector associated with the eigenvalue that is largest in absolute value.</p>
 <p>For the simplest explanation, suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> diagonalizable matrix with eigenvectors <span class="math notranslate nohighlight">\(\{V_1, V_2, ... V_n\}\)</span>, and that <span class="math notranslate nohighlight">\(\lambda_1\)</span> is the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> that is largest in absolute value.  To begin the Power Method, we choose any nonzero vector and label it <span class="math notranslate nohighlight">\(X^{(0)}\)</span>.  We can express <span class="math notranslate nohighlight">\(X^{(0)}\)</span>  as a linear combination of the eigenvectors since they form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -330,7 +330,7 @@ X^{(m)} =  \lambda_1^m\left(c_1V_1 + c_2\left(\frac{\lambda_2}{\lambda_1}\right)
 A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -10 &amp; 3 &amp; 7 &amp; 14 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length as the Power Method is applied.  If the vectors in the squence are not scaled, their magnitudes will grow of <span class="math notranslate nohighlight">\(\lambda_1&gt;1\)</span> or decay if <span class="math notranslate nohighlight">\(\lambda_1&lt;1\)</span>.    Since all components of the vectors get divided by the same factor when the vector is scaled, this step doesn’t change the ultimate behavior of the sequence.  The scaled sequence of vectors still approaches the direction of the eigenvector.</p>
+<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length as the Power Method is applied.  If the vectors in the sequence are not scaled, their magnitudes will grow of <span class="math notranslate nohighlight">\(\lambda_1&gt;1\)</span> or decay if <span class="math notranslate nohighlight">\(\lambda_1&lt;1\)</span>.    Since all components of the vectors get divided by the same factor when the vector is scaled, this step doesn’t change the ultimate behavior of the sequence.  The scaled sequence of vectors still approaches the direction of the eigenvector.</p>
 <p>We choose an arbitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span> and calculate <span class="math notranslate nohighlight">\(X^{(20)}\)</span> using the following rule.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -500,8 +500,8 @@ Magnitude of the difference is:
 <p>While the Power Method is easy to understand and apply, it does have disadvantages.  The most apparent disadvantage is that the method only applies to the largest eigenvalue.  This is not a huge detriment since applications often only require an approximation of the largest eigenvalue.  Also, as we will demonstrate below, it is possible to easily modify the method to approximate the other eigenvalues.  A more significant disadvantage is that the rate at which the sequence converges can be slow in some circumstances.  For example, we can see that if <span class="math notranslate nohighlight">\(|\lambda_1|\)</span> is close to <span class="math notranslate nohighlight">\(|\lambda_2|\)</span>, then <span class="math notranslate nohighlight">\(|\lambda_1/\lambda_2|^m\)</span> approaches zero more slowly as <span class="math notranslate nohighlight">\(m\)</span> gets large.  The Power Method may fail to converge at all if <span class="math notranslate nohighlight">\(|\lambda_1| = |\lambda_2|\)</span>, which occurs if <span class="math notranslate nohighlight">\(\lambda_1 = -\lambda_2\)</span>, or if <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span> are a complex conjugate pair.  Additionally, the method may perform poorly if the <span class="math notranslate nohighlight">\(V_1\)</span> component of <span class="math notranslate nohighlight">\(X^{(0)}\)</span> is too small.</p>
 </section>
 <section id="inverse-power-method">
-<h2>Inverse Power Method<a class="headerlink" href="#inverse-power-method" title="Permalink to this headline">¶</a></h2>
-<p>The <strong>Inverse Power Method</strong> is a modified version of the Power Method that allows us to approximate eigenvalues that are <em>not the largest</em>.  All that is needed to make the modification is two simple facts that relate changes in a matrix to changes in the eigenvalues of that matrix.  Let’s suppose that <span class="math notranslate nohighlight">\(A\)</span> is an invertible <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and correpsonding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  If we multiply this equation by <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we get <span class="math notranslate nohighlight">\(V=\lambda A^{-1}V\)</span>, which can then be divided by <span class="math notranslate nohighlight">\(\lambda\)</span> to illustrate the useful fact.</p>
+<h2>Inverse power method<a class="headerlink" href="#inverse-power-method" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Inverse Power Method</strong> is a modified version of the Power Method that allows us to approximate eigenvalues that are <em>not the largest</em>.  All that is needed to make the modification is two simple facts that relate changes in a matrix to changes in the eigenvalues of that matrix.  Let’s suppose that <span class="math notranslate nohighlight">\(A\)</span> is an invertible <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and corresponding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  If we multiply this equation by <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we get <span class="math notranslate nohighlight">\(V=\lambda A^{-1}V\)</span>, which can then be divided by <span class="math notranslate nohighlight">\(\lambda\)</span> to illustrate the useful fact.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -516,7 +516,7 @@ A^{-1}V = \frac{1}{\lambda}V
 A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>Again we choose an aribitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span>, and generate a sequence of vectors by mulitplying by <span class="math notranslate nohighlight">\(A^{-1}\)</span> and scaling the result to unit length.</p>
+<p>Again we choose an arbitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span>, and generate a sequence of vectors by multiplying by <span class="math notranslate nohighlight">\(A^{-1}\)</span> and scaling the result to unit length.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -641,7 +641,7 @@ Magnitude of the eigenvalue is A is approximately:
 A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>By using the Inverse Power Method we determined that the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 3.  Applying the Power Method directly will show that the largest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 12.  Since the third eigenvalue must lie somewhere inbetween these extremes, we choose <span class="math notranslate nohighlight">\(\mu\)</span> to be exactly in the middle at <span class="math notranslate nohighlight">\(7.5\)</span>.  Note that once we have a good approximation to the eigenvector with <span class="math notranslate nohighlight">\(X^{(m)}\)</span>, we can approximate the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> with <span class="math notranslate nohighlight">\(||AX^{(m)}||\)</span>.</p>
+<p>By using the Inverse Power Method we determined that the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 3.  Applying the Power Method directly will show that the largest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> is 12.  Since the third eigenvalue must lie somewhere in between these extremes, we choose <span class="math notranslate nohighlight">\(\mu\)</span> to be exactly in the middle at <span class="math notranslate nohighlight">\(7.5\)</span>.  Note that once we have a good approximation to the eigenvector with <span class="math notranslate nohighlight">\(X^{(m)}\)</span>, we can approximate the eigenvalue of <span class="math notranslate nohighlight">\(A\)</span> with <span class="math notranslate nohighlight">\(||AX^{(m)}||\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
@@ -720,7 +720,7 @@ A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &am
 </div>
 </div>
 <ul class="simple">
-<li><p>Apply the Inverse Power Method with a shift 0f <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequece of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p></li>
+<li><p>Apply the Inverse Power Method with a shift 0f <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequence of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}

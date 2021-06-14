@@ -243,23 +243,23 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1-shear">
-   Example 1:  Shear
+  <a class="reference internal nav-link" href="#example-1-matrix-representation-of-shear">
+   Example 1:  Matrix representation of shear
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computation-with-scipy">
-   Computation with SciPy
+  <a class="reference internal nav-link" href="#computation-of-eigenvectors-with-scipy">
+   Computation of eigenvectors with SciPy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example">
-   Example
+  <a class="reference internal nav-link" href="#example-2-verifying-eigenvectors-using-matrix-multiplication">
+   Example 2:  Verifying eigenvectors using matrix multiplication
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagonal-factorization">
-   Diagonal Factorization
+   Diagonal factorization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -291,8 +291,8 @@ AX &amp; = &amp; A(c_1V_1 + c_2V_2 + ... c_nV_n) \\
    &amp; = &amp; c_1\lambda_1V_1 + c_2\lambda_2V_2 + ... c_n\lambda_nV_n
 \end{eqnarray*}
 \end{split}\]</div>
-<section id="example-1-shear">
-<h2>Example 1:  Shear<a class="headerlink" href="#example-1-shear" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-matrix-representation-of-shear">
+<h2>Example 1:  Matrix representation of shear<a class="headerlink" href="#example-1-matrix-representation-of-shear" title="Permalink to this headline">¶</a></h2>
 <p>We first consider a matrix that represents a shear along the line <span class="math notranslate nohighlight">\(x_1=-x_2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -474,8 +474,8 @@ AX = A(V_1 + 2V_2) = AV_1 + 2AV_2 = \lambda_1V_1 + 2\lambda_2V_2 = 3V_1 + 2V_2
 </div>
 </div>
 </section>
-<section id="computation-with-scipy">
-<h2>Computation with SciPy<a class="headerlink" href="#computation-with-scipy" title="Permalink to this headline">¶</a></h2>
+<section id="computation-of-eigenvectors-with-scipy">
+<h2>Computation of eigenvectors with SciPy<a class="headerlink" href="#computation-of-eigenvectors-with-scipy" title="Permalink to this headline">¶</a></h2>
 <p>We now demonstrate how to compute eigenvalues and eigenvectors for any square matrix using the function <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> from the SciPy <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> module.  This function accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> array representing a matrix and returns two arrays, one containing the eigenvalues, the other the eigenvectors.  We examine the usage by supplying our projection matrix as the argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -541,8 +541,8 @@ AX = A(V_1 + 2V_2) = AV_1 + 2AV_2 = \lambda_1V_1 + 2\lambda_2V_2 = 3V_1 + 2V_2
 </div>
 </div>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<section id="example-2-verifying-eigenvectors-using-matrix-multiplication">
+<h2>Example 2:  Verifying eigenvectors using matrix multiplication<a class="headerlink" href="#example-2-verifying-eigenvectors-using-matrix-multiplication" title="Permalink to this headline">¶</a></h2>
 <p>Let’s try another example with a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -635,9 +635,9 @@ SD = \left[ \begin{array}{c|c|c} &amp; &amp; \\ V_1 &amp; V_2 &amp; V_3 \\ &amp;
 </div>
 </section>
 <section id="diagonal-factorization">
-<h2>Diagonal Factorization<a class="headerlink" href="#diagonal-factorization" title="Permalink to this headline">¶</a></h2>
+<h2>Diagonal factorization<a class="headerlink" href="#diagonal-factorization" title="Permalink to this headline">¶</a></h2>
 <p>The calculation that we used to verify the eigenvalues an eigenvectors is also very useful to construct another important matrix factorization.  Suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, <span class="math notranslate nohighlight">\(D\)</span> is a diagonal matrix with the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> along its diagonal, and <span class="math notranslate nohighlight">\(S\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span> as its columns.  We have just seen that <span class="math notranslate nohighlight">\(AS=SD\)</span>.  If <span class="math notranslate nohighlight">\(S\)</span> is invertible, we may also write <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>, which is known as the <strong>diagonalization</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>The diagonalization of <span class="math notranslate nohighlight">\(A\)</span> is important because it provides us with a complete description of the action of <span class="math notranslate nohighlight">\(A\)</span> in terms of its eigenvectors.  Consider an arbitrary vector <span class="math notranslate nohighlight">\(X\)</span>, and the product <span class="math notranslate nohighlight">\(AX\)</span>, computed by using the three factors in the diagonization.</p>
+<p>The diagonalization of <span class="math notranslate nohighlight">\(A\)</span> is important because it provides us with a complete description of the action of <span class="math notranslate nohighlight">\(A\)</span> in terms of its eigenvectors.  Consider an arbitrary vector <span class="math notranslate nohighlight">\(X\)</span>, and the product <span class="math notranslate nohighlight">\(AX\)</span>, computed by using the three factors in the diagonalization.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S^{-1}X\)</span> computes the coordinates of <span class="math notranslate nohighlight">\(X\)</span> in terms of the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 <li><p>Multiplication by <span class="math notranslate nohighlight">\(D\)</span> then simply scales each coordinate by the corresponding eigenvalue.</p></li>

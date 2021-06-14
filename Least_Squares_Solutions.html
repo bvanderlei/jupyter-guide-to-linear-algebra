@@ -259,7 +259,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-two-inconsistent-equations">
-   Example 1:  Two Inconsistent Equations
+   Example 1:  Two inconsistent equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -269,17 +269,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-four-inconsistent-equations">
-   Example 2:  Four Inconsistent Equations
+   Example 2:  Four inconsistent equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#best-approximation">
-   Best Approximation
+   Best approximation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qr-factorization-to-solve-normal-equations">
-   QR Factorization to Solve Normal Equations
+   QR factorization to solve normal equations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -304,7 +304,7 @@
 <p>In the case that <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, there is no vector <span class="math notranslate nohighlight">\(X\)</span> such that the two vectors <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same.  A natural idea then is to choose a vector <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are as close as possible.  To do this we define the error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span>, and choose the <span class="math notranslate nohighlight">\(X\)</span> that minimizes <span class="math notranslate nohighlight">\(||E||\)</span>.  This choice of <span class="math notranslate nohighlight">\(X\)</span> is known as the <strong>least squares solution</strong> to the system <span class="math notranslate nohighlight">\(AX=B\)</span>, and we will assign it the symbol <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The direct approach to this formulation of the problem requires the use of calculus to minimize <span class="math notranslate nohighlight">\(||E||\)</span>, but we will take a different approach that only requires inner products and projections.  We will first give the solution to the least squares problem and provide only a visual explanation.  After some examples, we will give a more rigorous explanation.</p>
 <p>Recall that if the system <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, the vector <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.  <strong>The error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span> has minimum magnitude exactly when it is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span></strong>.  We can easily visualize this if in the case that <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> as a one dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <section id="example-1-two-inconsistent-equations">
-<h2>Example 1:  Two Inconsistent Equations<a class="headerlink" href="#example-1-two-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
+<h2>Example 1:  Two inconsistent equations<a class="headerlink" href="#example-1-two-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider a simple example of an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -447,7 +447,7 @@ x_2 &amp; = &amp; s
 <p>If we assume for now that the error <span class="math notranslate nohighlight">\(E=AX-B\)</span> will have minimum magnitude when it is orthogonal to the column space of <span class="math notranslate nohighlight">\(A\)</span>, we can use our knowledge of the fundamental subspaces to solve the least squares problem when the column space is of higher dimension.  Recall from a previous section that any vector orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> must lie in <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.  This means that <span class="math notranslate nohighlight">\(A^TE=0\)</span> for the least squares solution.  Filling in <span class="math notranslate nohighlight">\(E=AX-B\)</span> gives us the system <span class="math notranslate nohighlight">\(A^T(AX-B)=0\)</span>, which can be written as <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>.  This system of equations is referred to as the <strong>normal equations</strong>.</p>
 </section>
 <section id="example-2-four-inconsistent-equations">
-<h2>Example 2:  Four Inconsistent Equations<a class="headerlink" href="#example-2-four-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
+<h2>Example 2:  Four inconsistent equations<a class="headerlink" href="#example-2-four-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
 <p>Although the method of least squares can be applied to any inconsistent system, it is usually associated with systems that have more equations than unknowns.  These systems are called overdetermined, and here is one such example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -546,14 +546,14 @@ Magnitude of minimum error is: 2.5874933722078426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.63780161]
- [-0.15225869]]
-Magnitude of error is: 5.081165032339
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.38531687]
+ [-0.47794642]]
+Magnitude of error is: 3.180442308267992
 </pre></div>
 </div>
 </div>
 </div>
-<p>Running the code in this cell does not prove that <span class="math notranslate nohighlight">\(||E||\)</span> is at miniumum for <span class="math notranslate nohighlight">\(X=\hat{X}\)</span>, even if we were to put it in a loop and execute it a million times.  It does allows us to demonstrate some evidence to augment our reasoning.  Another thing we might do to gather evidence is let <span class="math notranslate nohighlight">\(X= \delta P\)</span>, and plot <span class="math notranslate nohighlight">\(||E||\)</span> as a function of <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
+<p>Running the code in this cell does not prove that <span class="math notranslate nohighlight">\(||E||\)</span> is at minimum for <span class="math notranslate nohighlight">\(X=\hat{X}\)</span>, even if we were to put it in a loop and execute it a million times.  It does allows us to demonstrate some evidence to augment our reasoning.  Another thing we might do to gather evidence is let <span class="math notranslate nohighlight">\(X= \delta P\)</span>, and plot <span class="math notranslate nohighlight">\(||E||\)</span> as a function of <span class="math notranslate nohighlight">\(\delta\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Set the number of vectors to be tested.</span>
@@ -584,7 +584,7 @@ Magnitude of error is: 5.081165032339
 </div>
 </section>
 <section id="best-approximation">
-<h2>Best Approximation<a class="headerlink" href="#best-approximation" title="Permalink to this headline">¶</a></h2>
+<h2>Best approximation<a class="headerlink" href="#best-approximation" title="Permalink to this headline">¶</a></h2>
 <p>Although numerical evidence and the plot of <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> may convince us that <span class="math notranslate nohighlight">\(||E||\)</span> is minimum when <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span> are orthogonal, we have not yet given proof of the fact.  To accomplish this, we need to show that <span class="math notranslate nohighlight">\(||B-Y|| \ge ||B-\hat{B}||\)</span> where <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  This can be explained using properties of the dot product.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -596,10 +596,10 @@ Magnitude of error is: 5.081165032339
  &amp; \ge &amp; ||B-\hat{B}||^2
 \end{eqnarray*}
 \end{split}\]</div>
-<p>The first key fact is that <span class="math notranslate nohighlight">\((\hat{B}-Y)\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> so <span class="math notranslate nohighlight">\((\hat{B}-Y) \cdot (B-\hat{B}) = 0\)</span>.  We also need to observe that magnitudes of vectors can never be negative since they are sums of squares.  Indeed, the only vector with magntiude zero is the vector with all zero entries.  In particular, this means that <span class="math notranslate nohighlight">\(||\hat{B}-Y||^2 \ge 0\)</span>.</p>
+<p>The first key fact is that <span class="math notranslate nohighlight">\((\hat{B}-Y)\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> so <span class="math notranslate nohighlight">\((\hat{B}-Y) \cdot (B-\hat{B}) = 0\)</span>.  We also need to observe that magnitudes of vectors can never be negative since they are sums of squares.  Indeed, the only vector with magnitude zero is the vector with all zero entries.  In particular, this means that <span class="math notranslate nohighlight">\(||\hat{B}-Y||^2 \ge 0\)</span>.</p>
 </section>
 <section id="qr-factorization-to-solve-normal-equations">
-<h2>QR Factorization to Solve Normal Equations<a class="headerlink" href="#qr-factorization-to-solve-normal-equations" title="Permalink to this headline">¶</a></h2>
+<h2>QR factorization to solve normal equations<a class="headerlink" href="#qr-factorization-to-solve-normal-equations" title="Permalink to this headline">¶</a></h2>
 <p>In this final example, we consider making use of the <span class="math notranslate nohighlight">\(QR\)</span> factorization to solve the normal equations.  If we have insert <span class="math notranslate nohighlight">\(A=QR\)</span> into the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>, we will see a simplification.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -610,7 +610,7 @@ R^TRX &amp; = &amp;  R^TQ^TB \\
 RX &amp; = &amp; Q^TB
 \end{eqnarray*}
 \end{split}\]</div>
-<p>The system <span class="math notranslate nohighlight">\(RX=Q^TB\)</span> is triangular and can be solved with back subsitution.  Note that this approach replaces elimination (<span class="math notranslate nohighlight">\(LU\)</span> factorization) with <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>The system <span class="math notranslate nohighlight">\(RX=Q^TB\)</span> is triangular and can be solved with back substitution.  Note that this approach replaces elimination (<span class="math notranslate nohighlight">\(LU\)</span> factorization) with <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>

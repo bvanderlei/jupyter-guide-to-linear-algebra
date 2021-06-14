@@ -258,13 +258,19 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-vectors-in-mathbb-r-2">
+   Example 1:  Vectors in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^2\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-vectors-in-mathbb-r-3">
+   Example 2:  Vectors in
+   <span class="math notranslate nohighlight">
+    \(\mathbb{R}^3\)
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -303,8 +309,8 @@ c_1V_1 + c_2V_2 + c_3V_3 + .... + c_nV_n = 0
 \end{equation}
 \]</div>
 <p>it must be that <span class="math notranslate nohighlight">\(c_1 = c_2 = c_3 = .... = c_n = 0\)</span>.  Equivalently we could say that the set of vectors is linearly independent if there is <em>no vector in the set</em> that is equal to a linear combination of the others.  If a set of vectors is not linearly independent, then we say that it is <strong>linearly dependent</strong>.</p>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-vectors-in-mathbb-r-2">
+<h2>Example 1:  Vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-vectors-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -339,8 +345,8 @@ c_2\left[ \begin{array}{r} 1 \\ -6  \end{array}\right] =
 </div>
 <p>We see from the reduced augmented matrix that the only solution to the equation is <span class="math notranslate nohighlight">\(c_1 = c_2 = 0\)</span>.  The set <span class="math notranslate nohighlight">\(\{V_1, V_2\}\)</span> is linearly independent.</p>
 </section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<section id="example-2-vectors-in-mathbb-r-3">
+<h2>Example 2:  Vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span><a class="headerlink" href="#example-2-vectors-in-mathbb-r-3" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -377,9 +383,9 @@ c_3\left[ \begin{array}{r} 3 \\ 2 \\ 2  \end{array}\right] =
 </section>
 <section id="homogeneous-systems">
 <h2>Homogeneous systems<a class="headerlink" href="#homogeneous-systems" title="Permalink to this headline">¶</a></h2>
-<p>A linear system is said to be <strong>homogeneous</strong> if it can be described with the matrix equation <span class="math notranslate nohighlight">\(AX = 0\)</span>.  The solution to such a system has a connection to the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  The homogenous system also has a connnection to the concept of linear independence.  If we link all of these ideas together we will be able to gain information about the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>, based on some information about linear independence.</p>
+<p>A linear system is said to be <strong>homogeneous</strong> if it can be described with the matrix equation <span class="math notranslate nohighlight">\(AX = 0\)</span>.  The solution to such a system has a connection to the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  The homogeneous system also has a connection to the concept of linear independence.  If we link all of these ideas together we will be able to gain information about the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>, based on some information about linear independence.</p>
 <p>In the previous examples we were solving the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + c_3V_3 + .... + c_nV_n = 0\)</span> in order
-to determine if the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 .... V_n\}\)</span> were linearly independent.  This vector equation represents a homogenous linear system that could also be described as <span class="math notranslate nohighlight">\(AX=0\)</span>, where <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span>, … <span class="math notranslate nohighlight">\(V_n\)</span> are the columns of the matrix <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> is the vector of unknown coefficients.  The set of vectors is linearly independent if and only if the associated homogeneous system has a solution other than the vector with all entries equal to zero.  The vector of all zeros is called the <strong>trivial solution</strong>.  This zero vector is called a trivial solution because it is a solution to <em>every homogeneous system</em> <span class="math notranslate nohighlight">\(AX=0\)</span>, regardless of the entries of <span class="math notranslate nohighlight">\(A\)</span>.  For this reason, we are interested only in the existence of <em>nontrivial solutions</em> to <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+to determine if the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 .... V_n\}\)</span> were linearly independent.  This vector equation represents a homogeneous linear system that could also be described as <span class="math notranslate nohighlight">\(AX=0\)</span>, where <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span>, … <span class="math notranslate nohighlight">\(V_n\)</span> are the columns of the matrix <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(X\)</span> is the vector of unknown coefficients.  The set of vectors is linearly independent if and only if the associated homogeneous system has a solution other than the vector with all entries equal to zero.  The vector of all zeros is called the <strong>trivial solution</strong>.  This zero vector is called a trivial solution because it is a solution to <em>every homogeneous system</em> <span class="math notranslate nohighlight">\(AX=0\)</span>, regardless of the entries of <span class="math notranslate nohighlight">\(A\)</span>.  For this reason, we are interested only in the existence of <em>nontrivial solutions</em> to <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
 <p>Let us suppose that a homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> has a nontrivial solution, which we could label <span class="math notranslate nohighlight">\(X_h\)</span>.  Let us also suppose that a related nonhomogeneous system <span class="math notranslate nohighlight">\(AX=B\)</span> also has some particular solution, which we could label <span class="math notranslate nohighlight">\(X_p\)</span>.  So we have <span class="math notranslate nohighlight">\(AX_h = 0\)</span> and <span class="math notranslate nohighlight">\(AX_p = B\)</span>.  Now by the properties of matrix multiplication, <span class="math notranslate nohighlight">\(X_p + X_h\)</span> is also a solution to <span class="math notranslate nohighlight">\(AX=B\)</span> since <span class="math notranslate nohighlight">\(A(X_p + X_h) = AX_p + AX_h = B + 0\)</span>.</p>
 <p>Consider the following system as an example.</p>
 <div class="math notranslate nohighlight">
@@ -479,9 +485,9 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -8.30117039]
- [-15.50195066]
- [  0.10039013]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10.85503229]
+ [-19.75838716]
+ [  0.95167743]]
 
 
 [[-6]
@@ -489,9 +495,9 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
  [13]]
 
 
-[[0.]
- [0.]
- [0.]]
+[[-4.44089210e-16]
+ [-4.44089210e-16]
+ [ 1.33226763e-15]]
 
 
 [[-6.]

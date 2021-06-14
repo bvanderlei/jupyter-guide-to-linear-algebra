@@ -259,12 +259,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#geometric-interpretations">
-   Geometric Interpretations
+   Geometric interpretations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algebraic-properties">
-   Algebraic Properties
+   Algebraic properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -400,7 +400,7 @@ U\cdot V = U^TV
 </div>
 </div>
 <section id="geometric-interpretations">
-<h2>Geometric Interpretations<a class="headerlink" href="#geometric-interpretations" title="Permalink to this headline">¶</a></h2>
+<h2>Geometric interpretations<a class="headerlink" href="#geometric-interpretations" title="Permalink to this headline">¶</a></h2>
 <p>The dot product provides a way to measure distances and angles in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Again it is easiest to visualize these measures in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <p>The <strong>magnitude</strong> of a vector <span class="math notranslate nohighlight">\(U\)</span>, written as <span class="math notranslate nohighlight">\(||U||\)</span>, is defined as <span class="math notranslate nohighlight">\(\left(U\cdot U\right)^{1/2}\)</span>.  In <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> it is plain to see that this definition corresponds to the Pythagorean Theorem.</p>
 <div class="cell tag_hide-input docutils container">
@@ -436,7 +436,7 @@ U = \left[ \begin{array}{r} 2 \\ 3 \end{array}\right] \hspace{2cm}
 ||U|| = \sqrt{(2)(2) + (3)(3)} = \sqrt{13}
 \end{equation}
 \end{split}\]</div>
-<p>Calculating the magnitude of a vector is common enough that it will be useful to write a function to carry it out.  We will leave it as an exercise in this section, and will incude the function <span class="math notranslate nohighlight">\(\texttt{Magnitude}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module for use in future sections.</p>
+<p>Calculating the magnitude of a vector is common enough that it will be useful to write a function to carry it out.  We will leave it as an exercise in this section, and will include the function <span class="math notranslate nohighlight">\(\texttt{Magnitude}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module for use in future sections.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">laguide</span> <span class="kn">import</span> <span class="n">Magnitude</span>
@@ -452,7 +452,7 @@ U = \left[ \begin{array}{r} 2 \\ 3 \end{array}\right] \hspace{2cm}
 </div>
 </div>
 </div>
-<p>It is often useful to work with vectors that have magnitude equal to one.  Such vectors are called <strong>unit vectors</strong>.  We can construct a unit vector in the <em>same direction</em> as a vector <span class="math notranslate nohighlight">\(U\)</span> by multiplying <span class="math notranslate nohighlight">\(U\)</span> by the recipricol of its magnitude.  We will label this unit vector <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<p>It is often useful to work with vectors that have magnitude equal to one.  Such vectors are called <strong>unit vectors</strong>.  We can construct a unit vector in the <em>same direction</em> as a vector <span class="math notranslate nohighlight">\(U\)</span> by multiplying <span class="math notranslate nohighlight">\(U\)</span> by the reciprocal of its magnitude.  We will label this unit vector <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -546,7 +546,7 @@ W = \frac{1}{\sqrt{13}} \left[ \begin{array}{r} 2 \\ 3 \end{array}\right]
 <p>It is worth noting the special case that arises when the angle between <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> is a right angle.  In this case, since <span class="math notranslate nohighlight">\(\cos{\theta}\)</span> is zero, the dot product <span class="math notranslate nohighlight">\(U\cdot V\)</span> is also zero.  When <span class="math notranslate nohighlight">\(U\cdot V = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>  are said to be <strong>orthogonal</strong>.  In upcoming sections we will learn the importance of orthogonality, and how it can be used to simplify certain calculations</p>
 </section>
 <section id="algebraic-properties">
-<h2>Algebraic Properties<a class="headerlink" href="#algebraic-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Algebraic properties<a class="headerlink" href="#algebraic-properties" title="Permalink to this headline">¶</a></h2>
 <p>If <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(W\)</span> are any vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and <span class="math notranslate nohighlight">\(k\)</span> is a scalar, then the following statements involving the dot product are true.</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(U\cdot V = V\cdot U\)</span></p></li>
@@ -569,7 +569,7 @@ W = \frac{1}{\sqrt{13}} \left[ \begin{array}{r} 2 \\ 3 \end{array}\right]
 </div>
 </div>
 <ul class="simple">
-<li><p>Use the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module of Numpy to generate random <span class="math notranslate nohighlight">\(4\times 1\)</span> vectors <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(W\)</span>, and a random scalar <span class="math notranslate nohighlight">\(k\)</span>.  Verify the algebraic properties of the dot product listed above.  Try to make use of a conditional statement to check each statement.</p></li>
+<li><p>Use the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module of NumPy to generate random <span class="math notranslate nohighlight">\(4\times 1\)</span> vectors <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(W\)</span>, and a random scalar <span class="math notranslate nohighlight">\(k\)</span>.  Verify the algebraic properties of the dot product listed above.  Try to make use of a conditional statement to check each statement.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

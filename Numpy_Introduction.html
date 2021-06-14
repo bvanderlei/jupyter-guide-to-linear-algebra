@@ -388,6 +388,28 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 </div>
+<p>Sometimes it is useful to create an array that contains mostly zeros.  In this case, we can create an array that contains all zeros, and then modify the few entries that we want to be nonzero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a 4x4 array that is all zeros.</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1">## Set entries along the main diagonal to 2.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 0. 0. 0.]
+ [0. 2. 0. 0.]
+ [0. 0. 2. 0.]
+ [0. 0. 0. 2.]]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Many of the functions included in NumPy relate to linear algebra in some way.  We will demonstrate more of these functions as we make our way through the corresponding linear algebra topics.</p>
 <section id="random-module">
 <h3>Random module<a class="headerlink" href="#random-module" title="Permalink to this headline">¶</a></h3>
@@ -400,7 +422,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8361859313599466
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.285654541387093
 </pre></div>
 </div>
 </div>
@@ -415,9 +437,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.62133788 0.93755211]
- [0.5819091  0.51302633]
- [0.76478866 0.38152046]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.9493854  0.77249924]
+ [0.76252849 0.9807431 ]
+ [0.17735562 0.07669491]]
 </pre></div>
 </div>
 </div>
@@ -430,7 +452,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -444,9 +466,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 9 3 6 9 2]
- [5 4 1 8 9 0]
- [6 8 1 5 0 1]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[6 7 6 1 5 5]
+ [0 6 2 6 9 9]
+ [4 8 2 1 2 6]]
 </pre></div>
 </div>
 </div>
@@ -459,8 +481,8 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[8 1 5]
- [8 2 4]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4 9 6]
+ [4 7 6]]
 </pre></div>
 </div>
 </div>
@@ -511,7 +533,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_27_0.png" src="_images/Numpy_Introduction_27_0.png" />
+<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(\texttt{subplots}\)</span> method creates two Matplotlib objects, the <em>Figure</em>, and the <em>Axes</em>.  The <em>Figure</em> is the fundamental object in Matplotlib.  The <em>Axes</em> object is contained within the <em>Figure</em>, and is the object we will interact with the most.  The <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method of the <em>Axes</em> object is the function that actually plots our set of coordinates on the <em>Axes</em>.  Note that we do not need a <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command to view the results.  Instead, the first line of code, <span class="math notranslate nohighlight">\(\texttt{% matplotlib inline}\)</span>, directs all graphical output to this notebook.</p>
@@ -524,7 +546,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
+<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
 </div>
 </div>
 <p>Another alternative when we interested in plotting data points is the <span class="math notranslate nohighlight">\(\texttt{scatter}\)</span> method, for which we can use the same syntax.</p>
@@ -536,7 +558,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
+<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
 </div>
 </div>
 <p>Next, we show how to configure some of the many options available in such a plot.  Remember that the plot is actually being constructed in an <em>Axes</em> object, so all the options that affect elements of the plot are methods of that object.</p>
@@ -559,7 +581,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
+<img alt="_images/Numpy_Introduction_35_0.png" src="_images/Numpy_Introduction_35_0.png" />
 </div>
 </div>
 </section>
@@ -610,7 +632,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_37_0.png" src="_images/Numpy_Introduction_37_0.png" />
+<img alt="_images/Numpy_Introduction_39_0.png" src="_images/Numpy_Introduction_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -638,7 +660,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_38_0.png" src="_images/Numpy_Introduction_38_0.png" />
+<img alt="_images/Numpy_Introduction_40_0.png" src="_images/Numpy_Introduction_40_0.png" />
 </div>
 </div>
 <p>Throughout the Jupyter Guide to Linear Algebra, we will often hide the code used to produce the graphics in order to keep the pages tidy for reading.</p>

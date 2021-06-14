@@ -243,23 +243,23 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-horizontal-shear">
+   Example 1:  Horizontal Shear
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-reflection">
+   Example 2:  Reflection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3">
-   Example 3
+  <a class="reference internal nav-link" href="#example-3-rotation">
+   Example 3:  Rotation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-4">
-   Example 4
+  <a class="reference internal nav-link" href="#example-4-composition-of-transformations">
+   Example 4:  Composition of transformations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -287,8 +287,8 @@
 A = \left[ \begin{array}{c|c} T(E_1) &amp; T(E_2) \end{array} \right]
 \end{equation}
 \]</div>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-horizontal-shear">
+<h2>Example 1:  Horizontal Shear<a class="headerlink" href="#example-1-horizontal-shear" title="Permalink to this headline">¶</a></h2>
 <p>As a first example let us consider the transformation defined by the following images.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -359,13 +359,13 @@ T\left(\left[ \begin{array}{r} c_1 \\ c_2  \end{array}\right]\right) = T\left(c_
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Planar_Transformations_4_0.png" src="_images/Planar_Transformations_4_0.png" />
+<img alt="_images/Planar_Transformations_5_0.png" src="_images/Planar_Transformations_5_0.png" />
 </div>
 </div>
-<p>We observe that the result of the transformation is that the polygon has been streched in the horizontal direction.  Such a transformation is commonly called a horizontal shear.</p>
+<p>We observe that the result of the transformation is that the polygon has been stretched in the horizontal direction.  Such a transformation is commonly called a horizontal shear.</p>
 </section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<section id="example-2-reflection">
+<h2>Example 2:  Reflection<a class="headerlink" href="#example-2-reflection" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have a set of vectors stored in the <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> matrix, let’s look at another transformation that is defined by the matrix <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -404,13 +404,13 @@ B = \left[ \begin{array}{cc} -1 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Planar_Transformations_6_0.png" src="_images/Planar_Transformations_6_0.png" />
+<img alt="_images/Planar_Transformations_7_0.png" src="_images/Planar_Transformations_7_0.png" />
 </div>
 </div>
 <p>We see that this transformation reflects points around the vertical axis.</p>
 </section>
-<section id="example-3">
-<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<section id="example-3-rotation">
+<h2>Example 3:  Rotation<a class="headerlink" href="#example-3-rotation" title="Permalink to this headline">¶</a></h2>
 <p>In the last example, we choose an angle <span class="math notranslate nohighlight">\(\theta\)</span>, and write down the matrix that represents the rotation counterclockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span>.  Basic trigonometry can be used to calculate the columns in this case.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -449,13 +449,13 @@ R = \left[ \begin{array}{cc} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Planar_Transformations_8_0.png" src="_images/Planar_Transformations_8_0.png" />
+<img alt="_images/Planar_Transformations_9_0.png" src="_images/Planar_Transformations_9_0.png" />
 </div>
 </div>
 </section>
-<section id="example-4">
-<h2>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h2>
-<p>One of the powerful aspects of representing linear transformations as matrices is that we can form compositions by matrix multiplicationi.  For example,  in order to find the matrix that represents the composition <span class="math notranslate nohighlight">\(B\circ R\)</span>, the rotation from Example 3, followed by the reflection of Example 2,
+<section id="example-4-composition-of-transformations">
+<h2>Example 4:  Composition of transformations<a class="headerlink" href="#example-4-composition-of-transformations" title="Permalink to this headline">¶</a></h2>
+<p>One of the powerful aspects of representing linear transformations as matrices is that we can form compositions by matrix multiplication.  For example,  in order to find the matrix that represents the composition <span class="math notranslate nohighlight">\(B\circ R\)</span>, the rotation from Example 3, followed by the reflection of Example 2,
 we can simply multiply the matrices that represent the individual transformations.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -491,19 +491,18 @@ we can simply multiply the matrices that represent the individual transformation
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="c1">#ax.title(&quot;Rotation&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Planar_Transformations_10_0.png" src="_images/Planar_Transformations_10_0.png" />
+<img alt="_images/Planar_Transformations_11_0.png" src="_images/Planar_Transformations_11_0.png" />
 </div>
 </div>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Find a matrix that represents a vertical shear followed by the rotatation in Example 4.</p></li>
+<li><p>Find a matrix that represents a vertical shear followed by the rotation in Example 4.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

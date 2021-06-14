@@ -259,27 +259,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#structure-of-orthogonalization">
-   Structure of Orthogonalization
+   Structure of orthogonalization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-finding-a-qr-factorization">
-   Example 1:  Finding a QR Factorization
+   Example 1:  Finding a QR factorization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qr-factorization-function">
-   QR Factorization Function
+   QR factorization function
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-solving-a-linear-system">
-   Example 2:  Solving a Linear System
+   Example 2:  Solving a linear system
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qr-factorization-with-scipy">
-   QR Factorization with SciPy
+   QR factorization with SciPy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -302,8 +302,8 @@
 <h1>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h1>
 <p>In Chapter 1 we saw that the LU factorization essentially captured the elimination process and stored the result in a way that allowed us to use elimination to solve similar systems without having to carry out the elimination again.  The QR factorization accomplishes something similar for the orthogonalization process.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span> with linearly independent columns, the QR factorization of <span class="math notranslate nohighlight">\(A\)</span> is a pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, <span class="math notranslate nohighlight">\(R\)</span> is upper triangular, and <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
 <section id="structure-of-orthogonalization">
-<h2>Structure of Orthogonalization<a class="headerlink" href="#structure-of-orthogonalization" title="Permalink to this headline">¶</a></h2>
-<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  The matrix <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangluar.  For example, if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(6\times 4\)</span> matrix, the matrices have the following structures, with the <span class="math notranslate nohighlight">\(A_i\)</span> and <span class="math notranslate nohighlight">\(U_i\)</span> being vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span>.</p>
+<h2>Structure of orthogonalization<a class="headerlink" href="#structure-of-orthogonalization" title="Permalink to this headline">¶</a></h2>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  The matrix <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangular.  For example, if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(6\times 4\)</span> matrix, the matrices have the following structures, with the <span class="math notranslate nohighlight">\(A_i\)</span> and <span class="math notranslate nohighlight">\(U_i\)</span> being vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -342,7 +342,7 @@ U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right]
 <p>To arrive at this conclusion this more succinctly, we could multiply the equation <span class="math notranslate nohighlight">\(A=QR\)</span> by <span class="math notranslate nohighlight">\(Q^T\)</span>, which gives <span class="math notranslate nohighlight">\(Q^TA=Q^TQR\)</span> and <span class="math notranslate nohighlight">\(Q^TA = R\)</span> since <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  If we then understand the matrix product <span class="math notranslate nohighlight">\(Q^TA\)</span> as a collection of dot products between rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(A\)</span>, we have again that <span class="math notranslate nohighlight">\(r_{ij} = U_i \cdot A_j\)</span>.</p>
 </section>
 <section id="example-1-finding-a-qr-factorization">
-<h2>Example 1:  Finding a QR Factorization<a class="headerlink" href="#example-1-finding-a-qr-factorization" title="Permalink to this headline">¶</a></h2>
+<h2>Example 1:  Finding a QR factorization<a class="headerlink" href="#example-1-finding-a-qr-factorization" title="Permalink to this headline">¶</a></h2>
 <p>Let’s compute the QR factorization for a specific <span class="math notranslate nohighlight">\(6\times 4 \)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -449,8 +449,8 @@ QR
 </div>
 </section>
 <section id="qr-factorization-function">
-<h2>QR Factorization Function<a class="headerlink" href="#qr-factorization-function" title="Permalink to this headline">¶</a></h2>
-<p>It is helpful to write some code in a more general way so that we may easily carry out the factorization an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requrement with a comment in the code.</p>
+<h2>QR factorization function<a class="headerlink" href="#qr-factorization-function" title="Permalink to this headline">¶</a></h2>
+<p>It is helpful to write some code in a more general way so that we may easily carry out the factorization an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requirement with a comment in the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -516,8 +516,8 @@ QR
 </div>
 </section>
 <section id="example-2-solving-a-linear-system">
-<h2>Example 2:  Solving a Linear System<a class="headerlink" href="#example-2-solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
-<p>The orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization provides us another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifys to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
+<h2>Example 2:  Solving a linear system<a class="headerlink" href="#example-2-solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
+<p>The orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization provides us another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifies to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
 <p>Let’s try it out on a <span class="math notranslate nohighlight">\(4\times 4\)</span> system.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -566,7 +566,7 @@ QR
 <p>In some situations, we might find that we are solving several systems such as <span class="math notranslate nohighlight">\(AX=B_1\)</span>, <span class="math notranslate nohighlight">\(AX=B_2\)</span>, <span class="math notranslate nohighlight">\(AX=B_3\)</span>, …, that involve the same matrix but different right hand sides.  In these situations it is useful to solve the systems with a factorization such as <span class="math notranslate nohighlight">\(QR\)</span> or <span class="math notranslate nohighlight">\(LU\)</span>, because the factorization does not need to be recomputed for each system.</p>
 </section>
 <section id="qr-factorization-with-scipy">
-<h2>QR Factorization with SciPy<a class="headerlink" href="#qr-factorization-with-scipy" title="Permalink to this headline">¶</a></h2>
+<h2>QR factorization with SciPy<a class="headerlink" href="#qr-factorization-with-scipy" title="Permalink to this headline">¶</a></h2>
 <p>The SciPy function for finding <span class="math notranslate nohighlight">\(QR\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{qr}\)</span>.  The basic use is exactly the same as our <span class="math notranslate nohighlight">\(\texttt{QRfactorization}\)</span> function.  We apply <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> to the matrix in the example and compare the results with our own computations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -268,8 +268,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-applying-the-gram-schmidt-algorithm">
+   Example 1:  Applying the Gram-Schmidt algorithm
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -440,7 +440,7 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 </section>
 <section id="gram-schmidt-algorithm">
 <h2>Gram-Schmidt algorithm<a class="headerlink" href="#gram-schmidt-algorithm" title="Permalink to this headline">¶</a></h2>
-<p>Given a set of linearly independent vectors  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>, the <strong>Gram-Schmidt algorithm</strong> produces an orthonormal set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> such that the span of  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is the same as the span of  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>.  The idea is to build up the set of <span class="math notranslate nohighlight">\(U\)</span> vectors one at a time, while ensuring that each new vector <span class="math notranslate nohighlight">\(U_i\)</span> that is added is orthogonal to all vectors alread in the set.  These vectors are constructed by selecting a vector from the <span class="math notranslate nohighlight">\(V\)</span> set, and subtracting the components that are in the directions of any vectors already in the <span class="math notranslate nohighlight">\(U\)</span> set.  The <span class="math notranslate nohighlight">\(U\)</span> vectors can be scaled to unit length as part of the process, or they can all be scaled at the end.</p>
+<p>Given a set of linearly independent vectors  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>, the <strong>Gram-Schmidt algorithm</strong> produces an orthonormal set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> such that the span of  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is the same as the span of  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>.  The idea is to build up the set of <span class="math notranslate nohighlight">\(U\)</span> vectors one at a time, while ensuring that each new vector <span class="math notranslate nohighlight">\(U_i\)</span> that is added is orthogonal to all vectors already in the set.  These vectors are constructed by selecting a vector from the <span class="math notranslate nohighlight">\(V\)</span> set, and subtracting the components that are in the directions of any vectors already in the <span class="math notranslate nohighlight">\(U\)</span> set.  The <span class="math notranslate nohighlight">\(U\)</span> vectors can be scaled to unit length as part of the process, or they can all be scaled at the end.</p>
 <p>We write the algorithm in steps before providing an example.</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(V_1\)</span> is scaled to unit length and becomes <span class="math notranslate nohighlight">\(U_1\)</span>.</p></li>
@@ -449,8 +449,8 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 <li><p>Continue applying a similar procedure for all <span class="math notranslate nohighlight">\(n\)</span> vectors.  In general, the projections of <span class="math notranslate nohighlight">\(V_k\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, …<span class="math notranslate nohighlight">\(U_{k-1}\)</span> are subtracted from <span class="math notranslate nohighlight">\(V_k\)</span> and the resulting vector is scaled to unit length to become <span class="math notranslate nohighlight">\(U_k\)</span>.</p></li>
 </ol>
 </section>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-applying-the-gram-schmidt-algorithm">
+<h2>Example 1:  Applying the Gram-Schmidt algorithm<a class="headerlink" href="#example-1-applying-the-gram-schmidt-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>As a first example, we take three vectors from <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> as the starting set, and use Python to carry out the calculations.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

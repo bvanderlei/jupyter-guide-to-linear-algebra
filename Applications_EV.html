@@ -243,12 +243,12 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#infectious-disease-model">
-   Infectious Disease Model
+   Infectious disease model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#navigating-webpages">
-   Navigating Webpages
+   Navigating webpages
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -271,7 +271,7 @@
 <h1>Applications of Eigenvalues and Eigenvectors<a class="headerlink" href="#applications-of-eigenvalues-and-eigenvectors" title="Permalink to this headline">¶</a></h1>
 <p>With the concepts related to eigenvalues and eigenvectors in place, we return to examine <a class="reference internal" href="Applications_LT.html"><span class="doc std std-doc">Discrete Dynamical Systems</span></a>.</p>
 <section id="infectious-disease-model">
-<h2>Infectious Disease Model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h2>
+<h2>Infectious disease model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h2>
 <p>For the <span class="math notranslate nohighlight">\(SIRS\)</span> model of infectious disease, we had the following discrete dynamical system.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -282,7 +282,7 @@ X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
 AX_{t-1}
 \end{equation}
 \end{split}\]</div>
-<p>Given an initial condition <span class="math notranslate nohighlight">\(X_0\)</span>, we know that <span class="math notranslate nohighlight">\(X_n = A^nX_0\)</span>.  We are interested in determining the behaviour of the system for large <span class="math notranslate nohighlight">\(n\)</span>.  We might now recognize that this calculation is exactly the same as the Power Method from the previous section, and therefore expect that the sequence of vectors produced should tend toward the eigenvector corresponding to the largest eigenvalue.</p>
+<p>Given an initial condition <span class="math notranslate nohighlight">\(X_0\)</span>, we know that <span class="math notranslate nohighlight">\(X_n = A^nX_0\)</span>.  We are interested in determining the behavior of the system for large <span class="math notranslate nohighlight">\(n\)</span>.  We might now recognize that this calculation is exactly the same as the Power Method from the previous section, and therefore expect that the sequence of vectors produced should tend toward the eigenvector corresponding to the largest eigenvalue.</p>
 <p>In this case the components of the vector have individual meaning, so let’s calculate the first 30 iterations and plot <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span> to get a sense of how they are changing.  For this calculation we store each vector <span class="math notranslate nohighlight">\(X_t\)</span> as a column in an array named <span class="math notranslate nohighlight">\(\texttt{results}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -431,10 +431,10 @@ X_t  =  c_1V_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3
 </div>
 </div>
 </div>
-<p>Therefore unless <span class="math notranslate nohighlight">\(c_1 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_t\)</span> approach the dirction of <span class="math notranslate nohighlight">\(V_1\)</span>.  The case where <span class="math notranslate nohighlight">\(c_1 = 0\)</span> corresponds to initial conditions with negative entries, which are not relevant in the application.  The conclusion is that <span class="math notranslate nohighlight">\(X_t\)</span> will approach the equilibrium state for all meaningful initial configurations of the population.</p>
+<p>Therefore unless <span class="math notranslate nohighlight">\(c_1 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_t\)</span> approach the direction of <span class="math notranslate nohighlight">\(V_1\)</span>.  The case where <span class="math notranslate nohighlight">\(c_1 = 0\)</span> corresponds to initial conditions with negative entries, which are not relevant in the application.  The conclusion is that <span class="math notranslate nohighlight">\(X_t\)</span> will approach the equilibrium state for all meaningful initial configurations of the population.</p>
 </section>
 <section id="navigating-webpages">
-<h2>Navigating Webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h2>
+<h2>Navigating webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h2>
 <p>In the dynamical system <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>, the entries in the state vector <span class="math notranslate nohighlight">\(X_t\)</span> can represent probabilities that a web browser is on a particular page after <span class="math notranslate nohighlight">\(t\)</span> steps of random browsing defined by the matrix <span class="math notranslate nohighlight">\(A\)</span>, which is build using the link structure among the web pages.  The matrix and initial condition previously considered are given below.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -525,7 +525,7 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all all meaningful intial states.</p></li>
+<li><p>Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all all meaningful initial states.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,7 +535,7 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 </div>
 </div>
 <ul class="simple">
-<li><p>Perform an analyis similar to the that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+<li><p>Perform an analysis similar to the that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}

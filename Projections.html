@@ -259,7 +259,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-orthogonal-projection-in-mathbb-r-2">
-   Example 1:  Orthogonal Projection in
+   Example 1:  Orthogonal projection in
    <span class="math notranslate nohighlight">
     \(\mathbb{R}^2\)
    </span>
@@ -267,7 +267,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-nonorthogonal-projection-in-mathbb-r-2">
-   Example 2  Nonorthogonal Projection in
+   Example 2  Nonorthogonal projection in
    <span class="math notranslate nohighlight">
     \(\mathbb{R}^2\)
    </span>
@@ -275,7 +275,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#orthogonal-projections">
-   Orthogonal Projections
+   Orthogonal projections
   </a>
  </li>
 </ul>
@@ -294,7 +294,7 @@
 <p>At the start of the chapter, we considered the projection of one vector onto the direction of another, and how to use that projection to decompose the vector into two orthogonal components.  We then considered the higher dimensional analogy of projecting a vector onto a subspace and, using that projection to decompose the vector into orthogonal components.   In this section, we concentrate these concepts, and consider projections as linear transformations which have applications beyond vector decomposition.</p>
 <p>A linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^n\)</span> is a <strong>projection</strong> if <span class="math notranslate nohighlight">\(T\circ T = T\)</span>.  The result of applying a projection once is the same as the result of applying it twice.  We can understand the effect of a projection as the collapsing of a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  Once a vector as been projected onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, any further projection onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has no effect.</p>
 <section id="example-1-orthogonal-projection-in-mathbb-r-2">
-<h2>Example 1:  Orthogonal Projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-orthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
+<h2>Example 1:  Orthogonal projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-orthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>We look first at an orthogonal projection onto the <span class="math notranslate nohighlight">\(x_1\)</span>-axis in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.  This transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be defined with the following formula.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -342,7 +342,7 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 </div>
 </section>
 <section id="example-2-nonorthogonal-projection-in-mathbb-r-2">
-<h2>Example 2  Nonorthogonal Projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-2-nonorthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
+<h2>Example 2  Nonorthogonal projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-2-nonorthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s consider <span class="math notranslate nohighlight">\(T:\mathbb{R}^2 \to \mathbb{R}^2\)</span> defined by <span class="math notranslate nohighlight">\(T(X) = PX\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -490,7 +490,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 <p>In general, projections take all vectors onto one subspace, in the direction of another subspace.</p>
 </section>
 <section id="orthogonal-projections">
-<h2>Orthogonal Projections<a class="headerlink" href="#orthogonal-projections" title="Permalink to this headline">¶</a></h2>
+<h2>Orthogonal projections<a class="headerlink" href="#orthogonal-projections" title="Permalink to this headline">¶</a></h2>
 <p>Having observed that projections can be carried out in an arbitrary direction, we now focus attention on how to define a matrix <span class="math notranslate nohighlight">\(P\)</span> that carries out <strong>orthogonal projection</strong> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  That is, for a vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we want the projection matrix <span class="math notranslate nohighlight">\(P\)</span> such that <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(E = B-\hat{B}\)</span> to be orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  In fact, we have already seen the necessary calculations for these projections.</p>
 <p>In the simplest example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is one-dimensional with basis <span class="math notranslate nohighlight">\(\{V\}\)</span>, with <span class="math notranslate nohighlight">\(V\)</span> a vector of unit length.  In our discussion of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">orthogonalization</span></a> we worked out the following formula.</p>
 <div class="math notranslate nohighlight">
@@ -522,7 +522,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 \hat{B} = (B\cdot U_1)U_1 + (B\cdot U_2)U_2 + ... + (B\cdot U_m)U_m
 \end{equation}
 \]</div>
-<p>As we did in the 1-dimensional case, we can use the properties of dot products and matrix multiplications to rewrite this as <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> for some projectionmatrix <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<p>As we did in the 1-dimensional case, we can use the properties of dot products and matrix multiplications to rewrite this as <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> for some projection matrix <span class="math notranslate nohighlight">\(P\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}

@@ -267,7 +267,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-standard-bases">
-   Example 2: Standard Bases
+   Example 2: Standard bases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -280,7 +280,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-4-solution-set-of-a-homogeneous-system">
-   Example 4: Solution Set of a Homogeneous System
+   Example 4: Solution set of a homogeneous system
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -331,7 +331,7 @@ V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspac
 V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>To verify these vectors form a basis, we need to check that they are linearly independant and that they span <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  Following the previous discussion, we can verify these properties by determining the structure of the solution set for the system <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 5\)</span> matrix with the <span class="math notranslate nohighlight">\(V_i\)</span> as its columns and <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will be consistent for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each row.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will have at most one solution for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if there are no free variables.  This implies that <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each column.</p>
+<p>To verify these vectors form a basis, we need to check that they are linearly independent and that they span <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  Following the previous discussion, we can verify these properties by determining the structure of the solution set for the system <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 5\)</span> matrix with the <span class="math notranslate nohighlight">\(V_i\)</span> as its columns and <span class="math notranslate nohighlight">\(Y\)</span> is an arbitrary vector in <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will be consistent for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each row.  We know that <span class="math notranslate nohighlight">\(AX=Y\)</span> will have at most one solution for arbitrary <span class="math notranslate nohighlight">\(Y\)</span> if there are no free variables.  This implies that <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -354,7 +354,7 @@ V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right]
 <p>We see that the RREF of <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(5\times 5\)</span> identity matrix, which indicates that <span class="math notranslate nohighlight">\(A\)</span> has is a pivot in each row and each column.  This verifies that the columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>, and guarantees that the linear system <span class="math notranslate nohighlight">\(AX=Y\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 </section>
 <section id="example-2-standard-bases">
-<h2>Example 2: Standard Bases<a class="headerlink" href="#example-2-standard-bases" title="Permalink to this headline">¶</a></h2>
+<h2>Example 2: Standard bases<a class="headerlink" href="#example-2-standard-bases" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>standard basis</strong> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> is the set of vectors <span class="math notranslate nohighlight">\(\{E_1, E_2, ..., E_n\}\)</span> that correspond to the columns of the <span class="math notranslate nohighlight">\(n\times n\)</span> identity matrix <span class="math notranslate nohighlight">\(I\)</span>.  That is, <span class="math notranslate nohighlight">\(E_i\)</span> is the vector with the <span class="math notranslate nohighlight">\(i\)</span>th entry equal to 1, and all other entries equal to 0.  The standard basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> is shown here as an example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -412,7 +412,7 @@ c_2\left[ \begin{array}{r} 0 \\ 0 \\  1 \end{array}\right] =
 <p>In this example it is clear that we can take <span class="math notranslate nohighlight">\(c_1 = y_1\)</span> and <span class="math notranslate nohighlight">\(c_2 = y_3 - 2y_1\)</span> by using substitution.</p>
 </section>
 <section id="example-4-solution-set-of-a-homogeneous-system">
-<h2>Example 4: Solution Set of a Homogeneous System<a class="headerlink" href="#example-4-solution-set-of-a-homogeneous-system" title="Permalink to this headline">¶</a></h2>
+<h2>Example 4: Solution set of a homogeneous system<a class="headerlink" href="#example-4-solution-set-of-a-homogeneous-system" title="Permalink to this headline">¶</a></h2>
 <p>Consider the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and <span class="math notranslate nohighlight">\(A\)</span> is the following <span class="math notranslate nohighlight">\(2\times 4\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

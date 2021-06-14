@@ -259,7 +259,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operations-on-matrices">
-   Operations on Matrices
+   Operations on matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -279,7 +279,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#identity-matrices">
-   Identity Matrices
+   Identity matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -358,7 +358,7 @@ Array B has 3 columns.
 </div>
 </div>
 <section id="operations-on-matrices">
-<h2>Operations on Matrices<a class="headerlink" href="#operations-on-matrices" title="Permalink to this headline">¶</a></h2>
+<h2>Operations on matrices<a class="headerlink" href="#operations-on-matrices" title="Permalink to this headline">¶</a></h2>
 <p>There are three algebraic operations for matrices that we will need to perform.  For our definitions let us suppose that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(m \times n\)</span> matrices, <span class="math notranslate nohighlight">\(B\)</span> is an <span class="math notranslate nohighlight">\(n \times k\)</span> matrix, and <span class="math notranslate nohighlight">\(c\)</span> is a number.  When discussing algebra involving matrices and numbers, the numbers are usually referred to as <strong>scalars</strong>.</p>
 <ol class="simple">
 <li><p>A matrix of any shape can be multiplied by a scalar.  The result is that all entries are multiplied by that scalar.  Using the subscript notation, we would write</p></li>
@@ -480,14 +480,14 @@ A(BC) = (AB)C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-24  -8 -12]
- [-22 -22  12]
- [ 16   8  14]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  7   1   4]
+ [ 41  26   7]
+ [  7  -1 -10]]
 
 
-[[-32   4 -16]
- [-32  18 -16]
- [-20  20 -18]]
+[[ 22   2  -2]
+ [ 32  -3  -8]
+ [-10 -17   4]]
 </pre></div>
 </div>
 </div>
@@ -563,7 +563,7 @@ x_1 + 3x_2 - 2x_3 &amp; = &amp; 0\\
 <p>In this context, the matrix <span class="math notranslate nohighlight">\(A\)</span> is known as the <strong>coefficient matrix</strong>.</p>
 </section>
 <section id="identity-matrices">
-<h2>Identity Matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">¶</a></h2>
+<h2>Identity matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>identity matrix</strong> is a square matrix that behaves similar to the number 1 with respect to ordinary multiplication.  Identity matrices, labeled with <span class="math notranslate nohighlight">\(I\)</span>, are made up of ones along the main diagonal, and zeros everywhere else.  Below is the <span class="math notranslate nohighlight">\(4 \times 4\)</span> version of <span class="math notranslate nohighlight">\(I\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -608,25 +608,25 @@ AI = IA = A
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5  7 -4 -1  6]
- [-9 -6 -1 -2 -5]
- [ 2  5  5 -1  8]
- [ 9 -5  2 -7 -2]
- [-4  8  9  2  8]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -6  -6  -9   1  -7]
+ [ -8  -5   7   3  -1]
+ [ -6  -4 -10  -6   6]
+ [ -5   9   9   3  -9]
+ [  8  -1  -3 -10  -4]]
 
 
-[[ 5.  7. -4. -1.  6.]
- [-9. -6. -1. -2. -5.]
- [ 2.  5.  5. -1.  8.]
- [ 9. -5.  2. -7. -2.]
- [-4.  8.  9.  2.  8.]]
+[[ -6.  -6.  -9.   1.  -7.]
+ [ -8.  -5.   7.   3.  -1.]
+ [ -6.  -4. -10.  -6.   6.]
+ [ -5.   9.   9.   3.  -9.]
+ [  8.  -1.  -3. -10.  -4.]]
 
 
-[[ 5.  7. -4. -1.  6.]
- [-9. -6. -1. -2. -5.]
- [ 2.  5.  5. -1.  8.]
- [ 9. -5.  2. -7. -2.]
- [-4.  8.  9.  2.  8.]]
+[[ -6.  -6.  -9.   1.  -7.]
+ [ -8.  -5.   7.   3.  -1.]
+ [ -6.  -4. -10.  -6.   6.]
+ [ -5.   9.   9.   3.  -9.]
+ [  8.  -1.  -3. -10.  -4.]]
 </pre></div>
 </div>
 </div>
@@ -702,7 +702,10 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3 -2]
  [ 5  2  0]
  [ 4  2 -1]
- [ 2  2  0]] 
+ [ 2  2  0]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[ 0  6  2  6]
  [-1  1 -3  4]

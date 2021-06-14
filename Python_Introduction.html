@@ -264,7 +264,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importing-libraries">
-   Importing Libraries
+   Importing libraries
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -296,12 +296,12 @@
 <p>The first thing we might try is the use of code cells as a calculator.  Indeed this works in a straightforward way.  Run the cell below to see how it works.  Experiment with the input to see how to enter various operations.  (Note that you can get exponents by using the ** operator.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span><span class="o">*</span><span class="mf">1.7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span><span class="o">*</span><span class="mf">1.2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.39999999999999
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.4
 </pre></div>
 </div>
 </div>
@@ -413,7 +413,7 @@ The result of the calculation is 236.8
 </div>
 </div>
 </div>
-<p>Again, nothing actually happens until we call the function.  This time when we call though, we will need to provide a numer that the function will interpret as the variable <span class="math notranslate nohighlight">\(\texttt{inches}\)</span>.  The objects that we pass into functions are known as <strong>arguments</strong>.</p>
+<p>Again, nothing actually happens until we call the function.  This time when we call though, we will need to provide a number that the function will interpret as the variable <span class="math notranslate nohighlight">\(\texttt{inches}\)</span>.  The objects that we pass into functions are known as <strong>arguments</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">InchtoCentimeterConversion</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
@@ -610,9 +610,9 @@ The result of the calculation is 236.8
 <section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Often it is useful to include some plain text inside the code cell to help provide a description or explanation.  Such text is called a <strong>comment</strong>.  Comments are not interpreted as Python code, so we can write anything we like to help us document the code.  There are two ways to accomplish this.</p>
-<ol class="simple">
+<ul class="simple">
 <li><p>Any portion of a line that follows the <span class="math notranslate nohighlight">\(\texttt{#}\)</span> symbol is ignored by the interpretor.</p></li>
-</ol>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">142</span>
@@ -627,9 +627,9 @@ The result of the calculation is 236.8
 </div>
 </div>
 </div>
-<ol class="simple">
+<ul class="simple">
 <li><p>Any portion of the code cell within triple quotes is ignored.</p></li>
-</ol>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39; </span>
@@ -667,7 +667,7 @@ The result of the calculation is 236.8
 </div>
 </section>
 <section id="importing-libraries">
-<h2>Importing Libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this headline">¶</a></h2>
+<h2>Importing libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this headline">¶</a></h2>
 <p>The core of the Python language does not contain all the functionality that we will need for linear algebra.  In order to access more tools we will <strong>import</strong> some Python modules.  For example, some basic functions that you might find on a scientific calculator are not part of the Python language, but are included in the math module.  A simple way to import this module is with the code <span class="math notranslate nohighlight">\(\texttt{import math}\)</span>.  The cell below shows some examples of how we might use the module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -689,12 +689,40 @@ The cosine of pi/10 is approximately 0.9510565162951535
 </div>
 </div>
 <p>Note that when we use the square root function, we need to use the call <span class="math notranslate nohighlight">\(\texttt{math.sqrt}\)</span> instead of just <span class="math notranslate nohighlight">\(\texttt{sqrt}\)</span>.  This is because the square root function is actually a part of the <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module, and is not in the basic set of Python commands.  The use of this dot notation is ubiquitous in Python.  Whenever <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> is contained within <span class="math notranslate nohighlight">\(\texttt{object1}\)</span>, we access <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> by using <span class="math notranslate nohighlight">\(\texttt{object1.object2}\)</span>.</p>
+<p>In the Jupyter Guide to Linear Algebra, we will create our own module that contains all of the functions we develop as we work through the material.  This module is named <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.  We will import it in later sections when we want to make use of functions that we create in the earlier sections.  Note that unlike the <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module, the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module is not in the Python standard library.  This means that in order to use <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> outside of the Jupyter Guide to Linear Algebra, the source code must be copied from the repository <a class="reference external" href="https://github.com/bvanderlei/jupyter-guide-to-linear-algebra">github.com/bvanderlei/jupyter-guide-to-linear-algebra</a> before it can be imported.</p>
 </section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Write a function that accepts two arguments, <span class="math notranslate nohighlight">\(\texttt{a}\)</span> and <span class="math notranslate nohighlight">\(\texttt{b}\)</span>, and returns the remainder of <span class="math notranslate nohighlight">\(\texttt{a/b}\)</span>.  (<em>There is a built-in Python operator that does this, but try to come up with a way to do it for yourself.</em>)</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function that accepts a single integer <span class="math notranslate nohighlight">\(N\)</span>, as an argument, and returns the number of factors of <span class="math notranslate nohighlight">\(N\)</span>.   (<em>For example, 18 has factors 1, 2, 3, 6, 9, 18.  If the function receives 18 as an argument, it should return 6.</em>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function that accepts a single argument that represents a date, and returns the number of days that have passed between January 1, 2000, and the date provided.  (<em>For example, if the function receives the number 020100 (February 1, 2000), it should return the number 31.  If the function receives the number 01012001 (January 1, 2001), it should return 366 since the year 2000 was a <a class="reference external" href="https://www.timeanddate.com/date/leapyear.html">leap year</a>.</em>)  This exercise is more challenging that it may first appear.  Try splitting the problem in to simpler tasks.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>

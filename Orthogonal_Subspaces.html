@@ -259,27 +259,27 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-1-orthogonal-subspaces">
-   Example 1:  Orthogonal Subspaces
+   Example 1:  Orthogonal subspaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-2-orthogonal-complements">
-   Example 2:  Orthogonal Complements
+   Example 2:  Orthogonal complements
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#orthogonal-decomposition">
-   Orthogonal Decomposition
+   Orthogonal decomposition
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fundamental-subspaces">
-   Fundamental Subspaces
+   Fundamental subspaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-3-fundamental-subspaces">
-   Example 3: Fundamental Subspaces
+  <a class="reference internal nav-link" href="#example-3-demonstrating-orthogonality-of-fundamental-subspaces">
+   Example 3: Demonstrating orthogonality of fundamental subspaces
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -323,7 +323,7 @@ W = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ c \end{array}\right]
 <p>In the previous example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are not orthogonal complements.  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_3, E_4\}\)</span> and the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_1, E_2\}\)</span>.</p>
 <p>If the bases elements are not standard, we can determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal, or orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, by examining the elements of their bases.  If <span class="math notranslate nohighlight">\(\alpha\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal if every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span>.  If every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span> <em>and</em> the combined set of vectors in <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> forms a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
 <section id="example-1-orthogonal-subspaces">
-<h2>Example 1:  Orthogonal Subspaces<a class="headerlink" href="#example-1-orthogonal-subspaces" title="Permalink to this headline">¶</a></h2>
+<h2>Example 1:  Orthogonal subspaces<a class="headerlink" href="#example-1-orthogonal-subspaces" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> be the span of <span class="math notranslate nohighlight">\(\{V_1\}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be the span of <span class="math notranslate nohighlight">\(\{W_1\}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -336,7 +336,7 @@ W_1 = \left[ \begin{array}{r} -1 \\ 1 \\ 1  \end{array}\right] \hspace{1cm}
 <p>The two spaces <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> in this example are not orthogonal complements since <span class="math notranslate nohighlight">\(\{V_1, W_1\}\)</span> do not form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> must contain exactly three vectors.</p>
 </section>
 <section id="example-2-orthogonal-complements">
-<h2>Example 2:  Orthogonal Complements<a class="headerlink" href="#example-2-orthogonal-complements" title="Permalink to this headline">¶</a></h2>
+<h2>Example 2:  Orthogonal complements<a class="headerlink" href="#example-2-orthogonal-complements" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\alpha = \{V_1, V_2\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\beta = \{W_1, W_2\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, and suppose that we wish to determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -414,17 +414,17 @@ V\cdot W &amp; = &amp; (a_1V_1 + a_2V_2) \cdot (b_1W_1 + b_2W_2) \\
 <p>The presence of a pivot in each row and column indicates that <span class="math notranslate nohighlight">\(B=c_1V_1 + c_2V_2 +c_3W_1 + c_4W_4\)</span> has a unique solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>, which means that <span class="math notranslate nohighlight">\(\{V_1, V_2, W_1, W_2\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Together with the fact that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal, we can conclude that <span class="math notranslate nohighlight">\(\mathcal{W} = \mathcal{V}^{\perp}\)</span>.</p>
 </section>
 <section id="orthogonal-decomposition">
-<h2>Orthogonal Decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">¶</a></h2>
+<h2>Orthogonal decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">¶</a></h2>
 <p>The previous example reveals an important property of orthogonal complements.  If we are given orthogonal complements <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <strong>every vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as the sum of two components, one in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and the other in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span></strong>.  This idea parallels that of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">projecting</span></a> one vector onto another.  Any <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as <span class="math notranslate nohighlight">\(X = P + E\)</span>  where <span class="math notranslate nohighlight">\(P\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> onto the subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.  Since the complements are orthogonal, we know that <span class="math notranslate nohighlight">\(P\cdot E = 0\)</span>.</p>
 </section>
 <section id="fundamental-subspaces">
-<h2>Fundamental Subspaces<a class="headerlink" href="#fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
+<h2>Fundamental subspaces<a class="headerlink" href="#fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
 <p>In Chapter 2 we defined the <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">column space</span></a> and the <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">null space</span></a> of a matrix, and asserted that there are four fundamental subspaces associated with every matrix. In this section, we define the other two subspaces, and observe that they are the orthogonal complements of the first two spaces.</p>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the <strong>row space</strong> of <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of <em>rows</em> of <span class="math notranslate nohighlight">\(A\)</span>.  Alternatively, we could say that the row space of <span class="math notranslate nohighlight">\(A\)</span> is the column space of <span class="math notranslate nohighlight">\(A^T\)</span>.  The row space of <span class="math notranslate nohighlight">\(A\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and is the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, the null space of <span class="math notranslate nohighlight">\(A\)</span>.  Recall that a vector <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> if <span class="math notranslate nohighlight">\(AX=0\)</span>.  The entries of the vector <span class="math notranslate nohighlight">\(AX\)</span> are exactly the values of the dot products of <span class="math notranslate nohighlight">\(X\)</span> with each of the rows of <span class="math notranslate nohighlight">\(A\)</span>.  Since these entries are all zero, <span class="math notranslate nohighlight">\(X\)</span> is orthogonal to each row of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>The <strong>left null space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is the complement of the <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since the column space of <span class="math notranslate nohighlight">\(A\)</span> is also the row space of <span class="math notranslate nohighlight">\(A^T\)</span>, it must also be that the orthogonal complement of the column space is the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
 </section>
-<section id="example-3-fundamental-subspaces">
-<h2>Example 3: Fundamental Subspaces<a class="headerlink" href="#example-3-fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
+<section id="example-3-demonstrating-orthogonality-of-fundamental-subspaces">
+<h2>Example 3: Demonstrating orthogonality of fundamental subspaces<a class="headerlink" href="#example-3-demonstrating-orthogonality-of-fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
 <p>Let’s demonstrate the orthogonality of the row space and null space for a specific matrix.  We will construct a basis for each of the subspaces so that we can apply the same reasoning as in the previous example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

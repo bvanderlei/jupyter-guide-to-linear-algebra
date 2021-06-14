@@ -243,13 +243,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1">
-   Example 1
+  <a class="reference internal nav-link" href="#example-1-matrix-representing-horizontal-shear">
+   Example 1:  Matrix representing horizontal shear
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-2">
-   Example 2
+  <a class="reference internal nav-link" href="#example-2-projection-matrix">
+   Example 2:  Projection matrix
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -271,10 +271,10 @@
   <section id="eigenvalues">
 <h1>Eigenvalues<a class="headerlink" href="#eigenvalues" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we shift focus away from solving linear systems, and look closer at the effect of matrix multiplication.  We restrict our attention now to square matrices, which define linear transformations from <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  In this context we will study special values called eigenvalues, and corresponding vectors called eigenvectors, that can be used to analyze the effect of a corresponding matrix.</p>
-<p>Given a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> is called an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(A\)</span> if there exists some nonzero vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> such that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  The vector <span class="math notranslate nohighlight">\(V\)</span> is the <strong>eigenvector</strong> associated with <span class="math notranslate nohighlight">\(\lambda\)</span>.  The equation states that when an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is multiplied by <span class="math notranslate nohighlight">\(A\)</span>, the result is simply a multiple of the eigenvector.  In general, there may be multiple eigenvalues associated with a given matrix, and we will label them as <span class="math notranslate nohighlight">\(\lambda_1\)</span>, <span class="math notranslate nohighlight">\(\lambda_2\)</span>, etc., to keep an orderly notation.  We will lable eigenvectors in a similar way in order to track which eigenvectors are assoicated with which eigenvalues.</p>
+<p>Given a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> is called an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(A\)</span> if there exists some nonzero vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> such that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  The vector <span class="math notranslate nohighlight">\(V\)</span> is the <strong>eigenvector</strong> associated with <span class="math notranslate nohighlight">\(\lambda\)</span>.  The equation states that when an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is multiplied by <span class="math notranslate nohighlight">\(A\)</span>, the result is simply a multiple of the eigenvector.  In general, there may be multiple eigenvalues associated with a given matrix, and we will label them as <span class="math notranslate nohighlight">\(\lambda_1\)</span>, <span class="math notranslate nohighlight">\(\lambda_2\)</span>, etc., to keep an orderly notation.  We will lable eigenvectors in a similar way in order to track which eigenvectors are associated with which eigenvalues.</p>
 <p>We will visualize examples in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<section id="example-1-matrix-representing-horizontal-shear">
+<h2>Example 1:  Matrix representing horizontal shear<a class="headerlink" href="#example-1-matrix-representing-horizontal-shear" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider first the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -342,9 +342,9 @@ V_2 = \left[ \begin{array}{c} 0  \\ 1 \end{array}\right] \hspace{1cm}
 \end{split}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(AV_2 = V_2\)</span>, it must be that the associated eigenvalue is <span class="math notranslate nohighlight">\(\lambda_2 = 1.\)</span>  Again we note that there is a whole collection eigenvectors associated with <span class="math notranslate nohighlight">\(\lambda_2\)</span>, since any multiple of <span class="math notranslate nohighlight">\(V_2\)</span> is also unchanged by the transformation.</p>
 </section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
-<p>For the next example, let’s consider a matrix which projects vectors orthogonally onto its one-dimensional columnspace.</p>
+<section id="example-2-projection-matrix">
+<h2>Example 2:  Projection matrix<a class="headerlink" href="#example-2-projection-matrix" title="Permalink to this headline">¶</a></h2>
+<p>For the next example, let’s consider a matrix which projects vectors orthogonally onto its one-dimensional column space.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -424,21 +424,8 @@ V_2 = \left[ \begin{array}{r} 2  \\ 1 \end{array}\right] \hspace{1cm}
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Determine the eigenvalues and corresponding eigenvalues of the following matrices by considering the transformations that they represent.  Check your answers with a computations.</p></li>
+<li><p>Determine the eigenvalues and corresponding eigenvectors of the following matrix by considering the transformation that it represents.  Check your answers with a computations.</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{equation}
-B = \left[ \begin{array}{cc} 0.2 &amp; -0.4 \\ -0.4 &amp; 0.8 \end{array}\right]
-\end{equation}
-\end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
