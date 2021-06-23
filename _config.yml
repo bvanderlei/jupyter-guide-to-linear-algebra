@@ -13,4 +13,5 @@ repository:
 
 launch_buttons:
   notebook_interface: "classic"
+  colab_url: ""
   thebe: true
