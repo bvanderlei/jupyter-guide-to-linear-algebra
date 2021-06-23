@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gaussian Elimination &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,16 +96,30 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Gaussian Elimination
@@ -140,32 +151,138 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Gaussian_Elimination.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -291,6 +405,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -298,7 +413,7 @@
         
               <div>
                 
-  <section id="gaussian-elimination">
+  <div class="section" id="gaussian-elimination">
 <h1>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">¶</a></h1>
 <p>In this section we define some Python functions to help us solve linear systems in the most direct way.  The algorithm is known as Gaussian Elimination, which we will simply refer to as <strong>elimination</strong> from this point forward.  The idea of elimination is to exchange the system we are given with another system that has the same solution, but is much easier to solve.  To this end we will perform a series of steps called <strong>row operations</strong> which preserve the solution of the system while gradually making the solution more accessible.  There are three such operations we may perform.</p>
 <ol class="simple">
@@ -307,7 +422,7 @@
 <li><p>Replace any equation with the sum of itself and a multiple of another equation.</p></li>
 </ol>
 <p><a id='GE1'></a></p>
-<section id="example-1-row-operations-and-elimination">
+<div class="section" id="example-1-row-operations-and-elimination">
 <h2>Example 1:  Row operations and elimination<a class="headerlink" href="#example-1-row-operations-and-elimination" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at an example.</p>
 <div class="math notranslate nohighlight">
@@ -515,8 +630,8 @@ x_3 &amp; = &amp; 2
 \end{eqnarray*}
 \end{split}\]</div>
 <p>After the steps of elimination, we have what is known as a triangular system.  The solution to this system can be found without much effort by working backwards from the last equation.  The last equation tells us that <span class="math notranslate nohighlight">\(x_3 = 2\)</span>.  If we substitute that value into the second equation, we find that <span class="math notranslate nohighlight">\(x_2 = 0\)</span>.  Finally, if we substitute these values back into the first equation, we find that <span class="math notranslate nohighlight">\(x_1 = 1.\)</span>  This process for finding the solution of the triangular system is called <strong>back substitution</strong>.</p>
-</section>
-<section id="example-2-elimination-on-a-random-array">
+</div>
+<div class="section" id="example-2-elimination-on-a-random-array">
 <h2>Example 2:  Elimination on a random array<a class="headerlink" href="#example-2-elimination-on-a-random-array" title="Permalink to this headline">¶</a></h2>
 <p>If a system of equations has a solution, the elimination algorithm will always result in a triangular system that can be solved by back substitution.  In this next example, we look at the calculation with a small change to see it in a more general way.  This time when we use the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> function, we will set the <em>scale</em> parameter based on the values in the array.</p>
 <p>To help us avoid writing the code based on the entries in any specific matrix, we will make up a matrix of random numbers using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module.</p>
@@ -528,9 +643,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2 -6  0 -7]
- [ 0  2 -1 -8]
- [ 0  7  7 -8]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-7  3  4 -7]
+ [ 4  6  4 -1]
+ [ 4 -3 -4  6]]
 </pre></div>
 </div>
 </div>
@@ -554,9 +669,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.        -3.         0.        -3.5      ]
- [ 0.         1.        -0.5       -4.       ]
- [ 0.         0.         1.         1.9047619]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.         -0.42857143 -0.57142857  1.        ]
+ [ 0.          1.          0.81481481 -0.64814815]
+ [-0.         -0.          1.         -1.75      ]]
 </pre></div>
 </div>
 </div>
@@ -572,8 +687,8 @@ x_3 &amp; = &amp; 2
 </pre></div>
 </div>
 <p>Execute the code in this example several times.  Each time array <span class="math notranslate nohighlight">\(\texttt{R}\)</span> is created it will be populated with random integers between -8 and 8.  Does the code always produce a triangluar system ready for back substitution?  See if you can figure out which part of the process might fail, and why?</p>
-</section>
-<section id="example-3-finding-pivots">
+</div>
+<div class="section" id="example-3-finding-pivots">
 <h2>Example 3: Finding pivots<a class="headerlink" href="#example-3-finding-pivots" title="Permalink to this headline">¶</a></h2>
 <p>As we can see, the code in the last example fails if a zero shows up as any of the entries in the array that we divide by in order to calculate the scale factors.  These critical entries are known as the <strong>pivots</strong>, and their locations in the matrix are called <strong>pivot positions</strong>.  By definition, pivots must be nonzero.  If a zero arises in a pivot position during the elimination steps, we can try to exchange the order of the rows to move a nonzero entry into the pivot position.  Let’s first try this for a specific array before trying to write code that will work for a random array.</p>
 <div class="math notranslate nohighlight">
@@ -678,8 +793,8 @@ x_2 - 4x_3 &amp; = &amp; -3
 \end{split}\]</div>
 <p>The idea of back substitution works just as well with this form of the system, but the organization of the algorithm becomes slightly more complicated.</p>
 <p><a id='GE4'></a></p>
-</section>
-<section id="example-4-elimination-fails">
+</div>
+<div class="section" id="example-4-elimination-fails">
 <h2>Example 4:  Elimination fails<a class="headerlink" href="#example-4-elimination-fails" title="Permalink to this headline">¶</a></h2>
 <p>Let’s make a small change to the system in the previous example and observe an example of how the elimination process can break down.</p>
 <div class="math notranslate nohighlight">
@@ -752,8 +867,8 @@ x_3 &amp; = &amp; 0.75
 \end{eqnarray*}
 \end{split}\]</div>
 <p>Note that we did not make any errors in the calculation and that there is no way to reorder the equations to alleviate the problem.  This system simply does not have a solution.  We will revisit this scenario in future sections and provide a characterization for such systems.</p>
-</section>
-<section id="example-5-nonunique-solution">
+</div>
+<div class="section" id="example-5-nonunique-solution">
 <h2>Example 5:  Nonunique solution<a class="headerlink" href="#example-5-nonunique-solution" title="Permalink to this headline">¶</a></h2>
 <p>In this final example of elimination, we observe another possible outcome of the process.</p>
 <div class="math notranslate nohighlight">
@@ -835,8 +950,8 @@ x_3 &amp; = &amp; 1\\
 \end{eqnarray*}
 \end{split}\]</div>
 <p>Since the middle equation tells us that <span class="math notranslate nohighlight">\(x_3=1\)</span>, we can plug that value into the first equation using the idea of back substitution.  This leaves us with the single equation <span class="math notranslate nohighlight">\(x_1-x_2 = 2\)</span>.  This equation, and thus the system as a whole, has an <em>infinite number of solutions</em>.  We will revist this idea and provide further details in the next chapter.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Repeat the elimination process for the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the triangular system represented by the array after all steps are completed.</p></li>
@@ -892,8 +1007,8 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -917,15 +1032,15 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Linear_Systems.html" title="previous page">Linear Systems</a>
     <a class='right-next' id="next-link" href="Matrix_Algebra.html" title="next page">Matrix Algebra</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -944,7 +1059,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

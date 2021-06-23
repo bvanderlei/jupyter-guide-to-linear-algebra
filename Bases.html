@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bases &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,21 +96,69 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="General_Linear_Systems.html">
      General Linear Systems
@@ -145,27 +190,99 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Bases.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -302,6 +416,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -309,7 +424,7 @@
         
               <div>
                 
-  <section id="bases">
+  <div class="section" id="bases">
 <h1>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h1>
 <p>When working with vector spaces, or subspaces, it is often useful to express arbitrary vectors as linear combinations of a set of given vectors known as a basis.  A <strong>basis</strong> for a vector space (or subspace) is a collection of linearly independent vectors that span the space.  This definition pulls together the ideas of linear independence and spanning sets to describe a set of vectors which we can understand as building blocks for a vector space.</p>
 <p>Given a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and any vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, let us consider the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span>.  This vector equation represents a linear system that could also be represented by the matrix equation <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix that has the vectors <span class="math notranslate nohighlight">\(V_i\)</span> as its columns.  In previous sections we have made two important conclusions regarding this system.</p>
@@ -318,7 +433,7 @@
 <li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at most one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> are linearly independent.</p></li>
 </ul>
 <p>Combining these statements tells us that <span class="math notranslate nohighlight">\(AX=Y\)</span> has exactly one solution for each <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> if and only if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent and span the space <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.   In other words, the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span> has a unique solution for any <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> if and only if the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
-<section id="example-1-basis-for-mathbb-r-5">
+<div class="section" id="example-1-basis-for-mathbb-r-5">
 <h2>Example 1:  Basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span><a class="headerlink" href="#example-1-basis-for-mathbb-r-5" title="Permalink to this headline">¶</a></h2>
 <p>The following set of vectors form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -352,8 +467,8 @@ V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right]
 </div>
 </div>
 <p>We see that the RREF of <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(5\times 5\)</span> identity matrix, which indicates that <span class="math notranslate nohighlight">\(A\)</span> has is a pivot in each row and each column.  This verifies that the columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>, and guarantees that the linear system <span class="math notranslate nohighlight">\(AX=Y\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-</section>
-<section id="example-2-standard-bases">
+</div>
+<div class="section" id="example-2-standard-bases">
 <h2>Example 2: Standard bases<a class="headerlink" href="#example-2-standard-bases" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>standard basis</strong> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> is the set of vectors <span class="math notranslate nohighlight">\(\{E_1, E_2, ..., E_n\}\)</span> that correspond to the columns of the <span class="math notranslate nohighlight">\(n\times n\)</span> identity matrix <span class="math notranslate nohighlight">\(I\)</span>.  That is, <span class="math notranslate nohighlight">\(E_i\)</span> is the vector with the <span class="math notranslate nohighlight">\(i\)</span>th entry equal to 1, and all other entries equal to 0.  The standard basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> is shown here as an example.</p>
 <div class="math notranslate nohighlight">
@@ -366,8 +481,8 @@ E_4 = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 <p>Clearly there is a unique solution to the system <span class="math notranslate nohighlight">\(IX=Y\)</span> for every <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
-</section>
-<section id="example-3-basis-for-a-subspace-of-mathbb-r-3">
+</div>
+<div class="section" id="example-3-basis-for-a-subspace-of-mathbb-r-3">
 <h2>Example 3: Basis for a Subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span><a class="headerlink" href="#example-3-basis-for-a-subspace-of-mathbb-r-3" title="Permalink to this headline">¶</a></h2>
 <p>The following set of vectors forms a basis for the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that consists of vectors with middle entry equal to zero.</p>
 <div class="math notranslate nohighlight">
@@ -410,8 +525,8 @@ c_2\left[ \begin{array}{r} 0 \\ 0 \\  1 \end{array}\right] =
 \end{equation}
 \end{split}\]</div>
 <p>In this example it is clear that we can take <span class="math notranslate nohighlight">\(c_1 = y_1\)</span> and <span class="math notranslate nohighlight">\(c_2 = y_3 - 2y_1\)</span> by using substitution.</p>
-</section>
-<section id="example-4-solution-set-of-a-homogeneous-system">
+</div>
+<div class="section" id="example-4-solution-set-of-a-homogeneous-system">
 <h2>Example 4: Solution set of a homogeneous system<a class="headerlink" href="#example-4-solution-set-of-a-homogeneous-system" title="Permalink to this headline">¶</a></h2>
 <p>Consider the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> where <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and <span class="math notranslate nohighlight">\(A\)</span> is the following <span class="math notranslate nohighlight">\(2\times 4\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
@@ -453,8 +568,8 @@ W_2 = \left[ \begin{array}{r} 2 \\ 4 \\ 0 \\ 1  \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 <p>The set <span class="math notranslate nohighlight">\(\{W_1, W_2\}\)</span> is linearly independent and forms a basis for the set of solutions to <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
-</section>
-<section id="dimension">
+</div>
+<div class="section" id="dimension">
 <h2>Dimension<a class="headerlink" href="#dimension" title="Permalink to this headline">¶</a></h2>
 <p>We now examine some sets of vectors that do not form bases.  By looking at these non-example we will uncover a concept that is related directly to bases.</p>
 <p>The following set of vectors is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
@@ -516,8 +631,8 @@ V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspac
 </div>
 </div>
 <p>These two examples illustrate why any set of vectors that does not contain exactly five vectors cannot be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.  We might suspect that exactly five vectors are needed because the space is five-dimensional, and this is almost correct.  It is more accurate to say that <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> is five-dimensional <em>because</em> a basis for the space must have five vectors.  The <strong>dimension</strong> of a vector space (or subspace) is defined as the number of vectors in any basis for the space.</p>
-</section>
-<section id="coordinates">
+</div>
+<div class="section" id="coordinates">
 <h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>We now understand that if we are given a basis <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and a vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, there is a unique linear combination of the basis vectors equal to <span class="math notranslate nohighlight">\(X\)</span>.  The <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(X\)</span> with respect to this basis is the unique set of weights <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, … <span class="math notranslate nohighlight">\(c_n\)</span> that satisfy the vector equation <span class="math notranslate nohighlight">\(X=c_1V_1 + c_2V_2 + ... c_nV_n\)</span>.  It becomes useful at this point to assign labels to bases that are under discussion.  For example, we might say that <span class="math notranslate nohighlight">\(\beta = \{V_1, V_2, V_3, ... V_n\}\)</span>, and refer to the coordinates of <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.  It is only natural to collect these weights into an <span class="math notranslate nohighlight">\(n\times 1\)</span> array, to which we will assign the notation <span class="math notranslate nohighlight">\([X]_{\beta}\)</span>.  Despite potential confusion, this array is referred to as the “coordinate vector”.</p>
 <p>To demonstrate, suppose that we use the basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> given in <strong>Example 1</strong>, and assign it the label <span class="math notranslate nohighlight">\(\beta\)</span>.  Consider then the calculation need to find of the coordinates of a vector <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
@@ -553,8 +668,8 @@ c_1\left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right]
 </div>
 </div>
 <p>Since calculating coordinates always involves solving a linear system, it can be helpful at times to remember that whenever we solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>, we are really finding the coordinates of <span class="math notranslate nohighlight">\(B\)</span> with respect to the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Find a basis for the set of solutions to the system <span class="math notranslate nohighlight">\(PX=0\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is defined as follows.</p></li>
@@ -620,8 +735,8 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -645,15 +760,15 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Linear_Independence.html" title="previous page">Linear Independence</a>
     <a class='right-next' id="next-link" href="Vector_Space_Examples.html" title="next page">Vector Space Examples</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -672,7 +787,7 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

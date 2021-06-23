@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matrix Algebra &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,16 +96,30 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Gaussian_Elimination.html">
      Gaussian Elimination
@@ -140,32 +151,138 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Matrix_Algebra.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -301,6 +415,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -308,7 +423,7 @@
         
               <div>
                 
-  <section id="matrix-algebra">
+  <div class="section" id="matrix-algebra">
 <h1>Matrix Algebra<a class="headerlink" href="#matrix-algebra" title="Permalink to this headline">¶</a></h1>
 <p>In this section we look at matrix algebra and some of its common properties.  We will also see how operations involving matrices are connected to linear systems of equations.</p>
 <p>A <strong>matrix</strong> is two-dimensional array of numbers.  When we do computations with matrices using NumPy, we will be using arrays just as we did before.  Let’s write down some of examples of matrices and give them names.</p>
@@ -357,7 +472,7 @@ Array B has 3 columns.
 </div>
 </div>
 </div>
-<section id="operations-on-matrices">
+<div class="section" id="operations-on-matrices">
 <h2>Operations on matrices<a class="headerlink" href="#operations-on-matrices" title="Permalink to this headline">¶</a></h2>
 <p>There are three algebraic operations for matrices that we will need to perform.  For our definitions let us suppose that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(m \times n\)</span> matrices, <span class="math notranslate nohighlight">\(B\)</span> is an <span class="math notranslate nohighlight">\(n \times k\)</span> matrix, and <span class="math notranslate nohighlight">\(c\)</span> is a number.  When discussing algebra involving matrices and numbers, the numbers are usually referred to as <strong>scalars</strong>.</p>
 <ol class="simple">
@@ -444,8 +559,8 @@ AB = \left[ \begin{array}{rr} 1 &amp; 3 \\ 2 &amp; 1 \end{array}\right]
 </div>
 </div>
 </div>
-</section>
-<section id="properties-of-matrix-operations">
+</div>
+<div class="section" id="properties-of-matrix-operations">
 <h2>Properties of matrix operations<a class="headerlink" href="#properties-of-matrix-operations" title="Permalink to this headline">¶</a></h2>
 <p>It is useful to observe that some common algebraic properties hold true for matrix multiplication.  Let <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> be matrices, and <span class="math notranslate nohighlight">\(k\)</span> be a scalar.  The associative and distributive properties stated here hold for matrix multiplication.</p>
 <div class="math notranslate nohighlight">
@@ -480,20 +595,20 @@ A(BC) = (AB)C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  7   1   4]
- [ 41  26   7]
- [  7  -1 -10]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10 -12   8]
+ [ 15   6   0]
+ [ -6   4 -16]]
 
 
-[[ 22   2  -2]
- [ 32  -3  -8]
- [-10 -17   4]]
+[[ -5   2   1]
+ [-19 -15 -26]
+ [ 11   5   0]]
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="matrix-transposes">
+</div>
+<div class="section" id="matrix-transposes">
 <h2>Matrix transposes<a class="headerlink" href="#matrix-transposes" title="Permalink to this headline">¶</a></h2>
 <p>Another common idea that we will find useful is that of the matrix transpose.  The <strong>transpose</strong> of a matrix <span class="math notranslate nohighlight">\(A\)</span> is another matrix, <span class="math notranslate nohighlight">\(A^T\)</span>, defined so that its columns are the rows of <span class="math notranslate nohighlight">\(A\)</span>.  To build <span class="math notranslate nohighlight">\(A^T\)</span>, we simple swap the row index with the column index for every entry, <span class="math notranslate nohighlight">\(a^T_{ij} = a_{ji}\)</span>.  One example should be enough to clarify this definition.</p>
 <div class="math notranslate nohighlight">
@@ -530,8 +645,8 @@ A^T = \left[ \begin{array}{rrr} 5 &amp; 1 &amp; 6 \\ 4 &amp; 8 &amp; 7 \\ 0 &amp
 </div>
 </div>
 </div>
-</section>
-<section id="application-to-linear-systems">
+</div>
+<div class="section" id="application-to-linear-systems">
 <h2>Application to linear systems<a class="headerlink" href="#application-to-linear-systems" title="Permalink to this headline">¶</a></h2>
 <p>A very important example of matrix multiplication is that where a known matrix multiplies an <em>unknown</em> vector to produce a known vector.  If we let <span class="math notranslate nohighlight">\(A\)</span> be the known matrix, <span class="math notranslate nohighlight">\(B\)</span> be the known vector, and <span class="math notranslate nohighlight">\(X\)</span> be the unknown vector, we can write the matrix equation <span class="math notranslate nohighlight">\(AX=B\)</span> to describe this scenario.  Let’s write a specific example.</p>
 <div class="math notranslate nohighlight">
@@ -561,8 +676,8 @@ x_1 + 3x_2 - 2x_3 &amp; = &amp; 0\\
 \end{eqnarray*}
 \end{split}\]</div>
 <p>In this context, the matrix <span class="math notranslate nohighlight">\(A\)</span> is known as the <strong>coefficient matrix</strong>.</p>
-</section>
-<section id="identity-matrices">
+</div>
+<div class="section" id="identity-matrices">
 <h2>Identity matrices<a class="headerlink" href="#identity-matrices" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>identity matrix</strong> is a square matrix that behaves similar to the number 1 with respect to ordinary multiplication.  Identity matrices, labeled with <span class="math notranslate nohighlight">\(I\)</span>, are made up of ones along the main diagonal, and zeros everywhere else.  Below is the <span class="math notranslate nohighlight">\(4 \times 4\)</span> version of <span class="math notranslate nohighlight">\(I\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -608,25 +723,25 @@ AI = IA = A
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -6  -6  -9   1  -7]
- [ -8  -5   7   3  -1]
- [ -6  -4 -10  -6   6]
- [ -5   9   9   3  -9]
- [  8  -1  -3 -10  -4]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  4   6  -2  -9   8]
+ [  0  -1   7  -3   8]
+ [ -5  -4  -7 -10   6]
+ [  7   7  -3  -6  -9]
+ [ -4   3   3  -1   5]]
 
 
-[[ -6.  -6.  -9.   1.  -7.]
- [ -8.  -5.   7.   3.  -1.]
- [ -6.  -4. -10.  -6.   6.]
- [ -5.   9.   9.   3.  -9.]
- [  8.  -1.  -3. -10.  -4.]]
+[[  4.   6.  -2.  -9.   8.]
+ [  0.  -1.   7.  -3.   8.]
+ [ -5.  -4.  -7. -10.   6.]
+ [  7.   7.  -3.  -6.  -9.]
+ [ -4.   3.   3.  -1.   5.]]
 
 
-[[ -6.  -6.  -9.   1.  -7.]
- [ -8.  -5.   7.   3.  -1.]
- [ -6.  -4. -10.  -6.   6.]
- [ -5.   9.   9.   3.  -9.]
- [  8.  -1.  -3. -10.  -4.]]
+[[  4.   6.  -2.  -9.   8.]
+ [  0.  -1.   7.  -3.   8.]
+ [ -5.  -4.  -7. -10.   6.]
+ [  7.   7.  -3.  -6.  -9.]
+ [ -4.   3.   3.  -1.   5.]]
 </pre></div>
 </div>
 </div>
@@ -642,8 +757,8 @@ AI = IA = A
 I_2 C = CI_3 = C
 \end{equation}
 \]</div>
-</section>
-<section id="matrix-vector-multiplication">
+</div>
+<div class="section" id="matrix-vector-multiplication">
 <h2>Matrix-vector multiplication<a class="headerlink" href="#matrix-vector-multiplication" title="Permalink to this headline">¶</a></h2>
 <p>One special case of matrix multiplication deserves close attention, the case where one of the matrices is a vector.  This case is so important that it is commonly discussed separately and given a special name, <strong>matrix-vector multiplication</strong>.  Let’s suppose that <span class="math notranslate nohighlight">\(P\)</span> is our matrix and that its shape is <span class="math notranslate nohighlight">\(n \times m\)</span>, and <span class="math notranslate nohighlight">\(Y\)</span> is our vector which is <span class="math notranslate nohighlight">\(m \times 1\)</span>.  The product <span class="math notranslate nohighlight">\(PY\)</span> then is a <span class="math notranslate nohighlight">\(n \times 1\)</span> vector.  It is the relationship between this new vector and the columns of the matrix <span class="math notranslate nohighlight">\(P\)</span> that makes this situation important.</p>
 <p>Let’s have a look with a specific example.</p>
@@ -667,8 +782,8 @@ PY = \left[ \begin{array}{rrr} 1 &amp; 3 &amp; -2 \\ 5 &amp; 2 &amp; 0 \\ 4 &amp
 \end{equation}
 \end{split}\]</div>
 <p>This is the same operation that we were doing before, but now we see that this product is a result of adding the columns of <span class="math notranslate nohighlight">\(P\)</span> after first multiplying each be the corresponding entry in <span class="math notranslate nohighlight">\(Y\)</span>.</p>
-</section>
-<section id="matrix-multiplication-by-columns">
+</div>
+<div class="section" id="matrix-multiplication-by-columns">
 <h2>Matrix multiplication by columns<a class="headerlink" href="#matrix-multiplication-by-columns" title="Permalink to this headline">¶</a></h2>
 <p>We can extend the calculation of matrix-vector multiplication to better understand exactly what is produced by matrix-matrix multiplication.  Suppose for example that <span class="math notranslate nohighlight">\(Y\)</span> from the earlier calculation was actually the third column of a <span class="math notranslate nohighlight">\(3\times 4\)</span> matrix <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -702,10 +817,7 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3 -2]
  [ 5  2  0]
  [ 4  2 -1]
- [ 2  2  0]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ [ 2  2  0]] 
 
 [[ 0  6  2  6]
  [-1  1 -3  4]
@@ -737,8 +849,8 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 </pre></div>
 </div>
 <p>this is indeed valid code, but the array <span class="math notranslate nohighlight">\(X\)</span> is not exactly what we expect.  Instead we get an array with the correct entries, but not the correct shape.  It is possible to make this work, but let’s avoid this complication.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Calculate <span class="math notranslate nohighlight">\(-2E\)</span>, <span class="math notranslate nohighlight">\(G+F\)</span>, <span class="math notranslate nohighlight">\(4F-G\)</span>, <span class="math notranslate nohighlight">\(HG\)</span>, and <span class="math notranslate nohighlight">\(GE\)</span> using the following matrix definitions.  Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p></li>
@@ -781,8 +893,8 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -806,15 +918,15 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Gaussian_Elimination.html" title="previous page">Gaussian Elimination</a>
     <a class='right-next' id="next-link" href="Solving_Systems.html" title="next page">Solving Systems using Elimination</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -833,7 +945,7 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

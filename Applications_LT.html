@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Applications of Linear Transformations &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,26 +96,108 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Matrix_Representations.html">
      Matrix Representations
@@ -135,22 +214,75 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -165,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -195,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -220,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Applications_LT.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -232,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -290,6 +419,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -297,15 +427,15 @@
         
               <div>
                 
-  <section id="applications-of-linear-transformations">
+  <div class="section" id="applications-of-linear-transformations">
 <h1>Applications of Linear Transformations<a class="headerlink" href="#applications-of-linear-transformations" title="Permalink to this headline">¶</a></h1>
-<section id="computer-graphics">
+<div class="section" id="computer-graphics">
 <h2>Computer graphics<a class="headerlink" href="#computer-graphics" title="Permalink to this headline">¶</a></h2>
 <p>Computer graphics essentially consist of a large number of basic geometric shapes such as triangles or quadrilaterals, defined by their vertexes (corners).  The ability to manipulate these shapes efficiently is a fundamental necessity in the field of computer graphics.  Linear transformations can be used to generate a complex shapes from a basic shapes through effects such as shearing and reflection, and can also be used to rotate and translate shapes in order to create a sequence of images needed for an animated scene.</p>
 <p>The software responsible for rendering three-dimensional scenes in modern video games must process the coordinates of millions of vertexes in each frame of animation.  Typical hardware used for running the software will be able to generate around 60 frames per second.  In addition to the placement of vertexes in a scene, there are other computations required, such as those to provide color and shading, and then to project the three-dimensional scene onto the two-dimensional screen.  In this context, the efficiency of the algorithms, software, and hardware all play a major role in the quality of the end result.</p>
 <p>The use of matrix multiplication to manipulate coordinates for computer graphics has two primary advantages.  Matrix representations can be used to merge multiple transformations together into a single transformation.  For example, instead of applying a rotation followed by a scaling transformation, the two operations can easily be merged into a single operation by multiplying the associated matrices as we did earlier.  The other advantage to organizing the calculations into matrix multiplications is that dedicated hardware (graphics processing units) is designed specifically to handle these calculations in large numbers.</p>
 <p>The construction of matrices to carry out rotations, reflections, and shears, has already been demonstrated in <a class="reference internal" href="Planar_Transformations.html"><span class="doc std std-doc">Planar Transformations</span></a>.  Here we show how to use matrix multiplication to carry out a translation, which is not a linear transformation.</p>
-<section id="translation">
+<div class="section" id="translation">
 <h3>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
 <p>A <strong>translation</strong> is a transformation that moves all points an equal amount in the same direction.  Shown below is an example where all points are shifted (translated) three units to the right, and one unit up by a transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2 \to \mathbb{R}^2\)</span>.  In the plot, we show several points which define a shape, and their corresponding images under the translation.</p>
 <div class="cell docutils container">
@@ -465,8 +595,8 @@ L(X) = AX = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 3 \\ 0 &amp; 1 &amp; 1 \\ 
 </div>
 <p>If we look closely at the computation, we realize that this way of computing the coordinates of the translated shape actually requires <em>more operations</em> than the first attempt where we stepped through the array and manipulated the coordinates directly.  The important point to remember however is that the ability to represent the translation as a matrix multiplication means that we can merge it with another operation, such as rotation, in order to carry out both operations by multiplying by a single matrix.</p>
 <p>Translations of shapes in three dimensions can be done in a similar way by associating each set of coordinate <span class="math notranslate nohighlight">\((x_1, x_2, x_3)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> with the point <span class="math notranslate nohighlight">\((x_1, x_2, x_3, 1)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Find a single matrix that represents a transformation that has the effect of a reflection about the line <span class="math notranslate nohighlight">\(x_1=x_2\)</span> followed by a shift four units to the left.</p></li>
@@ -498,13 +628,13 @@ L(X) = AX = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 3 \\ 0 &amp; 1 &amp; 1 \\ 
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="discrete-dynamical-systems">
+</div>
+</div>
+<div class="section" id="discrete-dynamical-systems">
 <h2>Discrete dynamical systems<a class="headerlink" href="#discrete-dynamical-systems" title="Permalink to this headline">¶</a></h2>
 <p>As we saw in the previous chapter, it is often useful to describe a structure that has multiple components with a single vector.  If that structure is changing in time due to some process, it is typical to refer to the vector as a <strong>state vector</strong> since it describes the <em>state</em> of the structure at some particular time.  It is quite common to model such dynamic processes at discrete times and use linear transformations to model the evolution of the state vector from one time to the next.</p>
 <p>Let’s suppose that we aim to describe sequence of vectors at times <span class="math notranslate nohighlight">\(t=0, 1, 2, 3,\)</span>… with state vectors <span class="math notranslate nohighlight">\(X_0\)</span>, <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span>, <span class="math notranslate nohighlight">\(X_3\)</span>…. at those times.  We propose to calculate the state vector <span class="math notranslate nohighlight">\(X_t\)</span> based only on the previous state vector <span class="math notranslate nohighlight">\(X_{t-1}\)</span>.  If we model the transition from <span class="math notranslate nohighlight">\(X_{t-1}\)</span> to <span class="math notranslate nohighlight">\(X_t\)</span> with a linear transformation, then there is a matrix such that <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>.  This sort of model is known as a <strong>discrete dynamical system</strong> and is used in many areas from economics to biology.</p>
-<section id="infectious-disease-model">
+<div class="section" id="infectious-disease-model">
 <h3>Infectious Disease Model<a class="headerlink" href="#infectious-disease-model" title="Permalink to this headline">¶</a></h3>
 <p>In this example we consider a basic model of an infectious disease that is spreading within a population.  A well known family of models for this scenario is known as the <span class="math notranslate nohighlight">\(SIR\)</span> models.  The acronym comes from a basic modeling assumption that the population is divided into three categories: Susceptible, Infectious, and Recovered.  As the disease, spreads a portion of the Susceptible individuals become Infectious, and a portion of Infectious individuals become Recovered.  We will consider a small variation in the model which assumes that a portion of Recovered individuals return to the Susceptible category.  This variation, known as an <span class="math notranslate nohighlight">\(SIRS\)</span> model, would be a more accurate description of a disease which can be contracted multiple times.</p>
 <p>We suppose that the population is completely homogeneous in all regards, so that all individuals in a given category have the same probabilities to move to the next category.</p>
@@ -582,8 +712,8 @@ X_0 = \left[ \begin{array}{r} 0.95 \\ 0.05 \\ 0  \end{array}\right]
 </div>
 </div>
 <p>In such models attention is typically focused on the ultimate behavior of the state vector.  We want to know if the composition of the population reaches an equilibrium, or continues to change.  If it reaches an equilibrium, can we calculate it directly, instead of applying the matrix multiplication a large number of times?  We will address these questions in Chapter 5, when we learn more about computing <span class="math notranslate nohighlight">\(A^n\)</span> efficiently.</p>
-</section>
-<section id="navigating-webpages">
+</div>
+<div class="section" id="navigating-webpages">
 <h3>Navigating webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h3>
 <p>Browsing webpages can also be modeled using a discrete dynamical system.  In this model, the entries of the state vector <span class="math notranslate nohighlight">\(X_t\)</span>, represent the probability that the browser is on a particular page at time <span class="math notranslate nohighlight">\(t\)</span>.  Advancing in time represents the browser moving from one page to another.  Many pages contain links to other pages.  The model assumes that the browser is more likely to follow a link to a new page rather than navigating to a new unlinked page.  The goal is to build a linear transformation <span class="math notranslate nohighlight">\(L\)</span>, defined by a matrix multiplication, which maps the vector of probabilities at time <span class="math notranslate nohighlight">\(t-1\)</span> to the vector of probabilities at time <span class="math notranslate nohighlight">\(t\)</span> based on the link structure of the pages.  Such a model was the foundation of the PageRank algorithm, which is the basis of Google’s very successful search engine.</p>
 <p>To build the required matrix <span class="math notranslate nohighlight">\(A\)</span>, the entries <span class="math notranslate nohighlight">\(a_{ij}\)</span> are set to the probability that the browser navigates to page <span class="math notranslate nohighlight">\(i\)</span> from page <span class="math notranslate nohighlight">\(j\)</span>.  For fixed column <span class="math notranslate nohighlight">\(j\)</span>, the entries represent a  probability distribution that describes location of the browser at the next step.  The entries in each column therefore must add to one.  Let’s make some additional assumptions to complete the model.</p>
@@ -662,8 +792,8 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 </div>
 </div>
 <p>As with the population model, the interest lies in predicting the probabilities in <span class="math notranslate nohighlight">\(X_n\)</span> when <span class="math notranslate nohighlight">\(n\)</span> is large, and thus determining what pages a browser is more likely to visit after this sort of random navigation.</p>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The webpages and their links are an example of a <a class="reference internal" href="Applications.html"><span class="doc std std-doc">directed graph</span></a> as discussed in an earlier chapter.  An adjacency matrix therefore could be used to conveniently describe the link structure among the pages.  The matrix used in the web navigation model could then be constructed from the adjacency matrix.  Write a Python function that accepts an adjacency matrix for a direct graph, and returns a the matrix required for the corresponding web navigation model.  Test your function on the following adjacency matrix defined in the cell below.</p></li>
@@ -692,9 +822,9 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="references">
+</div>
+</div>
+<div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Allen, Linda J.S. <em>Some Discrete SI, SIR, and SIS epidemic models</em>., Mathematical Biosciences, Vol 124, No. 1, Nov. 1994, pp. 83-105.</p></li>
@@ -703,8 +833,8 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 <li><p>Leon, Steven J. <em>Linear Algebra with Applications</em>. 9th ed., Pearson., 2015</p></li>
 <li><p>John Vince. <em>Mathematics for Computer Graphics</em>. 3rd ed., Springer., 2010</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -728,15 +858,15 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Planar_Transformations.html" title="previous page">Transformations in a Plane</a>
     <a class='right-next' id="next-link" href="Inner_Products.html" title="next page">Inner Products</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -755,7 +885,7 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

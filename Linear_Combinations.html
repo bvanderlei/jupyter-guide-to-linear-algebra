@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear Combinations &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,21 +96,69 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="General_Linear_Systems.html">
      General Linear Systems
@@ -145,27 +190,99 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Linear_Combinations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -324,6 +438,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -331,7 +446,7 @@
         
               <div>
                 
-  <section id="linear-combinations">
+  <div class="section" id="linear-combinations">
 <h1>Linear Combinations<a class="headerlink" href="#linear-combinations" title="Permalink to this headline">¶</a></h1>
 <p>At the core of many ideas in linear algebra is the concept of a <strong>linear combination</strong> of vectors.  To build a linear combination from a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> we use the two algebraic operations of addition and scalar multiplication.  If we use the symbols <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span> to represent the scalars, the linear combination looks like the following.</p>
 <div class="math notranslate nohighlight">
@@ -387,14 +502,14 @@ x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
 \end{equation}
 \end{split}\]</div>
 <p>The connection to linear combinations now becomes clear if we consider the columns of the coefficient matrix as vectors.  Finding the solution to the linear system of equations is equivalent to finding the <em>linear combination</em> of these column vectors that matches the vector on the right hand side of the equation.</p>
-<section id="spans">
+<div class="section" id="spans">
 <h2>Spans<a class="headerlink" href="#spans" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to introduce terminology to describe a collection of linear combinations.  The <strong>span</strong> of a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is the set of all possible linear combinations of vectors in the set.  For any coefficients <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span>, the vector <span class="math notranslate nohighlight">\(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> is said to be <em>in the span of</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
 <p>Given the direct connection between linear systems and linear combinations of vectors, we understand that when we are trying to determine if a given linear system as a solution, we are in fact trying to determine if a given vector, say <span class="math notranslate nohighlight">\(B\)</span>, is a linear combination of some set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  Making use of the new terminology, we could say that we are trying to determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
 <p>It is important to distinguish between the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> and the actual <em>set of vectors</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  The set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains only the vectors themselves, while the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains every vector that can be built as a linear combination of these vectors.  If we were to visualize these objects, the set of vectors would be a collection of arrows, while the span would be a multi-dimensional collection.  Again, it is easiest if we visualize an example in a two or three dimensions.</p>
 <p><img alt="span" src="_images/Span_big.png" /></p>
-</section>
-<section id="example-1-span-in-mathbb-r-4">
+</div>
+<div class="section" id="example-1-span-in-mathbb-r-4">
 <h2>Example 1:  Span in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span><a class="headerlink" href="#example-1-span-in-mathbb-r-4" title="Permalink to this headline">¶</a></h2>
 <p>We can now apply our experience in solving systems to finding linear combinations.  Suppose we want to determine if <span class="math notranslate nohighlight">\(B\)</span> lies in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> given the following definitions.</p>
 <div class="math notranslate nohighlight">
@@ -457,8 +572,8 @@ a_2 - 0.5a_3 &amp; = &amp; 0\\
 a_3 &amp; = &amp; 2
 \end{eqnarray*}
 \end{split}\]</div>
-</section>
-<section id="example-2-span-in-mathbb-r-4">
+</div>
+<div class="section" id="example-2-span-in-mathbb-r-4">
 <h2>Example 2:  Span in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span><a class="headerlink" href="#example-2-span-in-mathbb-r-4" title="Permalink to this headline">¶</a></h2>
 <p>As another example, let’s determine if the vector given as <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -505,8 +620,8 @@ a_2 - 0.5a_3 &amp; = &amp; 0\\
 0 &amp; = &amp; 1
 \end{eqnarray*}
 \end{split}\]</div>
-</section>
-<section id="spans-and-inconsistent-systems">
+</div>
+<div class="section" id="spans-and-inconsistent-systems">
 <h2>Spans and inconsistent systems<a class="headerlink" href="#spans-and-inconsistent-systems" title="Permalink to this headline">¶</a></h2>
 <p>The idea of spans has a direct connection to the general linear system <span class="math notranslate nohighlight">\(AX = B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since <span class="math notranslate nohighlight">\(AX\)</span> is a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, the system <span class="math notranslate nohighlight">\(AX=B\)</span> will have a solution if and only if <span class="math notranslate nohighlight">\(B\)</span> is in the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  This is a direct result of the definitions of matrix-vector multiplication and spans.  This equivalence alone doesn’t directly help us solve the system, but it does allow us to pose a more general question.  For a given <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, will the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> have a solution for any vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>?</p>
 <p>Consider the structure of the RREF of the augmented matrix <span class="math notranslate nohighlight">\([A|B]\)</span> that represents an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, with <span class="math notranslate nohighlight">\(A\)</span> a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix.  One possibility is the following.</p>
@@ -519,8 +634,8 @@ a_2 - 0.5a_3 &amp; = &amp; 0\\
 \end{equation}
 \end{split}\]</div>
 <p>The defining characteristic of an inconsistent system is that the RREF of the augmented matrix has a row with a pivot in the rightmost column.  Such a row represents the equation <span class="math notranslate nohighlight">\(0=1\)</span>.  We can now realize that the system <span class="math notranslate nohighlight">\(AX=B\)</span> <em>could be inconsistent</em> if the RREF of the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> contains at least one row with all zero entries.  This idea allows us to make a general statement about the existence of solutions.  <strong>A linear system <span class="math notranslate nohighlight">\(AX=B\)</span> has a solution for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in every row</strong></p>
-</section>
-<section id="example-3-sets-of-vectors-that-span-a-space">
+</div>
+<div class="section" id="example-3-sets-of-vectors-that-span-a-space">
 <h2>Example 3:  Sets of vectors that span a space<a class="headerlink" href="#example-3-sets-of-vectors-that-span-a-space" title="Permalink to this headline">¶</a></h2>
 <p>We provide two coefficient matrices and their RREFs to demonstrate the possibilities.  It should be emphasized that we are now discussing coefficient matrices, rather than the augmented matrices.</p>
 <div class="math notranslate nohighlight">
@@ -569,11 +684,11 @@ R = \left[ \begin{array}{rrrr}
 </div>
 </div>
 <p>The system <span class="math notranslate nohighlight">\(PX=B\)</span> has a solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> because it has a pivot in every row.  No matter which <span class="math notranslate nohighlight">\(B\)</span> is given, the system <span class="math notranslate nohighlight">\(PX=B\)</span> is always consistent.  By contrast, the system <span class="math notranslate nohighlight">\(RX=B\)</span> will have solutions for some <span class="math notranslate nohighlight">\(B\)</span>, but not every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  The span of the columns of <span class="math notranslate nohighlight">\(P\)</span> includes every vector in the space <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  We say in this case that the columns of <span class="math notranslate nohighlight">\(P\)</span> <strong>span the space</strong> <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
-</section>
-<section id="subspaces">
+</div>
+<div class="section" id="subspaces">
 <h2>Subspaces<a class="headerlink" href="#subspaces" title="Permalink to this headline">¶</a></h2>
 <p>It is frequently useful to consider vector subspaces, which we will simply refer to as subspaces.   A <strong>subspace</strong> is a portion of a vector space with the property that any linear combination of vectors in the subspace is another vector that is also in the subspace.  To put it formally, if <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> are vectors that belong to a given subspace, and <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> are any scalars, then the vector <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2\)</span> also belongs to the subspace.</p>
-<section id="subspace-example">
+<div class="section" id="subspace-example">
 <h3>Subspace example<a class="headerlink" href="#subspace-example" title="Permalink to this headline">¶</a></h3>
 <p>The set of vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that have middle component equal to zero is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  To understand why, we need to look at an arbitrary linear combination of two arbitrary vectors in the subspace, and verify that the linear combination is also in the subspace.  If we let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the vectors with arbitrary first and third components and calculate the linear combination, we see that the linear combination also has zero as its middle component and is thus in the subspace.</p>
 <div class="math notranslate nohighlight">
@@ -585,8 +700,8 @@ c_2\left[ \begin{array}{c} y_1 \\ 0 \\ y_3  \end{array}\right] =
 \left[ \begin{array}{c} x_1+y_1 \\ 0 \\ x_3+y_3 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-</section>
-<section id="subspace-non-example">
+</div>
+<div class="section" id="subspace-non-example">
 <h3>Subspace non-example<a class="headerlink" href="#subspace-non-example" title="Permalink to this headline">¶</a></h3>
 <p>The set of all solutions to the following linear system is <strong>not a subspace</strong> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -633,8 +748,8 @@ X_p + X_q = \left[ \begin{array}{r} 3 \\ -16 \\ 5   \end{array}\right]
 \end{split}\]</div>
 <p>In fact, it is true in general that if <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the solutions to a system <span class="math notranslate nohighlight">\(AX=B\)</span> do not form a subspace of <span class="math notranslate nohighlight">\(R^m\)</span>.  If <span class="math notranslate nohighlight">\(X_p\)</span> and <span class="math notranslate nohighlight">\(X_q\)</span> are two particular solutions to the system (<span class="math notranslate nohighlight">\(AX_p=B\)</span> and <span class="math notranslate nohighlight">\(AX_q=B\)</span>), their sum is not a solution since <span class="math notranslate nohighlight">\(A(X_p + X_q) = AX_p + AX_q = B + B = 2B\)</span>.<br />
 (<em>Note that since <span class="math notranslate nohighlight">\(2B=B\)</span> when <span class="math notranslate nohighlight">\(B=0\)</span>, the set of solutions to <span class="math notranslate nohighlight">\(AX=0\)</span> does form a subspace.   This important exception is discussed in the next section.</em>)</p>
-</section>
-<section id="spans-and-subspaces">
+</div>
+<div class="section" id="spans-and-subspaces">
 <h3>Spans and subspaces<a class="headerlink" href="#spans-and-subspaces" title="Permalink to this headline">¶</a></h3>
 <p>The idea of subspaces is related to that of spans since <strong>the span of any set of vectors must be a subspace</strong>.  Suppose that vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are arbitrary vectors in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  That is <span class="math notranslate nohighlight">\(X = a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> and <span class="math notranslate nohighlight">\(Y = b_1V_1 + b_2V_2 + b_3V_3 + .... + b_nV_n\)</span> for some sets of weights <span class="math notranslate nohighlight">\(a_1, a_2, ... a_n\)</span> and <span class="math notranslate nohighlight">\(b_1, b_2, ... b_n\)</span>.  The arbitrary linear combination <span class="math notranslate nohighlight">\(c_1X + c_2Y\)</span> is also in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> since it is some other linear combination of these vectors.</p>
 <div class="math notranslate nohighlight">
@@ -645,15 +760,15 @@ c_1X + c_2Y &amp; = &amp; c_1(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n) + c_2(b_
 \end{eqnarray*}
 \end{split}\]</div>
 <p>It is also true that any subspace can be described as the span of some set of vectors.  We will explore this idea in an upcoming section.</p>
-</section>
-</section>
-<section id="column-space">
+</div>
+</div>
+<div class="section" id="column-space">
 <h2>Column space<a class="headerlink" href="#column-space" title="Permalink to this headline">¶</a></h2>
 <p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  If future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then the matrix-vector product <span class="math notranslate nohighlight">\(AX\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  If we recall that this product is formed by taking a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, we realize that the vector <span class="math notranslate nohighlight">\(AX\)</span> must be <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> by definition.  An important connection here is that the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent <em>if and only if</em> the vector <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
 <p>Although the concept of the column space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, then the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Answer questions regarding the following vectors.</p></li>
@@ -731,8 +846,8 @@ R = \left[ \begin{array}{rrrr}
 <ul class="simple">
 <li><p>Explain why the system <span class="math notranslate nohighlight">\(AX=B\)</span> cannot be consistent for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 3\)</span> matrix.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -756,15 +871,15 @@ R = \left[ \begin{array}{rrrr}
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="General_Linear_Systems.html" title="previous page">General Linear Systems</a>
     <a class='right-next' id="next-link" href="Linear_Independence.html" title="next page">Linear Independence</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -783,7 +898,7 @@ R = \left[ \begin{array}{rrrr}
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

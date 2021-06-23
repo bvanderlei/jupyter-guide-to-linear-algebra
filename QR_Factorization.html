@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Factorization &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,31 +96,132 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Orthogonalization.html">
      Orthogonalization
@@ -155,17 +253,36 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/QR_Factorization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -291,6 +405,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -298,10 +413,10 @@
         
               <div>
                 
-  <section id="qr-factorization">
+  <div class="section" id="qr-factorization">
 <h1>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h1>
 <p>In Chapter 1 we saw that the LU factorization essentially captured the elimination process and stored the result in a way that allowed us to use elimination to solve similar systems without having to carry out the elimination again.  The QR factorization accomplishes something similar for the orthogonalization process.  Given a matrix <span class="math notranslate nohighlight">\(A\)</span> with linearly independent columns, the QR factorization of <span class="math notranslate nohighlight">\(A\)</span> is a pair of matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> such that <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, <span class="math notranslate nohighlight">\(R\)</span> is upper triangular, and <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
-<section id="structure-of-orthogonalization">
+<div class="section" id="structure-of-orthogonalization">
 <h2>Structure of orthogonalization<a class="headerlink" href="#structure-of-orthogonalization" title="Permalink to this headline">¶</a></h2>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix with linearly independent columns, it must be that <span class="math notranslate nohighlight">\(m \ge n\)</span>.  The matrix <span class="math notranslate nohighlight">\(Q\)</span> then will be <span class="math notranslate nohighlight">\(m\times n\)</span> with orthonormal columns, and <span class="math notranslate nohighlight">\(R\)</span> will be <span class="math notranslate nohighlight">\(n\times n\)</span> and upper triangular.  For example, if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(6\times 4\)</span> matrix, the matrices have the following structures, with the <span class="math notranslate nohighlight">\(A_i\)</span> and <span class="math notranslate nohighlight">\(U_i\)</span> being vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -340,8 +455,8 @@ U_1 &amp; U_2 &amp; U_3 &amp; U_4 \\ &amp; &amp; &amp; \end{array} \right]
 <span class="math notranslate nohighlight">\(r_{22} = U_2\cdot A_2\)</span>.</p>
 <p>Carrying out the same reasoning for the last two columns, we find that in general <span class="math notranslate nohighlight">\(r_{ij} = U_i\cdot A_j\)</span> and that <span class="math notranslate nohighlight">\(r_{ij} = 0\)</span> for <span class="math notranslate nohighlight">\(i&gt;j\)</span> because the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, ..., U_i\}\)</span> is equal to the span of <span class="math notranslate nohighlight">\(\{A_1, A_2, ..., A_i\}\)</span>.</p>
 <p>To arrive at this conclusion this more succinctly, we could multiply the equation <span class="math notranslate nohighlight">\(A=QR\)</span> by <span class="math notranslate nohighlight">\(Q^T\)</span>, which gives <span class="math notranslate nohighlight">\(Q^TA=Q^TQR\)</span> and <span class="math notranslate nohighlight">\(Q^TA = R\)</span> since <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  If we then understand the matrix product <span class="math notranslate nohighlight">\(Q^TA\)</span> as a collection of dot products between rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(A\)</span>, we have again that <span class="math notranslate nohighlight">\(r_{ij} = U_i \cdot A_j\)</span>.</p>
-</section>
-<section id="example-1-finding-a-qr-factorization">
+</div>
+<div class="section" id="example-1-finding-a-qr-factorization">
 <h2>Example 1:  Finding a QR factorization<a class="headerlink" href="#example-1-finding-a-qr-factorization" title="Permalink to this headline">¶</a></h2>
 <p>Let’s compute the QR factorization for a specific <span class="math notranslate nohighlight">\(6\times 4 \)</span> matrix.</p>
 <div class="math notranslate nohighlight">
@@ -447,8 +562,8 @@ QR
 </div>
 </div>
 </div>
-</section>
-<section id="qr-factorization-function">
+</div>
+<div class="section" id="qr-factorization-function">
 <h2>QR factorization function<a class="headerlink" href="#qr-factorization-function" title="Permalink to this headline">¶</a></h2>
 <p>It is helpful to write some code in a more general way so that we may easily carry out the factorization an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requirement with a comment in the code.</p>
 <div class="cell docutils container">
@@ -514,8 +629,8 @@ QR
 </div>
 </div>
 </div>
-</section>
-<section id="example-2-solving-a-linear-system">
+</div>
+<div class="section" id="example-2-solving-a-linear-system">
 <h2>Example 2:  Solving a linear system<a class="headerlink" href="#example-2-solving-a-linear-system" title="Permalink to this headline">¶</a></h2>
 <p>The orthogonalization behind the <span class="math notranslate nohighlight">\(QR\)</span> factorization provides us another way to solve a linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  If we substitute <span class="math notranslate nohighlight">\(A=QR\)</span>, then multiply the equation by <span class="math notranslate nohighlight">\(Q^T\)</span>, we get <span class="math notranslate nohighlight">\(Q^TQRX = Q^TB\)</span>.  Once again <span class="math notranslate nohighlight">\(Q^TQ\)</span> simplifies to <span class="math notranslate nohighlight">\(I\)</span>, so we are left with <span class="math notranslate nohighlight">\(RX=Q^TB\)</span>, which is a triangular system that can be solved easily by back substitution.</p>
 <p>Let’s try it out on a <span class="math notranslate nohighlight">\(4\times 4\)</span> system.</p>
@@ -564,8 +679,8 @@ QR
 </div>
 </div>
 <p>In some situations, we might find that we are solving several systems such as <span class="math notranslate nohighlight">\(AX=B_1\)</span>, <span class="math notranslate nohighlight">\(AX=B_2\)</span>, <span class="math notranslate nohighlight">\(AX=B_3\)</span>, …, that involve the same matrix but different right hand sides.  In these situations it is useful to solve the systems with a factorization such as <span class="math notranslate nohighlight">\(QR\)</span> or <span class="math notranslate nohighlight">\(LU\)</span>, because the factorization does not need to be recomputed for each system.</p>
-</section>
-<section id="qr-factorization-with-scipy">
+</div>
+<div class="section" id="qr-factorization-with-scipy">
 <h2>QR factorization with SciPy<a class="headerlink" href="#qr-factorization-with-scipy" title="Permalink to this headline">¶</a></h2>
 <p>The SciPy function for finding <span class="math notranslate nohighlight">\(QR\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{qr}\)</span>.  The basic use is exactly the same as our <span class="math notranslate nohighlight">\(\texttt{QRfactorization}\)</span> function.  We apply <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> to the matrix in the example and compare the results with our own computations.</p>
 <div class="cell docutils container">
@@ -610,8 +725,8 @@ SciPy R
 </div>
 </div>
 <p>Although the results are displayed are close, we note that the entries of the SciPy are the negative of those we produced.  The SciPy function does not actually use the Gram Schmidt process, but instead approaches the factorization from an entirely different direction.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Carry out the Gram-Schmidt algorithm on the following set of vectors to produce an orthonormal set <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span>.  <strong>Do not</strong> use the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the SciPy <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function.</p></li>
@@ -674,8 +789,8 @@ B = \left[ \begin{array}{rrr}
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -699,15 +814,15 @@ B = \left[ \begin{array}{rrr}
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Orthogonalization.html" title="previous page">Orthogonalization</a>
     <a class='right-next' id="next-link" href="Orthogonal_Subspaces.html" title="next page">Orthogonal Subspaces</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -726,7 +841,7 @@ B = \left[ \begin{array}{rrr}
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

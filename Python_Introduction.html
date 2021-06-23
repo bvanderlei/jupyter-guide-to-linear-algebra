@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Python &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,11 +96,11 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Introduction to Python
@@ -115,37 +112,177 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -160,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -190,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -215,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Python_Introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -227,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -281,6 +415,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -288,10 +423,10 @@
         
               <div>
                 
-  <section id="introduction-to-python">
+  <div class="section" id="introduction-to-python">
 <h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">¶</a></h1>
 <p>This section includes many cells which contain Python code.  The output from each cell is visible directly below the cell.  We provide an explanation for each piece of code as well as some suggestions for the reader to experiment with.  In order to engage with the notebook and see new results, edit the code cell, then press ‘Shift + Enter’.</p>
-<section id="calculations-variable-assignments-and-printing">
+<div class="section" id="calculations-variable-assignments-and-printing">
 <h2>Calculations, variable assignments, and printing<a class="headerlink" href="#calculations-variable-assignments-and-printing" title="Permalink to this headline">¶</a></h2>
 <p>The first thing we might try is the use of code cells as a calculator.  Indeed this works in a straightforward way.  Run the cell below to see how it works.  Experiment with the input to see how to enter various operations.  (Note that you can get exponents by using the ** operator.)</p>
 <div class="cell docutils container">
@@ -376,8 +511,8 @@ The result of the calculation is 236.8
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command offers several other ways to manipulate the basic format of the output it produces.  We will comment on these options as they are used.</p>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>Quite often we write a bit of code that we would like to reuse.  Maybe it was tricky to figure out, or just tedious to type, and we want to save time and effort by making use of the code we’ve already written.  We could just copy and paste code from here to there, but that quickly becomes a chore as the amount of code we need continues to grow.</p>
 <p>One simple way to reuse code is to define a <strong>function</strong>.  We can think of a function as a new command that will carry out whatever instructions we would like to include.  Sometimes we will find it useful to provide the function with information in order for it to do its job.  Other times we might ask that the function return some information to us when it has finished its job.  Let’s look at a couple of examples.</p>
@@ -450,8 +585,8 @@ The result of the calculation is 236.8
 </div>
 </div>
 </div>
-</section>
-<section id="conditional-statements">
+</div>
+<div class="section" id="conditional-statements">
 <h2>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this headline">¶</a></h2>
 <p>It is quite common that we will want some commands to be carried out only in certain conditions.  If we are carrying out division for example, we might want to be certain we are not dividing by zero.  The <span class="math notranslate nohighlight">\(\texttt{if}\)</span> keyword lets us check a condition before proceeding with any associated commands.  The structure of an <em>if block</em> is similar to that of a function definition.  The <span class="math notranslate nohighlight">\(\texttt{if}\)</span> keyword is followed with a condition and a colon, then all associated commands <strong>are indented</strong> to indicate that they are only to be executed when the condition is true.</p>
 <div class="cell docutils container">
@@ -527,8 +662,8 @@ The result of the calculation is 236.8
 </div>
 </div>
 <p>Blocks of code that get repeated like this are known as <strong>loops</strong>.  The commands in the <em>while block</em> are said to be “inside the loop”.</p>
-</section>
-<section id="iterations">
+</div>
+<div class="section" id="iterations">
 <h2>Iterations<a class="headerlink" href="#iterations" title="Permalink to this headline">¶</a></h2>
 <p>The most common type of loop that we will use is created with the <span class="math notranslate nohighlight">\(\texttt{for}\)</span> keyword, and is thus known as a <em>for loop</em>.  The commands inside a <em>for loop</em> get repeated once for each object in a specified collection.  For our purposes, the collection of objects will almost always be a set of numbers generated using the <span class="math notranslate nohighlight">\(\texttt{range}\)</span> command.  The combination of <span class="math notranslate nohighlight">\(\texttt{for}\)</span> and <span class="math notranslate nohighlight">\(\texttt{range}\)</span> is easiest to understand by looking at some examples.</p>
 <div class="cell docutils container">
@@ -606,8 +741,8 @@ The result of the calculation is 236.8
 </div>
 </div>
 </div>
-</section>
-<section id="comments">
+</div>
+<div class="section" id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Often it is useful to include some plain text inside the code cell to help provide a description or explanation.  Such text is called a <strong>comment</strong>.  Comments are not interpreted as Python code, so we can write anything we like to help us document the code.  There are two ways to accomplish this.</p>
 <ul class="simple">
@@ -665,8 +800,8 @@ The result of the calculation is 236.8
 </div>
 </div>
 </div>
-</section>
-<section id="importing-libraries">
+</div>
+<div class="section" id="importing-libraries">
 <h2>Importing libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this headline">¶</a></h2>
 <p>The core of the Python language does not contain all the functionality that we will need for linear algebra.  In order to access more tools we will <strong>import</strong> some Python modules.  For example, some basic functions that you might find on a scientific calculator are not part of the Python language, but are included in the math module.  A simple way to import this module is with the code <span class="math notranslate nohighlight">\(\texttt{import math}\)</span>.  The cell below shows some examples of how we might use the module.</p>
 <div class="cell docutils container">
@@ -690,8 +825,8 @@ The cosine of pi/10 is approximately 0.9510565162951535
 </div>
 <p>Note that when we use the square root function, we need to use the call <span class="math notranslate nohighlight">\(\texttt{math.sqrt}\)</span> instead of just <span class="math notranslate nohighlight">\(\texttt{sqrt}\)</span>.  This is because the square root function is actually a part of the <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module, and is not in the basic set of Python commands.  The use of this dot notation is ubiquitous in Python.  Whenever <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> is contained within <span class="math notranslate nohighlight">\(\texttt{object1}\)</span>, we access <span class="math notranslate nohighlight">\(\texttt{object2}\)</span> by using <span class="math notranslate nohighlight">\(\texttt{object1.object2}\)</span>.</p>
 <p>In the Jupyter Guide to Linear Algebra, we will create our own module that contains all of the functions we develop as we work through the material.  This module is named <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.  We will import it in later sections when we want to make use of functions that we create in the earlier sections.  Note that unlike the <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module, the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module is not in the Python standard library.  This means that in order to use <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> outside of the Jupyter Guide to Linear Algebra, the source code must be copied from the repository <a class="reference external" href="https://github.com/bvanderlei/jupyter-guide-to-linear-algebra">github.com/bvanderlei/jupyter-guide-to-linear-algebra</a> before it can be imported.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Write a function that accepts two arguments, <span class="math notranslate nohighlight">\(\texttt{a}\)</span> and <span class="math notranslate nohighlight">\(\texttt{b}\)</span>, and returns the remainder of <span class="math notranslate nohighlight">\(\texttt{a/b}\)</span>.  (<em>There is a built-in Python operator that does this, but try to come up with a way to do it for yourself.</em>)</p></li>
@@ -723,8 +858,8 @@ The cosine of pi/10 is approximately 0.9510565162951535
 </div>
 </div>
 </div>
-</section>
-<section id="resources">
+</div>
+<div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://nbviewer.jupyter.org/gist/rpmuller/5920182">A Crash Course in Python for Scientists</a></p></li>
@@ -732,8 +867,8 @@ The cosine of pi/10 is approximately 0.9510565162951535
 <li><p><a class="reference external" href="https://realpython.com/">Real Python</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/">The Python Tutorial</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -757,15 +892,15 @@ The cosine of pi/10 is approximately 0.9510565162951535
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Jupyter_Introduction.html" title="previous page">Introduction to Jupyter</a>
     <a class='right-next' id="next-link" href="Numpy_Introduction.html" title="next page">Introduction to NumPy and Matplotlib</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -784,7 +919,7 @@ The cosine of pi/10 is approximately 0.9510565162951535
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orthogonalization &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,31 +96,132 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Orthogonalization
@@ -155,17 +253,36 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Orthogonalization.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -286,6 +400,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -293,7 +408,7 @@
         
               <div>
                 
-  <section id="orthogonalization">
+  <div class="section" id="orthogonalization">
 <h1>Orthogonalization<a class="headerlink" href="#orthogonalization" title="Permalink to this headline">¶</a></h1>
 <p>Some of the most important applications of inner products involve finding and using sets of vectors that are mutually orthogonal.  A set of nonzero vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is <strong>mutually orthogonal</strong> if <span class="math notranslate nohighlight">\(U_i\cdot U_j = 0\)</span> whenever <span class="math notranslate nohighlight">\(i \neq j\)</span>.  This simply means that every vector in the set is orthogonal to every other vector in the set.  If a set of vectors is mutually orthogonal <em>and</em> every vector in the set is a <em>unit vector</em>, we say the set is <strong>orthonormal</strong>.  In other words, every vector in an orthonormal set has magnitude one, and is orthogonal to every other vector in the set.</p>
 <p>Orthonormal sets must be linearly independent, so it makes sense to think of them as a basis for some vector subspace.  Any collection of vectors from the standard bases of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> are orthonormal sets.  For example, the set of vectors <span class="math notranslate nohighlight">\(\{E_1, E_4, E_5\}\)</span> from the standard basis of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> forms a orthonormal basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
@@ -317,7 +432,7 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 \end{eqnarray}
 \end{split}\]</div>
 <p>All of the products <span class="math notranslate nohighlight">\(U_i\cdot U_k\)</span> are zero except for <span class="math notranslate nohighlight">\(U_k\cdot U_k\)</span>, which is one.  This means that instead of solving a system to find the coordinates, we can compute each <span class="math notranslate nohighlight">\(b_k\)</span> directly, as the dot product <span class="math notranslate nohighlight">\(X\cdot U_k\)</span>.</p>
-<section id="projecting-vectors-onto-vectors">
+<div class="section" id="projecting-vectors-onto-vectors">
 <h2>Projecting vectors onto vectors<a class="headerlink" href="#projecting-vectors-onto-vectors" title="Permalink to this headline">¶</a></h2>
 <p>An important step in orthogonalization involves decomposing a vector <span class="math notranslate nohighlight">\(B\)</span> into orthogonal components based on the direction of another vector <span class="math notranslate nohighlight">\(V\)</span>.  Specifically, we want to determine two vectors, <span class="math notranslate nohighlight">\(\hat{B}\)</span> and <span class="math notranslate nohighlight">\(E\)</span>, such that <span class="math notranslate nohighlight">\(\hat{B}\)</span> is in the same direction as <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(B = \hat{B} + E\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
@@ -437,8 +552,8 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 </div>
 <p>We see in fact that the computed value of <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> is not <em>exactly</em> zero due to the imprecision of the machine arithmetic.  This is very similar to the some of the results we observed when performing elimination numerically, and we must keep in mind the potential for such errors.</p>
 <p>We also note that the formula derived here for <span class="math notranslate nohighlight">\(\hat{B}\)</span> works for for vectors of any dimension.  If <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, they still occupy a common plane, and the picture looks just the same as the one above regardless of the fact that the plane sits in a higher dimensional space.</p>
-</section>
-<section id="gram-schmidt-algorithm">
+</div>
+<div class="section" id="gram-schmidt-algorithm">
 <h2>Gram-Schmidt algorithm<a class="headerlink" href="#gram-schmidt-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>Given a set of linearly independent vectors  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>, the <strong>Gram-Schmidt algorithm</strong> produces an orthonormal set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> such that the span of  <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> is the same as the span of  <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ... V_n\}\)</span>.  The idea is to build up the set of <span class="math notranslate nohighlight">\(U\)</span> vectors one at a time, while ensuring that each new vector <span class="math notranslate nohighlight">\(U_i\)</span> that is added is orthogonal to all vectors already in the set.  These vectors are constructed by selecting a vector from the <span class="math notranslate nohighlight">\(V\)</span> set, and subtracting the components that are in the directions of any vectors already in the <span class="math notranslate nohighlight">\(U\)</span> set.  The <span class="math notranslate nohighlight">\(U\)</span> vectors can be scaled to unit length as part of the process, or they can all be scaled at the end.</p>
 <p>We write the algorithm in steps before providing an example.</p>
@@ -448,8 +563,8 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 <li><p>The projections of <span class="math notranslate nohighlight">\(V_3\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> are subtracted from <span class="math notranslate nohighlight">\(V_3\)</span>.  The resulting vector is scaled to unit length and becomes <span class="math notranslate nohighlight">\(U_3\)</span>.</p></li>
 <li><p>Continue applying a similar procedure for all <span class="math notranslate nohighlight">\(n\)</span> vectors.  In general, the projections of <span class="math notranslate nohighlight">\(V_k\)</span> in the directions of <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, …<span class="math notranslate nohighlight">\(U_{k-1}\)</span> are subtracted from <span class="math notranslate nohighlight">\(V_k\)</span> and the resulting vector is scaled to unit length to become <span class="math notranslate nohighlight">\(U_k\)</span>.</p></li>
 </ol>
-</section>
-<section id="example-1-applying-the-gram-schmidt-algorithm">
+</div>
+<div class="section" id="example-1-applying-the-gram-schmidt-algorithm">
 <h2>Example 1:  Applying the Gram-Schmidt algorithm<a class="headerlink" href="#example-1-applying-the-gram-schmidt-algorithm" title="Permalink to this headline">¶</a></h2>
 <p>As a first example, we take three vectors from <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> as the starting set, and use Python to carry out the calculations.</p>
 <div class="math notranslate nohighlight">
@@ -538,8 +653,8 @@ V_3 = \left[ \begin{array}{r} 3 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 <span class="math notranslate nohighlight">\(U_i = W_i/||W_i||\)</span></p>
 </div></blockquote>
 <p>It is important to notice here that in general <span class="math notranslate nohighlight">\(U_i\)</span> is a linear combination of <span class="math notranslate nohighlight">\(\{V_1, V_2, ..., V_{i}\}\)</span>.  This means that in addition to the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3 ... U_n\}\)</span> being the same as the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3 ..., V_n\}\)</span>, it is also true that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, ..., U_i\}\)</span> is the same as the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, ..., V_i\}\)</span> for every <span class="math notranslate nohighlight">\(i\)</span>.  This has important implications in the next section.</p>
-</section>
-<section id="orthogonal-matrices">
+</div>
+<div class="section" id="orthogonal-matrices">
 <h2>Orthogonal matrices<a class="headerlink" href="#orthogonal-matrices" title="Permalink to this headline">¶</a></h2>
 <p>Another way we could check that the set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is orthonormal is to assemble a matrix with these vectors as the columns and take advantage of the connection between matrix multiplications and dot products.  Suppose that <span class="math notranslate nohighlight">\(Q\)</span> is the matrix with <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, and <span class="math notranslate nohighlight">\(U_3\)</span> as its columns.  If we compute the matrix product <span class="math notranslate nohighlight">\(Q^TQ\)</span>, the entries will be the dot products between the rows of <span class="math notranslate nohighlight">\(Q^T\)</span> and columns of <span class="math notranslate nohighlight">\(Q\)</span>, both of which are the set of <span class="math notranslate nohighlight">\(U\)</span> vectors.</p>
 <div class="cell docutils container">
@@ -573,8 +688,8 @@ V_3 = \left[ \begin{array}{r} 3 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 </div>
 <p>We see that <span class="math notranslate nohighlight">\(U_i\cdot U_j\)</span> is 0 if <span class="math notranslate nohighlight">\(i\neq j\)</span> and 1 if <span class="math notranslate nohighlight">\(i=j\)</span>, which means that <span class="math notranslate nohighlight">\(Q^TQ\)</span> is the identity matrix <span class="math notranslate nohighlight">\(I\)</span>.  (<em>Note the use of <span class="math notranslate nohighlight">\(\texttt{round}\)</span> for display purposes.</em>)</p>
 <p>The matrix <span class="math notranslate nohighlight">\(Q\)</span> is called an <strong>orthogonal matrix</strong>, which means that its columns form a set of orthonormal vectors.  An immediate result of this definition is that if <span class="math notranslate nohighlight">\(Q\)</span> is an orthogonal matrix, then <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.  In the special case that <span class="math notranslate nohighlight">\(Q\)</span> is square, this equation implies that <span class="math notranslate nohighlight">\(Q^T = Q^{-1}\)</span>.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Explain why a set of mutually orthogonal vectors must be linearly independent.</p></li>
@@ -616,8 +731,8 @@ X = \left[ \begin{array}{r} 3 \\ 1 \\ -4 \end{array}\right]
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -641,15 +756,15 @@ X = \left[ \begin{array}{r} 3 \\ 1 \\ -4 \end{array}\right]
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Inner_Products.html" title="previous page">Inner Products</a>
     <a class='right-next' id="next-link" href="QR_Factorization.html" title="next page">QR Factorization</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -668,7 +783,7 @@ X = \left[ \begin{array}{r} 3 \\ 1 \\ -4 \end{array}\right]
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

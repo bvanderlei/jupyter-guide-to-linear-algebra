@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear Independence &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,21 +96,69 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="General_Linear_Systems.html">
      General Linear Systems
@@ -145,27 +190,99 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Transformations.html">
    Linear Transformations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Representations.html">
+     Matrix Representations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Planar_Transformations.html">
+     Transformations in a Plane
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_LT.html">
+     Applications of Linear Transformations
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -180,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -210,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Linear_Independence.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -247,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -292,6 +406,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -299,7 +414,7 @@
         
               <div>
                 
-  <section id="linear-independence">
+  <div class="section" id="linear-independence">
 <h1>Linear Independence<a class="headerlink" href="#linear-independence" title="Permalink to this headline">¶</a></h1>
 <p>A set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is said to be <strong>linearly independent</strong> if no linear combination of the vectors is equal to zero, except the combination with all weights equal to zero.  Thus if the set is linearly independent and</p>
 <div class="math notranslate nohighlight">
@@ -309,7 +424,7 @@ c_1V_1 + c_2V_2 + c_3V_3 + .... + c_nV_n = 0
 \end{equation}
 \]</div>
 <p>it must be that <span class="math notranslate nohighlight">\(c_1 = c_2 = c_3 = .... = c_n = 0\)</span>.  Equivalently we could say that the set of vectors is linearly independent if there is <em>no vector in the set</em> that is equal to a linear combination of the others.  If a set of vectors is not linearly independent, then we say that it is <strong>linearly dependent</strong>.</p>
-<section id="example-1-vectors-in-mathbb-r-2">
+<div class="section" id="example-1-vectors-in-mathbb-r-2">
 <h2>Example 1:  Vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-vectors-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -344,8 +459,8 @@ c_2\left[ \begin{array}{r} 1 \\ -6  \end{array}\right] =
 </div>
 </div>
 <p>We see from the reduced augmented matrix that the only solution to the equation is <span class="math notranslate nohighlight">\(c_1 = c_2 = 0\)</span>.  The set <span class="math notranslate nohighlight">\(\{V_1, V_2\}\)</span> is linearly independent.</p>
-</section>
-<section id="example-2-vectors-in-mathbb-r-3">
+</div>
+<div class="section" id="example-2-vectors-in-mathbb-r-3">
 <h2>Example 2:  Vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span><a class="headerlink" href="#example-2-vectors-in-mathbb-r-3" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -380,8 +495,8 @@ c_3\left[ \begin{array}{r} 3 \\ 2 \\ 2  \end{array}\right] =
 </div>
 </div>
 <p>In this case we see that <span class="math notranslate nohighlight">\(c_3\)</span> is a free variable.  If we set <span class="math notranslate nohighlight">\(c_3 = 1\)</span>, then <span class="math notranslate nohighlight">\(c_2 = 1\)</span>, and <span class="math notranslate nohighlight">\(c_1 = -2\)</span>.  Since we are able to find a solution other than <span class="math notranslate nohighlight">\(c_1 = c_2 = c_3 = 0\)</span>, the set of vectors <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> is linearly dependent.</p>
-</section>
-<section id="homogeneous-systems">
+</div>
+<div class="section" id="homogeneous-systems">
 <h2>Homogeneous systems<a class="headerlink" href="#homogeneous-systems" title="Permalink to this headline">¶</a></h2>
 <p>A linear system is said to be <strong>homogeneous</strong> if it can be described with the matrix equation <span class="math notranslate nohighlight">\(AX = 0\)</span>.  The solution to such a system has a connection to the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  The homogeneous system also has a connection to the concept of linear independence.  If we link all of these ideas together we will be able to gain information about the solution of the system <span class="math notranslate nohighlight">\(AX=B\)</span>, based on some information about linear independence.</p>
 <p>In the previous examples we were solving the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + c_3V_3 + .... + c_nV_n = 0\)</span> in order
@@ -485,9 +600,9 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10.85503229]
- [-19.75838716]
- [  0.95167743]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10.97966782]
+ [-19.96611303]
+ [  0.99322261]]
 
 
 [[-6]
@@ -495,9 +610,9 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
  [13]]
 
 
-[[-4.44089210e-16]
- [-4.44089210e-16]
- [ 1.33226763e-15]]
+[[0.]
+ [0.]
+ [0.]]
 
 
 [[-6.]
@@ -508,8 +623,8 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
 </div>
 </div>
 <p>It is important to notice that the first three columns of the RREF for the augmented matrix of the homogeneous system are exactly the same as those of the RREF for the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Of course that must be the case since the first three columns come from the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>, which is the same in both systems.  The point here is that <strong>the system <span class="math notranslate nohighlight">\(AX=B\)</span> can only have a unique solution if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent</strong>.</p>
-</section>
-<section id="null-space">
+</div>
+<div class="section" id="null-space">
 <h2>Null space<a class="headerlink" href="#null-space" title="Permalink to this headline">¶</a></h2>
 <p>With the concept of homogeneous systems in place, we are ready to define the second fundamental subspace.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the <strong>null space</strong> of <span class="math notranslate nohighlight">\(A\)</span> is the set of vectors <span class="math notranslate nohighlight">\(X\)</span>, such that <span class="math notranslate nohighlight">\(AX=0\)</span>.  In other words, the null space of <span class="math notranslate nohighlight">\(A\)</span> is the set of all solutions to the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span>.  The null space of <span class="math notranslate nohighlight">\(A\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and is written with the notation <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>.  We can now reformulate earlier statements in terms of the null space.</p>
 <ul class="simple">
@@ -517,8 +632,8 @@ t\left[ \begin{array}{c} -3 \\ -5  \\ 1 \end{array}\right] = X_p + X_h
 <li><p>The system <span class="math notranslate nohighlight">\(AX=B\)</span> has at most one solution if and only if <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> contains only the zero vector.</p></li>
 </ul>
 <p>Making connections between the fundamental subspaces of <span class="math notranslate nohighlight">\(A\)</span> and the solution sets of the system <span class="math notranslate nohighlight">\(AX=B\)</span> allows us to make general conclusions that further our understanding of linear systems, and the methods by which we might solve them.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Determine if the following set of vectors is linearly independent.</p></li>
@@ -554,8 +669,8 @@ D = \left[ \begin{array}{rrr} 4 &amp; 4 &amp; 3 \\ 2 &amp; 1 &amp; 2 \\ -4 &amp;
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -579,15 +694,15 @@ D = \left[ \begin{array}{rrr} 4 &amp; 4 &amp; 3 \\ 2 &amp; 1 &amp; 2 \\ -4 &amp;
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Linear_Combinations.html" title="previous page">Linear Combinations</a>
     <a class='right-next' id="next-link" href="Bases.html" title="next page">Bases</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -606,7 +721,7 @@ D = \left[ \begin{array}{rrr} 4 &amp; 4 &amp; 3 \\ 2 &amp; 1 &amp; 2 \\ -4 &amp;
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

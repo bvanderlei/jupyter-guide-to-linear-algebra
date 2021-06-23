@@ -4,11 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear Transformations &#8212; Jupyter Guide to Linear Algebra</title>
     
-  <link rel="stylesheet" href="_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,25 +34,26 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.30270b6e4c972e43c488.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,15 +83,12 @@
   <h1 class="site-logo" id="site-title">Jupyter Guide to Linear Algebra</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Welcome to the Jupyter Guide to Linear Algebra
@@ -99,26 +96,108 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Jupyter_Introduction.html">
    Introduction to Jupyter
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Python_Introduction.html">
+     Introduction to Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Numpy_Introduction.html">
+     Introduction to NumPy and Matplotlib
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Linear_Systems.html">
    Linear Systems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Gaussian_Elimination.html">
+     Gaussian Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Matrix_Algebra.html">
+     Matrix Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Solving_Systems.html">
+     Solving Systems using Elimination
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inverse_Matrices.html">
+     Inverse Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LU_Factorization.html">
+     LU Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications.html">
+     Applications of Linear Systems and Matrix Algebra
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Vector_Spaces.html">
    Vector Spaces
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="General_Linear_Systems.html">
+     General Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Combinations.html">
+     Linear Combinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Independence.html">
+     Linear Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Bases.html">
+     Bases
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Space_Examples.html">
+     Vector Space Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_VS.html">
+     Applications of Vector Spaces
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
    Linear Transformations
   </a>
-  <ul>
+  <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Matrix_Representations.html">
      Matrix Representations
@@ -135,22 +214,75 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Inner_Products.html">
    Inner Products
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonalization.html">
+     Orthogonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="QR_Factorization.html">
+     QR Factorization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Orthogonal_Subspaces.html">
+     Orthogonal Subspaces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Least_Squares_Solutions.html">
+     Least Squares Solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Projections.html">
+     Projections
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_IP.html">
+     Applications of Inner Products
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="Eigenvalues.html">
    Eigenvalues
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Diagonalization.html">
+     Diagonalization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Approximating_Eigenvalues.html">
+     Approximating Eigenvalues
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Applications_EV.html">
+     Applications of Eigenvalues and Eigenvectors
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -165,25 +297,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -195,17 +327,18 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
+
+            <!-- Source interaction buttons -->
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -220,11 +353,6 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/bvanderlei/jupyter-guide-to-linear-algebra/blob/main/Linear_Transformations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
                 class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
@@ -232,13 +360,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -295,6 +424,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -302,13 +432,13 @@
         
               <div>
                 
-  <section id="linear-transformations">
+  <div class="section" id="linear-transformations">
 <h1>Linear Transformations<a class="headerlink" href="#linear-transformations" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter the focus shifts from solving linear systems to the use of matrix algebra to represent maps between vector spaces.  We will see that certain class of useful maps called linear transformations can be described with matrix multiplication.</p>
 <p>A <strong>mapping</strong> between vector spaces is a rule that associates input vectors with output vectors.  We say that the input vectors get “mapped” to the output vectors.  The input and output vectors may be in different spaces, or they may be in the same space.  There maybe multiple input vectors that get mapped to a single output vector, but it is important that each input vector gets mapped to a unique output vector.  In the language of calculus, mappings are known as functions.</p>
 <p>When we refer to a specific map, we might use a symbol, such as <span class="math notranslate nohighlight">\(T\)</span>.  In order to specify which spaces contain the input and output vectors, say <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> and <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, we write <span class="math notranslate nohighlight">\(T: \mathbb{R}^2 \to \mathbb{R}^3\)</span>.  This notation means that <span class="math notranslate nohighlight">\(T\)</span> is a mapping that takes vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> as inputs, and maps them to vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  When we refer to the output associated with a specific vector, say <span class="math notranslate nohighlight">\(V\)</span>, we use the notation <span class="math notranslate nohighlight">\(T(V)\)</span>.  (<em>This notation is read “<span class="math notranslate nohighlight">\(T\)</span> of <span class="math notranslate nohighlight">\(V\)</span>”.  The reader familiar with calculus will recognize the notation as that commonly used with functions.</em>).  Finally, if we wish to label the output vector as <span class="math notranslate nohighlight">\(W\)</span>, we will write <span class="math notranslate nohighlight">\(T(V)=W\)</span>, meaning that the input vector <span class="math notranslate nohighlight">\(V\)</span> gets mapped to the output vector <span class="math notranslate nohighlight">\(W\)</span> by the map <span class="math notranslate nohighlight">\(T\)</span>.  The vector <span class="math notranslate nohighlight">\(W\)</span> is said to be the <strong>image</strong> of <span class="math notranslate nohighlight">\(V\)</span> under the map <span class="math notranslate nohighlight">\(T\)</span>.  Similarly, the vector <span class="math notranslate nohighlight">\(V\)</span> is said to be the <strong>preimage</strong> of <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <p><img alt="transformation" src="_images/GenericTransformation.png" /></p>
-<section id="example-1-transformation-from-mathbb-r-2-to-mathbb-r-3">
+<div class="section" id="example-1-transformation-from-mathbb-r-2-to-mathbb-r-3">
 <h2>Example 1:  Transformation from <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span><a class="headerlink" href="#example-1-transformation-from-mathbb-r-2-to-mathbb-r-3" title="Permalink to this headline">¶</a></h2>
 <p>A Python function that accepts one vector as an argument, and provides on vector in return, is a perfect model of a mapping.  As an example, let’s write a function that accepts a vector from <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> and returns a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <div class="cell docutils container">
@@ -347,8 +477,8 @@ T \left(\left[\begin{array}{r} v_1 \\ v_2 \end{array} \right]\right) =
 \left[\begin{array}{r} 2v_1 \\ 0  \\ v_2 \end{array} \right]
 \end{equation}
 \end{split}\]</div>
-</section>
-<section id="linearity">
+</div>
+<div class="section" id="linearity">
 <h2>Linearity<a class="headerlink" href="#linearity" title="Permalink to this headline">¶</a></h2>
 <p>A map <span class="math notranslate nohighlight">\(T\)</span> is said to be <em>linear</em> if the following two properties are true for any scalar <span class="math notranslate nohighlight">\(k\)</span>, and any input vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <ul class="simple">
@@ -403,8 +533,8 @@ T(U+V) = T \left(\left [\begin{array}{r} u_1 + v_1 \\ u_2 + v_2 \end{array} \rig
 </div>
 </div>
 <p>Showing these equations hold for a <em>specific choice</em> of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(k\)</span> does not prove that the transformation is linear.  Even if we were to run this code inside a loop and see that the equations held for a million random combinations of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(k\)</span>, that would still not <em>prove</em> that the transformation is linear.  It would however provide numerical evidence to support the claim.</p>
-</section>
-<section id="example-2-transformation-defined-as-matrix-multiplication">
+</div>
+<div class="section" id="example-2-transformation-defined-as-matrix-multiplication">
 <h2>Example 2:  Transformation defined as matrix multiplication<a class="headerlink" href="#example-2-transformation-defined-as-matrix-multiplication" title="Permalink to this headline">¶</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^3\)</span> be defined by <span class="math notranslate nohighlight">\(L(X)= AX\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the following matrix.</p>
 <div class="math notranslate nohighlight">
@@ -440,8 +570,8 @@ A = \left[\begin{array}{rrr} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 2 \\ 3 &amp; 1
 </div>
 </div>
 </div>
-</section>
-<section id="example-3-transformation-from-mathbb-p-3-to-mathbb-p-5">
+</div>
+<div class="section" id="example-3-transformation-from-mathbb-p-3-to-mathbb-p-5">
 <h2>Example 3:  Transformation from <span class="math notranslate nohighlight">\(\mathbb{P}^3\)</span> to <span class="math notranslate nohighlight">\(\mathbb{P}^5\)</span><a class="headerlink" href="#example-3-transformation-from-mathbb-p-3-to-mathbb-p-5" title="Permalink to this headline">¶</a></h2>
 <p>In this final example we consider a transformation between vector spaces of polynomials.  We can define a linear transformation <span class="math notranslate nohighlight">\(M:\mathbb{P}_3\to\mathbb{P}_5\)</span> by multiplying by some fixed quadratic polynomial, say <span class="math notranslate nohighlight">\(x^2 + 2\)</span>.  Let’s write out the formula for <span class="math notranslate nohighlight">\(M\)</span> by calculating <span class="math notranslate nohighlight">\(M(P)\)</span> for an arbitrary <span class="math notranslate nohighlight">\(P = a_3x^3 + a_2x^2 + a_1x + a_0\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -452,8 +582,8 @@ M(P) &amp; = &amp; (x^2 + 2)(a_3x^3 + a_2x^2 + a_1x + a_0) \\
 \end{eqnarray*}
 \end{split}\]</div>
 <p>This transformation must be linear by the algebraic rules for multiplication.  If <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> are any polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}^3\)</span> and <span class="math notranslate nohighlight">\(k\)</span> is any scalar, we know that <span class="math notranslate nohighlight">\(M(P+Q) = (x^2+2)(P+Q) = (x^2+2)P + (x^2+2)Q = M(P) + M(Q)\)</span>, and <span class="math notranslate nohighlight">\(M(kP) = (x^2+2)(kP) = k[(x^2+2)P] = kM(P)\)</span>.</p>
-</section>
-<section id="compositions">
+</div>
+<div class="section" id="compositions">
 <h2>Compositions<a class="headerlink" href="#compositions" title="Permalink to this headline">¶</a></h2>
 <p>If two transformations are to be applied, one after the other, it is common to combine them to form what is known as a <strong>composition</strong>.  This idea only makes sense when the output space of the first transformation matches the input space of the second.  In symbols, if <span class="math notranslate nohighlight">\(T:\mathbb{U}\to\mathbb{V}\)</span> and <span class="math notranslate nohighlight">\(L:\mathbb{V}\to\mathbb{W}\)</span>, then we could consider the composition <span class="math notranslate nohighlight">\(L\circ T:\mathbb{U}\to\mathbb{W}\)</span>.  The notation <span class="math notranslate nohighlight">\(L\circ T\)</span> represents the composition formed by applying the map <span class="math notranslate nohighlight">\(T\)</span>, followed by the map <span class="math notranslate nohighlight">\(L\)</span>.</p>
 <p>As an example, if we take <span class="math notranslate nohighlight">\(T:\mathbb{R}^2 \to \mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^3\)</span> to be the transformations defined in <strong>Example 2</strong> and <strong>Example 3</strong>, we could define <span class="math notranslate nohighlight">\(L\circ T:\mathbb{R}^2 \to \mathbb{R}^3\)</span>.</p>
@@ -482,8 +612,8 @@ M(P) &amp; = &amp; (x^2 + 2)(a_3x^3 + a_2x^2 + a_1x + a_0) \\
 </div>
 </div>
 </div>
-</section>
-<section id="invertibility">
+</div>
+<div class="section" id="invertibility">
 <h2>Invertibility<a class="headerlink" href="#invertibility" title="Permalink to this headline">¶</a></h2>
 <p>When applying a given linear transformations, we often consider if it is possible to <em>reverse the transformation</em>.  That is, we would like to know if it is possible to map all the vectors in the output space back to vectors in the input space such that images get sent back to their preimages.  If this is possible we say that the transformation is invertible.  More formally, a linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{V}\to\mathbb{W}\)</span> is said to be <strong>invertible</strong> if there exists another transformation <span class="math notranslate nohighlight">\(L^{-1}:\mathbb{W}\to\mathbb{V}\)</span>, known as the inverse, such that <span class="math notranslate nohighlight">\((L^{-1}\circ L)(X) = X\)</span> for any vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{V}\)</span>.</p>
 <p>The transformation <span class="math notranslate nohighlight">\(L\)</span> in <strong>Example 2</strong> is invertible since the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible.  If <span class="math notranslate nohighlight">\(X\)</span> is any vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(Y=AX\)</span> is image vector of <span class="math notranslate nohighlight">\(X\)</span>, it is possible to find <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y\)</span> by using <span class="math notranslate nohighlight">\(X=A^{-1}Y\)</span>.</p>
@@ -517,8 +647,8 @@ M(P) &amp; = &amp; (x^2 + 2)(a_3x^3 + a_2x^2 + a_1x + a_0) \\
 </div>
 <p>Note that we don’t necessarily need to compute <span class="math notranslate nohighlight">\(A^{-1}\)</span>, we just need to be able to solve <span class="math notranslate nohighlight">\(AX=Y\)</span> for any <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <p>The transformation <span class="math notranslate nohighlight">\(T\)</span> in <strong>Example 1</strong> is <em>not</em> invertible since there will be no way to define <span class="math notranslate nohighlight">\(T^{-1}\)</span> for vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that have nonzero middle entry.  In the next section, we will discuss a method for determining which transformations are invertible by representing them as matrix multiplications.</p>
-</section>
-<section id="exercises">
+</div>
+<div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Find the vector <span class="math notranslate nohighlight">\(\texttt{T(V)}\)</span> where</p></li>
@@ -596,8 +726,8 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -621,15 +751,15 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Applications_VS.html" title="previous page">Applications of Vector Spaces</a>
     <a class='right-next' id="next-link" href="Matrix_Representations.html" title="next page">Matrix Representations</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -648,7 +778,7 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
     </div>
 
     
-  <script src="_static/js/index.30270b6e4c972e43c488.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
