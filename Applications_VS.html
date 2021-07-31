@@ -532,7 +532,7 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
 <p>Let’s begin by with the modeling a document with a vector.  All we really need is a list of <span class="math notranslate nohighlight">\(n\)</span> words that will be searchable in our database.  This list could be a list of each distinct word in the whole collection of documents, but there are many common words in English that we might disqualify as keywords since they appear abundantly in all documents (the, as, in, it, etc.).  Each document in the database can now be represented by a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, with the <span class="math notranslate nohighlight">\(n\)</span>th entry set to 1 if the corresponding keyword appears in the document, and 0 otherwise.</p>
 <p>For example, suppose our database is simply a list of webpages with content related to information retrieval.  Our set of keywords might be the following.</p>
 <p><strong>{algorithm, engine, information, google, computations, matrix, optimization, retrieval, search, theory }</strong></p>
-<p>Each webpage in the database is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{10}\)</span>, with entries corresponding to these words.  It is most convenient to write these vectors as <span class="math notranslate nohighlight">\(1\times 10\)</span> row vectors rather than <span class="math notranslate nohighlight">\(10\times 1\)</span> column vectors  For example, <em>Search Engine Algorithms</em> would be represented as <span class="math notranslate nohighlight">\([0, 1, 1, 0, 0, 0, 1, 0, 0, 0]\)</span>.  Our database then is represented by a <span class="math notranslate nohighlight">\(n\times 10\)</span> matrix that has a row for each title.  Suppose for the sake of our example that we have the following 6 titles.</p>
+<p>Each webpage in the database is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^{10}\)</span>, with entries corresponding to these words.  It is most convenient to write these vectors as <span class="math notranslate nohighlight">\(1\times 10\)</span> row vectors rather than <span class="math notranslate nohighlight">\(10\times 1\)</span> column vectors  For example, <em>Search Engine Algorithms</em> would be represented as <span class="math notranslate nohighlight">\([1, 1, 0, 0, 0, 0, 0, 0, 1, 0]\)</span>.  Our database then is represented by a <span class="math notranslate nohighlight">\(n\times 10\)</span> matrix that has a row for each title.  Suppose for the sake of our example that we have the following 6 titles.</p>
 <ul class="simple">
 <li><p>Search Engine Algorithms</p></li>
 <li><p>How Google Search Optimization Works</p></li>
@@ -679,7 +679,9 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
         
           By Ben Vanderlei<br/>
         
-            &copy; Copyright 2020.<br/>
+          <div class="extra_footer">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Jupyter Guide to Linear Algebra</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+          </div>
       </p>
     </div>
   </footer>
