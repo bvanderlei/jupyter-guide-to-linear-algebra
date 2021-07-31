@@ -507,7 +507,7 @@ def RowAdd(A,k,l,scale):
         B[l][j] += B[k][j]*scale
         
     return B
-    
+
 def RowReduction(A):
     ''' 
     RowReduction(A)
