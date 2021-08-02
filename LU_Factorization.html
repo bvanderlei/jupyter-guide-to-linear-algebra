@@ -461,7 +461,11 @@ U = \left[ \begin{array}{ccc} 3 &amp; -1 &amp; -2 \\ 0 &amp; 1 &amp; 4  \\ 0 &am
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Use Python to check for yourself that LU = A.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+
+<span class="c1">## Use Python to check for yourself that LU = A.</span>
 </pre></div>
 </div>
 </div>
@@ -487,10 +491,7 @@ y_2 + 4y_3 &amp; = &amp; -8\\
 <p>For an example, let’s apply one of these operations to a <span class="math notranslate nohighlight">\(4\times 4\)</span> identity matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-
-<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
@@ -597,15 +598,11 @@ A &amp;=&amp; E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}E_5^{-1}U
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]
  [2. 0. 0. 1.]] 
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">a94f4be4cf45</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">E3</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E3</span><span class="p">))</span>
 
-<span class="ne">NameError</span>: name &#39;sla&#39; is not defined
+[[ 1.  0. -0.  0.]
+ [ 0.  1. -0.  0.]
+ [ 0.  0.  1.  0.]
+ [-2.  0.  0.  1.]]
 </pre></div>
 </div>
 </div>
@@ -721,10 +718,10 @@ LU:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:
-[[ 0 -3  3 -3]
- [ 5  1 -6  5]
- [ 4 -1 -2  0]
- [-5  2 -4  4]]
+[[ 4 -3  2  2]
+ [ 2  1 -2  3]
+ [-2 -2 -4  5]
+ [-5  4 -5 -6]]
 
 P:
 [[1. 0. 0. 0.]
@@ -733,10 +730,12 @@ P:
  [0. 0. 0. 1.]]
 
 PC:
-[[ 0. -3.  3. -3.]
- [ 4. -1. -2.  0.]
- [ 5.  1. -6.  5.]
- [-5.  2. -4.  4.]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4. -3.  2.  2.]
+ [-2. -2. -4.  5.]
+ [ 2.  1. -2.  3.]
+ [-5.  4. -5. -6.]]
 </pre></div>
 </div>
 </div>
@@ -1039,9 +1038,7 @@ PLU
 <p>The SciPy <span class="math notranslate nohighlight">\(\texttt{linalg}\)</span> function for finding <span class="math notranslate nohighlight">\(PLU\)</span> factorizations is called <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.  This function accepts the array to be factored as an argument, and returns three arrays representing <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(L\)</span>, and <span class="math notranslate nohighlight">\(U\)</span>, in that order.  To store these arrays for later use, we need to provide three names that will be assigned to the output of <span class="math notranslate nohighlight">\(\texttt{lu}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
-
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="n">P</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>

@@ -671,9 +671,6 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
-<span class="c1"># Discussion on this here or later?  Maybe later when we talk about modular inverses.</span>
-<span class="c1">#if (hc.CheckEncryptionMatrix(B)):</span>
-<span class="c1">#    print(&quot;Good to go!&quot;)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">B</span><span class="nd">@P</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
@@ -725,7 +722,7 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="section" id="decryption">
 <h3>Decryption<a class="headerlink" href="#decryption" title="Permalink to this headline">¶</a></h3>
-<p>If the encryption matrix is known, the process can be reversed by multiplying by the inverse matrix to get the plaintext array <span class="math notranslate nohighlight">\(P = B^{-1}C\)</span>.  As we just noted however, we cannot reconstruct <span class="math notranslate nohighlight">\(C\)</span> from the encrypted message.  To overcome this difficulty, we need to find the <em>modular inverse</em> of the matrix <span class="math notranslate nohighlight">\(B\)</span>.  That is, we need a matrix <span class="math notranslate nohighlight">\(B^{-1}\)</span> such that the entries of <span class="math notranslate nohighlight">\(B^{-1}B\)</span> are congruent to the entries of <span class="math notranslate nohighlight">\(I\)</span> in the modular arithmetic.  *Note that we use the same symbol for the modular inverse as we do for the usual inverse matrix.</p>
+<p>If the encryption matrix <span class="math notranslate nohighlight">\(B\)</span> is known, we might hope to multiply by the inverse matrix to determine the plaintext array <span class="math notranslate nohighlight">\(P = B^{-1}C\)</span>.  As we just noted however, we cannot reconstruct <span class="math notranslate nohighlight">\(C\)</span> from the encrypted message.  To overcome this difficulty, we need to find the <em>modular inverse</em> of the matrix <span class="math notranslate nohighlight">\(B\)</span>.  That is, we need a matrix <span class="math notranslate nohighlight">\(B^{-1}\)</span> such that the entries of <span class="math notranslate nohighlight">\(B^{-1}B\)</span> are congruent to the entries of <span class="math notranslate nohighlight">\(I\)</span> in the modular arithmetic.  (<em>Note that we use the same symbol for the modular inverse as we do for the usual inverse matrix.</em>)</p>
 <p>The method for finding the modular inverse is beyond our scope, but we will make use of the <span class="math notranslate nohighlight">\(\texttt{ModularInverseMatrix}\)</span> function in the <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module to calculate <span class="math notranslate nohighlight">\(B^{-1}\)</span> for the purpose of demonstration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,7 +815,7 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 <p>The <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module contains two functions that carry out the same steps we have demonstrated here to encrypt/decrypt a message using the included alphabet.  The following cell shows how they are called.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;We ride at dawn!  Maybe sooner.&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Water in short supply.  Send help soon!&quot;</span>
 <span class="n">en_msg</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">HillCipherEncryption</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">en_msg</span><span class="p">)</span>
 
@@ -829,8 +826,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>! is not included in the current alphabet.
-CSLFXDUSXZ.T U MW.GLJPCUE YZHTAD
-WE RIDE AT DAWN  MAYBE SOONER.B?
+ARQVI.?KSJZUZTFJ?W.AYTWXJR?Y.XZPOWRY?BDU
+WATER IN SHORT SUPPLY.  SEND HELP SOONOH
 </pre></div>
 </div>
 </div>
@@ -1085,16 +1082,16 @@ WE RIDE AT DAWN  MAYBE SOONER.B?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 2. 0. 4. 0. 1. 1. 0. 1. 1.]
- [2. 2. 0. 2. 3. 1. 6. 2. 1. 8.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 7. 3. 6. 0. 4. 6. 2. 0. 2.]
+ [7. 2. 1. 1. 0. 1. 6. 8. 0. 0.]
+ [3. 1. 0. 1. 0. 1. 5. 6. 0. 0.]
+ [6. 1. 1. 0. 0. 0. 3. 6. 0. 0.]
  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
- [4. 2. 0. 2. 2. 1. 7. 4. 1. 9.]
- [0. 3. 0. 2. 0. 1. 1. 0. 1. 1.]
- [1. 1. 0. 1. 1. 0. 2. 1. 0. 5.]
- [1. 6. 0. 7. 1. 2. 4. 1. 2. 7.]
- [0. 2. 0. 4. 0. 1. 1. 0. 1. 1.]
- [1. 1. 0. 1. 1. 0. 2. 1. 0. 5.]
- [1. 8. 0. 9. 1. 5. 7. 1. 5. 4.]]
+ [4. 1. 1. 0. 0. 0. 1. 2. 0. 0.]
+ [6. 6. 5. 3. 0. 1. 2. 2. 0. 2.]
+ [2. 8. 6. 6. 0. 2. 2. 0. 0. 4.]
+ [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [2. 0. 0. 0. 0. 0. 2. 4. 0. 0.]]
 </pre></div>
 </div>
 <img alt="_images/Applications_64_1.png" src="_images/Applications_64_1.png" />
@@ -1207,16 +1204,16 @@ WE RIDE AT DAWN  MAYBE SOONER.B?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 1. 1. 1. 5. 1. 5. 1. 2. 0.]
- [1. 0. 3. 0. 0. 1. 1. 1. 0. 0.]
- [1. 3. 2. 0. 1. 1. 6. 4. 1. 0.]
- [1. 0. 0. 2. 5. 1. 2. 0. 4. 1.]
- [5. 0. 1. 5. 2. 2. 1. 1. 6. 4.]
- [1. 1. 1. 1. 2. 0. 5. 1. 4. 1.]
- [5. 1. 6. 2. 1. 5. 2. 5. 1. 1.]
- [1. 1. 4. 0. 1. 1. 5. 2. 1. 0.]
- [2. 0. 1. 4. 6. 4. 1. 1. 2. 1.]
- [0. 0. 0. 1. 4. 1. 1. 0. 1. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 7. 1. 6. 2. 1. 3. 2. 1. 3.]
+ [7. 4. 8. 9. 1. 3. 9. 3. 8. 4.]
+ [1. 8. 0. 3. 7. 2. 2. 6. 2. 2.]
+ [6. 9. 3. 6. 2. 2. 7. 2. 2. 7.]
+ [2. 1. 7. 2. 2. 6. 2. 1. 6. 2.]
+ [1. 3. 2. 2. 6. 2. 2. 6. 5. 0.]
+ [3. 9. 2. 7. 2. 2. 4. 2. 1. 6.]
+ [2. 3. 6. 2. 1. 6. 2. 0. 3. 5.]
+ [1. 8. 2. 2. 6. 5. 1. 3. 2. 3.]
+ [3. 4. 2. 7. 2. 0. 6. 5. 3. 2.]]
 </pre></div>
 </div>
 <img alt="_images/Applications_77_1.png" src="_images/Applications_77_1.png" />
