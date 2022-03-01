@@ -435,7 +435,7 @@
 \left[ \begin{array}{rrrr} 5 &amp; -1 &amp; 1 &amp; 0 \\ 4 &amp; 3 &amp; 12 &amp; -6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>Although it is possible to represent an arrays using a basic Python objects called a list, we will make use of a NumPy for our work.  NumPy has a powerful way to represent arrays, and has many built-in tools for processing them efficiently.  Just as with the math module, we have to first import NumPy before we can use it.  This time we will use the code <span class="math notranslate nohighlight">\(\texttt{import numpy as np}\)</span>, which imports the module but gives it a different name, called an alias, that is more convenient to type.</p>
+<p>Although it is possible to represent arrays using a basic Python objects called lists, we will make use of NumPy array objects for our work.  NumPy has a powerful way to represent arrays, and has many built-in tools for processing them efficiently.  Just as with the math module, we have to first import NumPy before we can use it.  This time we will use the code <span class="math notranslate nohighlight">\(\texttt{import numpy as np}\)</span>, which imports the module but gives it a different name, called an alias, that is more convenient to type.</p>
 <p>The easiest way to create the array above is to use the <span class="math notranslate nohighlight">\(\texttt{array}\)</span> function, and provide it a list of all the array entries specific format.  The row entries are separated by commas and enclosed in square brackets [], then all the rows listed together, separated by commas, and enclosed in another set of square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -557,7 +557,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13720977695681247
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03655634205534908
 </pre></div>
 </div>
 </div>
@@ -572,9 +572,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.17829583 0.772203  ]
- [0.27943897 0.6045507 ]
- [0.75862534 0.21506451]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.92632784 0.12117734]
+ [0.9214919  0.71134362]
+ [0.32494456 0.50706226]]
 </pre></div>
 </div>
 </div>
@@ -587,7 +587,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -601,9 +601,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 8 7 0 2 6]
- [1 5 7 2 7 6]
- [7 4 6 4 5 6]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4 3 4 3 9 4]
+ [7 9 8 5 9 2]
+ [4 6 1 5 6 5]]
 </pre></div>
 </div>
 </div>
@@ -616,8 +616,8 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 7 7]
- [8 6 8]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2 3 2]
+ [2 8 2]]
 </pre></div>
 </div>
 </div>
