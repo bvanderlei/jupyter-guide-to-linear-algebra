@@ -406,6 +406,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -425,7 +430,7 @@
   <div class="section" id="introduction-to-numpy-and-matplotlib">
 <h1>Introduction to NumPy and Matplotlib<a class="headerlink" href="#introduction-to-numpy-and-matplotlib" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://numpy.org/">Numpy</a> is an essential Python package for carrying out the calculations needed for linear algebra as well as other areas of scientific computing.  <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> is a extensive Python package for producing a wide variety of plots.  In this section we will demonstrate a few of the basic elements of these packages that will be used repeatedly throughout the Jupyter Guide to Linear Algebra.</p>
-<p>It should be noted that NumPy is used for many of the actual calculations encounted in linear algebra, while we use Matplotlib only to make useful visual representations of the concepts.  The ability to use of NumPy therefore will be crucial, while the understanding of Matplotlib is not explicitly required to engage with the content of the guide.  The Matplotlib demonstration below also contains more complex details that might be difficult to digest until the reader gains some experience with Python.  For these reasons, The reader may choose to skip the introduction to Matplotlib and return at a later point if interest arises.</p>
+<p>It should be noted that NumPy is used for many of the actual calculations encounted in linear algebra, while we use Matplotlib only to make useful visual representations of the concepts.  The ability to use NumPy therefore will be crucial, while the understanding of Matplotlib is not explicitly required to engage with the content of the guide.  The Matplotlib demonstration below also contains more complex details that might be difficult to digest until the reader gains some experience with Python.  For these reasons, The reader may choose to skip the introduction to Matplotlib and return at a later point if interest arises.</p>
 <div class="section" id="numpy">
 <h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
 <p>Almost every calculation that we do in linear algebra will involve working with arrays of numbers.  An array can be thought of as a collection of numbers arranged into rows and columns to form a rectangle, such as the example below, which has 2 rows and 4 columns.</p>
@@ -436,7 +441,7 @@
 \end{equation}
 \end{split}\]</div>
 <p>Although it is possible to represent arrays using a basic Python objects called lists, we will make use of NumPy array objects for our work.  NumPy has a powerful way to represent arrays, and has many built-in tools for processing them efficiently.  Just as with the math module, we have to first import NumPy before we can use it.  This time we will use the code <span class="math notranslate nohighlight">\(\texttt{import numpy as np}\)</span>, which imports the module but gives it a different name, called an alias, that is more convenient to type.</p>
-<p>The easiest way to create the array above is to use the <span class="math notranslate nohighlight">\(\texttt{array}\)</span> function, and provide it a list of all the array entries specific format.  The row entries are separated by commas and enclosed in square brackets [], then all the rows listed together, separated by commas, and enclosed in another set of square brackets.</p>
+<p>The easiest way to create the array above is to use the <span class="math notranslate nohighlight">\(\texttt{array}\)</span> function, and provide it a list of all the array entries in a specific format.  The row entries are separated by commas and enclosed in square brackets [], then all the rows listed together, separated by commas, and enclosed in another set of square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -557,7 +562,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03655634205534908
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.719333472599492
 </pre></div>
 </div>
 </div>
@@ -572,9 +577,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.92632784 0.12117734]
- [0.9214919  0.71134362]
- [0.32494456 0.50706226]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.46708121 0.73438915]
+ [0.06729752 0.35300119]
+ [0.62634925 0.98675071]]
 </pre></div>
 </div>
 </div>
@@ -587,7 +592,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -601,9 +606,9 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4 3 4 3 9 4]
- [7 9 8 5 9 2]
- [4 6 1 5 6 5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4 0 9 9 4 8]
+ [1 6 9 7 4 7]
+ [0 9 9 1 5 9]]
 </pre></div>
 </div>
 </div>
@@ -616,8 +621,37 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2 3 2]
- [2 8 2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[8 1 2]
+ [8 3 5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is also a function in the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module called <span class="math notranslate nohighlight">\(\texttt{choice}\)</span>, which allows us to generate a random value chosen from a specified collection.  This function takes a list of numbers as an argument and returns a value chosen at random from that list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">42</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use the <span class="math notranslate nohighlight">\(\texttt{choice}\)</span> function to generate an array of numbers consisting of values from the specified collection. This is done by again using the <span class="math notranslate nohighlight">\(\texttt{size}\)</span> keyword argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">42</span><span class="p">],</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 7]
+ [7 0 7]]
 </pre></div>
 </div>
 </div>
@@ -668,7 +702,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_29_0.png" src="_images/Numpy_Introduction_29_0.png" />
+<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
 </div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(\texttt{subplots}\)</span> method creates two Matplotlib objects, the <em>Figure</em>, and the <em>Axes</em>.  The <em>Figure</em> is the fundamental object in Matplotlib.  The <em>Axes</em> object is contained within the <em>Figure</em>, and is the object we will interact with the most.  The <span class="math notranslate nohighlight">\(\texttt{plot}\)</span> method of the <em>Axes</em> object is the function that actually plots our set of coordinates on the <em>Axes</em>.  Note that we do not need a <span class="math notranslate nohighlight">\(\texttt{print}\)</span> command to view the results.  Instead, the first line of code, <span class="math notranslate nohighlight">\(\texttt{% matplotlib inline}\)</span>, directs all graphical output to this notebook.</p>
@@ -681,10 +715,10 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_31_0.png" src="_images/Numpy_Introduction_31_0.png" />
+<img alt="_images/Numpy_Introduction_35_0.png" src="_images/Numpy_Introduction_35_0.png" />
 </div>
 </div>
-<p>Another alternative when we interested in plotting data points is the <span class="math notranslate nohighlight">\(\texttt{scatter}\)</span> method, for which we can use the same syntax.</p>
+<p>Another alternative when we are interested in plotting data points is the <span class="math notranslate nohighlight">\(\texttt{scatter}\)</span> method, for which we can use the same syntax.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -693,7 +727,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_33_0.png" src="_images/Numpy_Introduction_33_0.png" />
+<img alt="_images/Numpy_Introduction_37_0.png" src="_images/Numpy_Introduction_37_0.png" />
 </div>
 </div>
 <p>Next, we show how to configure some of the many options available in such a plot.  Remember that the plot is actually being constructed in an <em>Axes</em> object, so all the options that affect elements of the plot are methods of that object.</p>
@@ -716,20 +750,20 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_35_0.png" src="_images/Numpy_Introduction_35_0.png" />
+<img alt="_images/Numpy_Introduction_39_0.png" src="_images/Numpy_Introduction_39_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
-<p>In the next example, the aim will be to plot the curve <span class="math notranslate nohighlight">\(y=0.5x^2\)</span>, for <span class="math notranslate nohighlight">\(x\)</span> in the interval <span class="math notranslate nohighlight">\([-2,4]\)</span>.  In order to make use of the same method, we will need to generate a set of points that lie on the curve for <span class="math notranslate nohighlight">\(x\)</span> in the given interval.  The points that we specify will be connected straight lines, so we will want want to generate enough points to avoid the curve having a jagged appearance.  The NumPy method <span class="math notranslate nohighlight">\(\texttt{linspace}\)</span> provides an easy way to produce our points.  This method creates a NumPy array object with numbers spaced evenly over a specified interval.</p>
+<p>In the next example, the aim will be to plot the curve <span class="math notranslate nohighlight">\(y=0.5x^2\)</span>, for <span class="math notranslate nohighlight">\(x\)</span> in the interval <span class="math notranslate nohighlight">\([-2,4]\)</span>.  In order to make use of the same method, we will need to generate a set of points that lie on the curve for <span class="math notranslate nohighlight">\(x\)</span> in the given interval.  The points that we specify will be connected by straight lines, so we will want to generate enough points to avoid the curve having a jagged appearance.  The NumPy method <span class="math notranslate nohighlight">\(\texttt{linspace}\)</span> provides an easy way to produce our points.  This method creates a NumPy array object with numbers spaced evenly over a specified interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## This call to linspace produces an array of 9 numbers evenly spaced on the interval [-2,4]</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c1">## We can an array of the corresponding y values by using x in the algebraic expression</span>
+<span class="c1">## We can create an array of the corresponding y values by using x in the algebraic expression</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -767,7 +801,7 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_39_0.png" src="_images/Numpy_Introduction_39_0.png" />
+<img alt="_images/Numpy_Introduction_43_0.png" src="_images/Numpy_Introduction_43_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -795,10 +829,80 @@ This is C, which is the entries of B formed into a new shape.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Numpy_Introduction_40_0.png" src="_images/Numpy_Introduction_40_0.png" />
+<img alt="_images/Numpy_Introduction_44_0.png" src="_images/Numpy_Introduction_44_0.png" />
 </div>
 </div>
 <p>Throughout the Jupyter Guide to Linear Algebra, we will often hide the code used to produce the graphics in order to keep the pages tidy for reading.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span>  module, create a NumPy array with 2 rows and 3 columns that has entries that are random positive integers less than 10.  Print your array. Change the entry in the first row, second column to 8 and double the value in the second row, third column. Print the resulting array to check that your code has made the correct modifications.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span>  module, create a NumPy array with 3 rows and 3 columns that has entries that are random positive integers less than 10.  Print your array. Now multiply each value in the matrix by 5 and then add 1 to all the enteries in the second row. After that, divide each diagonal entry by 2 and print the resulting array to check that your code has made the correct modifications.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span>  module, create a NumPy array with 2 rows and 3 columns that has entries that are random integers greater than 5 and less than 13.    Write code that sets all even entries of the matrix to zero.  Print the array and check the results.  Run the code several times to check that it works for <em>different</em> random arrays.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Create a NumPy array with 2 rows and 4 columns and assign it the name <span class="math notranslate nohighlight">\(\texttt{A}\)</span>.  Fill it with some values of your choice.  Create a new array <span class="math notranslate nohighlight">\(\texttt{B}\)</span> that has the columns of <span class="math notranslate nohighlight">\(\texttt{A}\)</span> as it’s rows.  Print <span class="math notranslate nohighlight">\(\texttt{A}\)</span> and <span class="math notranslate nohighlight">\(\texttt{B}\)</span>.  Below is an example of one such pair of arrays.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{cccc} 1 &amp; 0 &amp; 5 &amp; 1 \\ 3 &amp; 2 &amp; 0 &amp; 8   \end{array}\right]\hspace{1cm}
+B = \left[ \begin{array}{cc} 1 &amp; 3 \\ 0 &amp; 2 \\ 5 &amp; 0  \\ 1 &amp; 8  \end{array}\right]\hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Using matplotlib to plot the following points using the blue <em>cross</em> symbol: (2,1), (4,4), (8,16), (10,25).  Add a grid that consists of dotted lines as in Example 2. Set the limits of <span class="math notranslate nohighlight">\(x\)</span>-axis to 0 and 10.  Set the limits of the <span class="math notranslate nohighlight">\(y\)</span>-axis to 0 and 25.  The numbers and gridlines should appear at intervals of 2 units along the <span class="math notranslate nohighlight">\(x\)</span>-axis and at intervals of 5 units along the <span class="math notranslate nohighlight">\(y\)</span>-axis.  Label the <span class="math notranslate nohighlight">\(x\)</span>-axis as “<em>Time</em>” and the <span class="math notranslate nohighlight">\(y\)</span>-axis as “<em>Distance</em>”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use matplotlib to plot the curve <span class="math notranslate nohighlight">\(y= 4+x-0.5x^2\)</span> where <span class="math notranslate nohighlight">\(x\)</span> lies in the interval <span class="math notranslate nohighlight">\([-1,5]\)</span>.  Follow Example 2 and use <span class="math notranslate nohighlight">\(\texttt{linspace}\)</span> to generate an array of coordinates of points on the curve. The curve should be dashed and shown in green color. The numbers and gridlines should appear at intervals of 1 unit along the <span class="math notranslate nohighlight">\(x\)</span>-axis and at intervals of 3 units along the <span class="math notranslate nohighlight">\(y\)</span>-axis. Draw the lines <span class="math notranslate nohighlight">\(x=0\)</span>, and <span class="math notranslate nohighlight">\(y=0\)</span> with black colour and 1 unit width. Add a grid that consists of dashed lines.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="references">
