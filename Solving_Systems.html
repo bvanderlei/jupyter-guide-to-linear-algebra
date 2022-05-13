@@ -382,8 +382,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#system-system-function">
-   System system function
+  <a class="reference internal nav-link" href="#solve-system-function">
+   Solve system function
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -405,7 +405,7 @@
                 
   <div class="section" id="solving-systems-using-elimination">
 <h1>Solving Systems using Elimination<a class="headerlink" href="#solving-systems-using-elimination" title="Permalink to this headline">¶</a></h1>
-<p>In this section we discuss the code needed to solve the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> using elimination.  We will restrict our objective to the case where <span class="math notranslate nohighlight">\(A\)</span> is a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, and the the system has exactly one solution. The more general case requires more knowledge of the underlying theory and will be addressed in a later chapter.</p>
+<p>In this section we discuss the code needed to solve the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> using elimination.  We will restrict our objective to the case where <span class="math notranslate nohighlight">\(A\)</span> is a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, and the system has exactly one solution. The more general case requires more knowledge of the underlying theory and will be addressed in a later chapter.</p>
 <p>When writing code to perform a complex problem, it is often a good idea to first break up the task, and write code to carry out smaller pieces.  Once we have code to reliably perform the small tasks, we can assemble the pieces to solve the larger problem.  In our case we will break down the solution method into two parts.</p>
 <ol class="simple">
 <li><p>Carry out elimination on the associated augmented matrix.</p></li>
@@ -506,7 +506,7 @@
 \end{equation}
 \end{split}\]</div>
 <p>It is important to notice that each row can contain at most one pivot and each column can contain at most one pivot.</p>
-<p>Before presenting the code to find the row echelon form of a matrix, we first discuss the matrices we will be working with in the case that we are solving the a <span class="math notranslate nohighlight">\(AX=B\)</span> that has a unique solution.  We recall from the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> that the same row operations needed to bring <span class="math notranslate nohighlight">\(A\)</span> to row echelon form must also be applied to <span class="math notranslate nohighlight">\(B\)</span>.  In practice we can join <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> together to form what we call an <strong>augmented matrix</strong>, and carry out the row operations on this single matrix.  Here is an example of the augmented matrix, which we will write as <span class="math notranslate nohighlight">\([A|B]\)</span>, associated with the system <span class="math notranslate nohighlight">\(AX=B\)</span>.</p>
+<p>Before presenting the code to find the row echelon form of a matrix, we first make a clarification about the matrices we work with when we are solving a system of the form <span class="math notranslate nohighlight">\(AX=B\)</span>.  We recall from the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> section that the same row operations needed to bring <span class="math notranslate nohighlight">\(A\)</span> to row echelon form must also be applied to <span class="math notranslate nohighlight">\(B\)</span>.  In practice we can join <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> together to form what we call an <strong>augmented matrix</strong>. We then carry out the row operations on this single matrix.  Here is an example of the augmented matrix, which we will write as <span class="math notranslate nohighlight">\([A|B]\)</span>, associated with the system <span class="math notranslate nohighlight">\(AX=B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -516,7 +516,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 [A|B] = \left[ \begin{array}{rr|r} 3 &amp; -1 &amp; 0 \\ 5 &amp; 2 &amp; 7 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>In our current objective, <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(n\times n\)</span>, which means that the augmented matrix we need to process will be <span class="math notranslate nohighlight">\(n\times(n+1)\)</span>.  We are also assuming at this point that the system <span class="math notranslate nohighlight">\(AX=B\)</span> has a unique solution.  If this is true the augmented matrix will have a pivot in each of the first <span class="math notranslate nohighlight">\(n\)</span> columns, with the pivot positions lying along the diagonal line of entries starting at the top left entry.  If the row echelon form of the augmented matrix has a zero in any of these positions, our solution process breaks down as shown in the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> examples.</p>
+<p>In our current objective, <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(n\times n\)</span>, which means that the augmented matrix we need to process will be <span class="math notranslate nohighlight">\(n\times(n+1)\)</span>.  We will also assume at this point that the system <span class="math notranslate nohighlight">\(AX=B\)</span> has a unique solution.  If this is true the augmented matrix will have a pivot in each of the first <span class="math notranslate nohighlight">\(n\)</span> columns, with the pivot positions lying along the diagonal line of entries starting at the top left entry.  If the row echelon form of the augmented matrix has a zero in any of these positions, our solution process breaks down as shown in the <a class="reference internal" href="Gaussian_Elimination.html"><span class="doc std std-doc">Gaussian Elimination</span></a> examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
@@ -613,8 +613,8 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 <p>Note, we should only use the rounded results for the purpose of displaying results.  If we were to carry on and solve a system, or perform some other calculation, we should use the original results rather than the rounded version.</p>
 <p>Roundoff error can present a significant challenge if we work with large arrays, and the errors are allowed to accumulate and compound.  There are strategies that can be employed to mitigate this error, and ensure that usable results can be obtained.  Any software that must provide reliable results must account for roundoff error.  We will carry on with our simple version of elimination with the awareness that the results we get are not always <em>exactly correct</em>.</p>
 </div>
-<div class="section" id="system-system-function">
-<h2>System system function<a class="headerlink" href="#system-system-function" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="solve-system-function">
+<h2>Solve system function<a class="headerlink" href="#solve-system-function" title="Permalink to this headline">¶</a></h2>
 <p>Now we can combine the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> and the <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span> functions together to carry out the solution algorithm for the system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Let us assume that the user of the function will supply <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, and the function will return the solution <span class="math notranslate nohighlight">\(X\)</span>.  Here are the steps that need to be completed.</p>
 <ol class="simple">
 <li><p>Build the associated augmented matrix.</p></li>
@@ -700,9 +700,9 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.00000000e+00]
- [1.33226763e-15]
- [8.88178420e-16]
- [0.00000000e+00]]
+ [0.00000000e+00]
+ [1.77635684e-15]
+ [8.88178420e-16]]
 </pre></div>
 </div>
 </div>

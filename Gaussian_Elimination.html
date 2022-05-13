@@ -499,7 +499,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 
 <span class="k">def</span> <span class="nf">RowScale</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
 <span class="c1"># =============================================================================</span>
-<span class="c1">#     A is a NumPy array.  ScaleRow will return duplicate array with the</span>
+<span class="c1">#     A is a NumPy array.  RowScale will return duplicate array with the</span>
 <span class="c1">#     entries of row k multiplied by scale.</span>
 <span class="c1"># =============================================================================</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># m is number of rows in A</span>
@@ -514,7 +514,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 
 <span class="k">def</span> <span class="nf">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">scale</span><span class="p">):</span>
 <span class="c1"># =============================================================================</span>
-<span class="c1">#     A is a numpy array.  RowSwap will return duplicate array with row</span>
+<span class="c1">#     A is a numpy array.  RowAdd will return duplicate array with row</span>
 <span class="c1">#     l modifed.  The new values will be the old values of row l added to </span>
 <span class="c1">#     the values of row k, multiplied by scale.</span>
 <span class="c1"># =============================================================================</span>
@@ -643,9 +643,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-7  3  4 -7]
- [ 4  6  4 -1]
- [ 4 -3 -4  6]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5  1  1 -5]
+ [ 4 -5 -6 -8]
+ [ 1  3  1  1]]
 </pre></div>
 </div>
 </div>
@@ -669,14 +669,14 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.         -0.42857143 -0.57142857  1.        ]
- [ 0.          1.          0.81481481 -0.64814815]
- [-0.         -0.          1.         -1.75      ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.2         0.2        -1.        ]
+ [-0.          1.          1.17241379  0.68965517]
+ [-0.         -0.          1.         -0.02777778]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Once we understand how the row operations work, and we are sure that they are working correctly, we might not have any reason to store the results of the intermediate steps of elimination.  In that case, we could simplify the code considerably by resuing the same array name for each step.  The following code would produce the same result, but we would no longer have access to the original array, or any of the intermediate steps.</p>
+<p>Once we understand how the row operations work, and we are sure that they are working correctly, we might not have any reason to store the results of the intermediate steps of elimination.  In that case, we could simplify the code considerably by resusing the same array name for each step.  The following code would produce the same result, but we would no longer have access to the original array, or any of the intermediate steps.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">RowScale</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">R</span> <span class="o">=</span> <span class="n">RowAdd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
@@ -732,7 +732,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<p>Now there is a zero in the middle pivot position.  We can swap the middle and last equation in order to carry on the elimination</p>
+<p>Now there is a zero in the middle pivot position.  We can swap the middle and last equation in order to carry on the elimination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Swap rows 1 and 2</span>
@@ -892,6 +892,9 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
  [ 1 -1  3  5]]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -954,7 +957,25 @@ x_3 &amp; = &amp; 1\\
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Repeat the elimination process for the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the triangular system represented by the array after all steps are completed.</p></li>
+<li><p>In the system below, use a row operation functions to produce a 0 coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the 0 using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+4x_1 - 2x_2 + 7x_3 &amp; = &amp; 2\\
+x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
+-7x_1 \quad\quad - 3x_3 &amp; = &amp; -1 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the triangular system represented by the array after all steps are completed.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
