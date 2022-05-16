@@ -37,5 +37,6 @@
     - file: Diagonalization
     - file: Approximating_Eigenvalues
     - file: Applications_EV
-
-    
+- file: Solutions
+  sections:
+    - file: Linear_Systems_Solutions
