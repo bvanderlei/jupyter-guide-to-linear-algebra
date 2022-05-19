@@ -39,4 +39,5 @@
     - file: Applications_EV
 - file: Solutions
   sections:
+    - file: Introduction_Solutions
     - file: Linear_Systems_Solutions
