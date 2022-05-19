@@ -57,7 +57,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Solutions" href="Solutions.html" />
+    <link rel="prev" title="Introduction" href="Introduction_Solutions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -284,6 +284,11 @@
    Solutions
   </a>
   <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction_Solutions.html">
+     Introduction
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Linear Systems
@@ -389,6 +394,16 @@
    Gaussian Elimination
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-algebra">
+   Matrix Algebra
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lu-factorization">
+   LU Factorization
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -407,14 +422,59 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
 </pre></div>
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>Consider the system of equations given below. Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has exactly one solution. For that value of <span class="math notranslate nohighlight">\(a\)</span>, find the solution to the system of equations and plot the lines formed by your equations to check your answer.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+ax_1 + 2x_2 &amp; = &amp; 1 \\
+4x_1 + 8x_2 &amp; = &amp; 12 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has no solution. Plot the lines formed by your equations to verify there is no solution.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+ ax_1 + 2x_2 &amp; = &amp; 1 \\
+4x_1 + 8x_2 &amp; = &amp; 12 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Consider the system of equations given below. Under what conditions on the coefficients <span class="math notranslate nohighlight">\(a,b,c,d,e,f\)</span> does this system have only one solution? No solutions? An infinite number of solutions? (<em>Think about what must be true of the slopes and intercepts of the lines in each case.</em>)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+ax_1 + bx_2 &amp; = &amp; c \\
+dx_1 + ex_2 &amp; = &amp; f \\
+\end{eqnarray*}
+\end{split}\]</div>
 <div class="section" id="gaussian-elimination">
 <h2>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>In the system below, use a row operation functions to produce a 0 coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the 0 using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p></li>
+<li><p>In the system below, use a row operation functions to produce a zero coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the zero using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -451,8 +511,38 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
+<ul>
+<li><p>Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be lower triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+3x_1 + 4x_2 \, - \,\,\,\,\,  x_3 &amp;   =   &amp; -6\\
+-2x_2   +  10x_3  &amp;   =   &amp; -8\\
+4x_2   \,  - \,\, 2x_3 &amp;  =  &amp; -2 
+\end{eqnarray*}
+\end{split}\]</div>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="c1"># B is obtained after performing RowAdd on A.</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  3.   4.  -1.  -6.]
+ [  0.  -2.  10.  -8.]
+ [  0.   0.  18. -18.]]
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
-<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the triangular system represented by the array after all steps are completed.</p></li>
+<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the lower triangular system represented by the array after all steps are completed.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -509,6 +599,111 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 [[ 1. -1.  1.  3.]
  [ 0.  1.  2.  4.]
  [-0. -0.  1.  2.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Use row operations on the system below to produce an <strong>upper triangular</strong> system.  The first equation of the upper triangular system should contain only <span class="math notranslate nohighlight">\(x_3\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 + 2x_2 + x_3 &amp; = &amp; 3\\
+3x_1 - x_2 - 3x_3 &amp; = &amp; -1\\
+2x_1 + 3x_2 + x_3 &amp; = &amp; 4
+\end{eqnarray*}
+\end{split}\]</div>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use elimination to determine whether the following system is <strong>consistent</strong> or <strong>inconsistent</strong>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_2 - x_3 &amp; = &amp; 4\\
+2x_1 - 2x_2 - 2x_3 &amp; = &amp; 8\\
+5x_1 - 5x_2 - 5x_3 &amp; = &amp; 20 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A is the array of numbers corresponding to the given system. </span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">]])</span>
+
+<span class="c1"># B1 and B2 are obtained by performing row operations on A.</span>
+<span class="n">B1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">B2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1. -1. -1.  4.]
+ [ 0.  0.  0.  0.]
+ [ 5. -5. -5. 20.]]
+[[ 1. -1. -1.  4.]
+ [ 0.  0.  0.  0.]
+ [ 0.  0.  0.  0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this system the second equation and third equation are just multiples of the first.  Any solution to one of the equations is a solution to all three equations.  We can get a solution to the first equation by choosing values for <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> and then calculating the value of <span class="math notranslate nohighlight">\(x_1\)</span> that satisfies the equation.  One such solution is <span class="math notranslate nohighlight">\(x_1 = 6\)</span>, <span class="math notranslate nohighlight">\(x_2=1\)</span>, <span class="math notranslate nohighlight">\(x_3=1\)</span>.</p>
+<ul>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Use elimination to show that this system of equations has no solution.
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1  +  x_2 +  x_3 &amp; = &amp; 0\\
+x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
+-x_1 - x_2 - x_3 &amp; = &amp; 2 
+\end{eqnarray*}
+\end{split}\]</div>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A is the array of numbers corresponding to the given system of equations.</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B1</span><span class="p">)</span>
+
+<span class="n">B2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  1.  1.  0.]
+ [ 0. -2.  2.  3.]
+ [-1. -1. -1.  2.]]
+[[ 1.  1.  1.  0.]
+ [ 0. -2.  2.  3.]
+ [ 0.  0.  0.  2.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The third row of <span class="math notranslate nohighlight">\(\texttt{B2}\)</span> indicates that the system is inconsistent.  This row represents the equation <span class="math notranslate nohighlight">\( 0(x_3) = 2 \)</span>, which cannot be true for any value of <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+<ul class="simple">
+<li><p>Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation that produces a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
 </pre></div>
 </div>
 </div>
@@ -578,33 +773,33 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.92850285 0.80909323 0.33519214 0.43393666]
- [0.58849694 0.03908863 0.56445383 0.71663142]
- [0.78614464 0.45223755 0.47158609 0.53040068]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.94268084 0.79360434 0.47224378 0.26167689]
+ [0.77773943 0.57346473 0.01931968 0.53450717]
+ [0.30262351 0.57217202 0.34305279 0.26373537]] 
 
-[[1.         0.87139553 0.36100282 0.46735092]
- [0.58849694 0.03908863 0.56445383 0.71663142]
- [0.78614464 0.45223755 0.47158609 0.53040068]] 
+[[1.         0.84185899 0.50095829 0.277588  ]
+ [0.77773943 0.57346473 0.01931968 0.53450717]
+ [0.30262351 0.57217202 0.34305279 0.26373537]] 
 
-[[ 1.          0.87139553  0.36100282  0.46735092]
- [ 0.         -0.47372497  0.35200478  0.44159683]
- [ 0.78614464  0.45223755  0.47158609  0.53040068]] 
+[[ 1.          0.84185899  0.50095829  0.277588  ]
+ [ 0.         -0.08128219 -0.37029533  0.31861604]
+ [ 0.30262351  0.57217202  0.34305279  0.26373537]] 
 
-[[ 1.          0.87139553  0.36100282  0.46735092]
- [ 0.         -0.47372497  0.35200478  0.44159683]
- [ 0.         -0.23280538  0.18778566  0.16299526]] 
+[[ 1.          0.84185899  0.50095829  0.277588  ]
+ [ 0.         -0.08128219 -0.37029533  0.31861604]
+ [ 0.          0.31740569  0.19145103  0.17973072]] 
 
-[[ 1.          0.87139553  0.36100282  0.46735092]
- [-0.          1.         -0.74305725 -0.93217975]
- [ 0.         -0.23280538  0.18778566  0.16299526]] 
+[[ 1.          0.84185899  0.50095829  0.277588  ]
+ [-0.          1.          4.5556759  -3.91987499]
+ [ 0.          0.31740569  0.19145103  0.17973072]] 
 
-[[ 1.          0.87139553  0.36100282  0.46735092]
- [-0.          1.         -0.74305725 -0.93217975]
- [ 0.          0.          0.01479794 -0.0540212 ]] 
+[[ 1.          0.84185899  0.50095829  0.277588  ]
+ [-0.          1.          4.5556759  -3.91987499]
+ [ 0.          0.         -1.25454644  1.42392136]] 
 
-[[ 1.          0.87139553  0.36100282  0.46735092]
- [-0.          1.         -0.74305725 -0.93217975]
- [ 0.          0.          1.         -3.65058968]] 
+[[ 1.          0.84185899  0.50095829  0.277588  ]
+ [-0.          1.          4.5556759  -3.91987499]
+ [-0.         -0.          1.         -1.13500889]] 
 </pre></div>
 </div>
 </div>
@@ -622,6 +817,490 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
     <span class="n">E4</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowScale</span><span class="p">(</span><span class="n">E3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">E3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">E5</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">E4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="n">E4</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">E6</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowScale</span><span class="p">(</span><span class="n">E5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="o">/</span><span class="n">E5</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrix-algebra">
+<h2>Matrix Algebra<a class="headerlink" href="#matrix-algebra" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(-2E\)</span>, <span class="math notranslate nohighlight">\(G+F\)</span>, <span class="math notranslate nohighlight">\(4F-G\)</span>, <span class="math notranslate nohighlight">\(HG\)</span>, and <span class="math notranslate nohighlight">\(GE\)</span> using the following matrix definitions.  Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E = \left[ \begin{array}{r} 5 \\ -2 \end{array}\right] \hspace{1cm} 
+F = \left[ \begin{array}{rr} 1 &amp; 6 \\ 2 &amp; 0 \\ -1 &amp; -1 \end{array}\right] \hspace{1cm}
+G = \left[ \begin{array}{rr} 2 &amp; 0\\ -1 &amp; 3 \\ -1 &amp; 6 \end{array}\right] \hspace{1cm}
+H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp; 4 &amp; -1\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find the values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that this equation holds.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rr} 1 &amp; 3 \\ -4 &amp; 2 \end{array}\right]
+\left[ \begin{array}{rr} 3 &amp; x \\ 2 &amp; y \end{array}\right]=
+\left[ \begin{array}{rr} 9 &amp; 10 \\ -8 &amp; 16 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Define NumPy arrays for the matrices <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(G\)</span> given below.</p>
+<ul>
+<li><p>Multiply the second and third column of <span class="math notranslate nohighlight">\(H\)</span> with the first and second row of <span class="math notranslate nohighlight">\(G\)</span>.  Use slicing to make subarrays.  Does the result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
+<li><p>Multiply the first and second row of <span class="math notranslate nohighlight">\(H\)</span> with the second and third column of <span class="math notranslate nohighlight">\(G\)</span>.  Does this result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+H = \left[ \begin{array}{rrr} 3 &amp; 3 &amp; -1  \\ -3 &amp; 0 &amp; 8 \\  1 &amp; 6 &amp; 5 \end{array}\right]\hspace{2cm}
+G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3 &amp; 0 \\ 2 &amp; 2 &amp; 4 &amp; 6\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Generate a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix <span class="math notranslate nohighlight">\(B\)</span> with random integer entries.  Compute matrices <span class="math notranslate nohighlight">\(P = \frac12(B+B^T)\)</span> and <span class="math notranslate nohighlight">\(Q = \frac12(B-B^T)\)</span>.  Rerun your code several times to get different matrices.  What do you notice about <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>?  Explain why it must always be true.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lu-factorization">
+<h2>LU Factorization<a class="headerlink" href="#lu-factorization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 5 &amp; 2 &amp; 1 \\ 5 &amp; 3 &amp; 0 \\ -5 &amp; -2 &amp; -4  \end{array}\right] \hspace{2cm} 
+B = \left[ \begin{array}{c} 4 \\ 7 \\ 8  \end{array}\right] \hspace{2cm} 
+L = \left[ \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 1 &amp; 1 &amp; 0  \\ -1 &amp; 0 &amp; 1  \end{array}\right] \hspace{2cm} 
+U = \left[ \begin{array}{ccc} 5 &amp; 2 &amp; 1 \\ 0 &amp; 1 &amp; -1  \\ 0 &amp; 0 &amp; 3  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L = \left[ \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ -1 &amp; 1 &amp; 0 \\ 0 &amp; -1 &amp; 1  \end{array}\right] \hspace{2cm} 
+U = \left[ \begin{array}{ccc} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; -1  \\ 0 &amp; 0 &amp; 1  \end{array}\right] \hspace{2cm} 
+B = \left[ \begin{array}{c} 2 \\ -3 \\ 4  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Write a function called <span class="math notranslate nohighlight">\(\texttt{ForwardSubstitution}\)</span> that will solve a lower triangular system <span class="math notranslate nohighlight">\(LY=B\)</span>.  It will be helpful to go back and look at the code for <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> be the following matrices:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 2 &amp; 1 &amp; 3 \\ 1 &amp; 0 &amp; 2  \end{array}\right] \hspace{2cm} 
+B = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 2 &amp; 1 &amp; 3  \\ 2 &amp; 2 &amp; 6  \end{array}\right] \hspace{2cm} 
+C = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 0 &amp; -1 &amp; -3  \\ 2 &amp; 2 &amp; 6  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>a. Find an elementary matrix <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(EA = B\)</span>.  Verify with a computation.</p>
+<p>b. Find an elementary matrix <span class="math notranslate nohighlight">\(F\)</span> such that <span class="math notranslate nohighlight">\( FB = C\)</span>.  Verify with a computation.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Part (a)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EA: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">E</span><span class="nd">@A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Part (b)</span>
+<span class="c1"># Building the matrix B</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FB: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">F</span><span class="nd">@B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 2 4]
+ [2 1 3]
+ [1 0 2]] 
+
+B: 
+ [[1. 2. 4.]
+ [2. 1. 3.]
+ [2. 2. 6.]] 
+
+E: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [1. 0. 1.]] 
+
+EA: 
+ [[1. 2. 4.]
+ [2. 1. 3.]
+ [2. 2. 6.]] 
+
+C: 
+ [[ 1.  2.  4.]
+ [ 0. -1. -3.]
+ [ 2.  2.  6.]] 
+
+F: 
+ [[ 1.  0.  0.]
+ [ 0.  1. -1.]
+ [ 0.  0.  1.]] 
+
+FB: 
+ [[ 1.  2.  4.]
+ [ 0. -1. -3.]
+ [ 2.  2.  6.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Consider the following <span class="math notranslate nohighlight">\(3\times 3\)</span>  matrix :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr}  2 &amp; 1 &amp; 1\\  6 &amp; 4 &amp; 5  \\ 4 &amp; 1 &amp; 3 \end{array} \right] 
+\end{equation}
+\end{split}\]</div>
+<p>a. Find <strong>elementary matrices</strong> <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, and <span class="math notranslate nohighlight">\(E_3\)</span> such that <span class="math notranslate nohighlight">\( E_3E_2E_1A = U \)</span> where <span class="math notranslate nohighlight">\(U\)</span> is an upper triangular matrix.</p>
+<p>b. Find <span class="math notranslate nohighlight">\(L\)</span> using the inverses of <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_3\)</span>, and verify that <span class="math notranslate nohighlight">\(  A = LU \)</span>.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#Part (a):</span>
+<span class="n">B1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">B2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">E2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">E3</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">E1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">E2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E3: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">E3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Part (b)</span>
+<span class="n">L1</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E3</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">L1</span><span class="nd">@L2@L3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LU: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="nd">@U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[2 1 1]
+ [6 4 5]
+ [4 1 3]] 
+
+E1: 
+ [[ 1.  0.  0.]
+ [-3.  1.  0.]
+ [ 0.  0.  1.]] 
+
+E2: 
+ [[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [-2.  0.  1.]] 
+
+E3: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 1. 1.]] 
+
+U: 
+ [[2. 1. 1.]
+ [0. 1. 2.]
+ [0. 0. 3.]] 
+
+L: 
+ [[ 1.  0.  0.]
+ [ 3.  1.  0.]
+ [ 2. -1.  1.]] 
+
+LU: 
+ [[2. 1. 1.]
+ [6. 4. 5.]
+ [4. 1. 3.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Compute the <span class="math notranslate nohighlight">\(LDU\)</span> factorization of the following matrix and verify that <span class="math notranslate nohighlight">\(A = LDU\)</span>.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr}  1 &amp; 1 &amp; 1\\  3 &amp; 5 &amp; 6  \\ -2 &amp; 2 &amp; 7 \end{array} \right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">B2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">E2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">B3</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">E3</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B3: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span>
+<span class="n">L3</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">E3</span><span class="p">)</span>
+
+<span class="c1"># creating lower triangular matrix L</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">L1</span><span class="nd">@L2@L3</span>
+
+<span class="c1"># creating row echelon form of A</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowScale</span><span class="p">(</span><span class="n">B3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowScale</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># creating diagonal matrix D</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;D: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LDU: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="nd">@D@U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[ 1  1  1]
+ [ 3  5  6]
+ [-2  2  7]] 
+
+B3: 
+ [[1. 1. 1.]
+ [0. 2. 3.]
+ [0. 0. 3.]] 
+
+L: 
+ [[ 1.  0.  0.]
+ [ 3.  1.  0.]
+ [-2.  2.  1.]] 
+
+U: 
+ [[1.  1.  1. ]
+ [0.  1.  1.5]
+ [0.  0.  1. ]] 
+
+D: 
+ [[1 0 0]
+ [0 2 0]
+ [0 0 3]] 
+
+LDU: 
+ [[ 1.  1.  1.]
+ [ 3.  5.  6.]
+ [-2.  2.  7.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Find <span class="math notranslate nohighlight">\(P, L,\)</span> and <span class="math notranslate nohighlight">\(U\)</span> such that <span class="math notranslate nohighlight">\(PA = LU\)</span>.  Following the discussion in this section, <span class="math notranslate nohighlight">\(P\)</span> should be a permutation matrix, <span class="math notranslate nohighlight">\(L\)</span> should be a lower triangular matrix with ones long the main diagonal, and <span class="math notranslate nohighlight">\(U\)</span> should be an upper triangular matrix.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr}  1 &amp; 3 &amp; 2\\  -2 &amp; -6 &amp; 1  \\ 2 &amp; 5 &amp; 7 \end{array} \right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">B2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">E2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Since we cannot perform futher row reduction in this form, we need to swap the second and third rows.</span>
+
+<span class="c1"># P is the permutation matrix</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowSwap</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PA: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">P</span><span class="nd">@A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">P</span><span class="nd">@A</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># U is the upper triangular matrix</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">L1</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F1</span><span class="p">)</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">L1</span><span class="nd">@L2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LU: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="nd">@U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># From here, we can see that PA = LU.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B1: 
+ [[1. 3. 2.]
+ [0. 0. 5.]
+ [2. 5. 7.]] 
+
+B2: 
+ [[ 1.  3.  2.]
+ [ 0.  0.  5.]
+ [ 0. -1.  3.]] 
+
+P: 
+ [[1. 0. 0.]
+ [0. 0. 1.]
+ [0. 1. 0.]] 
+
+PA: 
+ [[ 1.  3.  2.]
+ [ 2.  5.  7.]
+ [-2. -6.  1.]] 
+
+B: 
+ [[ 1.  3.  2.]
+ [ 0. -1.  3.]
+ [-2. -6.  1.]] 
+
+U: 
+ [[ 1.  3.  2.]
+ [ 0. -1.  3.]
+ [ 0.  0.  5.]] 
+
+L: 
+ [[ 1.  0.  0.]
+ [ 2.  1.  0.]
+ [-2.  0.  1.]] 
+
+LU: 
+ [[ 1.  3.  2.]
+ [ 2.  5.  7.]
+ [-2. -6.  1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Use SciPy to compute the <span class="math notranslate nohighlight">\(PLU\)</span> factorization of a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.  Replicate the results using the row operations functions in <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code Solution here</span>
 </pre></div>
 </div>
 </div>
@@ -654,7 +1333,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Solutions.html" title="previous page">Solutions</a>
+    <a class='left-prev' id="prev-link" href="Introduction_Solutions.html" title="previous page">Introduction</a>
 
         </div>
         

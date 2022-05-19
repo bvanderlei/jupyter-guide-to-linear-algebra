@@ -286,6 +286,11 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="Introduction_Solutions.html">
+     Introduction
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Linear_Systems_Solutions.html">
      Linear Systems
     </a>
@@ -430,7 +435,7 @@ a_{21}x_1 + a_{22}x_2 + \hspace{0.5cm} ... \hspace{0.5cm} + a_{2n}x_n &amp; = &a
 a_{m1}x_1 + a_{m2}x_2 + \hspace{0.5cm} ... \hspace{0.5cm} +  a_{mn}x_n &amp; = &amp; b_m \\
 \end{eqnarray*}
 \end{split}\]</div>
-<p>Solutions to the linear system are collections of values for the unknowns that satisfy all of the equations simultaneously.  The set of all possible solutions for the system is known as its <strong>solution set</strong>.</p>
+<p>Solutions to the linear system are collections of values for the unknowns that satisfy all of the equations simultaneously.  The set of all possible solutions for the system is known as its <strong>solution set</strong>.  A linear system that has at least one solution is said to be <strong>consistent</strong>, while a linear system that has no solutions is said to be <strong>inconsistent</strong>.</p>
 <p>Linear systems with two equations and two unknowns are a great starting point since we easily graph the sets of points that satisfy each equation in the <span class="math notranslate nohighlight">\(x_1x_2\)</span> coordinate plane.  The set of points that satisfy a single linear equation in two variables forms a line in the plane.  Three examples will be sufficient to show the possible solution sets for linear systems in this setting.</p>
 <div class="section" id="example-1-system-with-a-unique-solution">
 <h2>Example 1:  System with a unique solution<a class="headerlink" href="#example-1-system-with-a-unique-solution" title="Permalink to this headline">¶</a></h2>
@@ -441,7 +446,7 @@ x_1 + 3x_2 &amp; = &amp; 5 \\
 x_1 - 2x_2 &amp; = &amp; -5 \\
 \end{eqnarray*}
 \end{split}\]</div>
-<p>The solution set for each equation can be represented by a line, and the solution set for the linear system is represented by all points that lie on both lines.  In this case the lines intersect at a single point and there is only one pair of values that satisfy both equations, <span class="math notranslate nohighlight">\(x_1 = -1\)</span>, <span class="math notranslate nohighlight">\(x_2 = 2\)</span>.</p>
+<p>The solution set for each equation can be represented by a line, and the solution set for the linear system is represented by all points that lie on both lines.  In this case the lines intersect at a single point and there is only one pair of values that satisfy both equations, <span class="math notranslate nohighlight">\(x_1 = -1\)</span>, <span class="math notranslate nohighlight">\(x_2 = 2\)</span>.  This linear system is consistent.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -483,7 +488,7 @@ x_1 + 3x_2 &amp; = &amp; 5 \\
 x_1 + 3x_2 &amp; = &amp; 0 \\
 \end{eqnarray*}
 \end{split}\]</div>
-<p>In this example the solution sets of the individual equations represent lines that are parallel.  There is no pair of values that satisfy both equations simultaneously.</p>
+<p>In this example the solution sets of the individual equations represent lines that are parallel.  There is no pair of values that satisfy both equations simultaneously.  This linear system is inconsistent.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -519,7 +524,7 @@ x_1 + 3x_2 &amp; = &amp; 5 \\
 2x_1 + 6x_2 &amp; = &amp; 10 \\
 \end{eqnarray*}
 \end{split}\]</div>
-<p>In the final example, the second equation is a multiple of the first equation.  The solution set for both equations is represented by the same line and thus every point on the line is a solution to the linear system.</p>
+<p>In the final example, the second equation is a multiple of the first equation.  The solution set for both equations is represented by the same line and thus every point on the line is a solution to the linear system.  This linear system is consistent.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
