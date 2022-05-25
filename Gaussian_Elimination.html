@@ -287,7 +287,7 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Introduction_Solutions.html">
-     Introduction
+     Introduction to Jupyter
     </a>
    </li>
    <li class="toctree-l2">
@@ -648,11 +648,11 @@ x_2 + 2x_3 &amp; = &amp; 4\\
 x_3 &amp; = &amp; 2 
 \end{eqnarray*}
 \end{split}\]</div>
-<p>After the steps of elimination, we have what is known as a <strong>lower triangular</strong> system.  The solution to this system can be found without much effort by working backwards from the last equation.  The last equation tells us that <span class="math notranslate nohighlight">\(x_3 = 2\)</span>.  If we substitute that value into the second equation, we find that <span class="math notranslate nohighlight">\(x_2 = 0\)</span>.  Finally, if we substitute these values back into the first equation, we find that <span class="math notranslate nohighlight">\(x_1 = 1.\)</span>  This process for finding the solution of the lower triangular system is called <strong>back substitution</strong>.</p>
+<p>After the steps of elimination, we have what is known as a <strong>upper triangular</strong> system.  The solution to this system can be found without much effort by working backwards from the last equation.  The last equation tells us that <span class="math notranslate nohighlight">\(x_3 = 2\)</span>.  If we substitute that value into the second equation, we find that <span class="math notranslate nohighlight">\(x_2 = 0\)</span>.  Finally, if we substitute these values back into the first equation, we find that <span class="math notranslate nohighlight">\(x_1 = 1.\)</span>  This process for finding the solution of the upper triangular system is called <strong>back substitution</strong>.</p>
 </div>
 <div class="section" id="example-2-elimination-on-a-random-array">
 <h2>Example 2:  Elimination on a random array<a class="headerlink" href="#example-2-elimination-on-a-random-array" title="Permalink to this headline">¶</a></h2>
-<p>If a system of equations has a solution, the elimination algorithm will always result in a lower triangular system that can be solved by back substitution.  In this next example, we look at the calculation with a small change to see it in a more general way.  This time when we use the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> function, we will set the <em>scale</em> parameter based on the values in the array.</p>
+<p>If a system of equations has a solution, the elimination algorithm will always result in a upper triangular system that can be solved by back substitution.  In this next example, we look at the calculation with a small change to see it in a more general way.  This time when we use the <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> function, we will set the <em>scale</em> parameter based on the values in the array.</p>
 <p>To help us avoid writing the code based on the entries in any specific matrix, we will make up a matrix of random numbers using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -662,9 +662,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4  3  2 -4]
- [-6  0  1  2]
- [ 1  2 -8 -5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-8 -4 -7 -4]
+ [ 6 -6 -2 -1]
+ [-1  1 -4  1]]
 </pre></div>
 </div>
 </div>
@@ -688,9 +688,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.75        0.5        -1.        ]
- [ 0.          1.          0.88888889 -0.88888889]
- [-0.         -0.          1.          0.30057803]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.5         0.875       0.5       ]
+ [-0.          1.          0.80555556  0.44444444]
+ [-0.         -0.          1.         -0.19230769]]
 </pre></div>
 </div>
 </div>
@@ -705,7 +705,7 @@ x_3 &amp; = &amp; 2
 <span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Execute the code in this example several times.  Each time array <span class="math notranslate nohighlight">\(\texttt{R}\)</span> is created it will be populated with random integers between -8 and 8.  Does the code always produce a triangluar system ready for back substitution?  See if you can figure out which part of the process might fail, and why?</p>
+<p>Execute the code in this example several times.  Each time array <span class="math notranslate nohighlight">\(\texttt{R}\)</span> is created it will be populated with random integers between -8 and 8.  Does the code always produce a upper triangular system ready for back substitution?  See if you can figure out which part of the process might fail, and why?</p>
 </div>
 <div class="section" id="example-3-finding-pivots">
 <h2>Example 3: Finding pivots<a class="headerlink" href="#example-3-finding-pivots" title="Permalink to this headline">¶</a></h2>
@@ -991,7 +991,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 <ul>
-<li><p>Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be lower triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
+<li><p>Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be upper triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1010,7 +1010,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 <ul class="simple">
-<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the lower triangular system represented by the array after all steps are completed.</p></li>
+<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the upper triangular system represented by the array after all steps are completed.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1028,7 +1028,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <ul>
-<li><p>Use row operations on the system below to produce an <strong>upper triangular</strong> system.  The first equation of the upper triangular system should contain only <span class="math notranslate nohighlight">\(x_3\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+<li><p>Use row operations on the system below to produce an <strong>lower triangular</strong> system.  The first equation of the lower triangular system should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1096,7 +1096,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <ul class="simple">
-<li><p>Starting from the array that represents the lower triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p></li>
+<li><p>Starting from the array that represents the upper triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
