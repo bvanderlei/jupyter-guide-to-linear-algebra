@@ -287,7 +287,7 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Introduction_Solutions.html">
-     Introduction
+     Introduction to Jupyter
     </a>
    </li>
    <li class="toctree-l2">
@@ -394,6 +394,13 @@
   <a class="reference internal nav-link" href="#interpolation">
    Interpolation
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cryptography">
@@ -411,7 +418,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
+    <a class="reference internal nav-link" href="#id1">
      Exercises
     </a>
    </li>
@@ -438,7 +445,7 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id2">
      Exercises
     </a>
    </li>
@@ -580,6 +587,59 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 </div>
 </div>
 <p>Although the curve that we produce does indeed pass through each of the data points, this polynomial may not be the best model of the underlying process.  One potential concern is that the curve does not seem to connect the third and fourth data point in a direct way, but rather exhibits an oscillation.  When constructing a curve to fit a set of data points, there are other factors that may be more important than simply requiring that the curve passes through each point.  In a later chapter we will revisit the problem and consider the idea of finding a curve that “fits” the data without actually passing through each point.</p>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exercise 1:</strong> In 2017, researchers from the Universities of British Columbia, Alberta, and Toronto published their findings regarding the population of snowshoe hares around Kluane Lake, Yukon. They measured the density of hares per hectare, taking a reading once every two years. Here are some of their measurements:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Measurement #</p></th>
+<th class="head"><p>Density per ha.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0.26</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1.17</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2.65</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>0.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>0.42</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>1.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2.73</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>0.09</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>0.21</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the unique ninth degree polynomial whose graph passes through each of these points.  Plot the data points together with the graph of the polynomial to observe the fit.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Using the polynomial that we found, what should we expect the density of hares to be if we measured their population in the year between the third and fourth measurement? What about between the fourth and the fifth?</p>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Why might this method of interpolation not be an appropriate model of our data over time?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="cryptography">
 <h2>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
@@ -623,7 +683,7 @@ a_0 + 15a_1 + 15^2a_2 + 15^3a_3 &amp; = &amp; 15
 </div>
 </div>
 </div>
-<p>To find the which the number that is associated with each letter, we need to look up the index for that letter.</p>
+<p>To find which number is associated with each letter, we need to look up the index for that letter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">char</span> <span class="o">=</span> <span class="s1">&#39;R&#39;</span>
@@ -746,8 +806,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_inv</span> <span class="o">=</span> <span class="n">hc</span><span class="o">.</span><span class="n">ModularInverseMatrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B_inv</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B_inv</span><span class="nd">@B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_inv</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_inv</span><span class="nd">@B</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">((</span><span class="n">B_inv</span><span class="nd">@B</span><span class="p">)</span><span class="o">%</span><span class="k">29</span>)
 </pre></div>
 </div>
@@ -756,11 +816,13 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-300  300 -150  300]
  [-150 -450  300  450]
  [-450  150 -150  150]
- [-300    0  150    0]]
+ [-300    0  150    0]] 
+
 [[900   0   0   0]
  [  0 900   0   0]
  [  0   0 900   0]
- [  0   0   0 900]]
+ [  0   0   0 900]] 
+
 [[1 0 0 0]
  [0 1 0 0]
  [0 0 1 0]
@@ -829,8 +891,8 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 </div>
 </div>
-<div class="section" id="exercises">
-<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The <span class="math notranslate nohighlight">\(\texttt{hillcipher}\)</span> module contains two functions that carry out the same steps we have demonstrated here to encrypt/decrypt a message using the included alphabet.  The following cell shows how they are called.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,16 +907,14 @@ B = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; -2 &amp; -1 \\ 3 &amp; -1 &amp; -
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>! is not included in the current alphabet.
-ARQVI.?KSJZUZTFJ?W.AYTWXJR?Y.XZPOWRYJDJC
-WATER IN SHORT SUPPLY.  SEND HELP SOONPY
+ARQVI.?KSJZUZTFJ?W.AYTWXJR?Y.XZPOWRYFZUZ
+WATER IN SHORT SUPPLY.  SEND HELP SOONND
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note that these functions do some error checking of the original message to be sure that all letters are in uppercase, and no characters outside the alphabet are included in the message that gets encrypted.</p>
-<ul class="simple">
-<li><p>Create your own encryption matrix and apply the steps above to encrypt a message of your choosing.  Check the results with those produced by <span class="math notranslate nohighlight">\(\texttt{HillCipherEncryption}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Create your own encryption matrix and apply the steps above to encrypt a message of your choosing.  Check the results with those produced by <span class="math notranslate nohighlight">\(\texttt{HillCipherEncryption}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -862,9 +922,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Create your own alphabet list to translate messages into numbers.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Create your own alphabet list to translate messages into numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -904,7 +962,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_46_0.png" src="_images/Applications_46_0.png" />
+<img alt="_images/Applications_49_0.png" src="_images/Applications_49_0.png" />
 </div>
 </div>
 <p>The function produces a visualization with <span class="math notranslate nohighlight">\(\texttt{matplotlib}\)</span>, and then returns a Python object containing the positions of the nodes used in making the picture.  Notice that the nodes in this picture are in a different arrangement than in the first picture.  Both pictures represent the same graph so long as edges connect the nodes in the same way.  When we call the function <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span>, it will generate suitable positions for the nodes <em>unless we supply it with pre-defined positions.</em>  We only need to use supply node positions if we want to replicate previous node positions, or if we draw additional features on a graph under consideration.</p>
@@ -920,7 +978,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_48_0.png" src="_images/Applications_48_0.png" />
+<img alt="_images/Applications_51_0.png" src="_images/Applications_51_0.png" />
 </div>
 </div>
 <p>If we use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> this way</p>
@@ -935,7 +993,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_50_0.png" src="_images/Applications_50_0.png" />
+<img alt="_images/Applications_53_0.png" src="_images/Applications_53_0.png" />
 </div>
 </div>
 <p>For the discussion in this section we will place two restrictions on the edges.</p>
@@ -962,7 +1020,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
  [0 0 0 0 1 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_52_1.png" src="_images/Applications_52_1.png" />
+<img alt="_images/Applications_55_1.png" src="_images/Applications_55_1.png" />
 </div>
 </div>
 <div class="section" id="counting-paths">
@@ -1018,7 +1076,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
  [0 0 0 0 1 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_58_1.png" src="_images/Applications_58_1.png" />
+<img alt="_images/Applications_61_1.png" src="_images/Applications_61_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1059,7 +1117,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_61_0.png" src="_images/Applications_61_0.png" />
+<img alt="_images/Applications_64_0.png" src="_images/Applications_64_0.png" />
 </div>
 </div>
 <p>Let’s try one more example with a larger graph that we build at random.</p>
@@ -1079,7 +1137,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_63_0.png" src="_images/Applications_63_0.png" />
+<img alt="_images/Applications_66_0.png" src="_images/Applications_66_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1101,19 +1159,19 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 1. 0. 4. 0. 0. 2. 0. 1. 1.]
- [1. 4. 0. 7. 2. 1. 6. 1. 3. 6.]
- [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
- [4. 7. 0. 2. 3. 1. 2. 4. 1. 8.]
- [0. 2. 0. 3. 0. 0. 5. 0. 5. 1.]
- [0. 1. 0. 1. 0. 0. 2. 0. 3. 0.]
- [2. 6. 0. 2. 5. 2. 2. 2. 1. 8.]
- [0. 1. 0. 4. 0. 0. 2. 0. 1. 1.]
- [1. 3. 0. 1. 5. 3. 1. 1. 0. 7.]
- [1. 6. 0. 8. 1. 0. 8. 1. 7. 4.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 1. 0. 2. 1.]
+ [0. 0. 0. 1. 0. 0. 2. 0. 1. 1.]
+ [0. 1. 1. 2. 0. 1. 1. 5. 1. 4.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 1. 1. 1. 3.]
+ [0. 1. 2. 1. 0. 1. 0. 5. 0. 1.]
+ [0. 0. 0. 5. 0. 1. 5. 2. 5. 6.]
+ [0. 2. 1. 1. 0. 1. 0. 5. 0. 1.]
+ [0. 1. 1. 4. 0. 3. 1. 6. 1. 2.]]
 </pre></div>
 </div>
-<img alt="_images/Applications_64_1.png" src="_images/Applications_64_1.png" />
+<img alt="_images/Applications_67_1.png" src="_images/Applications_67_1.png" />
 </div>
 </div>
 <p>Although the exact picture will change with each new random matrix, we will likely see that there are more than three nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>, and that this set of nodes defines more than one clique.  For a graph with 10 nodes, we can still see fairly easily how to sort the nodes into different cliques.  For large graphs we would want to make use of a sorting algorithm.</p>
@@ -1137,7 +1195,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
  [1 0 0 0 0]]
 </pre></div>
 </div>
-<img alt="_images/Applications_67_1.png" src="_images/Applications_67_1.png" />
+<img alt="_images/Applications_70_1.png" src="_images/Applications_70_1.png" />
 </div>
 </div>
 <p>In this scenario the sum of the rows of <span class="math notranslate nohighlight">\(D\)</span> indicate how many wins were earned by each player.  In the example, players 2 and 3 both earned 3 wins, player 0 earned 2 wins, and players 1 and 4 earned a single win each.  In order to distinguish the tournament standings between players 2 and 3, we might also look at all the two-step paths between players using the matrix <span class="math notranslate nohighlight">\(D^2\)</span>.</p>
@@ -1176,17 +1234,11 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 <p>Looking at the sum of the rows of <span class="math notranslate nohighlight">\(D + D^2\)</span> we see that player 2 has the highest rating in this particular tournament.</p>
 </div>
-<div class="section" id="id1">
-<h3>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Create your own adjacency matrix and use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> to make a visualization of the associated graph.</p></li>
-</ul>
-<ul class="simple">
-<li><p>Edit your matrix and redraw the graph to see the changes.  Reuse the positions if you want the nodes to remain in the same locations.</p></li>
-</ul>
-<ul class="simple">
-<li><p>Rerun the code in the two cells below until it produces a graph that has at least 5 nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>.  Sort the nodes if they belong to different cliques.</p></li>
-</ul>
+<div class="section" id="id2">
+<h3>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exercise 1:</strong> Create your own adjacency matrix and use <span class="math notranslate nohighlight">\(\texttt{DrawGraph}\)</span> to make a visualization of the associated graph.</p>
+<p><strong>Exercise 2:</strong> Edit your matrix and redraw the graph to see the changes.  Reuse the positions if you want the nodes to remain in the same locations.</p>
+<p><strong>Exercise 3:</strong> Rerun the code in the two cells below until it produces a graph that has at least 5 nodes in the list <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span>.  Sort the nodes if they belong to different cliques.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
@@ -1201,7 +1253,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Applications_76_0.png" src="_images/Applications_76_0.png" />
+<img alt="_images/Applications_79_0.png" src="_images/Applications_79_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1223,24 +1275,22 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2. 7. 3. 1. 6. 0. 0. 9. 7. 1.]
- [7. 0. 1. 6. 2. 3. 2. 0. 1. 3.]
- [3. 1. 0. 4. 4. 1. 1. 1. 1. 2.]
- [1. 6. 4. 0. 2. 0. 0. 7. 4. 0.]
- [6. 2. 4. 2. 2. 1. 1. 3. 5. 2.]
- [0. 3. 1. 0. 1. 0. 0. 2. 1. 0.]
- [0. 2. 1. 0. 1. 0. 0. 4. 2. 0.]
- [9. 0. 1. 7. 3. 2. 4. 0. 1. 6.]
- [7. 1. 1. 4. 5. 1. 2. 1. 2. 5.]
- [1. 3. 2. 0. 2. 0. 0. 6. 5. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.  4.  0.  3.  4.  0.  6.  3.  1.  8.]
+ [ 4.  2.  3. 10.  4.  2.  2. 10.  0.  4.]
+ [ 0.  3.  0.  1.  2.  0.  2.  1.  0.  2.]
+ [ 3. 10.  1. 10. 11.  2. 11. 11.  1. 14.]
+ [ 4.  4.  2. 11.  6.  2.  5. 11.  1.  9.]
+ [ 0.  2.  0.  2.  2.  0.  3.  2.  2.  6.]
+ [ 6.  2.  2. 11.  5.  3.  2. 11.  0.  4.]
+ [ 3. 10.  1. 11. 11.  2. 11. 10.  1. 14.]
+ [ 1.  0.  0.  1.  1.  2.  0.  1.  0.  0.]
+ [ 8.  4.  2. 14.  9.  6.  4. 14.  0.  6.]]
 </pre></div>
 </div>
-<img alt="_images/Applications_77_1.png" src="_images/Applications_77_1.png" />
+<img alt="_images/Applications_80_1.png" src="_images/Applications_80_1.png" />
 </div>
 </div>
-<ul class="simple">
-<li><p>Write a code cell to sort the <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span> list into different cliques.  Print the result or store it in a list of lists.</p></li>
-</ul>
+<p><strong>Exercise 4:</strong> Write a code cell to sort the <span class="math notranslate nohighlight">\(\texttt{clique_nodes}\)</span> list into different cliques.  Print the result or store it in a list of lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -1254,6 +1304,7 @@ WATER IN SHORT SUPPLY.  SEND HELP SOONPY
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Anton, Howard and Chris Rorres. <em>Elementary Linear Algebra Applications Version</em>. 8th ed., John Wiley &amp; Sons Inc., 2000.</p></li>
+<li><p>Krebs, Charles J.; Boonstra, Rudy; Boutin, Stan (2017), Using experimentation to understand the 10‐year snowshoe hare cycle in the boreal forest of North America, Journal of Animal Ecology, Article-journal, <a class="reference external" href="https://doi.org/10.1111/1365-2656.12720">https://doi.org/10.1111/1365-2656.12720</a></p></li>
 <li><p>Kwak, Jin Ho and Sungpyo Hong.  <em>Linear Algebra</em>. 2nd ed., Birkhauser., 2004.</p></li>
 </ul>
 </div>

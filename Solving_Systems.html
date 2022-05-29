@@ -287,7 +287,7 @@
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="Introduction_Solutions.html">
-     Introduction
+     Introduction to Jupyter
     </a>
    </li>
    <li class="toctree-l2">
@@ -718,10 +718,10 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.77635684e-15]
- [ 1.77635684e-15]
- [-1.33226763e-15]
- [ 0.00000000e+00]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.42108547e-14]
+ [ 3.55271368e-15]
+ [-2.57571742e-14]
+ [-3.01980663e-14]]
 </pre></div>
 </div>
 </div>
@@ -729,9 +729,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Try out the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> function on two different arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>.  Is it possible to test random arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>?</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Try out the <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> function on two different arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>.  Is it possible to test random arrays that require the use of <span class="math notranslate nohighlight">\(\texttt{RowSwap}\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -739,9 +737,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Use <span class="math notranslate nohighlight">\(\texttt{np.random.rand(n,n)}\)</span> to generate a coefficient matrix with entries that are random floats.  Create a  linear system with a known solution using this matrix, and test <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Use <span class="math notranslate nohighlight">\(\texttt{np.random.rand(n,n)}\)</span> to generate a coefficient matrix with entries that are random floats.  Create a  linear system with a known solution using this matrix, and test <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -749,9 +745,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Experiment to see what might go wrong using <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> on a matrix that is <em>not</em> <span class="math notranslate nohighlight">\(n\times (n+1)\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Experiment to see what might go wrong using <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> on a matrix that is <em>not</em> <span class="math notranslate nohighlight">\(n\times (n+1)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -774,9 +768,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 \end{equation}
 \end{split}\]</div>
 <p>Note that for the system represented by the augmented matrix in the first example, the solution is given by the entries in the final column.  There is no need for back substitution if the augmented matrix is in reduced row echelon form.</p>
-<ul class="simple">
-<li><p>Modify <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> to compute the reduced row echelon form of a matrix.  Name the new function <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 4:</strong> Modify <span class="math notranslate nohighlight">\(\texttt{RowReduction}\)</span> to compute the reduced row echelon form of a matrix.  Name the new function <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -784,9 +776,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Test your <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span> on random <span class="math notranslate nohighlight">\(3\times 4\)</span> matrices, then on random <span class="math notranslate nohighlight">\(n\times (n+1)\)</span> matrices.</p></li>
-</ul>
+<p><strong>Exercise 5:</strong> Test your <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span> on random <span class="math notranslate nohighlight">\(3\times 4\)</span> matrices, then on random <span class="math notranslate nohighlight">\(n\times (n+1)\)</span> matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -794,9 +784,7 @@ AX = B \hspace{1cm} \left[ \begin{array}{rrr} 3 &amp; -1 \\ 5 &amp; 2 \end{array
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Construct a <span class="math notranslate nohighlight">\(3 \times 3\)</span> system with a known solution and compare the solutions produced using <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span> with those produced using <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 6:</strong> Construct a <span class="math notranslate nohighlight">\(3 \times 3\)</span> system with a known solution and compare the solutions produced using <span class="math notranslate nohighlight">\(\texttt{SolveSystem}\)</span> with those produced using <span class="math notranslate nohighlight">\(\texttt{RREF}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

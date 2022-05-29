@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Change of Bases &#8212; Jupyter Guide to Linear Algebra</title>
+    <title>Vector Spaces &#8212; Jupyter Guide to Linear Algebra</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -53,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
 
@@ -335,9 +337,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Change_Bases.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Vector_Spaces_Solutions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -355,11 +357,46 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/bvanderlei/jupyter-guide-to-linear-algebra/main?urlpath=tree/Vector_Spaces_Solutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-linear-systems">
+   General Linear Systems
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -368,9 +405,144 @@
         
               <div>
                 
-  <div class="section" id="change-of-bases">
-<h1>Change of Bases<a class="headerlink" href="#change-of-bases" title="Permalink to this headline">¶</a></h1>
-<p>With the idea of linear transformations, we can view matrix multiplication as a change of bases.</p>
+  <div class="section" id="vector-spaces">
+<h1>Vector Spaces<a class="headerlink" href="#vector-spaces" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="general-linear-systems">
+<h2>General Linear Systems<a class="headerlink" href="#general-linear-systems" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Determine the number of solutions to the following system, then find all possible solutions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 3\\
+x_1 \hspace{1.2cm} + x_3  &amp; = &amp; \hspace{0.3cm} 2\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">A_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   0.   0.   1.5]
+ [ 0.   1.   0.  -1. ]
+ [ 0.   0.   1.   0.5]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every column except the last one has exactly one pivot, so there exists a unique solution to this system. That solution is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 1.5\\
+x_2  &amp; = &amp; -1\\
+x_3 &amp; = &amp; 0.5
+\end{eqnarray*}
+\end{split}\]</div>
+<p><strong>Exercise 2:</strong> Determine the number of solutions to the following system, then find all possible solutions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 3\\
+x_1  +2x_2 + x_3  &amp; = &amp; \hspace{0.3cm} 0\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">B_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   0.  -1.   1. ]
+ [ 0.   1.   1.  -0.5]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Niether the third nor the last column have pivots, so there exist an infinite number of solutions to this system. If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> then the following is a solution to the system for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 1 + s\\
+x_2  &amp; = &amp; -0.5 - s\\
+x_3 &amp; = &amp; s
+\end{eqnarray*}
+\end{split}\]</div>
+<p><strong>Exercise 3:</strong> Determine the number of solutions to the following system, then find all possible solutions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+5x_1 + 4x_2 - x_3 &amp; = &amp; \hspace{0.3cm} 3\\
+x_1  +2x_2 + x_3  &amp; = &amp; \hspace{0.3cm} 0\\
+-2x_1 + 2x_2 + 4x_3 &amp; = &amp; -3 \\
+x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
+3x_1 \hspace{1.2cm} - 3x_3 &amp; = &amp; \hspace{0.3cm} 3 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Construct an example of an inconsistent system with 2 equations and 4 unknowns.  Check your example by using <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">C_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  4 -3  3]
+ [ 4  8 -6  5]] 
+
+[[ 1.   2.  -1.5  0. ]
+ [ 0.   0.   0.   1. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Explain why it is not possible for a system with 2 equations and 4 unknowns to have a unique solution.  Base your argument on pivot positions.</p>
+<p>The augmented matrix that represents a system with 2 equations and 4 unknowns must can have at most 2 pivots since it has only 2 rows.  This means that one of the first four columns does not have a pivot and corresponds to a free variable in the system.  The guaranteed existence of a free variable means the system not have a unique solution.</p>
+<p><strong>Exercise 6:</strong> Write a function that accepts the augmented matrix for a system and returns the number of free variables in that system.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -680,7 +680,15 @@ AX = A(FB) = (AF)B = IB = B
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
+<p><strong>Exercise 1:</strong> Consider the following system of equations:
+$<span class="math notranslate nohighlight">\(
+\begin{eqnarray*}
+2x_1 + 3x_2 + x_3 &amp; = &amp; 4\\
+3x_1 + 3x_2 + x_3 &amp; = &amp; 8\\
+2x_1 + 4x_2 + x_3 &amp; = &amp; 5 
+\end{eqnarray*}
+\)</span>$</p>
+<p>Solve the given system of equations using an inverse matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
@@ -688,8 +696,16 @@ AX = A(FB) = (AF)B = IB = B
 </div>
 </div>
 </div>
-<p><strong>Exercise 2:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
-<p><strong>Exercise 3:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
+<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
+<p><strong>Exercise 4:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; -3 \\ -1 &amp; 1 &amp; -1  \\ 0 &amp; -2 &amp; 3  \end{array}\right] \quad\quad
@@ -702,7 +718,7 @@ B = \left[ \begin{array}{rrrr} 1  \\ 1 \\ 1  \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 4:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.</p>
+<p><strong>Exercise 5:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}{rrrr} 3 &amp; 1 &amp; 0 \\ 5 &amp; 2 &amp; 1 \\ 0 &amp; 2 &amp; 3\end{array}\right]\hspace{2cm}
@@ -715,7 +731,37 @@ C = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1 \\ 3 &amp; 4 &amp; 0 \\ 1 &amp;
 </div>
 </div>
 </div>
-<p><strong>Exercise 5:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be a random <span class="math notranslate nohighlight">\(4 \times 1\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a random <span class="math notranslate nohighlight">\( 1 \times 4 \)</span> matrix. Use Python to demonstrate that the product <span class="math notranslate nohighlight">\( AB \)</span> is not invertible. Do you expect this to be true for any two matrices <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is an <span class="math notranslate nohighlight">\( n \times 1 \)</span> matrix and <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\( 1 \times n\)</span> matrix ? Explain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\( 3 \times 3\)</span> matrices. Demonstrate using Python that <span class="math notranslate nohighlight">\((A^T)^{-1} = (A^{-1})^T\)</span> for the matrices. Use this property to explain why <span class="math notranslate nohighlight">\(A^{-1}\)</span> must be symmetric if <span class="math notranslate nohighlight">\(A\)</span> is symmetric.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Consider the following <span class="math notranslate nohighlight">\( 4 \times 4 \)</span> matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 4 &amp; x_1 &amp; 0 &amp; 0 \\ 0 &amp; x_2 &amp; 0 &amp; 0 \\ 0 &amp; x_3 &amp; 1 &amp; 0 \\ 0 &amp; x_4 &amp; 0 &amp; 3 \end{array}\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the condition on <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span> or <span class="math notranslate nohighlight">\(x_4\)</span> for which <span class="math notranslate nohighlight">\(A^{-1}\)</span> exists. Assuming that condition is true, find the inverse of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Use Python to check if <span class="math notranslate nohighlight">\( A^{-1}A = I \)</span> when <span class="math notranslate nohighlight">\(x_1 = 4\)</span>, <span class="math notranslate nohighlight">\(x_2 = 1\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4 = 3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4 \end{array}\right]

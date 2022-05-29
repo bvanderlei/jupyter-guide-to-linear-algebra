@@ -662,9 +662,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1 -7 -5 -8]
- [ 7  0 -5 -2]
- [ 5  6  0 -5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3  4  1  0]
+ [-6 -7 -5 -1]
+ [-1 -6 -1 -6]]
 </pre></div>
 </div>
 </div>
@@ -688,9 +688,9 @@ x_3 &amp; = &amp; 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.00000000e+00  7.00000000e+00  5.00000000e+00  8.00000000e+00]
- [-0.00000000e+00  1.00000000e+00  8.16326531e-01  1.18367347e+00]
- [-0.00000000e+00  2.67819954e-15  1.00000000e+00  8.04615385e+00]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          1.33333333  0.33333333  0.        ]
+ [ 0.          1.         -3.         -1.        ]
+ [-0.         -0.          1.          0.72727273]]
 </pre></div>
 </div>
 </div>
@@ -972,9 +972,7 @@ x_3 &amp; = &amp; 1\\
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>In the system below, use a row operation functions to produce a zero coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the zero using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> In the system below, use a row operation functions to produce a zero coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the zero using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -990,8 +988,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
-<ul>
-<li><p>Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be upper triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
+<p><strong>Exercise 2:</strong> Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be upper triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1000,8 +997,6 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 4x_2   \,  - \,\, 2x_3 &amp;  =  &amp; -2 
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -1009,9 +1004,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the upper triangular system represented by the array after all steps are completed.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the upper triangular system represented by the array after all steps are completed.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1027,8 +1020,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul>
-<li><p>Use row operations on the system below to produce an <strong>lower triangular</strong> system.  The first equation of the lower triangular system should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p><strong>Exercise 4:</strong> Use row operations on the system below to produce an <strong>lower triangular</strong> system.  The first equation of the lower triangular system should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1037,8 +1029,6 @@ x_1 + 2x_2 + x_3 &amp; = &amp; 3\\
 2x_1 + 3x_2 + x_3 &amp; = &amp; 4
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code solution here</span>
@@ -1046,9 +1036,7 @@ x_1 + 2x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Use elimination to determine whether the following system is <strong>consistent</strong> or <strong>inconsistent</strong>.</p></li>
-</ul>
+<p><strong>Exercise 5:</strong> Use elimination to determine whether the following system is <strong>consistent</strong> or <strong>inconsistent</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1064,8 +1052,7 @@ x_1 - x_2 - x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
-<ul>
-<li><p>Use elimination to show that this system of equations has no solution.</p>
+<p><strong>Exercise 6:</strong> Use elimination to show that this system of equations has no solution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -1074,8 +1061,6 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 -x_1 - x_2 - x_3 &amp; = &amp; 2 
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code solution here</span>
@@ -1083,9 +1068,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation that produces a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p></li>
-</ul>
+<p><strong>Exercise 7:</strong> Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation to produce a matrix with a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code solution here</span>
@@ -1093,9 +1076,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Starting from the array that represents the upper triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p></li>
-</ul>
+<p><strong>Exercise 8:</strong> Starting from the array that represents the upper triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1109,9 +1090,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Redo <strong>Example 2</strong> using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array made up of random floats instead of random integers.</p></li>
-</ul>
+<p><strong>Exercise 9:</strong> Redo <strong>Example 2</strong> using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array made up of random floats instead of random integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -1119,9 +1098,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Write a loop that will execute the elimination code in <strong>Example 2</strong> on 1000 different <span class="math notranslate nohighlight">\(3\times 4\)</span> arrays of random floats to see how frequently it fails.</p></li>
-</ul>
+<p><strong>Exercise 10:</strong> Write a loop that will execute the elimination code in <strong>Example 2</strong> on 1000 different <span class="math notranslate nohighlight">\(3\times 4\)</span> arrays of random floats to see how frequently it fails.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

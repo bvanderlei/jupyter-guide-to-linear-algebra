@@ -409,6 +409,18 @@
    Inverse Matrices
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   Applications
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpolation">
+     Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -428,13 +440,13 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Consider the system of equations given below. Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has exactly one solution. For that value of <span class="math notranslate nohighlight">\(a\)</span>, find the solution to the system of equations and plot the lines formed by your equations to check your answer.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Consider the system of equations given below. Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has exactly one solution. For that value of <span class="math notranslate nohighlight">\(a\)</span>, find the solution to the system of equations and plot the lines formed by your equations to check your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -442,16 +454,35 @@ ax_1 + 2x_2 &amp; = &amp; 1 \\
 4x_1 + 8x_2 &amp; = &amp; 12 \\
 \end{eqnarray*}
 \end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(a=1\)</span> the two lines are parallel and do not intersect.  For any other value of <span class="math notranslate nohighlight">\(a\)</span> the lines intersect at exactly one point.  For example, we take <span class="math notranslate nohighlight">\(a = -1\)</span>. By plotting the two lines formed by these equations and examining where they intersect we can see that the solution to this system is <span class="math notranslate nohighlight">\(x_1 = 1,\)</span> <span class="math notranslate nohighlight">\(x_2 = 1\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">12</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.9</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="s1">&#39;$4x_1 + 8x_2 = 12$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mf">1.6</span><span class="p">,</span><span class="s1">&#39;$-x_1 + 2x_2 = 1$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Systems_Solutions_4_0.png" src="_images/Linear_Systems_Solutions_4_0.png" />
 </div>
-<ul class="simple">
-<li><p>Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has no solution. Plot the lines formed by your equations to verify there is no solution.</p></li>
-</ul>
+</div>
+<p><strong>Exercise 2:</strong> Find a value for the coefficient <span class="math notranslate nohighlight">\(a\)</span> so that the system has no solution. Plot the lines formed by your equations to verify there is no solution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -459,16 +490,35 @@ ax_1 + 2x_2 &amp; = &amp; 1 \\
 4x_1 + 8x_2 &amp; = &amp; 12 \\
 \end{eqnarray*}
 \end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(a = 1\)</span> then the lines are parallel and there is no solution to the system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">12</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="s1">&#39;$4x_1 + 8x_2 = 12$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span><span class="s1">&#39;$x_1 + 2x_2 = 1$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Systems_Solutions_7_0.png" src="_images/Linear_Systems_Solutions_7_0.png" />
 </div>
-<ul class="simple">
-<li><p>Consider the system of equations given below. Under what conditions on the coefficients <span class="math notranslate nohighlight">\(a,b,c,d,e,f\)</span> does this system have only one solution? No solutions? An infinite number of solutions? (<em>Think about what must be true of the slopes and intercepts of the lines in each case.</em>)</p></li>
-</ul>
+</div>
+<p><strong>Exercise 3:</strong> Consider the system of equations given below. Under what conditions on the coefficients <span class="math notranslate nohighlight">\(a,b,c,d,e,f\)</span> does this system have only one solution? No solutions? An infinite number of solutions? (<em>Think about what must be true of the slopes and intercepts of the lines in each case.</em>)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -476,11 +526,15 @@ ax_1 + bx_2 &amp; = &amp; c \\
 dx_1 + ex_2 &amp; = &amp; f \\
 \end{eqnarray*}
 \end{split}\]</div>
+<p>Using algebra, we can convert the arbitrary equation <span class="math notranslate nohighlight">\(ax_1 + bx_2 = c\)</span> to its slope-intercept form <span class="math notranslate nohighlight">\(x_2 = - \frac{a}{b}x_1 + \frac{c}{b}\)</span>. Two lines intersect only once in the plane if and only if their slopes are different.  Therefore if <span class="math notranslate nohighlight">\(\frac{a}{b} \neq \frac{d}{e}\)</span> then the system has exactly one solution. In the case that the slopes are equal, we examine the y-intercepts of the equations to determine whether there exists no solutions or an infinite number of solutions. If <span class="math notranslate nohighlight">\(\frac{c}{b} = \frac{f}{e}\)</span> then the y-intercepts are equal and the two equations describe the same line.  In this case there are an infinite number of solutions. On the other hand, if <span class="math notranslate nohighlight">\(\frac{c}{b} \neq \frac{f}{e}\)</span> then the lines are parallel and there exists no solutions. In summary:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\frac{a}{b} \neq \frac{d}{e}\)</span> then there exists exactly one solution</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\frac{a}{b} = \frac{d}{e}\)</span> and <span class="math notranslate nohighlight">\(\frac{c}{b} = \frac{f}{e}\)</span> then there are an infinite number of solutions</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\frac{a}{b} = \frac{d}{e}\)</span> and <span class="math notranslate nohighlight">\(\frac{c}{b} \neq \frac{f}{e}\)</span> then there are no solutions</p></li>
+</ul>
 <div class="section" id="gaussian-elimination">
 <h2>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>In the system below, use a row operation functions to produce a zero coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the zero using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> In the system below, use a row operation functions to produce a zero coefficient in the location of the coefficient 12.  Do this first by hand and then create a NumPy array to represent the system and use the row operation functions.  (<em>There are two ways to create the zero using <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span>.  Try to find both.</em>)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -516,8 +570,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
-<ul>
-<li><p>Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be upper triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
+<p><strong>Exercise 2:</strong> Create a NumPy array to represent the system below.  Determine which coefficient should be zero in order for the system to be upper triangular.  Use <span class="math notranslate nohighlight">\(\texttt{RowAdd}\)</span> to carry out the row operation and then print your results.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -526,8 +579,6 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 4x_2   \,  - \,\, 2x_3 &amp;  =  &amp; -2 
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
@@ -546,9 +597,7 @@ x_1 + 3x_2 + 12x_3 &amp; = &amp; 4\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the upper triangular system represented by the array after all steps are completed.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Carry out the elimination process on the following system.  Define a NumPy array and make use of the row operation functions.  Print the results of each step.  Write down the upper triangular system represented by the array after all steps are completed.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -608,8 +657,7 @@ x_1 - x_2 + x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul>
-<li><p>Use row operations on the system below to produce an <strong>lower triangular</strong> system.  The first equation of the lower triangular system should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
+<p><strong>Exercise 4:</strong> Use row operations on the system below to produce an <strong>lower triangular</strong> system.  The first equation of the lower triangular system should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and the second equation should contain only <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -618,18 +666,43 @@ x_1 + 2x_2 + x_3 &amp; = &amp; 3\\
 2x_1 + 3x_2 + x_3 &amp; = &amp; 4
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code solution here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[ 1  2  1  3]
+ [ 3 -1 -3 -1]
+ [ 2  3  1  4]] 
+
+L: 
+ [[ 0.125  0.     0.     0.375]
+ [ 9.     8.     0.    11.   ]
+ [ 2.     3.     1.     4.   ]] 
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Use elimination to determine whether the following system is <strong>consistent</strong> or <strong>inconsistent</strong>.</p></li>
-</ul>
+<p>The corresponding lower triangular system is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+0.125x_1 \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, &amp; = &amp; 0.375\\
+9x_1 + 8x_2 \,\,\,\,\,\,\,\,\,\,\,\,\,\,\  &amp; = &amp; 11\\
+2x_1 + 3x_2 + 1x_3 &amp; = &amp; 4 
+\end{eqnarray*}
+\end{split}\]</div>
+<p><strong>Exercise 5:</strong> Use elimination to determine whether the following system is <strong>consistent</strong> or <strong>inconsistent</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -664,10 +737,7 @@ x_1 - x_2 - x_3 &amp; = &amp; 4\\
 </div>
 </div>
 <p>In this system the second equation and third equation are just multiples of the first.  Any solution to one of the equations is a solution to all three equations.  We can get a solution to the first equation by choosing values for <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> and then calculating the value of <span class="math notranslate nohighlight">\(x_1\)</span> that satisfies the equation.  One such solution is <span class="math notranslate nohighlight">\(x_1 = 6\)</span>, <span class="math notranslate nohighlight">\(x_2=1\)</span>, <span class="math notranslate nohighlight">\(x_3=1\)</span>.</p>
-<ul>
-<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Use elimination to show that this system of equations has no solution.
-</pre></div>
-</div>
+<p><strong>Exercise 6:</strong> Use elimination to show that this system of equations has no solution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -676,8 +746,6 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 -x_1 - x_2 - x_3 &amp; = &amp; 2 
 \end{eqnarray*}
 \end{split}\]</div>
-</li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A is the array of numbers corresponding to the given system of equations.</span>
@@ -703,9 +771,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <p>The third row of <span class="math notranslate nohighlight">\(\texttt{B2}\)</span> indicates that the system is inconsistent.  This row represents the equation <span class="math notranslate nohighlight">\( 0(x_3) = 2 \)</span>, which cannot be true for any value of <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
-<ul class="simple">
-<li><p>Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation that produces a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p></li>
-</ul>
+<p><strong>Exercise 7:</strong> Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation that produces a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -713,9 +779,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Starting from the array that represents the upper triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p></li>
-</ul>
+<p><strong>Exercise 8:</strong> Starting from the array that represents the upper triangular system in <strong>Example 1</strong> (<span class="math notranslate nohighlight">\(\texttt{A5}\)</span>), use the row operations to produce an array of the following form.  Do one step at a time and again print your results to check that you are successful.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -755,9 +819,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Redo <strong>Example 2</strong> using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array made up of random floats instead of random integers.</p></li>
-</ul>
+<p><strong>Exercise 9:</strong> Redo <strong>Example 2</strong> using the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array made up of random floats instead of random integers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -778,40 +840,38 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.9216394  0.27889045 0.70345683 0.25123596]
- [0.78030814 0.11289563 0.41249662 0.93590934]
- [0.94676522 0.85637432 0.18268046 0.47903215]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.46321821 0.53932142 0.91381047 0.32443987]
+ [0.36046434 0.3551215  0.8930977  0.7221821 ]
+ [0.02288536 0.29585798 0.22787832 0.06067665]] 
 
-[[1.         0.30260257 0.76326689 0.27259681]
- [0.78030814 0.11289563 0.41249662 0.93590934]
- [0.94676522 0.85637432 0.18268046 0.47903215]] 
+[[1.         1.16429234 1.97274297 0.70040397]
+ [0.36046434 0.3551215  0.8930977  0.7221821 ]
+ [0.02288536 0.29585798 0.22787832 0.06067665]] 
 
-[[ 1.          0.30260257  0.76326689  0.27259681]
- [ 0.         -0.12322761 -0.18308674  0.72319983]
- [ 0.94676522  0.85637432  0.18268046  0.47903215]] 
+[[ 1.          1.16429234  1.97274297  0.70040397]
+ [ 0.         -0.06456438  0.1819942   0.46971145]
+ [ 0.02288536  0.29585798  0.22787832  0.06067665]] 
 
-[[ 1.          0.30260257  0.76326689  0.27259681]
- [ 0.         -0.12322761 -0.18308674  0.72319983]
- [ 0.          0.56988073 -0.53995408  0.22094697]] 
+[[ 1.          1.16429234  1.97274297  0.70040397]
+ [ 0.         -0.06456438  0.1819942   0.46971145]
+ [ 0.          0.26921273  0.18273138  0.04464766]] 
 
-[[ 1.          0.30260257  0.76326689  0.27259681]
- [-0.          1.          1.48576065 -5.86881312]
- [ 0.          0.56988073 -0.53995408  0.22094697]] 
+[[ 1.          1.16429234  1.97274297  0.70040397]
+ [-0.          1.         -2.81880206 -7.27508675]
+ [ 0.          0.26921273  0.18273138  0.04464766]] 
 
-[[ 1.          0.30260257  0.76326689  0.27259681]
- [-0.          1.          1.48576065 -5.86881312]
- [ 0.          0.         -1.38666044  3.56547047]] 
+[[ 1.          1.16429234  1.97274297  0.70040397]
+ [-0.          1.         -2.81880206 -7.27508675]
+ [ 0.          0.          0.94158878  2.00319362]] 
 
-[[ 1.          0.30260257  0.76326689  0.27259681]
- [-0.          1.          1.48576065 -5.86881312]
- [-0.         -0.          1.         -2.57126428]] 
+[[ 1.          1.16429234  1.97274297  0.70040397]
+ [-0.          1.         -2.81880206 -7.27508675]
+ [ 0.          0.          1.          2.12746122]] 
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Write a loop that will execute the elimination code in <strong>Example 2</strong> on 1000 different <span class="math notranslate nohighlight">\(3\times 4\)</span> arrays of random floats to see how frequently it fails.</p></li>
-</ul>
+<p><strong>Exercise 10:</strong> Write a loop that will execute the elimination code in <strong>Example 2</strong> on 1000 different <span class="math notranslate nohighlight">\(3\times 4\)</span> arrays of random floats to see how frequently it fails.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
@@ -829,9 +889,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 <div class="section" id="matrix-algebra">
 <h2>Matrix Algebra<a class="headerlink" href="#matrix-algebra" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Calculate <span class="math notranslate nohighlight">\(-2E\)</span>, <span class="math notranslate nohighlight">\(G+F\)</span>, <span class="math notranslate nohighlight">\(4F-G\)</span>, <span class="math notranslate nohighlight">\(HG\)</span>, and <span class="math notranslate nohighlight">\(GE\)</span> using the following matrix definitions.  Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Calculate <span class="math notranslate nohighlight">\(-2E\)</span>, <span class="math notranslate nohighlight">\(G+F\)</span>, <span class="math notranslate nohighlight">\(4F-G\)</span>, <span class="math notranslate nohighlight">\(HG\)</span>, and <span class="math notranslate nohighlight">\(GE\)</span> using the following matrix definitions.  Do the exercise on paper first, then check by doing the calculation with NumPy arrays.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -843,14 +901,43 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">E</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">+</span><span class="n">F</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">F</span><span class="o">-</span><span class="n">G</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="nd">@G</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="nd">@E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10]
+ [  4]] 
+
+[[ 3  6]
+ [ 1  3]
+ [-2  5]] 
+
+[[  2  24]
+ [  9  -3]
+ [ -3 -10]] 
+
+[[5 6]
+ [2 6]
+ [3 6]] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 10]
+ [-11]
+ [-17]]
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Find the values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that this equation holds.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Find the values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that this equation holds.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -859,21 +946,48 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 \left[ \begin{array}{rr} 9 &amp; 10 \\ -8 &amp; 16 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
+<p>If we multiply out the left-hand side we get the following equivalence:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{cccc} 9 &amp; 10\\ -8 &amp; 16 \end{array}\right] = 
+\left[ \begin{array}{rr} 1 &amp; 3 \\ -4 &amp; 2 \end{array}\right]
+\left[ \begin{array}{rr} 3 &amp; x \\ 2 &amp; y \end{array}\right] =
+\left[ \begin{array}{rr} 9 &amp; x + 3y \\ 2 &amp; -4x + 2y \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>For this to be the case, we must have that <span class="math notranslate nohighlight">\(x + 3y = 10\)</span> and <span class="math notranslate nohighlight">\(-4x + 2y = 16\)</span>.  This is a sytem of linear equations that we can solve with elimination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span>
+<span class="n">A1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowScale</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">RowAdd</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3 10]
+ [-4  2 16]] 
+
+[[ 1.  3. 10.]
+ [ 0. 14. 56.]] 
+
+[[ 1.  3. 10.]
+ [ 0.  1.  4.]] 
+
+[[ 1.  0. -2.]
+ [ 0.  1.  4.]]
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Define NumPy arrays for the matrices <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(G\)</span> given below.</p>
-<ul>
-<li><p>Multiply the second and third column of <span class="math notranslate nohighlight">\(H\)</span> with the first and second row of <span class="math notranslate nohighlight">\(G\)</span>.  Use slicing to make subarrays.  Does the result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
-<li><p>Multiply the first and second row of <span class="math notranslate nohighlight">\(H\)</span> with the second and third column of <span class="math notranslate nohighlight">\(G\)</span>.  Does this result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p></li>
-</ul>
-</li>
-</ul>
+<p>Therefore <span class="math notranslate nohighlight">\(x = -2\)</span> and <span class="math notranslate nohighlight">\(y = 4\)</span>.</p>
+<p><strong>Exercise 3:</strong> Define NumPy arrays for the matrices <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(G\)</span> given below.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -881,29 +995,136 @@ H = \left[ \begin{array}{rrr} 3 &amp; 3 &amp; -1  \\ -3 &amp; 0 &amp; 8 \\  1 &a
 G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3 &amp; 0 \\ 2 &amp; 2 &amp; 4 &amp; 6\end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Multiply the second and third column of <span class="math notranslate nohighlight">\(H\)</span> with the first and second row of <span class="math notranslate nohighlight">\(G\)</span>.  Use slicing to make subarrays.  Does the result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Multiply the first and second row of <span class="math notranslate nohighlight">\(H\)</span> with the second and third column of <span class="math notranslate nohighlight">\(G\)</span>.  Does this result have any relationship to the full product <span class="math notranslate nohighlight">\(HG\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="nd">@G</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="nd">@G</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,:],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,:]</span><span class="nd">@G</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 22   7  -7 -15]
+ [ 13   1  26  57]
+ [ 53   3   4  27]] 
+
+[[ -4  17   9  -9]
+ [ 56 -16 -24   0]
+ [ 41  20  -3 -18]] 
+
+[[ 7 -7]
+ [ 1 26]]
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Generate a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix <span class="math notranslate nohighlight">\(B\)</span> with random integer entries.  Compute matrices <span class="math notranslate nohighlight">\(P = \frac12(B+B^T)\)</span> and <span class="math notranslate nohighlight">\(Q = \frac12(B-B^T)\)</span>.  Rerun your code several times to get different matrices.  What do you notice about <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>?  Explain why it must always be true.</p></li>
-</ul>
+<p>The second product is a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix that is a <strong>submatrix</strong> of the larger matrix <span class="math notranslate nohighlight">\(HG\)</span>.</p>
+<p><strong>Exercise 4:</strong> Generate a <span class="math notranslate nohighlight">\(4\times 4\)</span> matrix <span class="math notranslate nohighlight">\(B\)</span> with random integer entries.  Compute matrices <span class="math notranslate nohighlight">\(P = \frac12(B+B^T)\)</span> and <span class="math notranslate nohighlight">\(Q = \frac12(B-B^T)\)</span>.  Rerun your code several times to get different matrices.  What do you notice about <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>?  Explain why it must always be true.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  4   6   4  -2]
+ [  7   1  -6 -10]
+ [  0   9   1  -6]
+ [  0   4   7  -9]] 
+
+[[ 4.   6.5  2.  -1. ]
+ [ 6.5  1.   1.5 -3. ]
+ [ 2.   1.5  1.   0.5]
+ [-1.  -3.   0.5 -9. ]] 
+
+[[ 0.  -0.5  2.  -1. ]
+ [ 0.5  0.  -7.5 -7. ]
+ [-2.   7.5  0.  -6.5]
+ [ 1.   7.   6.5  0. ]]
 </pre></div>
 </div>
 </div>
 </div>
+<p><span class="math notranslate nohighlight">\(P\)</span> is always a symmetric matrix and <span class="math notranslate nohighlight">\(Q\)</span> is always a skew-symmetric matrix.</p>
+<p>To see why <span class="math notranslate nohighlight">\(P\)</span> is always symmetric, recall that <span class="math notranslate nohighlight">\(P\)</span> being symmetric is equivalent to saying <span class="math notranslate nohighlight">\(p_{ij} = p_{ji}\)</span> for all entries <span class="math notranslate nohighlight">\(p_{ij}\)</span> in <span class="math notranslate nohighlight">\(P\)</span>. Now notice that</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}   
+p_{ij} = \frac{1}{2}(b_{ij} + b_{ji}) = \frac{1}{2}(b_{ji} + b_{ij}) = p_{ji}
+\end{equation}
+\]</div>
+<p>and therefore <span class="math notranslate nohighlight">\(P\)</span> is symmetric.</p>
+<p>To see why <span class="math notranslate nohighlight">\(Q\)</span> is always skew-symmetric, recall that <span class="math notranslate nohighlight">\(Q\)</span> being skew-symmetric is equivalent to saying <span class="math notranslate nohighlight">\(q_{ij} = -q_{ji}\)</span> for all entries <span class="math notranslate nohighlight">\(q_{ij}\)</span> in <span class="math notranslate nohighlight">\(Q\)</span>. Now notice that</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+q_{ij} = \frac{1}{2}(b_{ij} - b_{ji}) = -\frac{1}{2}(b_{ji} - b_{ij}) = -q_{ji}
+\end{equation}
+\]</div>
+<p>and therefore <span class="math notranslate nohighlight">\(Q\)</span> is skew-symmetric.</p>
+<p><strong>Exercise 5:</strong> Just as the elements of a matrix can be either integers or real numbers, we can also have a matrix with elements that are themselves matrices. A <strong>block matrix</strong> is any matrix that we have interpreted as being partitioned into these <strong>submatrices</strong>. Evaluate the product <span class="math notranslate nohighlight">\(HG\)</span> treating the <span class="math notranslate nohighlight">\(H_i\)</span>’s and <span class="math notranslate nohighlight">\(G_j\)</span>’s as the elements of their respective matrices. If we have two matrices that can be multiplied together normally, does any partition allow us to multiply using the submatrices as the elements?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+H = \left[ \begin{array}{cc|cc} 1 &amp; 3 &amp; 2 &amp; 0  \\ -1 &amp; 0 &amp; 3 &amp; 3 \\ \hline 2 &amp; 2 &amp; -2 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 4 \end{array}\right] = \left[ \begin{array}{} H_1 &amp; H_2 \\ H_3 &amp; H_4\end{array} \right] \hspace{2cm} 
+G = \left[ \begin{array}{cc|c} 3 &amp; 0 &amp; 5 \\ 1 &amp; 1 &amp; -3 \\ \hline 2 &amp; 0 &amp; 1 \\ 0 &amp; 2 &amp; 1\end{array}\right] = \left[ \begin{array}{} G_1 &amp; G_2 \\ G_3 &amp; G_4\end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span><span class="n">b</span>
+<span class="n">H1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">H2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">H3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">H4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">G1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">G2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">G3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">G4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">HG1</span> <span class="o">=</span> <span class="n">H1</span><span class="nd">@G1</span> <span class="o">+</span> <span class="n">H2</span><span class="nd">@G3</span>
+<span class="n">HG2</span> <span class="o">=</span> <span class="n">H1</span><span class="nd">@G2</span> <span class="o">+</span> <span class="n">H2</span><span class="nd">@G4</span>
+<span class="n">HG3</span> <span class="o">=</span> <span class="n">H3</span><span class="nd">@G1</span> <span class="o">+</span> <span class="n">H4</span><span class="nd">@G3</span>
+<span class="n">HG4</span> <span class="o">=</span> <span class="n">H3</span><span class="nd">@G2</span> <span class="o">+</span> <span class="n">H4</span><span class="nd">@G4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="nd">@G</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HG1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HG2</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HG3</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HG4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-18-7b2e27f83d3b&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span><span class="n">b</span>
+                                                    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not every partition of a matrix will let us multiply them in this way. If we had instead partitioned <span class="math notranslate nohighlight">\(H\)</span> like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+H = \left[ \begin{array}{c|ccc} 1 &amp; 3 &amp; 2 &amp; 0  \\ -1 &amp; 0 &amp; 3 &amp; 3 \\ \hline 2 &amp; 2 &amp; -2 &amp; 1 \\ 0 &amp; 1 &amp; 1 &amp; 4 \end{array}\right] = \left[ \begin{array}{} H_1 &amp; H_2 \\ H_3 &amp; H_4\end{array} \right] \hspace{2cm} 
+\end{equation}
+\end{split}\]</div>
+<p>then many of the products calculated above (such as <span class="math notranslate nohighlight">\(H_1G_1\)</span>) would not be defined.</p>
 </div>
 <div class="section" id="lu-factorization">
 <h2>LU Factorization<a class="headerlink" href="#lu-factorization" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -920,9 +1141,7 @@ U = \left[ \begin{array}{ccc} 5 &amp; 2 &amp; 1 \\ 0 &amp; 1 &amp; -1  \\ 0 &amp
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Solve <span class="math notranslate nohighlight">\( AX = B \)</span> using <span class="math notranslate nohighlight">\( A = LU \)</span> and the <span class="math notranslate nohighlight">\(L\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(B\)</span> given below.  Compute <span class="math notranslate nohighlight">\(LUX\)</span> to verify your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -938,9 +1157,7 @@ B = \left[ \begin{array}{c} 2 \\ -3 \\ 4  \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Write a function called <span class="math notranslate nohighlight">\(\texttt{ForwardSubstitution}\)</span> that will solve a lower triangular system <span class="math notranslate nohighlight">\(LY=B\)</span>.  It will be helpful to go back and look at the code for <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Write a function called <span class="math notranslate nohighlight">\(\texttt{ForwardSubstitution}\)</span> that will solve a lower triangular system <span class="math notranslate nohighlight">\(LY=B\)</span>.  It will be helpful to go back and look at the code for <span class="math notranslate nohighlight">\(\texttt{BackSubstitution}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -948,8 +1165,7 @@ B = \left[ \begin{array}{c} 2 \\ -3 \\ 4  \end{array}\right]
 </div>
 </div>
 </div>
-<ul>
-<li><p>Let <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> be the following matrices:</p>
+<p><strong>Exercise 4:</strong> Let <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> be the following matrices:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -958,10 +1174,8 @@ B = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 2 &amp; 1 &amp; 3  \\ 2 &amp;
 C = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 0 &amp; -1 &amp; -3  \\ 2 &amp; 2 &amp; 6  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>a. Find an elementary matrix <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(EA = B\)</span>.  Verify with a computation.</p>
-<p>b. Find an elementary matrix <span class="math notranslate nohighlight">\(F\)</span> such that <span class="math notranslate nohighlight">\( FB = C\)</span>.  Verify with a computation.</p>
-</li>
-</ul>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find an elementary matrix <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(EA = B\)</span>.  Verify with a computation.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find an elementary matrix <span class="math notranslate nohighlight">\(F\)</span> such that <span class="math notranslate nohighlight">\( FB = C\)</span>.  Verify with a computation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
@@ -991,57 +1205,16 @@ C = \left[ \begin{array}{ccc} 1 &amp; 2 &amp; 4 \\ 0 &amp; -1 &amp; -3  \\ 2 &am
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
- [[1 2 4]
- [2 1 3]
- [1 0 2]] 
-
-B: 
- [[1. 2. 4.]
- [2. 1. 3.]
- [2. 2. 6.]] 
-
-E: 
- [[1. 0. 0.]
- [0. 1. 0.]
- [1. 0. 1.]] 
-
-EA: 
- [[1. 2. 4.]
- [2. 1. 3.]
- [2. 2. 6.]] 
-
-C: 
- [[ 1.  2.  4.]
- [ 0. -1. -3.]
- [ 2.  2.  6.]] 
-
-F: 
- [[ 1.  0.  0.]
- [ 0.  1. -1.]
- [ 0.  0.  1.]] 
-
-FB: 
- [[ 1.  2.  4.]
- [ 0. -1. -3.]
- [ 2.  2.  6.]] 
-</pre></div>
 </div>
-</div>
-</div>
-<ul>
-<li><p>Consider the following <span class="math notranslate nohighlight">\(3\times 3\)</span>  matrix :</p>
+<p><strong>Exercise 5:</strong> Consider the following <span class="math notranslate nohighlight">\(3\times 3\)</span>  matrix :</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
 A = \left[ \begin{array}{rrr}  2 &amp; 1 &amp; 1\\  6 &amp; 4 &amp; 5  \\ 4 &amp; 1 &amp; 3 \end{array} \right] 
 \end{equation}
 \end{split}\]</div>
-<p>a. Find <strong>elementary matrices</strong> <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, and <span class="math notranslate nohighlight">\(E_3\)</span> such that <span class="math notranslate nohighlight">\( E_3E_2E_1A = U \)</span> where <span class="math notranslate nohighlight">\(U\)</span> is an upper triangular matrix.</p>
-<p>b. Find <span class="math notranslate nohighlight">\(L\)</span> using the inverses of <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_3\)</span>, and verify that <span class="math notranslate nohighlight">\(  A = LU \)</span>.</p>
-</li>
-</ul>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find <strong>elementary matrices</strong> <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, and <span class="math notranslate nohighlight">\(E_3\)</span> such that <span class="math notranslate nohighlight">\( E_3E_2E_1A = U \)</span> where <span class="math notranslate nohighlight">\(U\)</span> is an upper triangular matrix.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find <span class="math notranslate nohighlight">\(L\)</span> using the inverses of <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_3\)</span>, and verify that <span class="math notranslate nohighlight">\(  A = LU \)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the matrix A</span>
@@ -1077,48 +1250,8 @@ A = \left[ \begin{array}{rrr}  2 &amp; 1 &amp; 1\\  6 &amp; 4 &amp; 5  \\ 4 &amp
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
- [[2 1 1]
- [6 4 5]
- [4 1 3]] 
-
-E1: 
- [[ 1.  0.  0.]
- [-3.  1.  0.]
- [ 0.  0.  1.]] 
-
-E2: 
- [[ 1.  0.  0.]
- [ 0.  1.  0.]
- [-2.  0.  1.]] 
-
-E3: 
- [[1. 0. 0.]
- [0. 1. 0.]
- [0. 1. 1.]] 
-
-U: 
- [[2. 1. 1.]
- [0. 1. 2.]
- [0. 0. 3.]] 
-
-L: 
- [[ 1.  0.  0.]
- [ 3.  1.  0.]
- [ 2. -1.  1.]] 
-
-LU: 
- [[2. 1. 1.]
- [6. 4. 5.]
- [4. 1. 3.]] 
-</pre></div>
 </div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Compute the <span class="math notranslate nohighlight">\(LDU\)</span> factorization of the following matrix and verify that <span class="math notranslate nohighlight">\(A = LDU\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 6:</strong>  Compute the <span class="math notranslate nohighlight">\(LDU\)</span> factorization of the following matrix and verify that <span class="math notranslate nohighlight">\(A = LDU\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1165,43 +1298,8 @@ A = \left[ \begin{array}{rrr}  1 &amp; 1 &amp; 1\\  3 &amp; 5 &amp; 6  \\ -2 &am
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
- [[ 1  1  1]
- [ 3  5  6]
- [-2  2  7]] 
-
-B3: 
- [[1. 1. 1.]
- [0. 2. 3.]
- [0. 0. 3.]] 
-
-L: 
- [[ 1.  0.  0.]
- [ 3.  1.  0.]
- [-2.  2.  1.]] 
-
-U: 
- [[1.  1.  1. ]
- [0.  1.  1.5]
- [0.  0.  1. ]] 
-
-D: 
- [[1 0 0]
- [0 2 0]
- [0 0 3]] 
-
-LDU: 
- [[ 1.  1.  1.]
- [ 3.  5.  6.]
- [-2.  2.  7.]] 
-</pre></div>
 </div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Find <span class="math notranslate nohighlight">\(P, L,\)</span> and <span class="math notranslate nohighlight">\(U\)</span> such that <span class="math notranslate nohighlight">\(PA = LU\)</span>.  Following the discussion in this section, <span class="math notranslate nohighlight">\(P\)</span> should be a permutation matrix, <span class="math notranslate nohighlight">\(L\)</span> should be a lower triangular matrix with ones long the main diagonal, and <span class="math notranslate nohighlight">\(U\)</span> should be an upper triangular matrix.</p></li>
-</ul>
+<p><strong>Exercise 7:</strong> Find <span class="math notranslate nohighlight">\(P, L,\)</span> and <span class="math notranslate nohighlight">\(U\)</span> such that <span class="math notranslate nohighlight">\(PA = LU\)</span>.  Following the discussion in this section, <span class="math notranslate nohighlight">\(P\)</span> should be a permutation matrix, <span class="math notranslate nohighlight">\(L\)</span> should be a lower triangular matrix with ones long the main diagonal, and <span class="math notranslate nohighlight">\(U\)</span> should be an upper triangular matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1256,53 +1354,8 @@ A = \left[ \begin{array}{rrr}  1 &amp; 3 &amp; 2\\  -2 &amp; -6 &amp; 1  \\ 2 &a
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B1: 
- [[1. 3. 2.]
- [0. 0. 5.]
- [2. 5. 7.]] 
-
-B2: 
- [[ 1.  3.  2.]
- [ 0.  0.  5.]
- [ 0. -1.  3.]] 
-
-P: 
- [[1. 0. 0.]
- [0. 0. 1.]
- [0. 1. 0.]] 
-
-PA: 
- [[ 1.  3.  2.]
- [ 2.  5.  7.]
- [-2. -6.  1.]] 
-
-B: 
- [[ 1.  3.  2.]
- [ 0. -1.  3.]
- [-2. -6.  1.]] 
-
-U: 
- [[ 1.  3.  2.]
- [ 0. -1.  3.]
- [ 0.  0.  5.]] 
-
-L: 
- [[ 1.  0.  0.]
- [ 2.  1.  0.]
- [-2.  0.  1.]] 
-
-LU: 
- [[ 1.  3.  2.]
- [ 2.  5.  7.]
- [-2. -6.  1.]] 
-</pre></div>
 </div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Use SciPy to compute the <span class="math notranslate nohighlight">\(PLU\)</span> factorization of a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.  Replicate the results using the row operations functions in <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 8:</strong> Use SciPy to compute the <span class="math notranslate nohighlight">\(PLU\)</span> factorization of a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.  Replicate the results using the row operations functions in <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code Solution here</span>
@@ -1313,7 +1366,15 @@ LU:
 </div>
 <div class="section" id="inverse-matrices">
 <h2>Inverse Matrices<a class="headerlink" href="#inverse-matrices" title="Permalink to this headline">¶</a></h2>
-<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
+<p><strong>Exercise 1:</strong> Consider the following system of equations:
+$<span class="math notranslate nohighlight">\(
+\begin{eqnarray*}
+2x_1 + 3x_2 + x_3 &amp; = &amp; 4\\
+3x_1 + 3x_2 + x_3 &amp; = &amp; 8\\
+2x_1 + 4x_2 + x_3 &amp; = &amp; 5 
+\end{eqnarray*}
+\)</span>$</p>
+<p>Solve the given system of equations using an inverse matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
@@ -1321,8 +1382,16 @@ LU:
 </div>
 </div>
 </div>
-<p><strong>Exercise 2:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
-<p><strong>Exercise 3:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
+<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
+<p><strong>Exercise 4:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; -3 \\ -1 &amp; 1 &amp; -1  \\ 0 &amp; -2 &amp; 3  \end{array}\right] \quad\quad
@@ -1330,16 +1399,45 @@ B = \left[ \begin{array}{rrrr} 1  \\ 1 \\ 1  \end{array}\right]
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_inverse</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inverse</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+ 
+<span class="n">X</span> <span class="o">=</span> <span class="n">A_inverse</span><span class="nd">@B</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Exercise 4:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.
-$<span class="math notranslate nohighlight">\(
+<p><strong>Exercise 5:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 A = \left[ \begin{array}{rrrr} 3 &amp; 1 &amp; 0 \\ 5 &amp; 2 &amp; 1 \\ 0 &amp; 2 &amp; 3\end{array}\right]\hspace{2cm}
 C = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1 \\ 3 &amp; 4 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{array}\right]\hspace{2cm}
-\)</span>$</p>
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@C</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inv</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be a random <span class="math notranslate nohighlight">\(4 \times 1\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a random <span class="math notranslate nohighlight">\( 1 \times 4 \)</span> matrix. Use Python to demonstrate that the product <span class="math notranslate nohighlight">\( AB \)</span> is not invertible. Do you expect this to be true for any two matrices <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is an <span class="math notranslate nohighlight">\( n \times 1 \)</span> matrix and <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\( 1 \times n\)</span> matrix ? Explain.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
@@ -1347,7 +1445,29 @@ C = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1 \\ 3 &amp; 4 &amp; 0 \\ 1 &amp;
 </div>
 </div>
 </div>
-<p><strong>Exercise 5:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\( 3 \times 3\)</span> matrices. Demonstrate using Python that <span class="math notranslate nohighlight">\((A^T)^{-1} = (A^{-1})^T\)</span> for the matrices. Use this property to explain why <span class="math notranslate nohighlight">\(A^{-1}\)</span> must be symmetric if <span class="math notranslate nohighlight">\(A\)</span> is symmetric.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Consider the following <span class="math notranslate nohighlight">\( 4 \times 4 \)</span> matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 4 &amp; x_1 &amp; 0 &amp; 0 \\ 0 &amp; x_2 &amp; 0 &amp; 0 \\ 0 &amp; x_3 &amp; 1 &amp; 0 \\ 0 &amp; x_4 &amp; 0 &amp; 3 \end{array}\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the condition on <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span> or <span class="math notranslate nohighlight">\(x_4\)</span> for which <span class="math notranslate nohighlight">\(A^{-1}\)</span> exists. Assuming that condition is true, find the inverse of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Use Python to check if <span class="math notranslate nohighlight">\( A^{-1}A = I \)</span> when <span class="math notranslate nohighlight">\(x_1 = 4\)</span>, <span class="math notranslate nohighlight">\(x_2 = 1\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4 = 3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4 \end{array}\right]
@@ -1389,13 +1509,91 @@ C = \left[ \begin{array}{rrrr} 1 &amp; 0 \\ 0 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AC = 
- [[1 0]
- [0 1]] 
+</div>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interpolation">
+<h3>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exercise 1:</strong> In 2017, researchers from the Universities of British Columbia, Alberta, and Toronto published their findings regarding the population of snowshoe hares around Kluane Lake, Yukon. They measured the density of hares per hectare, taking a reading once every two years. Here are some of their measurements:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Measurement #</p></th>
+<th class="head"><p>Density per ha.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0.26</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1.17</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2.65</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>0.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>0.42</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>1.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>2.73</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>0.09</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>0.21</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the unique ninth degree polynomial whose graph passes through each of these points.  Plot the data points together with the graph of the polynomial to observe the fit.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Using the polynomial that we found, what should we expect the density of hares to be if we measured their population in the year between the third and fourth measurement? What about between the fourth and the fifth?</p>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Why might this method of interpolation not be an appropriate model of our data over time?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.26</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">1.17</span><span class="p">,</span><span class="mf">2.65</span><span class="p">,</span><span class="mf">0.14</span><span class="p">,</span><span class="mf">0.42</span><span class="p">,</span><span class="mf">1.65</span><span class="p">,</span><span class="mf">2.73</span><span class="p">,</span><span class="mf">0.09</span><span class="p">,</span><span class="mf">0.21</span><span class="p">])</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        
+<span class="n">coeffs</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_fit</span> <span class="o">=</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">6</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">7</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">8</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">9</span> 
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span><span class="n">y_fit</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Systems_Solutions_87_0.png" src="_images/Linear_Systems_Solutions_87_0.png" />
+</div>
+</div>
+<p>Judging by the graph of the polynomial, it looks like the curve takes on a value of about 2.5 when <span class="math notranslate nohighlight">\(x = 3.5\)</span> and a value of about 1 when <span class="math notranslate nohighlight">\(x = 4.5\)</span>.</p>
+<p>Although this method of finding a polynomial that passes through all our data points provides a nice smooth curve, it doesn’t match our intuition of what the curve should look like. The curve drops below zero between the ninth and tenth measurement, indicating a negative density. But this is impossible, since we can’t have a negative number of hares! It also rises much higher between the first and second measurement than the data points alone seem to suggest.</p>
 </div>
 </div>
 </div>
