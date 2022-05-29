@@ -57,6 +57,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vector Spaces" href="Vector_Spaces_Solutions.html" />
     <link rel="prev" title="Introduction to Jupyter" href="Introduction_Solutions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -292,6 +293,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Spaces_Solutions.html">
+     Vector Spaces
     </a>
    </li>
   </ul>
@@ -840,33 +846,33 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.46321821 0.53932142 0.91381047 0.32443987]
- [0.36046434 0.3551215  0.8930977  0.7221821 ]
- [0.02288536 0.29585798 0.22787832 0.06067665]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.5839412  0.92534836 0.40144852 0.00857609]
+ [0.04680513 0.08903305 0.81146763 0.08773637]
+ [0.11713078 0.21600952 0.95963276 0.93042845]] 
 
-[[1.         1.16429234 1.97274297 0.70040397]
- [0.36046434 0.3551215  0.8930977  0.7221821 ]
- [0.02288536 0.29585798 0.22787832 0.06067665]] 
+[[1.         1.58466017 0.68748106 0.01468656]
+ [0.04680513 0.08903305 0.81146763 0.08773637]
+ [0.11713078 0.21600952 0.95963276 0.93042845]] 
 
-[[ 1.          1.16429234  1.97274297  0.70040397]
- [ 0.         -0.06456438  0.1819942   0.46971145]
- [ 0.02288536  0.29585798  0.22787832  0.06067665]] 
+[[1.         1.58466017 0.68748106 0.01468656]
+ [0.         0.01486283 0.77928999 0.08704896]
+ [0.11713078 0.21600952 0.95963276 0.93042845]] 
 
-[[ 1.          1.16429234  1.97274297  0.70040397]
- [ 0.         -0.06456438  0.1819942   0.46971145]
- [ 0.          0.26921273  0.18273138  0.04464766]] 
+[[1.         1.58466017 0.68748106 0.01468656]
+ [0.         0.01486283 0.77928999 0.08704896]
+ [0.         0.03039704 0.87910757 0.9287082 ]] 
 
-[[ 1.          1.16429234  1.97274297  0.70040397]
- [-0.          1.         -2.81880206 -7.27508675]
- [ 0.          0.26921273  0.18273138  0.04464766]] 
+[[1.00000000e+00 1.58466017e+00 6.87481058e-01 1.46865581e-02]
+ [0.00000000e+00 1.00000000e+00 5.24321572e+01 5.85682451e+00]
+ [0.00000000e+00 3.03970363e-02 8.79107568e-01 9.28708200e-01]] 
 
-[[ 1.          1.16429234  1.97274297  0.70040397]
- [-0.          1.         -2.81880206 -7.27508675]
- [ 0.          0.          0.94158878  2.00319362]] 
+[[ 1.00000000e+00  1.58466017e+00  6.87481058e-01  1.46865581e-02]
+ [ 0.00000000e+00  1.00000000e+00  5.24321572e+01  5.85682451e+00]
+ [ 0.00000000e+00  0.00000000e+00 -7.14674617e-01  7.50678093e-01]] 
 
-[[ 1.          1.16429234  1.97274297  0.70040397]
- [-0.          1.         -2.81880206 -7.27508675]
- [ 0.          0.          1.          2.12746122]] 
+[[ 1.00000000e+00  1.58466017e+00  6.87481058e-01  1.46865581e-02]
+ [ 0.00000000e+00  1.00000000e+00  5.24321572e+01  5.85682451e+00]
+ [-0.00000000e+00 -0.00000000e+00  1.00000000e+00 -1.05037744e+00]] 
 </pre></div>
 </div>
 </div>
@@ -928,9 +934,8 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 [[5 6]
  [2 6]
  [3 6]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 10]
+
+[[ 10]
  [-11]
  [-17]]
 </pre></div>
@@ -1037,20 +1042,20 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  4   6   4  -2]
- [  7   1  -6 -10]
- [  0   9   1  -6]
- [  0   4   7  -9]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -1  -4  -5  -7]
+ [  2   1 -10   3]
+ [  3   5  -5   2]
+ [ -8   2 -10  -7]] 
 
-[[ 4.   6.5  2.  -1. ]
- [ 6.5  1.   1.5 -3. ]
- [ 2.   1.5  1.   0.5]
- [-1.  -3.   0.5 -9. ]] 
+[[-1.  -1.  -1.  -7.5]
+ [-1.   1.  -2.5  2.5]
+ [-1.  -2.5 -5.  -4. ]
+ [-7.5  2.5 -4.  -7. ]] 
 
-[[ 0.  -0.5  2.  -1. ]
- [ 0.5  0.  -7.5 -7. ]
- [-2.   7.5  0.  -6.5]
- [ 1.   7.   6.5  0. ]]
+[[ 0.  -3.  -4.   0.5]
+ [ 3.   0.  -7.5  0.5]
+ [ 4.   7.5  0.   6. ]
+ [-0.5 -0.5 -6.   0. ]]
 </pre></div>
 </div>
 </div>
@@ -1624,6 +1629,7 @@ C = \left[ \begin{array}{rrrr} 1 &amp; 0 \\ 0 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Introduction_Solutions.html" title="previous page">Introduction to Jupyter</a>
+    <a class='right-next' id="next-link" href="Vector_Spaces_Solutions.html" title="next page">Vector Spaces</a>
 
         </div>
         

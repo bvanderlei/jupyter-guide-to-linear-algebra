@@ -295,6 +295,11 @@
      Linear Systems
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Vector_Spaces_Solutions.html">
+     Vector Spaces
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -614,14 +619,14 @@ A(BC) = (AB)C
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-11  -5  19]
- [-19   2   2]
- [ 29   5 -19]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-22   4   8]
+ [-16 -16  16]
+ [-14  -8   8]]
 
 
-[[-33 -14   4]
- [-21  -8   1]
- [-15   4  13]]
+[[-12   8  -8]
+ [  3 -12   6]
+ [ 17   8  -6]]
 </pre></div>
 </div>
 </div>
@@ -763,25 +768,25 @@ AI = IA = A
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 9 -4 -8  8 -2]
- [ 5  8 -3  3 -2]
- [ 5  5 -6  5  5]
- [ 0 -8  5  9  3]
- [-9 -9  5 -6  1]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  0  -1   6   5  -7]
+ [  7 -10   8   5  -2]
+ [ -9   8   4  -7   3]
+ [ -6   2   1   5  -2]
+ [  3   2  -2  -3   8]]
 
 
-[[ 9. -4. -8.  8. -2.]
- [ 5.  8. -3.  3. -2.]
- [ 5.  5. -6.  5.  5.]
- [ 0. -8.  5.  9.  3.]
- [-9. -9.  5. -6.  1.]]
+[[  0.  -1.   6.   5.  -7.]
+ [  7. -10.   8.   5.  -2.]
+ [ -9.   8.   4.  -7.   3.]
+ [ -6.   2.   1.   5.  -2.]
+ [  3.   2.  -2.  -3.   8.]]
 
 
-[[ 9. -4. -8.  8. -2.]
- [ 5.  8. -3.  3. -2.]
- [ 5.  5. -6.  5.  5.]
- [ 0. -8.  5.  9.  3.]
- [-9. -9.  5. -6.  1.]]
+[[  0.  -1.   6.   5.  -7.]
+ [  7. -10.   8.   5.  -2.]
+ [ -9.   8.   4.  -7.   3.]
+ [ -6.   2.   1.   5.  -2.]
+ [  3.   2.  -2.  -3.   8.]]
 </pre></div>
 </div>
 </div>
@@ -876,15 +881,15 @@ PC = \left[ \begin{array}{rrrr} * &amp; * &amp; -15 &amp; * \\ * &amp; * &amp; 4
 </div>
 </div>
 <p>Notes on array slicing:</p>
-<ol class="simple">
+<ul class="simple">
 <li><p>Another way to select all rows (or all columns) from an array is to use : without any numbers.  In our example above, we could have used the following line of code to produce the same result.  Try it out by editing the cell above!</p></li>
-</ol>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">C</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ul class="simple">
 <li><p>If we only want to select a single row or column, it is tempting to try a line of code like the following.</p></li>
-</ol>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">C</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
