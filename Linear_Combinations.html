@@ -529,7 +529,7 @@ x_2\left[ \begin{array}{r} 2 \\ -1  \end{array}\right] =
 <div class="section" id="spans">
 <h2>Spans<a class="headerlink" href="#spans" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to introduce terminology to describe a collection of linear combinations.  The <strong>span</strong> of a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> is the set of all possible linear combinations of vectors in the set.  For any coefficients <span class="math notranslate nohighlight">\(a_1, a_2, ..., a_n\)</span>, the vector <span class="math notranslate nohighlight">\(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n\)</span> is said to be <em>in the span of</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
-<p>Given the direct connection between linear systems and linear combinations of vectors, we understand that when we are trying to determine if a given linear system as a solution, we are in fact trying to determine if a given vector, say <span class="math notranslate nohighlight">\(B\)</span>, is a linear combination of some set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  Making use of the new terminology, we could say that we are trying to determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
+<p>Given the direct connection between linear systems and linear combinations of vectors, we understand that when we are trying to determine if a given linear system has a solution, we are in fact trying to determine if a given vector, say <span class="math notranslate nohighlight">\(B\)</span>, is a linear combination of some set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  Making use of the new terminology, we could say that we are trying to determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.</p>
 <p>It is important to distinguish between the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> and the actual <em>set of vectors</em> <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span>.  The set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains only the vectors themselves, while the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> contains every vector that can be built as a linear combination of these vectors.  If we were to visualize these objects, the set of vectors would be a collection of arrows, while the span would be a multi-dimensional collection.  Again, it is easiest if we visualize an example in a two or three dimensions.</p>
 <p><img alt="span" src="_images/Span_big.png" /></p>
 </div>
@@ -687,7 +687,7 @@ R = \left[ \begin{array}{rrrr}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">P</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">P</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
@@ -698,7 +698,8 @@ R = \left[ \begin{array}{rrrr}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]
- [0. 0. 0. 1.]]
+ [0. 0. 0. 1.]] 
+
 [[1. 1. 0. 0.]
  [0. 0. 1. 0.]
  [0. 0. 0. 1.]
@@ -788,15 +789,13 @@ c_1X + c_2Y &amp; = &amp; c_1(a_1V_1 + a_2V_2 + a_3V_3 + .... + a_nV_n) + c_2(b_
 </div>
 <div class="section" id="column-space">
 <h2>Column space<a class="headerlink" href="#column-space" title="Permalink to this headline">¶</a></h2>
-<p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  If future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
+<p>Every <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> has associated with it four fundamental subspaces that are important in understanding the possible solutions to the linear system <span class="math notranslate nohighlight">\(AX=B\)</span>.  Here we take a look at first of these subspaces, called the column space.  In future sections we will define the other three.  The <strong>column space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.  We think of the columns of <span class="math notranslate nohighlight">\(A\)</span> as vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>, so the column space of <span class="math notranslate nohighlight">\(A\)</span> forms a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  We will use the notation <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> to refer to the column space.</p>
 <p>If <span class="math notranslate nohighlight">\(X\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then the matrix-vector product <span class="math notranslate nohighlight">\(AX\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  If we recall that this product is formed by taking a linear combination of the columns of <span class="math notranslate nohighlight">\(A\)</span>, we realize that the vector <span class="math notranslate nohighlight">\(AX\)</span> must be <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> by definition.  An important connection here is that the linear system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent <em>if and only if</em> the vector <span class="math notranslate nohighlight">\(B\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.</p>
-<p>Although the concept of the column space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold the in definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, then the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
+<p>Although the concept of the column space does not actually help us solve specific systems, it does advance our ability to discuss the problem on a more abstract level.  For instance, we can now fold in the definition of span, and the earlier discussion, to make a broad statement that applies to all systems.  If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, then the system <span class="math notranslate nohighlight">\(AX=B\)</span> is consistent for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if and only if <span class="math notranslate nohighlight">\(\mathcal{C}(A) = \mathbb{R}^m\)</span>.  Such conclusions are very important in developing further ideas which do have practical implications.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Answer questions regarding the following vectors.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong>  Answer questions regarding the following vectors.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -809,9 +808,7 @@ V_1 = \left[ \begin{array}{r} 8 \\ -3 \\ 5 \end{array}\right] \hspace{1cm}
 V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]  
 \end{equation}
 \end{split}\]</div>
-<ul class="simple">
-<li><p>Determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Determine if <span class="math notranslate nohighlight">\(B\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -819,9 +816,7 @@ V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Determine if <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Determine if <span class="math notranslate nohighlight">\(C\)</span> is in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -829,9 +824,7 @@ V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Find a vector in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> that has zero as its first entry.</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Find a nonzero vector in the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> that has zero as its first entry.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -839,9 +832,7 @@ V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>How can we determine if the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> equal the span of <span class="math notranslate nohighlight">\(\{V_1, V_2\}\)</span>?</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((d)\)</span> How can we determine if the span of <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span> equal the span of <span class="math notranslate nohighlight">\(\{V_1, V_2\}\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -849,9 +840,7 @@ V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Consider the matrix <span class="math notranslate nohighlight">\(R\)</span> from <strong>Example 3</strong>.  Find one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is in the span of the columns of <span class="math notranslate nohighlight">\(R\)</span>, and one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is not.  Demontrate with an appropriate computation.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Consider the matrix <span class="math notranslate nohighlight">\(R\)</span> from <strong>Example 3</strong>.  Find one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is in the span of the columns of <span class="math notranslate nohighlight">\(R\)</span>, and one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is not.  Demontrate with an appropriate computation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -867,9 +856,7 @@ R = \left[ \begin{array}{rrrr}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Explain why the system <span class="math notranslate nohighlight">\(AX=B\)</span> cannot be consistent for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 3\)</span> matrix.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Explain why the system <span class="math notranslate nohighlight">\(AX=B\)</span> cannot be consistent for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 3\)</span> matrix.</p>
 </div>
 </div>
 

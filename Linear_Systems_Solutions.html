@@ -406,13 +406,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lu-factorization">
-   LU Factorization
+  <a class="reference internal nav-link" href="#inverse-matrices">
+   Inverse Matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inverse-matrices">
-   Inverse Matrices
+  <a class="reference internal nav-link" href="#lu-factorization">
+   LU Factorization
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -776,7 +776,7 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 </div>
-<p>The third row of <span class="math notranslate nohighlight">\(\texttt{B2}\)</span> indicates that the system is inconsistent.  This row represents the equation <span class="math notranslate nohighlight">\( 0(x_3) = 2 \)</span>, which cannot be true for any value of <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
+<p>The third row of <span class="math notranslate nohighlight">\(\texttt{B2}\)</span> indicates that the system is inconsistent.  This row represents the equation <span class="math notranslate nohighlight">\(0x_3 = 2\)</span>, which cannot be true for any value of <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
 <p><strong>Exercise 7:</strong> Use  <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to produce a <span class="math notranslate nohighlight">\(3\times 4\)</span> array which contains random integers between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(5\)</span>. Write code that performs a row operation that produces a zero in the first row, third column.  Run the code several times to be sure that it works on <strong>different</strong> random arrays.  Will the code ever fail?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,33 +846,33 @@ x_1 -  x_2 + 3x_3 &amp; = &amp; 3\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.5839412  0.92534836 0.40144852 0.00857609]
- [0.04680513 0.08903305 0.81146763 0.08773637]
- [0.11713078 0.21600952 0.95963276 0.93042845]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.95844864 0.84724045 0.55298664 0.85493078]
+ [0.04210132 0.8983377  0.75263473 0.27794802]
+ [0.96522333 0.04182947 0.04240078 0.60197933]] 
 
-[[1.         1.58466017 0.68748106 0.01468656]
- [0.04680513 0.08903305 0.81146763 0.08773637]
- [0.11713078 0.21600952 0.95963276 0.93042845]] 
+[[1.         0.88397063 0.57696012 0.89199436]
+ [0.04210132 0.8983377  0.75263473 0.27794802]
+ [0.96522333 0.04182947 0.04240078 0.60197933]] 
 
-[[1.         1.58466017 0.68748106 0.01468656]
- [0.         0.01486283 0.77928999 0.08704896]
- [0.11713078 0.21600952 0.95963276 0.93042845]] 
+[[1.         0.88397063 0.57696012 0.89199436]
+ [0.         0.86112137 0.72834395 0.24039388]
+ [0.96522333 0.04182947 0.04240078 0.60197933]] 
 
-[[1.         1.58466017 0.68748106 0.01468656]
- [0.         0.01486283 0.77928999 0.08704896]
- [0.         0.03039704 0.87910757 0.9287082 ]] 
+[[ 1.          0.88397063  0.57696012  0.89199436]
+ [ 0.          0.86112137  0.72834395  0.24039388]
+ [ 0.         -0.81139961 -0.51449459 -0.25899444]] 
 
-[[1.00000000e+00 1.58466017e+00 6.87481058e-01 1.46865581e-02]
- [0.00000000e+00 1.00000000e+00 5.24321572e+01 5.85682451e+00]
- [0.00000000e+00 3.03970363e-02 8.79107568e-01 9.28708200e-01]] 
+[[ 1.          0.88397063  0.57696012  0.89199436]
+ [ 0.          1.          0.84580871  0.27916376]
+ [ 0.         -0.81139961 -0.51449459 -0.25899444]] 
 
-[[ 1.00000000e+00  1.58466017e+00  6.87481058e-01  1.46865581e-02]
- [ 0.00000000e+00  1.00000000e+00  5.24321572e+01  5.85682451e+00]
- [ 0.00000000e+00  0.00000000e+00 -7.14674617e-01  7.50678093e-01]] 
+[[ 1.          0.88397063  0.57696012  0.89199436]
+ [ 0.          1.          0.84580871  0.27916376]
+ [ 0.          0.          0.17179426 -0.03248108]] 
 
-[[ 1.00000000e+00  1.58466017e+00  6.87481058e-01  1.46865581e-02]
- [ 0.00000000e+00  1.00000000e+00  5.24321572e+01  5.85682451e+00]
- [-0.00000000e+00 -0.00000000e+00  1.00000000e+00 -1.05037744e+00]] 
+[[ 1.          0.88397063  0.57696012  0.89199436]
+ [ 0.          1.          0.84580871  0.27916376]
+ [ 0.          0.          1.         -0.18906962]] 
 </pre></div>
 </div>
 </div>
@@ -921,7 +921,10 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-10]
- [  4]] 
+ [  4]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[ 3  6]
  [ 1  3]
@@ -951,17 +954,16 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 \left[ \begin{array}{rr} 9 &amp; 10 \\ -8 &amp; 16 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>If we multiply out the left-hand side we get the following equivalence:</p>
+<p>Recall that matrix multiplication can be carried out column by column.  Given a matrix equation of the form <span class="math notranslate nohighlight">\(AB = C\)</span>, multiplying <span class="math notranslate nohighlight">\(A\)</span> by the <span class="math notranslate nohighlight">\(j^{\text{th}}\)</span> column of <span class="math notranslate nohighlight">\(B\)</span> gives the <span class="math notranslate nohighlight">\(j^{\text{th}}\)</span> column of <span class="math notranslate nohighlight">\(C\)</span>. This view of matrix multiplication gives the following linear system which we can solve with elimination</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-\left[ \begin{array}{cccc} 9 &amp; 10\\ -8 &amp; 16 \end{array}\right] = 
 \left[ \begin{array}{rr} 1 &amp; 3 \\ -4 &amp; 2 \end{array}\right]
-\left[ \begin{array}{rr} 3 &amp; x \\ 2 &amp; y \end{array}\right] =
-\left[ \begin{array}{rr} 9 &amp; x + 3y \\ 2 &amp; -4x + 2y \end{array}\right]
+\left[ \begin{array}{rr} x \\ y \end{array}\right] =
+\left[ \begin{array}{rr} x + 3y \\ -4x + 2y \end{array}\right] =
+\left[ \begin{array}{cccc} 10\\ 16 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>For this to be the case, we must have that <span class="math notranslate nohighlight">\(x + 3y = 10\)</span> and <span class="math notranslate nohighlight">\(-4x + 2y = 16\)</span>.  This is a sytem of linear equations that we can solve with elimination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">16</span><span class="p">]])</span>
@@ -992,6 +994,14 @@ H = \left[ \begin{array}{rrr} 3 &amp; 0 &amp; 1 \\ 1 &amp; -2 &amp; 2 \\ 3 &amp;
 </div>
 </div>
 <p>Therefore <span class="math notranslate nohighlight">\(x = -2\)</span> and <span class="math notranslate nohighlight">\(y = 4\)</span>.</p>
+<p>Alternatively, if we carry out the matrix multiplication completely, we arrive at the same system to be solved.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rr} 9 &amp; x + 3y \\ -8 &amp; -4x + 2y \end{array}\right] =
+\left[ \begin{array}{cccc} 9 &amp; 10\\ -8 &amp; 16 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p><strong>Exercise 3:</strong> Define NumPy arrays for the matrices <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(G\)</span> given below.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1042,20 +1052,20 @@ G = \left[ \begin{array}{rrrr} 1 &amp; 5 &amp; 2 &amp; -3 \\ 7 &amp; -2 &amp; -3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -1  -4  -5  -7]
- [  2   1 -10   3]
- [  3   5  -5   2]
- [ -8   2 -10  -7]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -1   7  -5  -5]
+ [  2   2   4  -4]
+ [ -8  -8  -9   4]
+ [ -9  -6   8 -10]] 
 
-[[-1.  -1.  -1.  -7.5]
- [-1.   1.  -2.5  2.5]
- [-1.  -2.5 -5.  -4. ]
- [-7.5  2.5 -4.  -7. ]] 
+[[ -1.    4.5  -6.5  -7. ]
+ [  4.5   2.   -2.   -5. ]
+ [ -6.5  -2.   -9.    6. ]
+ [ -7.   -5.    6.  -10. ]] 
 
-[[ 0.  -3.  -4.   0.5]
- [ 3.   0.  -7.5  0.5]
- [ 4.   7.5  0.   6. ]
- [-0.5 -0.5 -6.   0. ]]
+[[ 0.   2.5  1.5  2. ]
+ [-2.5  0.   6.   1. ]
+ [-1.5 -6.   0.  -2. ]
+ [-2.  -1.   2.   0. ]]
 </pre></div>
 </div>
 </div>
@@ -1126,6 +1136,153 @@ H = \left[ \begin{array}{c|ccc} 1 &amp; 3 &amp; 2 &amp; 0  \\ -1 &amp; 0 &amp; 3
 \end{equation}
 \end{split}\]</div>
 <p>then many of the products calculated above (such as <span class="math notranslate nohighlight">\(H_1G_1\)</span>) would not be defined.</p>
+</div>
+<div class="section" id="inverse-matrices">
+<h2>Inverse Matrices<a class="headerlink" href="#inverse-matrices" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Solve the following system of equations using an inverse matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+2x_1 + 3x_2 + x_3 &amp; = &amp; 4\\
+3x_1 + 3x_2 + x_3 &amp; = &amp; 8\\
+2x_1 + 4x_2 + x_3 &amp; = &amp; 5 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
+<p><strong>Exercise 4:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; -3 \\ -1 &amp; 1 &amp; -1  \\ 0 &amp; -2 &amp; 3  \end{array}\right] \quad\quad
+B = \left[ \begin{array}{rrrr} 1  \\ 1 \\ 1  \end{array}\right]
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_inverse</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inverse</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+ 
+<span class="n">X</span> <span class="o">=</span> <span class="n">A_inverse</span><span class="nd">@B</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 3 &amp; 1 &amp; 0 \\ 5 &amp; 2 &amp; 1 \\ 0 &amp; 2 &amp; 3\end{array}\right]\hspace{2cm}
+C = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1 \\ 3 &amp; 4 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{array}\right]\hspace{2cm}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@C</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inv</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be a random <span class="math notranslate nohighlight">\(4 \times 1\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a random <span class="math notranslate nohighlight">\( 1 \times 4 \)</span> matrix. Use Python to demonstrate that the product <span class="math notranslate nohighlight">\( AB \)</span> is not invertible. Do you expect this to be true for any two matrices <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is an <span class="math notranslate nohighlight">\( n \times 1 \)</span> matrix and <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\( 1 \times n\)</span> matrix ? Explain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\( 3 \times 3\)</span> matrices. Demonstrate using Python that <span class="math notranslate nohighlight">\((A^T)^{-1} = (A^{-1})^T\)</span> for the matrices. Use this property to explain why <span class="math notranslate nohighlight">\(A^{-1}\)</span> must be symmetric if <span class="math notranslate nohighlight">\(A\)</span> is symmetric.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Consider the following <span class="math notranslate nohighlight">\( 4 \times 4 \)</span> matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 4 &amp; x_1 &amp; 0 &amp; 0 \\ 0 &amp; x_2 &amp; 0 &amp; 0 \\ 0 &amp; x_3 &amp; 1 &amp; 0 \\ 0 &amp; x_4 &amp; 0 &amp; 3 \end{array}\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the condition on <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span> or <span class="math notranslate nohighlight">\(x_4\)</span> for which <span class="math notranslate nohighlight">\(A^{-1}\)</span> exists. Assuming that condition is true, find the inverse of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Use Python to check if <span class="math notranslate nohighlight">\( A^{-1}A = I \)</span> when <span class="math notranslate nohighlight">\(x_1 = 4\)</span>, <span class="math notranslate nohighlight">\(x_2 = 1\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4 = 3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4 \end{array}\right]
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(C\)</span> be the right inverse of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(AC= I\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> is a <span class="math notranslate nohighlight">\( 4 \times 2 \)</span> matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+AC=
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
+\left[ \begin{array}{rrrr} x_1 &amp; y_1  \\ x_2 &amp; y_2  \\ x_3 &amp; y_3 \\ x_4 &amp; y_4   \end{array}\right]=
+\left[ \begin{array}{rrrr} 1 &amp; 0  \\ 0 &amp; 1  \end{array}\right]=
+I
+\end{split}\]</div>
+<p>If we understand the product <span class="math notranslate nohighlight">\(AC\)</span> in terms of the columns of <span class="math notranslate nohighlight">\(C\)</span>, we get two linear systems to solve for <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> which are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
+\left[ \begin{array}{r}  x_1 \\  x_2  \\ x_3 \\ x_4  \end{array}\right]=
+\left[ \begin{array}{r}  1 \\  0   \end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
+\left[ \begin{array}{r}  y_1 \\  y_2  \\ y_3 \\ y_4  \end{array}\right]=
+\left[ \begin{array}{r}  0 \\ 1 \end{array}\right]
+\end{split}\]</div>
+<p>It can be clearly seen that <span class="math notranslate nohighlight">\(x_3, x_4, y_3\)</span>, and <span class="math notranslate nohighlight">\(y_4\)</span> are free variables due to which there are infinite number of matrices <span class="math notranslate nohighlight">\(C\)</span> which can be the right inverse of <span class="math notranslate nohighlight">\(A\)</span>. In other words, <span class="math notranslate nohighlight">\(C\)</span> is not unique. One possibility is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C = \left[ \begin{array}{rrrr} 1 &amp; 0 \\ 0 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{array}\right]
+\end{split}\]</div>
+<p>We check that <span class="math notranslate nohighlight">\( AC = I \)</span> in the code cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AC = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="nd">@C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="lu-factorization">
 <h2>LU Factorization<a class="headerlink" href="#lu-factorization" title="Permalink to this headline">¶</a></h2>
@@ -1364,153 +1521,6 @@ A = \left[ \begin{array}{rrr}  1 &amp; 3 &amp; 2\\  -2 &amp; -6 &amp; 1  \\ 2 &a
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code Solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="inverse-matrices">
-<h2>Inverse Matrices<a class="headerlink" href="#inverse-matrices" title="Permalink to this headline">¶</a></h2>
-<p><strong>Exercise 1:</strong> Consider the following system of equations:
-$<span class="math notranslate nohighlight">\(
-\begin{eqnarray*}
-2x_1 + 3x_2 + x_3 &amp; = &amp; 4\\
-3x_1 + 3x_2 + x_3 &amp; = &amp; 8\\
-2x_1 + 4x_2 + x_3 &amp; = &amp; 5 
-\end{eqnarray*}
-\)</span>$</p>
-<p>Solve the given system of equations using an inverse matrix.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\(4\times 4\)</span> matrices.  Demonstrate using Python that <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> for the matrices.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 3:</strong> Explain why <span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span> by using the definition given in this section.</p>
-<p><strong>Exercise 4:</strong>  Solve the system <span class="math notranslate nohighlight">\(AX=B\)</span> by finding <span class="math notranslate nohighlight">\(A^{-1}\)</span> and computing <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; -3 \\ -1 &amp; 1 &amp; -1  \\ 0 &amp; -2 &amp; 3  \end{array}\right] \quad\quad
-B = \left[ \begin{array}{rrrr} 1  \\ 1 \\ 1  \end{array}\right]
-\end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">A_inverse</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inverse</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
- 
-<span class="n">X</span> <span class="o">=</span> <span class="n">A_inverse</span><span class="nd">@B</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 5:</strong> Find a <span class="math notranslate nohighlight">\(3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(AY = C\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A = \left[ \begin{array}{rrrr} 3 &amp; 1 &amp; 0 \\ 5 &amp; 2 &amp; 1 \\ 0 &amp; 2 &amp; 3\end{array}\right]\hspace{2cm}
-C = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1 \\ 3 &amp; 4 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{array}\right]\hspace{2cm}
-\end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">A_inv</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">A_inv</span><span class="nd">@C</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A inverse is : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_inv</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be a random <span class="math notranslate nohighlight">\(4 \times 1\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is a random <span class="math notranslate nohighlight">\( 1 \times 4 \)</span> matrix. Use Python to demonstrate that the product <span class="math notranslate nohighlight">\( AB \)</span> is not invertible. Do you expect this to be true for any two matrices <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is an <span class="math notranslate nohighlight">\( n \times 1 \)</span> matrix and <span class="math notranslate nohighlight">\(Q\)</span> is a <span class="math notranslate nohighlight">\( 1 \times n\)</span> matrix ? Explain.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two random <span class="math notranslate nohighlight">\( 3 \times 3\)</span> matrices. Demonstrate using Python that <span class="math notranslate nohighlight">\((A^T)^{-1} = (A^{-1})^T\)</span> for the matrices. Use this property to explain why <span class="math notranslate nohighlight">\(A^{-1}\)</span> must be symmetric if <span class="math notranslate nohighlight">\(A\)</span> is symmetric.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 8:</strong> Consider the following <span class="math notranslate nohighlight">\( 4 \times 4 \)</span> matrix:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A = \left[ \begin{array}{rrrr} 4 &amp; x_1 &amp; 0 &amp; 0 \\ 0 &amp; x_2 &amp; 0 &amp; 0 \\ 0 &amp; x_3 &amp; 1 &amp; 0 \\ 0 &amp; x_4 &amp; 0 &amp; 3 \end{array}\right]
-\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\((a)\)</span> Find the condition on <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span> or <span class="math notranslate nohighlight">\(x_4\)</span> for which <span class="math notranslate nohighlight">\(A^{-1}\)</span> exists. Assuming that condition is true, find the inverse of <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p><span class="math notranslate nohighlight">\((b)\)</span> Use Python to check if <span class="math notranslate nohighlight">\( A^{-1}A = I \)</span> when <span class="math notranslate nohighlight">\(x_1 = 4\)</span>, <span class="math notranslate nohighlight">\(x_2 = 1\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4 = 3\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Exercise 9:</strong> Apply the methods used in this section to compute a right inverse of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4 \end{array}\right]
-\end{split}\]</div>
-<p>Let <span class="math notranslate nohighlight">\(C\)</span> be the right inverse of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(AC= I\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> is a <span class="math notranslate nohighlight">\( 4 \times 2 \)</span> matrix.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-AC=
-\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
-\left[ \begin{array}{rrrr} x_1 &amp; y_1  \\ x_2 &amp; y_2  \\ x_3 &amp; y_3 \\ x_4 &amp; y_4   \end{array}\right]=
-\left[ \begin{array}{rrrr} 1 &amp; 0  \\ 0 &amp; 1  \end{array}\right]=
-I
-\end{split}\]</div>
-<p>If we understand the product <span class="math notranslate nohighlight">\(AC\)</span> in terms of the columns of <span class="math notranslate nohighlight">\(C\)</span>, we get two linear systems to solve for <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> which are as follows:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
-\left[ \begin{array}{r}  x_1 \\  x_2  \\ x_3 \\ x_4  \end{array}\right]=
-\left[ \begin{array}{r}  1 \\  0   \end{array}\right]
-\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0 &amp; 2 \\ 0 &amp; -1 &amp; 1 &amp; 4  \end{array}\right]
-\left[ \begin{array}{r}  y_1 \\  y_2  \\ y_3 \\ y_4  \end{array}\right]=
-\left[ \begin{array}{r}  0 \\ 1 \end{array}\right]
-\end{split}\]</div>
-<p>It can be clearly seen that <span class="math notranslate nohighlight">\(x_3, x_4, y_3\)</span>, and <span class="math notranslate nohighlight">\(y_4\)</span> are free variables due to which there are infinite number of matrices <span class="math notranslate nohighlight">\(C\)</span> which can be the right inverse of <span class="math notranslate nohighlight">\(A\)</span>. In other words, <span class="math notranslate nohighlight">\(C\)</span> is not unique. One possibility is:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-C = \left[ \begin{array}{rrrr} 1 &amp; 0 \\ 0 &amp; -1 \\ 0 &amp; 0 \\ 0 &amp; 0 \end{array}\right]
-\end{split}\]</div>
-<p>We check that <span class="math notranslate nohighlight">\( AC = I \)</span> in the code cell below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
- 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AC = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="nd">@C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

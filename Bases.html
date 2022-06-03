@@ -451,7 +451,7 @@
   <div class="section" id="bases">
 <h1>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h1>
 <p>When working with vector spaces, or subspaces, it is often useful to express arbitrary vectors as linear combinations of a set of given vectors known as a basis.  A <strong>basis</strong> for a vector space (or subspace) is a collection of linearly independent vectors that span the space.  This definition pulls together the ideas of linear independence and spanning sets to describe a set of vectors which we can understand as building blocks for a vector space.</p>
-<p>Given a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and any vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, let us consider the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span>.  This vector equation represents a linear system that could also be represented by the matrix equation <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix that has the vectors <span class="math notranslate nohighlight">\(V_i\)</span> as its columns.  In previous sections we have made two important conclusions regarding this system.</p>
+<p>Given a set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and any vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, let us consider the vector equation <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + ... c_nV_n = Y\)</span>.  This vector equation represents a linear system that could also be represented by the matrix equation <span class="math notranslate nohighlight">\(AX=Y\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix that has the vectors <span class="math notranslate nohighlight">\(V_i\)</span> as its columns.  In previous sections we have made two important conclusions regarding this system.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at least one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(AX=Y\)</span> has at most one solution if <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> are linearly independent.</p></li>
@@ -595,7 +595,7 @@ W_2 = \left[ \begin{array}{r} 2 \\ 4 \\ 0 \\ 1  \end{array}\right]
 </div>
 <div class="section" id="dimension">
 <h2>Dimension<a class="headerlink" href="#dimension" title="Permalink to this headline">¶</a></h2>
-<p>We now examine some sets of vectors that do not form bases.  By looking at these non-example we will uncover a concept that is related directly to bases.</p>
+<p>We now examine some sets of vectors that do not form bases.  By looking at these non-examples we will uncover a concept that is related directly to bases.</p>
 <p>The following set of vectors is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -695,13 +695,11 @@ c_1\left[ \begin{array}{r} -3 \\ 3 \\ 2 \\ -3 \\ -2 \end{array}\right]
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Find a basis for the set of solutions to the system <span class="math notranslate nohighlight">\(PX=0\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is defined as follows.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Find a basis for the set of solutions to the system <span class="math notranslate nohighlight">\(PX=0\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is defined as follows.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 &amp; 4 \\ -1 &amp; 1 &amp; 6 &amp; -2 &amp; 1 \\ -2 &amp; 1 &amp; 3 &amp; 0 &amp; -3 \end{array}\right] 
+P = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 &amp; 4 \\ -1 &amp; 1 &amp; 6 &amp; -2 &amp; 1 \\ -2 &amp; 1 &amp; 3 &amp; 0 &amp; -3 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
 <div class="cell docutils container">
@@ -711,9 +709,7 @@ A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 &amp; 4 \\ -1 &amp; 1 
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Determine if the following set of vectors is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Give justification with an appropriate calculation.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Determine if the following set of vectors is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  Give justification with an appropriate calculation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -730,9 +726,7 @@ W_4 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 1 \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Give an example of a set of three vectors that does <strong>not</strong> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Provide a calculation that shows why the example is not a basis.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Give an example of a set of three vectors that does <strong>not</strong> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Provide a calculation that shows why the example is not a basis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -740,9 +734,7 @@ W_4 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 1 \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Calculate the dimension of the span of the following vectors.</p></li>
-</ul>
+<p><strong>Exercise 4:</strong> Calculate the dimension of the span of the following vectors.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
