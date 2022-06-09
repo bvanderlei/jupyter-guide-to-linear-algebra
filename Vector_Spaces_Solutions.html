@@ -414,6 +414,11 @@
    Bases
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications-of-vector-spaces">
+   Applications of Vector Spaces
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -490,11 +495,32 @@ x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">B_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 0.]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>The last column has a pivot in it so this system is inconsistent and therefore has no solution.  The reduced augmented matrix represents the following equations.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; 0\\
+x_2  &amp; = &amp; 0\\
+x_3 &amp; = &amp; 0 \\
+0 &amp; = &amp; 1
+\end{eqnarray*}
+\end{split}\]</div>
 <p><strong>Exercise 3:</strong> Determine the number of solutions to the following system, then find all possible solutions.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -508,9 +534,9 @@ x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">B_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B_augmented_reduced</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">C_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_augmented_reduced</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -524,7 +550,7 @@ x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
 </div>
 </div>
 </div>
-<p>Niether the third nor the last column have pivots, so there exist an infinite number of solutions to this system. If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> then the following is a solution to the system for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
+<p>Neither the third nor the last column have pivots, so there exist an infinite number of solutions to this system. If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> then the following is a solution to the system for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -543,10 +569,10 @@ x_3 &amp; = &amp; s
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
-<span class="n">C_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C_augmented_reduced</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">D_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">D_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D_augmented</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D_augmented_reduced</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -564,9 +590,37 @@ x_3 &amp; = &amp; s
 <p><strong>Exercise 5:</strong> Explain why it is not possible for a system with 2 equations and 4 unknowns to have a unique solution.  Base your argument on pivot positions.</p>
 <p>The augmented matrix that represents a system with 2 equations and 4 unknowns must can have at most 2 pivots since it has only 2 rows.  This means that one of the first four columns does not have a pivot and corresponds to a free variable in the system.  The guaranteed existence of a free variable means the system does not have a unique solution.</p>
 <p><strong>Exercise 6:</strong> Write a function that accepts the augmented matrix for a system and returns the number of free variables in that system.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
+<p>Since every pivot in the RREF of the augmented matrix corresponds to exactly one non-free variable, we can find the number of free variables by subtracting the number of pivots from the total number of variables. We will find the number of pivots by subtracting the number zero rows from the total number of rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FreeVariables</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    FreeVariables finds the number of free variables given an augmented matrix A. There is no</span>
+<span class="sd">    error checking to ensure the system is consistent.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># m is the number of rows</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># n is the number of columns</span>
+    <span class="n">numOfZeroRows</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1"># Loops over each row backward from m-1 to 0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1"># Loops over each column from 0 to n-1</span>
+            <span class="k">if</span> <span class="n">A_reduced</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># If we find a nonzero element, there are no more zero rows</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">numOfZeroRows</span><span class="p">)</span>   <span class="c1"># (n-1) is the number of total variables</span>
+        <span class="n">numOfZeroRows</span> <span class="o">=</span> <span class="n">numOfZeroRows</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">numOfZeroRows</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">FreeVariables</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">FreeVariables</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
 </pre></div>
 </div>
 </div>
@@ -821,6 +875,7 @@ U_2 = \left[ \begin{array}{r} 1 \\ -1 \\ 0  \\ -1 \end{array}\right] \hspace{1cm
 U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 2  \\ -1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p>We need to determine if there are nonzero scalars <span class="math notranslate nohighlight">\(a_1,a_2,a_3\)</span> such that <span class="math notranslate nohighlight">\(a_1W_1 + a_2W_2 + a_3W_3 = 0\)</span>. We build the augmented matrix that represents the corresponding linear system and then use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
@@ -846,13 +901,40 @@ U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 2  \\ -1 \end{array}\right]
 D = \left[ \begin{array}{rrr} 4 &amp; 4 &amp; 3 \\ 8 &amp; 8 &amp; 6 \\ 1 &amp; 0 &amp; 1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p>Recall that the null space of <span class="math notranslate nohighlight">\(D\)</span> is the set of all vectors <span class="math notranslate nohighlight">\(X = \left[ \begin{array}{rrr} x_1 \\ x_2 \\ x_3 \end{array}\right] \)</span> such that <span class="math notranslate nohighlight">\(DX = 0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">D_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.    0.    1.    0.  ]
+ [ 0.    1.   -0.25  0.  ]
+ [ 0.    0.    0.    0.  ]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> then the following is a solution to the system and therefore in the null space of <span class="math notranslate nohighlight">\(D\)</span> for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 &amp; = &amp; -s\\
+x_2  &amp; = &amp; 0.25 s\\
+x_3 &amp; = &amp; s
+\end{eqnarray*}
+\end{split}\]</div>
+<p>For example, if we take <span class="math notranslate nohighlight">\(s = 1\)</span> and <span class="math notranslate nohighlight">\(s = 2\)</span>, then we get that the following two vectors are distinct, nonzero elements of <span class="math notranslate nohighlight">\(\mathcal{N}(D)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rrr} -1 \\ 0.25 \\ 1 \end{array}\right] \hspace{1cm} 
+\left[ \begin{array}{rrr} -2 \\ 0.5 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 </div>
 <div class="section" id="bases">
 <h2>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h2>
@@ -863,6 +945,7 @@ D = \left[ \begin{array}{rrr} 4 &amp; 4 &amp; 3 \\ 8 &amp; 8 &amp; 6 \\ 1 &amp; 
 P = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 &amp; 4 \\ -1 &amp; 1 &amp; 6 &amp; -2 &amp; 1 \\ -2 &amp; 1 &amp; 3 &amp; 0 &amp; -3 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
+<p>First we find a general solution to the system above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]])</span>
@@ -908,6 +991,7 @@ W_3 = \left[ \begin{array}{r} 0 \\ 0 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
 W_4 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p>We need to check that these vectors are linearly independent and span <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. We can do both by forming the matrix whose columns are these vectors and then using <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
@@ -964,11 +1048,10 @@ U_3 = \left[ \begin{array}{r} 3 \\ -1 \\ 2 \\ 1 \end{array}\right] \hspace{0.7cm
 U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p>Recall that the dimension of a vector space is the number of vectors in any basis for that space, so if we can find a basis for the span of <span class="math notranslate nohighlight">\(U = \{U_1, U_2, U_3, U_4\}\)</span> then we will know its dimension. A basis for this space is a linearly independent set of vectors that span it. By definition <span class="math notranslate nohighlight">\(U\)</span> spans the span of <span class="math notranslate nohighlight">\(U\)</span>, so we just need to check that the vectors of <span class="math notranslate nohighlight">\(U\)</span> are linearly independent, removing any redundant ones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## First we check to see if U_1 and U_2 are linearly independent</span>
-
-<span class="n">U_12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 <span class="n">U_12_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">U_12</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">U_12_reduced</span><span class="p">)</span>
 </pre></div>
@@ -983,11 +1066,10 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 </div>
 </div>
 </div>
+<p>We can see the <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span> are linearly independent, so now we check if adding <span class="math notranslate nohighlight">\(U_3\)</span> changes that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## They are linearly independent, so now we check if adding U_3 changes that</span>
-
-<span class="n">U_123</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_123</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">U_123_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">U_123</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">U_123_reduced</span><span class="p">)</span>
 </pre></div>
@@ -1002,11 +1084,10 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 </div>
 </div>
 </div>
+<p>The last column does not have a pivot, so <span class="math notranslate nohighlight">\(U_3\)</span> is included in the span of <span class="math notranslate nohighlight">\(U_1\)</span> and <span class="math notranslate nohighlight">\(U_2\)</span>. Therefore the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is the same as the span of <span class="math notranslate nohighlight">\(\{U_1, U_2\}\)</span>, and so we can remove <span class="math notranslate nohighlight">\(U_3\)</span> from consideration. Next we check <span class="math notranslate nohighlight">\(U_4\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## The last column does not have a pivot, so U_3 is included in the span of U_1 and U_2. Now we check U_4</span>
-
-<span class="n">U_124</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U_124</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">U_124_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">U_124</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">U_124_reduced</span><span class="p">)</span>
 </pre></div>
@@ -1022,6 +1103,139 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, and <span class="math notranslate nohighlight">\(U_4\)</span> are linearly independent and <span class="math notranslate nohighlight">\(U_3\)</span> can be expressed as a linear combination of the other three. Therefore the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> spanned by <span class="math notranslate nohighlight">\(\{U_1,U_2,U_4\}\)</span> is three-dimensional.</p>
+</div>
+<div class="section" id="applications-of-vector-spaces">
+<h2>Applications of Vector Spaces<a class="headerlink" href="#applications-of-vector-spaces" title="Permalink to this headline">¶</a></h2>
+<p>Set up and solve a linear system to balance each chemical equation.</p>
+<p><strong>Exercise 1:</strong> Combustion of methane:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+C_3H_8 + O_2 \to CO_2 + H_2O
+\end{equation}
+\]</div>
+<p>We will denote each molecule as a vector whose first entry is the number of carbon atoms, the second the number of oxygen atoms, and the third the number of hydrogen atoms. Then the chemical equation above can be expressed as the following vector equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_1\left[\begin{array}{c} 3 \\ 0 \\ 8 \end{array}\right]
++ x_2\left[\begin{array}{c} 0 \\ 2 \\ 0 \end{array}\right]
+= x_3\left[\begin{array}{c} 1 \\ 2 \\ 0 \end{array}\right]
++ x_4\left[\begin{array}{c} 0 \\ 1 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If we move everything to the left side then we get the following homogeneous system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rrr} 3 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 2 &amp; -2 &amp; -1 \\ 8 &amp; 0 &amp; 0 &amp; -2 \end{array}\right]
+\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \end{array}\right]
+= \left[\begin{array}{r} 0 \\ 0 \\ 0  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.    0.    0.   -0.25]
+ [ 0.    1.    0.   -1.25]
+ [ 0.    0.    1.   -0.75]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_4\)</span>, we treat <span class="math notranslate nohighlight">\(x_4\)</span> as a free variable.  Since we want solutions that are integers, we will take <span class="math notranslate nohighlight">\(x_4=4\)</span>. This gives <span class="math notranslate nohighlight">\(x_1=1\)</span>, <span class="math notranslate nohighlight">\(x_2=5\)</span>, and <span class="math notranslate nohighlight">\(x_3=3\)</span>.  The correct equation for the chemical reaction is the following.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O
+\end{equation}
+\]</div>
+<p><strong>Exercise 2:</strong> Aluminum reaction with sulfuric acid</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
+\end{equation}
+\]</div>
+<p>We will denote each molecule as a vector whose first entry is the number of aluminum atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. Using the same reasoning as the previous problem, we get the following system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rrr} 1 &amp; 0 &amp; -2 &amp; 0 \\ 0 &amp; 4 &amp; -12 &amp; 0 \\ 0 &amp; 2 &amp; 0 &amp; -2 \\ 0 &amp; 1 &amp; -3 &amp; 0 \end{array}\right]
+\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \end{array}\right]
+= \left[\begin{array}{r} 0 \\ 0 \\ 0 \\ 0  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">B_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.          0.          0.         -0.66666667]
+ [ 0.          1.          0.         -1.        ]
+ [ 0.          0.          1.         -0.33333333]
+ [ 0.          0.          0.          0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_4\)</span>, we treat <span class="math notranslate nohighlight">\(x_4\)</span> as a free variable.  If we take <span class="math notranslate nohighlight">\(x_4 = 3\)</span>, then <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>, and <span class="math notranslate nohighlight">\(x_3=1\)</span>.  The correct equation for the chemical reaction is the following.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+2Al + 3H_2SO_4 \to Al_2(SO_4)_3 + 3H_2
+\end{equation}
+\]</div>
+<p><strong>Exercise 3:</strong> Silver tarnish</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+Ag + H_2S + O_2 \to Ag_2S + H_2O
+\end{equation}
+\]</div>
+<p>We will denote each molecule as a vector whose first entry is the number of silver atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. We get the following system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rrr} 1 &amp; 0 &amp; 0 &amp; -2 &amp; 0 \\ 0 &amp; 0 &amp; 2 &amp; 0 &amp; -1 \\ 0 &amp; 2 &amp; 0 &amp; 0 &amp; -2 \\ 0 &amp; 1 &amp; 0 &amp; -1 &amp; 0 \end{array}\right]
+\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \end{array}\right]
+= \left[\begin{array}{r} 0 \\ 0 \\ 0 \\ 0  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">C_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.   0.   0.   0.  -2. ]
+ [ 0.   1.   0.   0.  -1. ]
+ [ 0.   0.   1.   0.  -0.5]
+ [ 0.   0.   0.   1.  -1. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_5\)</span>, we treat <span class="math notranslate nohighlight">\(x_5\)</span> as a free variable.  If we take <span class="math notranslate nohighlight">\(x_5 = 2\)</span>, then <span class="math notranslate nohighlight">\(x_1=4\)</span>, <span class="math notranslate nohighlight">\(x_2=2\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4=2\)</span>.  The correct equation for the chemical reaction is the following.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+4Ag + 2H_2S + O_2 \to 2Ag_2S + 2H_2O
+\end{equation}
+\]</div>
 </div>
 </div>
 
