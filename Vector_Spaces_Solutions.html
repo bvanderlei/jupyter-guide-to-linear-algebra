@@ -408,6 +408,38 @@
   <a class="reference internal nav-link" href="#linear-independence">
    Linear Independence
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Solution :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Solution:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bases">
@@ -866,7 +898,7 @@ V_3 = \left[ \begin{array}{r} 1 \\ 0 \\ a \end{array}\right] \hspace{1cm}
 </div>
 <div class="section" id="linear-independence">
 <h2>Linear Independence<a class="headerlink" href="#linear-independence" title="Permalink to this headline">¶</a></h2>
-<p><strong>Exercise 1:</strong> Determine if the following set of vectors is linearly independent.</p>
+<p><strong>Exercise 1:</strong> Determine if the set of vectors <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is linearly independent.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -875,26 +907,310 @@ U_2 = \left[ \begin{array}{r} 1 \\ -1 \\ 0  \\ -1 \end{array}\right] \hspace{1cm
 U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 2  \\ -1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>We need to determine if there are nonzero scalars <span class="math notranslate nohighlight">\(a_1,a_2,a_3\)</span> such that <span class="math notranslate nohighlight">\(a_1W_1 + a_2W_2 + a_3W_3 = 0\)</span>. We build the augmented matrix that represents the corresponding linear system and then use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
+<p>We need to determine if there are nonzero scalars <span class="math notranslate nohighlight">\(a_1,a_2,a_3\)</span> such that <span class="math notranslate nohighlight">\(a_1U_1 + a_2U_2 + a_3U_3 = 0\)</span>. We build the augmented matrix that represents the corresponding linear system and then use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
 <span class="n">U_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">U_reduced</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 1.]
- [0. 1. 3.]
- [0. 0. 0.]
- [0. 0. 0.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 1. 0.]
+ [0. 1. 3. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
 </pre></div>
 </div>
 </div>
 </div>
 <p>The absence of a pivot in the third column indicates that these vectors are linearly dependent.</p>
-<p><strong>Exercise 2:</strong> Find two distinct nonzero vectors in the null space of the matrix <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p><strong>Exercise 2:</strong> Determine whether or not the set of vectors <span class="math notranslate nohighlight">\( \{W_1, W_2, W_3, W_4 \} \)</span> is linearly independent. If the set is linearly dependent, then represent one of the vectors of the set as the linear combination of others.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 1 \\ 0  \\ 0 \\1  \end{array}\right] \hspace{1cm} 
+W_2 = \left[ \begin{array}{r} 0 \\ 1 \\ -1 \\0  \end{array}\right] \hspace{1cm}
+W_3 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 0  \end{array}\right] \hspace{1cm}
+W_4 = \left[ \begin{array}{r} 1 \\1 \\1\\-1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="solution">
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<p>We need to determine if there are nonzero scalars <span class="math notranslate nohighlight">\(a_1,a_2,a_3,a_4\)</span> such that <span class="math notranslate nohighlight">\(a_1W_1 + a_2W_2 + a_3W_3 + a_4W_4 = 0\)</span>. We build the augmented matrix that represents the corresponding linear system and then use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[ 1  0 -1  1  0]
+ [ 0  1  0  1  0]
+ [ 0 -1 -1  1  0]
+ [ 1  0  0 -1  0]] 
+
+A_reduced: 
+ [[ 1.  0.  0. -1.  0.]
+ [ 0.  1.  0.  1.  0.]
+ [ 0.  0.  1. -2.  0.]
+ [ 0.  0.  0.  0.  0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The absence of a pivot in the fourth column of means there is a free variable in the system and the set of vectors <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3, W_4 \} \)</span> is linearly dependent.</p>
+<p>In order to represent <span class="math notranslate nohighlight">\(W_4\)</span> are a linear combination of <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(W_2\)</span> and <span class="math notranslate nohighlight">\(W_3\)</span>, we solve a vector equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{r} 1 \\ 0 \\ 0 \\ 1 \end{array}\right] +
+c_2\left[ \begin{array}{r} 0 \\ 1\\ -1\\0  \end{array}\right] +
+c_3\left[ \begin{array}{r} -1 \\ 0 \\ -1 \\0  \end{array}\right] =
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ -1 \end{array}\right]\end{equation}
+\end{split}\]</div>
+<p>The corresponding matrix equation is the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; -1\\ 0 &amp; 1 &amp; 0  \\ 0 &amp; -1 &amp; -1  \\ 1 &amp; 0 &amp; 0 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ -1  \end{array}\right]= B
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_aug</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_augmented: 
+ [[ 1  0 -1  1]
+ [ 0  1  0  1]
+ [ 0 -1 -1  1]
+ [ 1  0  0 -1]] 
+
+A_augmented_reduced: 
+ [[ 1.  0.  0. -1.]
+ [ 0.  1.  0.  1.]
+ [ 0.  0.  1. -2.]
+ [ 0.  0.  0.  0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We find that <span class="math notranslate nohighlight">\(c_1 = -1\)</span>, <span class="math notranslate nohighlight">\(c_2 = 1\)</span>, <span class="math notranslate nohighlight">\(c_3 = -2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+(-1)\left[ \begin{array}{r} 1 \\ 0 \\ 0 \\ 1 \end{array}\right] +
+1\left[ \begin{array}{r} 0 \\ 1\\ -1\\0  \end{array}\right] +
+(-2)\left[ \begin{array}{r} -1 \\ 0 \\ -1 \\0  \end{array}\right] =
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ -1 \end{array}\right]\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 3:</strong> Consider the following vectors in <span class="math notranslate nohighlight">\( \mathbb{R}^3\)</span>:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 0  \\ 1  \end{array}\right] \hspace{1cm} 
+X_2 = \left[ \begin{array}{r} 1 \\ 2\\ 3  \end{array}\right] \hspace{1cm}
+X_3 = \left[ \begin{array}{r} 2 \\ 4 \\ b   \end{array}\right] \
+\end{equation}
+\)</span>$</p>
+<p>Find the value of <span class="math notranslate nohighlight">\(b\)</span> for which the given vectors are linearly dependent. Then, represent one vector as the linear combination of the other two.</p>
+</div>
+<div class="section" id="id1">
+<h3>Solution :<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The matrix <span class="math notranslate nohighlight">\(A\)</span> contains the given vectors as its columns and is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 \\ 0 &amp; 2 &amp; 4 \\ 1 &amp; 3 &amp; b \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>On carrying out the row reduction of <span class="math notranslate nohighlight">\(A\)</span>, we get:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+ \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 1 &amp; 0 &amp; b-6 \end{array}\right]
+\end{equation}
+\)</span>$</p>
+<p>The columns of <span class="math notranslate nohighlight">\(A\)</span> will be linearly dependent when there is no pivot in the third column. This means that <span class="math notranslate nohighlight">\(b-6\)</span> needs to be zero. Therfore, the set of vectors <span class="math notranslate nohighlight">\(\{ X_1, X_2, X_3\}\)</span> is linearly dependent when <span class="math notranslate nohighlight">\( b = 6\)</span>.</p>
+<p>In order to represent <span class="math notranslate nohighlight">\(X_3\)</span> are a linear combination of <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span>, we solve a vector equation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 0  \\ 1  \end{array}\right] \hspace{1cm} 
+X_2 = \left[ \begin{array}{r} 1 \\ 2\\ 3  \end{array}\right] \hspace{1cm}
+X_3 = \left[ \begin{array}{r} 2 \\ 4 \\ 6   \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<p>Let us represent <span class="math notranslate nohighlight">\(X_3\)</span> as the linear combination of <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{r} 1 \\ 0 \\ 1 \end{array}\right] +
+c_2\left[ \begin{array}{r} 1 \\ 2\\ 3  \end{array}\right] =
+\left[ \begin{array}{r} 2 \\ 4 \\ 6  \end{array}\right]\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_aug</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_augmented: 
+ [[1 1 2]
+ [0 2 4]
+ [1 3 6]] 
+
+A_augmented_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 2.]
+ [0. 0. 0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We find that <span class="math notranslate nohighlight">\( c_1 = 0\)</span> and <span class="math notranslate nohighlight">\(c_2 = 2\)</span>.  <span class="math notranslate nohighlight">\(X_3\)</span> is a multiple of <span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+(0)\left[ \begin{array}{r} 1 \\ 0 \\ 1 \end{array}\right] +
+2\left[ \begin{array}{r} 1 \\ 2\\ 3  \end{array}\right] =
+\left[ \begin{array}{r} 2 \\ 4 \\ 6  \end{array}\right]\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 4:</strong> Find the value(<span class="math notranslate nohighlight">\(s\)</span>) of <span class="math notranslate nohighlight">\(a\)</span> such that the set of vectors <span class="math notranslate nohighlight">\( \{V_1, V_2, V_3\} \)</span> is linearly independent.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 1  \\ 1  \end{array}\right] \hspace{1cm} 
+V_2 = \left[ \begin{array}{r} a \\ 1 \\ 1   \end{array}\right] \hspace{1cm}
+V_3 = \left[ \begin{array}{r} 0 \\ 1 \\ a  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id2">
+<h3>Solution :<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>We consider the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the matrix with the given vectors as its columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; a &amp; 0 \\ 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; a \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>After carrying out row operations on <span class="math notranslate nohighlight">\(A\)</span>, we get the reduced form of <span class="math notranslate nohighlight">\(A\)</span> which is as follows:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+A_{Red} = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1-a &amp; 0 \\ 0 &amp; 0 &amp; a-1 \end{array}\right]
+\end{equation}
+\)</span>$</p>
+<p>The columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent if there is no free variable in the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span>. This means that there needs to be a pivot in each column of <span class="math notranslate nohighlight">\(A\)</span>. This condition is true when <span class="math notranslate nohighlight">\(a - 1\)</span> and <span class="math notranslate nohighlight">\( 1-a\)</span> are nonzero.
+Therefore, the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> will be linearly independent for all real values of <span class="math notranslate nohighlight">\(a\)</span> except 1.</p>
+<p><strong>Exercise 5:</strong>  Use the concept of linear independence of vectors to show that the given system does not have infinitely many solutions.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 \\ 2 &amp; 0 &amp; 1 \\ 3 &amp; 1 &amp; 1 \end{array}\right]
+\left[ \begin{array}{r} x_1 \\ x_2 \\ x_3 \end{array}\right]=
+\left[ \begin{array}{r} 1 \\ 1 \\ 1  \end{array}\right]= B
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id3">
+<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 2]
+ [2 0 1]
+ [3 1 1]] 
+
+A_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the reduced form of <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each column. This means that there is no free variable and the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent. This also means that the null space of <span class="math notranslate nohighlight">\(A\)</span> contains only the zero vector. Hence, the given system can never have infinitely many solutions.</p>
+<p><strong>Exercise 6:</strong> Can you find a nonzero vector in the null space of the matrix <span class="math notranslate nohighlight">\(A\)</span>? Use this information to determine the number of solutions for the system <span class="math notranslate nohighlight">\(AX = B\)</span>, where <span class="math notranslate nohighlight">\(B\)</span> is any vector in $\mathbb{R}^3$.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id4">
+<h3>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>A vector <span class="math notranslate nohighlight">\(X\)</span> is in the null space of <span class="math notranslate nohighlight">\(A\)</span> if it is a solution to the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
+<span class="n">A_aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">A_aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_aug</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A augmented reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A augmented: 
+ [[1 2 3 0]
+ [1 0 1 0]
+ [1 1 2 0]] 
+
+A augmented reduced: 
+ [[1. 0. 1. 0.]
+ [0. 1. 1. 0.]
+ [0. 0. 0. 0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is no pivot in the third column, there is a free variable in the system and the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly dependent. This means that the null space of <span class="math notranslate nohighlight">\(A\)</span> contains a non-zero vector.</p>
+<p>Let <span class="math notranslate nohighlight">\(x_3 = t\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is any scalar.  For any value of <span class="math notranslate nohighlight">\(t\)</span>, the following vector is a solution to <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} -t \\ -t  \\ t  \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p>Choose <span class="math notranslate nohighlight">\(t=1\)</span> for example gives the following specific vector in the null space of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} -1 \\ -1  \\ 1  \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p>Since the null space of <span class="math notranslate nohighlight">\(A\)</span> contains nonzero vector, the system <span class="math notranslate nohighlight">\(AX = B\)</span> has infinitely many solutions.</p>
+<p><strong>Exercise 7:</strong> Find two distinct nonzero vectors in the null space of the matrix <span class="math notranslate nohighlight">\(D\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -935,6 +1251,56 @@ x_3 &amp; = &amp; s
 \left[ \begin{array}{rrr} -2 \\ 0.5 \\ 2 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p><strong>Exercise 8:</strong>
+Suppose the vector <span class="math notranslate nohighlight">\(X\)</span> given below is a solution for a system <span class="math notranslate nohighlight">\(AX = B\)</span> for any value of <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} -3 + 2t \\ 2 - t  \\ t  \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Following the discussion in this section on homogeneous systems, find <span class="math notranslate nohighlight">\(X_h\)</span> and <span class="math notranslate nohighlight">\(X_p\)</span> so that <span class="math notranslate nohighlight">\(X= X_p+X_h\)</span> so that <span class="math notranslate nohighlight">\(X_p\)</span> is the solution to some system <span class="math notranslate nohighlight">\(AX=B\)</span> and <span class="math notranslate nohighlight">\(X_h\)</span> is the solution to the corresponding homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Given the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>, find <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 1  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id5">
+<h3>Solution:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) The given solution can be split as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X  = 
+\left[ \begin{array}{c} -3 \\ 2  \\ 0 \end{array}\right] + 
+t\left[ \begin{array}{c} 2 \\ -1  \\ 1 \end{array}\right] = X_p + X_h
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(AX_p= B\)</span>, <span class="math notranslate nohighlight">\(AX_h= 0\)</span> for any <span class="math notranslate nohighlight">\(t\)</span>, and <span class="math notranslate nohighlight">\(A(X_p+X_h) = B\)</span> for any <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) <span class="math notranslate nohighlight">\(B= AX_p\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@X_p</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B: 
+ [[1]
+ [2]] 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="bases">
 <h2>Bases<a class="headerlink" href="#bases" title="Permalink to this headline">¶</a></h2>
