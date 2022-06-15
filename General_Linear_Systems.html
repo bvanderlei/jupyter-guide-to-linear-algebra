@@ -300,6 +300,11 @@
      Vector Spaces
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Transformations_Solutions.html">
+     Linear Transformations
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -494,14 +499,14 @@ For any linear system, exactly one of the following statements is true:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  1  0 -1  0]
- [ 1 -1 -2  2  0]
- [-1  2  2 -2  2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1  1 -1 -1]
+ [-1  1  2  2  0]
+ [ 2  0  2  2 -2]]
 
 
-[[ 1.  0. -2.  0. -2.]
- [ 0.  1.  0.  0.  2.]
- [ 0.  0.  0.  1.  2.]]
+[[ 1.          0.          0.         -0.66666667 -0.66666667]
+ [ 0.          1.          0.         -2.          0.        ]
+ [ 0.          0.          1.          1.66666667 -0.33333333]]
 </pre></div>
 </div>
 </div>
@@ -714,6 +719,7 @@ x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
 </div>
 <p><strong>Exercise 5:</strong> Explain why it is not possible for a system with 2 equations and 4 unknowns to have a unique solution.  Base your argument on pivot positions.</p>
 <p><strong>Exercise 6:</strong> Write a function that accepts the augmented matrix for a system and returns the number of free variables in that system.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
+<p><strong>Exercise 7:</strong> Write a function that accepts the augmented matrix for a system and returns whether or not that system is consistent.  The function should return the value 1 if the system is consistent or the value 0 if the system is inconsistent.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

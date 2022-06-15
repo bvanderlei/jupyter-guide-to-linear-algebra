@@ -57,6 +57,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Transformations" href="Linear_Transformations_Solutions.html" />
     <link rel="prev" title="Linear Systems" href="Linear_Systems_Solutions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -299,6 +300,11 @@
      Vector Spaces
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Transformations_Solutions.html">
+     Linear Transformations
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -462,6 +468,38 @@
   <a class="reference internal nav-link" href="#bases">
    Bases
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Solution:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-vector-spaces">
@@ -599,7 +637,15 @@ x_1 + 8x_2 + 7x_3 &amp; = &amp; -3 \\
 </div>
 </div>
 </div>
-<p>Neither the third nor the last column have pivots, so there exist an infinite number of solutions to this system. If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> then the following is a solution to the system for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
+<p>Neither the third nor the last column have pivots, so there exist an infinite number of solutions to this system. This RREF matrix corresponds to the following system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+x_1 - x_3 &amp; = &amp; 1 \\
+x_2 + x_3 &amp; = &amp; -0.5
+\end{eqnarray*}
+\end{split}\]</div>
+<p>If we parametrize <span class="math notranslate nohighlight">\(x_3 = s\)</span> and solve the previous equations for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> respectively then the following is a solution to the system for any <span class="math notranslate nohighlight">\(s \in \mathbb{R}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -661,19 +707,160 @@ x_3 &amp; = &amp; s
                 <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">numOfZeroRows</span><span class="p">)</span>   <span class="c1"># (n-1) is the number of total variables</span>
         <span class="n">numOfZeroRows</span> <span class="o">=</span> <span class="n">numOfZeroRows</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">numOfZeroRows</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> to find the number of free variables in a few example augmented matrices, and then check to make sure our function <span class="math notranslate nohighlight">\(\texttt{FreeVariables}\)</span> correctly counts them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">FreeVariables</span><span class="p">(</span><span class="n">B_augmented</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">FreeVariables</span><span class="p">(</span><span class="n">C_augmented</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_reduced</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">FreeVariables</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="s1">&#39;free variables in the augmented matrix A </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">B_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_reduced</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is&#39;</span><span class="p">,</span> <span class="n">FreeVariables</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="s1">&#39;free variable in the augmented matrix B </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">15</span><span class="p">]])</span>
+<span class="n">C_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C_reduced</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are&#39;</span><span class="p">,</span> <span class="n">FreeVariables</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="s1">&#39;free variables in the augmented matrix C&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5  4 -1  3]
+ [ 1  0  1  2]
+ [-2  2  4 -3]
+ [ 1  8  7 -3]
+ [ 3  0 -3  3]] 
+
+[[ 1.   0.   0.   1.5]
+ [ 0.   1.   0.  -1. ]
+ [ 0.   0.   1.   0.5]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]] 
+
+There are 0 free variables in the augmented matrix A 
+
+[[ 5  4 -1  3]
+ [ 1  2  1  0]
+ [-2  2  4 -3]
+ [ 1  8  7 -3]
+ [ 3  0 -3  3]] 
+
+[[ 1.   0.  -1.   1. ]
+ [ 0.   1.   1.  -0.5]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]
+ [ 0.   0.   0.   0. ]] 
+
+There is 1 free variable in the augmented matrix B 
+
+[[ 0  3 -6  6  4 -5]
+ [ 3 -7  8 -5  8  9]
+ [ 3 -9 12 -9  6 15]] 
+
+[[  1.   0.  -2.   3.   0. -24.]
+ [  0.   1.  -2.   2.   0.  -7.]
+ [  0.   0.   0.   0.   1.   4.]] 
+
+There are 2 free variables in the augmented matrix C
 </pre></div>
 </div>
 </div>
 </div>
+<p>Other than the last column in each reduced matrix, every column of <span class="math notranslate nohighlight">\(A\)</span> has a pivot, 1 column of <span class="math notranslate nohighlight">\(B\)</span> does not have a pivot, and 2 columns of <span class="math notranslate nohighlight">\(C\)</span> do not have a pivot, so they have 0,1, and 2 free variables respectively. As we can see above, our <span class="math notranslate nohighlight">\(\texttt{FreeVariable}\)</span> function reported correctly the number of free variables in each matrix.</p>
+<p><strong>Exercise 7:</strong> Write a function that accepts the augmented matrix for a system and returns whether or not that system is consistent.  The function should return the value 1 if the system is consistent or the value 0 if the system is inconsistent.  Make use of <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> in the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> module.</p>
+<p>If a system is inconsistent, the RREF of the augmented matrix will have a pivot in the final column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CheckConsistent</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    CheckConsistent checks to see if the augmented matrix of a system has a pivot in its final column. If</span>
+<span class="sd">    a pivot is found (inconsistent) it returns a 0, otherwise (consistent) it returns a 1.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># m is the number of rows</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># n is the number of columns</span>
+    
+    <span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1"># Loops over each row backward from m-1 to 0</span>
+        <span class="n">currentRowZero</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Keeps track of whether the first n-1 entries of each row is zero</span>
+        <span class="k">if</span> <span class="n">A_reduced</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># If the element in the final column isn&#39;t 0, the row may imply inconsistancy</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>   <span class="c1"># Loops over each column, except the last one, from 0 to n-2</span>
+                <span class="k">if</span> <span class="n">A_reduced</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>   <span class="c1"># If a nonzero entry, this row does not imply inconsistency </span>
+                    <span class="n">currentRowZero</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">currentRowZero</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> to determine whether or not a couple example augmented matrices are consistent, and then check to make sure our function <span class="math notranslate nohighlight">\(\texttt{CheckConsistent}\)</span> correctly decides this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">D_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D_reduced</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">CheckConsistent</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D is consistent </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D is inconsistent </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">E_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">E_reduced</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">CheckConsistent</span><span class="p">(</span><span class="n">E</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;E is consistent </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;E is inconsistent </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1 -2  2  0]
+ [ 2  2  2  1]
+ [ 0 -1 -1 -2]
+ [-2 -1 -1  0]] 
+
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]] 
+
+D is inconsistent 
+
+[[-2  2 -2  2  0]
+ [ 1 -2 -2  0 -1]
+ [ 1  0  2 -2  1]] 
+
+[[ 1.  0.  0. -2.  1.]
+ [ 0.  1.  0. -1.  1.]
+ [ 0.  0.  1.  0.  0.]] 
+
+E is consistent 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Augmented matrix D has a pivot in the last column and is thus represents an inconsistent system, while E does not have a pivot in the last column and is thus represents a consistent system.  For these two examples, we see that our <span class="math notranslate nohighlight">\(\texttt{CheckConsistent}\)</span> function correctly determined which was consistent.</p>
 </div>
 <div class="section" id="linear-combinations">
 <h2>Linear Combinations<a class="headerlink" href="#linear-combinations" title="Permalink to this headline">¶</a></h2>
@@ -994,12 +1181,13 @@ A_reduced:
 </div>
 </div>
 <p>The row reduced form of A shows that there is a pivot in every row of <span class="math notranslate nohighlight">\(A\)</span>, which implies that the columns of <span class="math notranslate nohighlight">\(A\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. This means that every vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, including <span class="math notranslate nohighlight">\(X\)</span> is in the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>Let us choose another vector <span class="math notranslate nohighlight">\(Y\)</span>.
-$<span class="math notranslate nohighlight">\(
+<p>Let us choose another vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{equation}
  Y = \left[ \begin{array}{r} 1 \\ 2 \\ 5 \end{array}\right] \
 \end{equation}
-\)</span>$</p>
+\end{split}\]</div>
 <p>If <span class="math notranslate nohighlight">\(Y\)</span> lies in the span of columns of <span class="math notranslate nohighlight">\(A\)</span>, then there is a solution to the following system.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1077,10 +1265,7 @@ W = \left[ \begin{array}{r} 0 \\ 2 \\ -2 \\ 1   \end{array}\right]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1  0 -1  0]
  [ 1  1  0  1  0]
  [-1 -1  1 -1  0]
- [ 1  1 -2  0  1]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ [ 1  1 -2  0  1]] 
 
 [[1. 1. 0. 0. 0.]
  [0. 0. 1. 0. 0.]
@@ -1172,7 +1357,7 @@ U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 2  \\ -1 \end{array}\right]
 </div>
 </div>
 </div>
-<p>The absence of a pivot in the third column indicates that these vectors are linearly dependent.</p>
+<p>The absence of a pivot in the third column means that <span class="math notranslate nohighlight">\(a_3\)</span> is a free variable. Since we can choose any nonzero value for <span class="math notranslate nohighlight">\(a_3\)</span> and get a solution to our equation, by definition <span class="math notranslate nohighlight">\(\{U_1,U_2,U_3\}\)</span> is linearly dependent.</p>
 <p><strong>Exercise 2:</strong> Determine whether or not the set of vectors <span class="math notranslate nohighlight">\( \{W_1, W_2, W_3, W_4 \} \)</span> is linearly independent. If the set is linearly dependent, then represent one of the vectors of the set as the linear combination of others.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1651,7 +1836,7 @@ V_3 = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
 </div>
 </div>
 <p>Since we have found a non-trivial linear combination of the vectors that equals zero, the set is linearly dependent and therefore not a basis.</p>
-<p><strong>Exercise 4:</strong> Calculate the dimension of the span of the following vectors.</p>
+<p><strong>Exercise 4:</strong> Calculate the dimension of the span of <span class="math notranslate nohighlight">\( \{U_1, U_2, U_3, U_4\}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1716,6 +1901,257 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span>, and <span class="math notranslate nohighlight">\(U_4\)</span> are linearly independent and <span class="math notranslate nohighlight">\(U_3\)</span> can be expressed as a linear combination of the other three. Therefore the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> spanned by <span class="math notranslate nohighlight">\(\{U_1,U_2,U_4\}\)</span> is three-dimensional.</p>
+<p><strong>Exercise 5:</strong> Determine whether the set of vectors <span class="math notranslate nohighlight">\( \{V_1, V_2, V_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. If not, find a vector which can be added to the set such that the resulting set of vectors is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 1 \\ 1  \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 1 \\ 3 \\ 1 \\ 2 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="id9">
+<h3>Solution:<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>The matrix <span class="math notranslate nohighlight">\(A\)</span> which contains the given vectors as its columns is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 1 &amp; 1 &amp; 1  \\ 2 &amp; 0 &amp; 3  \\ 1 &amp; 2 &amp; 1 \\ 1 &amp; 2 &amp; 2 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>Since there are four rows and three columns, there can be a maximum of three pivots. This means that at least one of the rows will not have a pivot, which implies that the set of vectors does not span <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. The set <span class="math notranslate nohighlight">\( \{V_1, V_2, V_3\}\)</span> is not a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<p>Let us consider another vector <span class="math notranslate nohighlight">\(V_4\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and check if the set of vectors <span class="math notranslate nohighlight">\(\{V_1,V_2,V_3,V_4\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_4 = \left[ \begin{array}{r} 1 \\ 0 \\ 1 \\ 2 \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<p>We build a matrix <span class="math notranslate nohighlight">\(A\)</span> that has these vectors as its columns and then perform row reduction to find the location of the pivots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_red</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 1 1]
+ [2 0 3 0]
+ [1 2 1 1]
+ [1 2 2 2]] 
+
+A_reduced: 
+ [[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is a pivot in each row, the set of vectors spans <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Since there is a pivot in each column, the set of vectors is linearly independent. Hence, <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3,V_4\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<p><strong>Exercise 6:</strong> Find the dimension of the subspace spanned by <span class="math notranslate nohighlight">\(\{W_1, W_2\}\)</span>. Explain your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 0 \\ 0  \end{array}\right] \hspace{0.7cm} 
+W_2 = \left[ \begin{array}{r} 2 \\ 3 \\ 0 \\ 0 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id10">
+<h3>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>The matrix <span class="math notranslate nohighlight">\(P\)</span> which contains <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(W_2\)</span> as its columns is as follows:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+P = \left[ \begin{array}{rrrr} 1 &amp; 2  \\ 2 &amp; 3  \\  0 &amp; 0 \\ 0 &amp; 0 \end{array}\right] 
+\end{equation}
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">P_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">P_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P: 
+ [[1 2]
+ [2 3]
+ [0 0]
+ [0 0]] 
+
+P_reduced: 
+ [[1. 0.]
+ [0. 1.]
+ [0. 0.]
+ [0. 0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since only two rows of the matrix <span class="math notranslate nohighlight">\(P\)</span> contain a pivot, the basis for the subspace will contain two vectors. Hence, the dimension of the subspace spanned by <span class="math notranslate nohighlight">\(\{W_1, W_2\}\)</span> is 2.</p>
+<p><strong>Exercise 7:</strong> Find the value(s) of <span class="math notranslate nohighlight">\(a\)</span> for which the set of vectors <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3\}\)</span> is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 1   \end{array}\right] \hspace{0.7cm} 
+X_2 = \left[ \begin{array}{r} 2 \\ a \\ 3  \end{array}\right] \hspace{0.7cm}
+X_3 = \left[ \begin{array}{r} 1 \\ 2 \\ a \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id11">
+<h3>Solution:<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>The matrix <span class="math notranslate nohighlight">\(S\)</span> which contains the given vectors as its columns is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+S = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1  \\ 2 &amp; a &amp; 2  \\ 1 &amp; 3 &amp; a  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>The row reduced form of <span class="math notranslate nohighlight">\(S\)</span> looks like:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+\left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0  \\ 0 &amp; a - 4 &amp; 0  \\ 0 &amp; 0 &amp; a - 1  \end{array}\right] 
+\end{equation}
+\)</span>$</p>
+<p>The set of vectors <span class="math notranslate nohighlight">\(\{X_1, X_2, X_3\}\)</span> is not be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> if there is not a pivot in each row. If <span class="math notranslate nohighlight">\( a = 4\)</span>, there is not a pivot in the second row. If <span class="math notranslate nohighlight">\( a= 1\)</span>, there is no pivot in the third row.  We can conclude that the set of vectors <span class="math notranslate nohighlight">\(\{X_1, X_2, X_3\}\)</span> is not a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> if <span class="math notranslate nohighlight">\(a = 1\)</span> or <span class="math notranslate nohighlight">\(a = 4\)</span>.</p>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> which contains vectors with their first and second enteries same and the third entry as zero. What the vectors in the subspace <span class="math notranslate nohighlight">\(U\)</span> look like? Use this information to find a basis for <span class="math notranslate nohighlight">\(U\)</span> and determine the dimension of <span class="math notranslate nohighlight">\(U\)</span>.</p>
+</div>
+<div class="section" id="id12">
+<h3>Solution:<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>The vectors in <span class="math notranslate nohighlight">\(U\)</span> have the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} a \\ a \\ 0 \\ b \\ c  \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are arbitrary real numbers.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} a \\ a \\ 0 \\ b \\ c \end{array}\right]  =  
+a\left[ \begin{array}{r} 1 \\ 1 \\ 0 \\ 0 \\ 0 \end{array}\right]  +
+b\left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 1 \\ 0  \end{array}\right]  +
+c\left[ \begin{array}{r} 0 \\ 0 \\ 0\\ 0 \\ 1 \end{array}\right]\end{equation}
+\end{split}\]</div>
+<p>If</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \\ 0 \\ 0  \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>then <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span> is the basis for the subspace <span class="math notranslate nohighlight">\(U\)</span>.  Since there are three vectors in the basis for the subspace <span class="math notranslate nohighlight">\(U\)</span>, the dimension of <span class="math notranslate nohighlight">\(U\)</span> is 3.</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(\beta = \{U_1,U_2,U_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. Find the <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(V\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 3   \end{array}\right] \hspace{0.7cm} 
+U_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 0  \end{array}\right] \hspace{0.7cm}
+U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 5 \end{array}\right] \hspace{0.7cm}
+V = \left[ \begin{array}{r} 8 \\ 6 \\ 8 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id13">
+<h3>Solution:<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>In order to find the <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(V\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span> we need to find the linear combination of <span class="math notranslate nohighlight">\(U_1\)</span>, <span class="math notranslate nohighlight">\(U_2\)</span> and <span class="math notranslate nohighlight">\(U_3\)</span> that equals <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} 8 \\ 6 \\ 8 \end{array}\right]  =  
+c_1\left[ \begin{array}{r} 1 \\ 2 \\ 3  \end{array}\right]  +
+c_2\left[ \begin{array}{r} 2 \\ 1 \\ 0   \end{array}\right]  +
+c_3\left[ \begin{array}{r} 3 \\ 2 \\ 5 \end{array}\right]\end{equation}
+\end{split}\]</div>
+<p>That is, we need to solve the system <span class="math notranslate nohighlight">\(A[V]_{\alpha} = V\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the matrix with <span class="math notranslate nohighlight">\(U_1\)</span> , <span class="math notranslate nohighlight">\(U_2\)</span> and <span class="math notranslate nohighlight">\(U_3\)</span> as its columns, and <span class="math notranslate nohighlight">\([V]_{\alpha}\)</span> is the vector of the unknown coefficients <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, <span class="math notranslate nohighlight">\(c_3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">],[</span><span class="mi">6</span><span class="p">],[</span><span class="mi">8</span><span class="p">]])</span>
+<span class="n">X_alpha</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_alpha: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X_alpha</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 2 3]
+ [2 1 2]
+ [3 0 5]] 
+
+V: 
+ [[8]
+ [6]
+ [8]] 
+
+X_alpha: 
+ [[1.]
+ [2.]
+ [1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 10:</strong> Can a set of four vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>? Explain and verify your answer through a computation.</p>
+</div>
+<div class="section" id="id14">
+<h3>Solution:<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>If we have four vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and we use them as the columns of a matrix <span class="math notranslate nohighlight">\(A\)</span>, then we get a <span class="math notranslate nohighlight">\( 3 \times 4 \)</span> matrix. This means that there can be at most three pivots since there are only three rows. Therefore, there will always be a column without a pivot, which means the set will be linearly dependent. Hence, a set of four vectors cannot be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<p>We can demonstrate with some arbitrary vectors <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span>, <span class="math notranslate nohighlight">\(V_3\)</span> and <span class="math notranslate nohighlight">\(V_4\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 1  \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 0 \\ 2  \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 1 \\ 3 \\ 1  \end{array}\right] \hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} 0 \\ 1 \\ 1  \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building matrix A with V_1, V_2, V_3, V_4 as its columns.</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A_red</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 1 0]
+ [2 0 3 1]
+ [1 2 1 1]] 
+
+A_reduced: 
+ [[ 1.  0.  0. -4.]
+ [ 0.  1.  0.  1.]
+ [ 0.  0.  1.  3.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the computation that there is no pivot in the fourth column. Therefore, the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, V_4\}\)</span> is linearly dependent and therefore not a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any set of four vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> must be linearly dependent.</p>
+</div>
 </div>
 <div class="section" id="applications-of-vector-spaces">
 <h2>Applications of Vector Spaces<a class="headerlink" href="#applications-of-vector-spaces" title="Permalink to this headline">¶</a></h2>
@@ -1776,7 +2212,17 @@ C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O
 Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
 \end{equation}
 \]</div>
-<p>We will denote each molecule as a vector whose first entry is the number of aluminum atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. Using the same reasoning as the previous problem, we get the following system</p>
+<p>We will denote each molecule as a vector whose first entry is the number of aluminum atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. Then the chemical equation above can be expressed as the following vector equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_1\left[\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right]
++ x_2\left[\begin{array}{c} 0 \\ 4 \\ 2 \\ 1 \end{array}\right]
+= x_3\left[\begin{array}{c} 2 \\ 12 \\ 0 \\ 3 \end{array}\right]
++ x_4\left[\begin{array}{c} 0 \\ 0 \\ 2 \\ 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If we move everything to the left side then we get the following homogeneous system</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1802,7 +2248,7 @@ Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
 </div>
 </div>
 </div>
-<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_4\)</span>, we treat <span class="math notranslate nohighlight">\(x_4\)</span> as a free variable.  If we take <span class="math notranslate nohighlight">\(x_4 = 3\)</span>, then <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>, and <span class="math notranslate nohighlight">\(x_3=1\)</span>.  The correct equation for the chemical reaction is the following.</p>
+<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_4\)</span>, we treat <span class="math notranslate nohighlight">\(x_4\)</span> as a free variable. Since we want solutions that are integers, we will take <span class="math notranslate nohighlight">\(x_4 = 3\)</span>. This gives <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>, and <span class="math notranslate nohighlight">\(x_3=1\)</span>.  The correct equation for the chemical reaction is the following.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -1816,7 +2262,18 @@ Al + H_2SO_4 \to Al_2(SO_4)_3 + H_2
 Ag + H_2S + O_2 \to Ag_2S + H_2O
 \end{equation}
 \]</div>
-<p>We will denote each molecule as a vector whose first entry is the number of silver atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. We get the following system</p>
+<p>We will denote each molecule as a vector whose first entry is the number of silver atoms, the second the number of oxygen atoms, the third the number of hydrogen atoms, and the fourth the number of sulfur atoms. Then the chemical equation above can be expressed as the following vector equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_1\left[\begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \end{array}\right]
++ x_2\left[\begin{array}{c} 0 \\ 0 \\ 2 \\ 0 \end{array}\right]
++ x_3\left[\begin{array}{c} 0 \\ 2 \\ 0 \\ 0 \end{array}\right]
+= x_4\left[\begin{array}{c} 2 \\ 0 \\ 0 \\ 1 \end{array}\right]
++ x_5\left[\begin{array}{c} 0 \\ 1 \\ 2 \\ 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If we move everything to the left side then we get the following homogeneous system</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -1842,7 +2299,7 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
 </div>
 </div>
 </div>
-<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_5\)</span>, we treat <span class="math notranslate nohighlight">\(x_5\)</span> as a free variable.  If we take <span class="math notranslate nohighlight">\(x_5 = 2\)</span>, then <span class="math notranslate nohighlight">\(x_1=4\)</span>, <span class="math notranslate nohighlight">\(x_2=2\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4=2\)</span>.  The correct equation for the chemical reaction is the following.</p>
+<p>Since there is no pivot in the column corresponding to <span class="math notranslate nohighlight">\(x_5\)</span>, we treat <span class="math notranslate nohighlight">\(x_5\)</span> as a free variable. Since we want soltions that are integers, we will take <span class="math notranslate nohighlight">\(x_5 = 2\)</span> This gives <span class="math notranslate nohighlight">\(x_1=4\)</span>, <span class="math notranslate nohighlight">\(x_2=2\)</span>, <span class="math notranslate nohighlight">\(x_3 = 1\)</span>, and <span class="math notranslate nohighlight">\(x_4=2\)</span>.  The correct equation for the chemical reaction is the following.</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -1878,6 +2335,7 @@ Ag + H_2S + O_2 \to Ag_2S + H_2O
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Linear_Systems_Solutions.html" title="previous page">Linear Systems</a>
+    <a class='right-next' id="next-link" href="Linear_Transformations_Solutions.html" title="next page">Linear Transformations</a>
 
         </div>
         

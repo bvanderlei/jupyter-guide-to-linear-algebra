@@ -300,6 +300,11 @@
      Vector Spaces
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Transformations_Solutions.html">
+     Linear Transformations
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -490,7 +495,7 @@ V_5 = \left[ \begin{array}{r} -2 \\ 0 \\ -3 \\ 3 \\ -2 \end{array}\right]
 </div>
 </div>
 </div>
-<p>We see that the RREF of <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(5\times 5\)</span> identity matrix, which indicates that <span class="math notranslate nohighlight">\(A\)</span> has is a pivot in each row and each column.  This verifies that the columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>, and guarantees that the linear system <span class="math notranslate nohighlight">\(AX=Y\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>We see that the RREF of <span class="math notranslate nohighlight">\(A\)</span> is the <span class="math notranslate nohighlight">\(5\times 5\)</span> identity matrix, which indicates that <span class="math notranslate nohighlight">\(A\)</span> has a pivot in each row and each column.  This verifies that the columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span>, and guarantees that the linear system <span class="math notranslate nohighlight">\(AX=Y\)</span> has a unique solution for any vector <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 </div>
 <div class="section" id="example-2-standard-bases">
 <h2>Example 2: Standard bases<a class="headerlink" href="#example-2-standard-bases" title="Permalink to this headline">¶</a></h2>
@@ -573,7 +578,7 @@ A = \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 3 &amp; -2 \\ -2 &amp; 1 &amp; 3 
 </div>
 </div>
 </div>
-<p>In this system, <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(_4\)</span> are free variables.  If we set <span class="math notranslate nohighlight">\(x_3 = t\)</span>, and <span class="math notranslate nohighlight">\(x_4=s\)</span>, then <span class="math notranslate nohighlight">\(x_1 = 2s -3t\)</span> and
+<p>In this system, <span class="math notranslate nohighlight">\(x_3\)</span> and <span class="math notranslate nohighlight">\(x_4\)</span> are free variables.  If we set <span class="math notranslate nohighlight">\(x_3 = t\)</span>, and <span class="math notranslate nohighlight">\(x_4=s\)</span>, then <span class="math notranslate nohighlight">\(x_1 = 2s -3t\)</span> and
 <span class="math notranslate nohighlight">\(x_2 = 4s -9t\)</span>.  We can write the components of a general solution vector <span class="math notranslate nohighlight">\(X\)</span> in terms of these parameters.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -583,7 +588,7 @@ t\left[ \begin{array}{r} -3 \\ -9 \\  1 \\ 0 \end{array}\right] +
 s\left[ \begin{array}{r} 2 \\ 4 \\ 0 \\ 1  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>In this form we can see that any solution of <span class="math notranslate nohighlight">\(AX=B\)</span> must be a linear combination of the vectors <span class="math notranslate nohighlight">\(W_1\)</span> and <span class="math notranslate nohighlight">\(W_2\)</span> defined as follows.</p>
+<p>In this form we can see that any solution of <span class="math notranslate nohighlight">\(AX=B\)</span> must be a linear combination of the vectors <span class="math notranslate nohighlight">\(W_1\)</span> and <span class="math notranslate nohighlight">\(W_2\)</span> defined as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -659,7 +664,7 @@ V_4 = \left[ \begin{array}{r} -3 \\ -1 \\ 2 \\ -1 \\ 3 \end{array}\right] \hspac
 <div class="section" id="coordinates">
 <h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>We now understand that if we are given a basis <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, ... V_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and a vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, there is a unique linear combination of the basis vectors equal to <span class="math notranslate nohighlight">\(X\)</span>.  The <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(X\)</span> with respect to this basis is the unique set of weights <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>, … <span class="math notranslate nohighlight">\(c_n\)</span> that satisfy the vector equation <span class="math notranslate nohighlight">\(X=c_1V_1 + c_2V_2 + ... c_nV_n\)</span>.  It becomes useful at this point to assign labels to bases that are under discussion.  For example, we might say that <span class="math notranslate nohighlight">\(\beta = \{V_1, V_2, V_3, ... V_n\}\)</span>, and refer to the coordinates of <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.  It is only natural to collect these weights into an <span class="math notranslate nohighlight">\(n\times 1\)</span> array, to which we will assign the notation <span class="math notranslate nohighlight">\([X]_{\beta}\)</span>.  Despite potential confusion, this array is referred to as the “coordinate vector”.</p>
-<p>To demonstrate, suppose that we use the basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> given in <strong>Example 1</strong>, and assign it the label <span class="math notranslate nohighlight">\(\beta\)</span>.  Consider then the calculation need to find of the coordinates of a vector <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>To demonstrate, suppose that we use the basis for <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> given in <strong>Example 1</strong>, and assign it the label <span class="math notranslate nohighlight">\(\beta\)</span>.  Consider then the calculation needed to find of the coordinates of a vector <span class="math notranslate nohighlight">\(X\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -734,7 +739,7 @@ W_4 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 1 \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 4:</strong> Calculate the dimension of the span of the following vectors.</p>
+<p><strong>Exercise 4:</strong> Calculate the dimension of the span of <span class="math notranslate nohighlight">\( \{U_1, U_2, U_3, U_4\}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -747,6 +752,86 @@ U_4 = \left[ \begin{array}{r} 5 \\ -4 \\ 4 \\ -1 \end{array}\right]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Determine whether the set of vectors <span class="math notranslate nohighlight">\( \{V_1, V_2, V_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. If not, find a vector which can be added to the set such that the resulting set of vectors is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 1 \\ 1  \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 1 \\ 3 \\ 1 \\ 2 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Find the dimension of the subspace spanned by <span class="math notranslate nohighlight">\(\{W_1, W_2\}\)</span>. Explain your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 0 \\ 0  \end{array}\right] \hspace{0.7cm} 
+W_2 = \left[ \begin{array}{r} 2 \\ 3 \\ 0 \\ 0 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Find the value(s) of <span class="math notranslate nohighlight">\(a\)</span> for which the set of vectors <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3\}\)</span> is <strong>not</strong> a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 1   \end{array}\right] \hspace{0.7cm} 
+X_2 = \left[ \begin{array}{r} 2 \\ a \\ 3  \end{array}\right] \hspace{0.7cm}
+X_3 = \left[ \begin{array}{r} 1 \\ 2 \\ a \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> which contains vectors with their first and second entries equal and their third entry equal to zero. What the vectors in the subspace <span class="math notranslate nohighlight">\(U\)</span> look like? Use this information to find a basis for <span class="math notranslate nohighlight">\(U\)</span> and determine the dimension of <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(\beta = \{U_1,U_2,U_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. Find the <strong>coordinates</strong> of <span class="math notranslate nohighlight">\(V\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 3   \end{array}\right] \hspace{0.7cm} 
+U_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 0  \end{array}\right] \hspace{0.7cm}
+U_3 = \left[ \begin{array}{r} 3 \\ 2 \\ 5 \end{array}\right] \hspace{0.7cm}
+V = \left[ \begin{array}{r} 8 \\ 6 \\ 8 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 10:</strong> Can a set of four vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>? Explain and verify your answer through a computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
 </pre></div>
 </div>
 </div>

@@ -300,6 +300,11 @@
      Vector Spaces
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Linear_Transformations_Solutions.html">
+     Linear Transformations
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -469,7 +474,7 @@ T(V_1) &amp; T(V_2) &amp; ... &amp; T(V_n) \\ &amp; &amp; &amp; \end{array} \rig
 <p>The matrix that represents the linear transformation thus depends on the basis that we choose to describe <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, which means that each choice of basis will give a different matrix.  In this section, we will restrict our attention to matrix representations associated with the standard basis.</p>
 <div class="section" id="standard-matrix-representations">
 <h2>Standard matrix representations<a class="headerlink" href="#standard-matrix-representations" title="Permalink to this headline">¶</a></h2>
-<p>When we choose the standard basis <span class="math notranslate nohighlight">\(\alpha = \{E_1, E_2, ..., E_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we will refer the the matrix representation of a linear transformation as the <strong>standard matrix representation</strong>.  We introduce a slightly different notation for this matrix, even though it is just an ordinary matrix like all the others we have used in previous chapters.  If we use <span class="math notranslate nohighlight">\(T\)</span> as the label for our transformation, we will use the notation <span class="math notranslate nohighlight">\(\left[T\right]\)</span> to represent the standard matrix representation of <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>When we choose the standard basis <span class="math notranslate nohighlight">\(\alpha = \{E_1, E_2, ..., E_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we will refer to the matrix representation of a linear transformation as the <strong>standard matrix representation</strong>.  We introduce a slightly different notation for this matrix, even though it is just an ordinary matrix like all the others we have used in previous chapters.  If we use <span class="math notranslate nohighlight">\(T\)</span> as the label for our transformation, we will use the notation <span class="math notranslate nohighlight">\(\left[T\right]\)</span> to represent the standard matrix representation of <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </div>
 <div class="section" id="example-1-transformation-from-mathbb-r-2-to-mathbb-r-4">
 <h2>Example 1:  Transformation from <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span><a class="headerlink" href="#example-1-transformation-from-mathbb-r-2-to-mathbb-r-4" title="Permalink to this headline">¶</a></h2>
@@ -528,7 +533,7 @@ L\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{ar
 </div>
 <div class="section" id="analysis-using-rref">
 <h2>Analysis using RREF<a class="headerlink" href="#analysis-using-rref" title="Permalink to this headline">¶</a></h2>
-<p>Now that we are able to represent a linear transformation as a matrix-vector multiplication, we can use what we learned in the previous chapter to determine if linear transformations are invertible.  Suppose the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^m\)</span> has the standard matrix representation <span class="math notranslate nohighlight">\([T]\)</span>, and we want to know if there exists an inverse transformation <span class="math notranslate nohighlight">\(T^{-1}:\mathbb{R}^m \to \mathbb{R}^n\)</span>.  We need know if the linear system <span class="math notranslate nohighlight">\([T]X = B\)</span> has a unique soluition for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.</p>
+<p>Now that we are able to represent a linear transformation as a matrix-vector multiplication, we can use what we learned in the previous chapter to determine if linear transformations are invertible.  Suppose the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^m\)</span> has the standard matrix representation <span class="math notranslate nohighlight">\([T]\)</span>, and we want to know if there exists an inverse transformation <span class="math notranslate nohighlight">\(T^{-1}:\mathbb{R}^m \to \mathbb{R}^n\)</span>.  We need to know if the linear system <span class="math notranslate nohighlight">\([T]X = B\)</span> has a unique soluition for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.</p>
 <p>Looking back to the discussion in <a class="reference internal" href="General_Linear_Systems.html"><span class="doc std std-doc">General Linear Systems</span></a> we see that the system <span class="math notranslate nohighlight">\([T]X = B\)</span> is inconsistent if the augmented matrix associated with this system has a pivot in the last column.  The only way that this is possible is if the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a <em>row with no pivot</em>, since there can be no more than one pivot per row.  We also found that <span class="math notranslate nohighlight">\([T]X=B\)</span> will have a unique solution when there is a pivot in each column of <span class="math notranslate nohighlight">\([T]\)</span>.  Thus <span class="math notranslate nohighlight">\([T]X=B\)</span> will have a unique solution for every <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> exactly when the matrix <span class="math notranslate nohighlight">\([T]\)</span> has a pivot in each row and in each column.  In this case the linear transformation <span class="math notranslate nohighlight">\(T\)</span> will be invertible, and the matrix <span class="math notranslate nohighlight">\([T]\)</span> will have an inverse.</p>
 <p>There are two other properties of linear transformations that are very closely related to these.</p>
 <ul class="simple">
@@ -578,16 +583,14 @@ L\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{ar
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>For each of the following linear transformations, find the standard matrix representation, and then determine if the transformation is onto, one-to-one, or invertible.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p><strong>Exercise 1:</strong>  For each of the following linear transformations, find the standard matrix representation, and then determine if the transformation is onto, one-to-one, or invertible.</p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>)
+$<span class="math notranslate nohighlight">\(
 \begin{equation}
 B \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \end{array} \right]\right) = 
 \left[\begin{array}{c} x_1 + 2x_2 - x_3 -x_4 \\ x_2 -3x_3 +2x_4 \end{array} \right]
 \end{equation}
-\end{split}\]</div>
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -595,13 +598,13 @@ B \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \\ x_4 \end{array} \right]\righ
 </div>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<p>(<span class="math notranslate nohighlight">\(b\)</span>)
+$<span class="math notranslate nohighlight">\(
 \begin{equation}
 C \left(\left[\begin{array}{r} x_1 \\ x_2 \\ x_3 \end{array} \right]\right) = 
 \left[\begin{array}{c} x_1 -x_2 + 8x_3 \\ 4x_1 + 5x_2 - x_3 \\ -x_1 -x_2 + 3x_3 \end{array} \right]
 \end{equation}
-\end{split}\]</div>
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
