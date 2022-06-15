@@ -403,11 +403,6 @@
   <a class="reference internal nav-link" href="#linear-combinations">
    Linear Combinations
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-independence">
-   Linear Independence
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solution">
@@ -416,14 +411,21 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     Solution :
+     Solution:
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     Solution :
+     Solution:
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-independence">
+   Linear Independence
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
      Solution:
@@ -431,11 +433,26 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     Solution
+     Solution :
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
+     Solution :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
      Solution:
     </a>
    </li>
@@ -670,13 +687,62 @@ V_3 = \left[ \begin{array}{r} 2 \\ -12 \\ 13 \end{array}\right] \hspace{1cm}
 X = \left[ \begin{array}{r}  -1 \\ 5 \\ -6  \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
+<div class="section" id="solution">
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<p>We want to find <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>,and <span class="math notranslate nohighlight">\(c_3\)</span> such that <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + c_3V_3 = X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{r} 2 \\ 0 \\ 7  \end{array}\right]+
+c_2\left[ \begin{array}{r} 2 \\ 4 \\ 5   \end{array}\right] +
+c_3\left[ \begin{array}{r} 2 \\ -12 \\ 13 \end{array}\right] =
+\left[ \begin{array}{r}  -1 \\ 5 \\ -6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The corresponding matrix equation is the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} 2 &amp; 2 &amp; 2 \\  0 &amp; 4 &amp; -12 \\ 7 &amp; 5 &amp; 13 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} -1 \\ 5 \\ -6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">A_aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_aug</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_augmented: 
+ [[  2   2   2  -1]
+ [  0   4 -12   5]
+ [  7   5  13  -6]] 
+
+A_augmented_reduced: 
+ [[ 1.    0.    4.   -1.75]
+ [ 0.    1.   -3.    1.25]
+ [ 0.    0.    0.    0.  ]] 
 </pre></div>
 </div>
 </div>
 </div>
+<p>Since <span class="math notranslate nohighlight">\(c_3\)</span> is a free variable, there are infinite linear combinations of <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span>, and <span class="math notranslate nohighlight">\(V_3\)</span> which give the vector <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>We can produce one specific example by setting <span class="math notranslate nohighlight">\(c_3 = 0.25\)</span>.  Then, <span class="math notranslate nohighlight">\(c_2 = 2\)</span> and <span class="math notranslate nohighlight">\(c_1 = -2.75\)</span> and one possible linear combination is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+(-2.75)\left[ \begin{array}{r} 2 \\ 0 \\ 7  \end{array}\right]+
+(2)\left[ \begin{array}{r} 2 \\ 4 \\ 5   \end{array}\right] +
+(0.25)\left[ \begin{array}{r} 2 \\ -12 \\ 13 \end{array}\right] =
+\left[ \begin{array}{r}  -1 \\ 5 \\ -6 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p><strong>Exercise 2:</strong>  Determine whether or not <span class="math notranslate nohighlight">\(X\)</span> lies in the span of <span class="math notranslate nohighlight">\(\{ V_1, V_2 ,V_3\}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -687,13 +753,70 @@ V_3 = \left[ \begin{array}{r} 2 \\ 0 \\ 4 \end{array}\right] \hspace{1cm}
 X = \left[ \begin{array}{r}  1 \\ 3 \\ -1  \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
+</div>
+<div class="section" id="id1">
+<h3>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(X\)</span> lies in the span of <span class="math notranslate nohighlight">\(\{ V_1, V_2 ,V_3\}\)</span> if we can express <span class="math notranslate nohighlight">\(X\)</span> as the linear combination of <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span> and <span class="math notranslate nohighlight">\(V_3\)</span>.  We want to determine if there are scalars <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span>,and <span class="math notranslate nohighlight">\(c_3\)</span> such that <span class="math notranslate nohighlight">\(c_1V_1 + c_2V_2 + c_3V_3 = X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{r} 1 \\ 0 \\ 0  \end{array}\right]+
+c_2\left[ \begin{array}{r} 2 \\ -2 \\ 1   \end{array}\right] +
+c_3\left[ \begin{array}{r} 2 \\ 0 \\ 4 \end{array}\right] =
+\left[ \begin{array}{r}  1 \\ 3 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The corresponding matrix equation is the following.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} 1 &amp; 2 &amp; 2 \\  0 &amp; -2 &amp; 0 \\ 0 &amp; 1 &amp; 4 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} 1 \\ 3 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A_aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_augmented</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_augmented_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_augmented: 
+ [[ 1  2  2  1]
+ [ 0 -2  0  3]
+ [ 0  1  4 -1]] 
+
+A_augmented_reduced: 
+ [[ 1.     0.     0.     3.75 ]
+ [ 0.     1.     0.    -1.5  ]
+ [ 0.     0.     1.     0.125]] 
 </pre></div>
 </div>
 </div>
 </div>
+<p>The above system has a unique solution since there is a pivot in each row and column.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} c_1 \\ c_2\\ c_3 \end{array}\right] \ = 
+\left[ \begin{array}{r} 3.75 \\ -1.5 \\ 0.125 \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(X\)</span> as a linear combination of <span class="math notranslate nohighlight">\(V_1\)</span>,<span class="math notranslate nohighlight">\(V_2\)</span> and <span class="math notranslate nohighlight">\(V_3\)</span> and thereforre lies in the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+(3.75)\left[ \begin{array}{r} 1 \\ 0 \\ 0  \end{array}\right]+
+(-1.5)\left[ \begin{array}{r} 2 \\ -2 \\ 1   \end{array}\right] +
+(0.125\left[ \begin{array}{r} 2 \\ 0 \\ 4 \end{array}\right] =
+\left[ \begin{array}{r}  1 \\ 3 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p><strong>Exercise 3:</strong>  Does the set <span class="math notranslate nohighlight">\(\{ X_1, X_2 ,X_3, X_4\}\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>? Explain why or why not.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -704,13 +827,45 @@ X_3 = \left[ \begin{array}{r} 2 \\ 0 \\ 1\\1 \end{array}\right] \hspace{1cm}
 X_4 = \left[ \begin{array}{r} 3 \\ 0 \\ 1\\2 \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
+<p>We build a matrx <span class="math notranslate nohighlight">\(A\)</span> which contains the given vectors as its columns.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 
+1 &amp; 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 0 &amp; 0  \\ 1 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 2   
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The set of vectors <span class="math notranslate nohighlight">\(\{ X_1, X_2 ,X_3, X_4\}\)</span> spans <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> if there is a pivot in every row of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrix $A$</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 2 3]
+ [1 0 0 0]
+ [1 0 1 1]
+ [1 2 1 2]] 
+
+A_reduced: 
+ [[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]] 
 </pre></div>
 </div>
 </div>
 </div>
+<p>The row reduced form of A reveals that there is a pivot in every row of <span class="math notranslate nohighlight">\(A\)</span>, which means that the set of vectors <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3,X_4\}\)</span> spans $\mathbb{R}^4$.</p>
 <p><strong>Exercise 4:</strong> Answer questions regarding the following vectors.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -814,6 +969,79 @@ A = \left[ \begin{array}{rrrr}
 x = \left[ \begin{array}{r} 1 \\ 1\\ 1 \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 3]
+ [2 0 1]
+ [3 1 1]] 
+
+A_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The row reduced form of A shows that there is a pivot in every row of <span class="math notranslate nohighlight">\(A\)</span>, which implies that the columns of <span class="math notranslate nohighlight">\(A\)</span> span <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. This means that every vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, including <span class="math notranslate nohighlight">\(X\)</span> is in the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Let us choose another vector <span class="math notranslate nohighlight">\(Y\)</span>.
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+ Y = \left[ \begin{array}{r} 1 \\ 2 \\ 5 \end{array}\right] \
+\end{equation}
+\)</span>$</p>
+<p>If <span class="math notranslate nohighlight">\(Y\)</span> lies in the span of columns of <span class="math notranslate nohighlight">\(A\)</span>, then there is a solution to the following system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} 1 &amp; 1 &amp; 3 \\  2 &amp; 0 &amp; 1 \\ 3 &amp; 1 &amp; 1 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} 1 \\ 2 \\ 5 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
+<span class="n">Aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">Aug_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">Aug</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Augmented: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Aug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Augmented_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Aug_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Augmented: 
+ [[1 1 3 1]
+ [2 0 1 2]
+ [3 1 1 5]] 
+
+Augmented_reduced: 
+ [[ 1.          0.          0.          1.33333333]
+ [ 0.          1.          0.          1.66666667]
+ [ 0.          0.          1.         -0.66666667]] 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} c_1 \\ c_2\\ c_3 \end{array}\right] \ = 
+\left[ \begin{array}{r} 1.33 \\ 1.67 \\ -0.67 \end{array}\right] \
+\end{equation}
+\end{split}\]</div>
+<p>Since we can find a solution for the system, <span class="math notranslate nohighlight">\(Y\)</span> is in the span of the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p><strong>Exercise 6:</strong> Consider the matrix <span class="math notranslate nohighlight">\(R\)</span> from <strong>Example 3</strong>.  Find one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is in the span of the columns of <span class="math notranslate nohighlight">\(R\)</span>, and one vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> that is not.  Demontrate with an appropriate computation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -849,7 +1077,10 @@ W = \left[ \begin{array}{r} 0 \\ 2 \\ -2 \\ 1   \end{array}\right]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1  0 -1  0]
  [ 1  1  0  1  0]
  [-1 -1  1 -1  0]
- [ 1  1 -2  0  1]] 
+ [ 1  1 -2  0  1]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[1. 1. 0. 0. 0.]
  [0. 0. 1. 0. 0.]
@@ -878,13 +1109,6 @@ V_1 = \left[ \begin{array}{r} 1 \\ 1\\ 1 \end{array}\right] \hspace{1cm}
 V_2 = \left[ \begin{array}{r} 2 \\ 0 \\ 4  \end{array}\right] \hspace{1cm} 
 \end{equation}
 \end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>Exercise 8:</strong> Explain why the system <span class="math notranslate nohighlight">\(AX=B\)</span> cannot be consistent for every vector <span class="math notranslate nohighlight">\(B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(5\times 3\)</span> matrix.</p>
 <p><strong>Exercise 9:</strong> Find the value of <span class="math notranslate nohighlight">\(a\)</span> for which <span class="math notranslate nohighlight">\(\{ V_1, V_2 ,V_3\} \)</span> does not span <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -895,6 +1119,29 @@ V_2 = \left[ \begin{array}{r} 4 \\ 5 \\ 6  \end{array}\right] \hspace{1cm}
 V_3 = \left[ \begin{array}{r} 1 \\ 0 \\ a \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
+</div>
+<div class="section" id="id2">
+<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The matrix <span class="math notranslate nohighlight">\(A\)</span> which contains the given vectors as its columns is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrrr} 
+1 &amp; 4 &amp; 1 \\ 2&amp; 5&amp;0   \\ 3&amp; 6 &amp; a  \\   
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>The given set of vectors <span class="math notranslate nohighlight">\(\{V_1,V_2,V_3\}\)</span> does not span <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> if there is a pivot missing in at least one of the rows of the matrix <span class="math notranslate nohighlight">\(A\)</span>.  Applying fow operations gives the following matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{rrrr} 
+1 &amp; 4&amp; 1 \\ 0 &amp;-3&amp; -2  \\ 0 &amp; 0 &amp; a + 1
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If <span class="math notranslate nohighlight">\(a=-1 \)</span>, then there is a pivot missing from the third row of the matrix <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\{V_1,V_2,V_3\}\)</span> does not span <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+</div>
 </div>
 <div class="section" id="linear-independence">
 <h2>Linear Independence<a class="headerlink" href="#linear-independence" title="Permalink to this headline">¶</a></h2>
@@ -936,8 +1183,8 @@ W_3 = \left[ \begin{array}{r} -1 \\ 0 \\ -1 \\ 0  \end{array}\right] \hspace{1cm
 W_4 = \left[ \begin{array}{r} 1 \\1 \\1\\-1 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<div class="section" id="solution">
-<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>We need to determine if there are nonzero scalars <span class="math notranslate nohighlight">\(a_1,a_2,a_3,a_4\)</span> such that <span class="math notranslate nohighlight">\(a_1W_1 + a_2W_2 + a_3W_3 + a_4W_4 = 0\)</span>. We build the augmented matrix that represents the corresponding linear system and then use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1028,8 +1275,8 @@ X_3 = \left[ \begin{array}{r} 2 \\ 4 \\ b   \end{array}\right] \
 \)</span>$</p>
 <p>Find the value of <span class="math notranslate nohighlight">\(b\)</span> for which the given vectors are linearly dependent. Then, represent one vector as the linear combination of the other two.</p>
 </div>
-<div class="section" id="id1">
-<h3>Solution :<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Solution :<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>The matrix <span class="math notranslate nohighlight">\(A\)</span> contains the given vectors as its columns and is as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1103,8 +1350,8 @@ V_3 = \left[ \begin{array}{r} 0 \\ 1 \\ a  \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 </div>
-<div class="section" id="id2">
-<h3>Solution :<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Solution :<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>We consider the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span> where <span class="math notranslate nohighlight">\(A\)</span> is the matrix with the given vectors as its columns.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1130,8 +1377,8 @@ AX = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 \\ 2 &amp; 0 &amp; 1 \\ 3 &amp;
 \end{equation}
 \end{split}\]</div>
 </div>
-<div class="section" id="id3">
-<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the matrix A</span>
@@ -1166,8 +1413,8 @@ A = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 1 &amp; 
 \end{equation}
 \end{split}\]</div>
 </div>
-<div class="section" id="id4">
-<h3>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Solution<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>A vector <span class="math notranslate nohighlight">\(X\)</span> is in the null space of <span class="math notranslate nohighlight">\(A\)</span> if it is a solution to the homogeneous system <span class="math notranslate nohighlight">\(AX=0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1268,8 +1515,8 @@ A = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 1  \end{array
 \end{equation}
 \end{split}\]</div>
 </div>
-<div class="section" id="id5">
-<h3>Solution:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) The given solution can be split as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
