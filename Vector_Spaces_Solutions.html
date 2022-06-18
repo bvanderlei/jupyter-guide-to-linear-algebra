@@ -502,6 +502,38 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vector-space-examples">
+   Vector Space Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-vector-spaces">
    Applications of Vector Spaces
   </a>
@@ -2151,6 +2183,318 @@ A_reduced:
 </div>
 </div>
 <p>We can see from the computation that there is no pivot in the fourth column. Therefore, the set of vectors <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3, V_4\}\)</span> is linearly dependent and therefore not a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any set of four vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> must be linearly dependent.</p>
+</div>
+</div>
+<div class="section" id="vector-space-examples">
+<h2>Vector Space Examples<a class="headerlink" href="#vector-space-examples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Determine whether or not the set of polynomials <span class="math notranslate nohighlight">\(\{p_1, p_2, p_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+p_1 &amp; = &amp; 3x^2 + 2x + 1 \\
+p_2 &amp; = &amp; 2x^2 + 5x + 3 \\
+p_3 &amp; = &amp; 6x^2 + 4x  +5 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="section" id="id15">
+<h3>Solution:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>A set of polynomials is a basis for <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> if every polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> can be written as a linear combination of the basis polynomials in a unique way.</p>
+<p>Every polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> is of the form: <span class="math notranslate nohighlight">\(ax^2 + bx + c\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\{p_1,p_2,p_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>, then</p>
+<p><span class="math notranslate nohighlight">\(ax^2 + bx + c = c_1(3x^2 + 2x + 1) + c_2(2x^2 + 5x + 3) + c_3(6x^2 + 4x  +5)\)</span>.</p>
+<p>The above equation gives us the following system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+3c_1 + 2c_2 + 6c_3  &amp; = &amp; a \\
+2c_1 +5c_2 + 4c_3  &amp; = &amp; b \\
+c_1 + 3c_2 + 5c_3  &amp; = &amp; c  \\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The corresponding system is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrr} 3 &amp; 2 &amp; 6 \\ 2 &amp; 5 &amp; 4 \\ 1 &amp; 3 &amp; 5 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} a \\ b \\ c  \end{array}\right]= B
+\end{equation}
+\end{split}\]</div>
+<p>The system has at least one solution if the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> has a pivot in every row.  The system has at most one solution if <span class="math notranslate nohighlight">\(A\)</span> has a pivot in every column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrix A:</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_Reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[3 2 6]
+ [2 5 4]
+ [1 3 5]] 
+
+A_Reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is a pivot in each row and each column of <span class="math notranslate nohighlight">\(A\)</span>, the system will have a unique solution for any given values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>.  This implies that each polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> can be written as a linear combination of the vectors <span class="math notranslate nohighlight">\(p_1\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, and <span class="math notranslate nohighlight">\(p_3\)</span> in a unique way.  We say that <span class="math notranslate nohighlight">\(\{p_1,p_2,p_3\}\)</span> spans <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> and is linearly independent. Therefore, <span class="math notranslate nohighlight">\(\{p_1,p_2,p_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>.</p>
+<p><strong>Exercise 2:</strong> Find the coordinates of <span class="math notranslate nohighlight">\(p_4\)</span> with respect to the basis <span class="math notranslate nohighlight">\(\alpha\ = \{p_1, p_2, p_3\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+p_1 &amp; = &amp; x^2 + x + 2 \\
+p_2 &amp; = &amp; 2x^2 + 4x + 0 \\
+p_3 &amp; = &amp; 3x^2  + 2x      +1 \\
+p_4 &amp; = &amp; 11x^2 + 13x + 4
+\end{eqnarray*}
+\end{split}\]</div>
+</div>
+<div class="section" id="id16">
+<h3>Solution:<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>In order to find the coordinates of <span class="math notranslate nohighlight">\(p_4\)</span> with respect to <span class="math notranslate nohighlight">\(\alpha\)</span>, we need to express <span class="math notranslate nohighlight">\(p_4\)</span> as a linear combination of <span class="math notranslate nohighlight">\(p_1\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span> and <span class="math notranslate nohighlight">\(p_3\)</span>.</p>
+<p>So, <span class="math notranslate nohighlight">\(11x^2 + 13x + 4 = c_1(x^2 + x + 2) + c_2(2x^2 + 4x + 0) + c_3(3x^2  + 2x +1)\)</span>. We are looking for scalars <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span> and <span class="math notranslate nohighlight">\(c_3\)</span> which make this equation true.</p>
+<p>The corresponding system of equations is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+c_1 + 2c_2 + 3c_3  &amp; = &amp; 11 \\
+c_1 +4c_2 + 2c_3  &amp; = &amp; 13\\
+2c_1 \,\,  \quad\quad    +  c_3  &amp; = &amp; 4\\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We need to solve the following system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 3 \\ 1 &amp; 4 &amp; 2 \\ 2 &amp; 0 &amp; 1 \end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \end{array}\right]=
+\left[ \begin{array}{r} 11 \\ 13 \\ 4  \end{array}\right]= B
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building A and B</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">11</span><span class="p">],[</span><span class="mi">13</span><span class="p">],[</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 2 3]
+ [1 4 2]
+ [2 0 1]] 
+
+B: 
+ [[11]
+ [13]
+ [ 4]] 
+
+X: 
+ [[1.]
+ [2.]
+ [2.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the computations we can conclude that the coordinates of <span class="math notranslate nohighlight">\(p_4\)</span> with respect to <span class="math notranslate nohighlight">\(\alpha\)</span> are <span class="math notranslate nohighlight">\(1\)</span>,<span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.  We can express these coordinates together in a vector.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+[p_4]_{\alpha} =
+\left[ \begin{array}{r} 1 \\ 2 \\ 2  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 3:</strong> Demonstrate that a set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> through a computation.</p>
+</div>
+<div class="section" id="id17">
+<h3>Solution:<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Any set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> would generate a <span class="math notranslate nohighlight">\(5 \times 4\)</span> coefficient matrix. For the polynomials to span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>, there should be a pivot in each row of the coefficient matrix. Since the matrix is <span class="math notranslate nohighlight">\(5 \times 4\)</span>, there can be atmost 4 pivots as there are only four columns. This means that one of the rows will always be without a pivot.
+Since there will always be atleast one row without a pivot, any set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
+<p>This is demonstrated by the following example:
+Let us consider any four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+p_1 &amp; = &amp; x^4 + x^3 + x^2 + x + 2  \\
+p_2 &amp; = &amp; x^4 + 2x^2 + x + 1 \\
+p_3 &amp; = &amp; 2x^4 + x^3 + x^2 + x + 2 \\
+p_4 &amp; = &amp; 3x^4 + x^3 + 2x^2 + x + 2
+\end{eqnarray*}
+\end{split}\]</div>
+<p>The corresponding coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 &amp; 1 \\2 &amp; 1 &amp; 2 &amp; 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building matrix A</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_red</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_red: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
+ [[1 1 2 3]
+ [1 0 1 1]
+ [1 2 1 2]
+ [1 1 1 1]
+ [2 1 2 2]] 
+
+A_red: 
+ [[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 0.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the computaions done in the above code cell that there is no pivot in the fifth row. Therefore, any set of four polynomials cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
+<p><strong>Exercise 4:</strong> The set of matrices <span class="math notranslate nohighlight">\(\{A, B\}\)</span> form a basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>. Find a matrix which is in the subspace (but is not <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>) and a matrix which is not in the subspace. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 1 &amp; 0  \\ 2 &amp; 0  \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{ccc} 4 &amp; 0 \\ 5 &amp; 0  \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id18">
+<h3>Solution:<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>, any matrix which can be formed from the linear combination of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> will also be in the subspace. A matrix which cannot be represented as a linear combination of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> will not be in the subspace.</p>
+<p>For instance, let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C = 2A + B = 
+2\left[ \begin{array}{ccc}1 &amp; 0  \\2 &amp; 0  \end{array}\right] +
+\left[ \begin{array}{ccc} 4&amp; 0 \\ 5 &amp;0  \end{array}\right] =
+\left[ \begin{array}{ccc} 6 &amp; 0 \\ 
+9 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(C\)</span> is formed from linear combination of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> lies in the subspace.</p>
+<p>Let <span class="math notranslate nohighlight">\(c_1\)</span>, <span class="math notranslate nohighlight">\(c_2\)</span> be two scalars.</p>
+<p>Linear combination of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> looks like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{ccc}1 &amp; 0  \\2 &amp; 0  \end{array}\right] +
+c_2\left[ \begin{array}{ccc} 4&amp; 0 \\ 5 &amp;0  \end{array}\right] =
+\left[ \begin{array}{ccc} c_1 + 4c_2 &amp; 0 \\ 
+2c_1+5c_2 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Therefore, the matrix <span class="math notranslate nohighlight">\(D\)</span> does not lie in the subspace because it cannot be represented as a linear combination of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> for any values of <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+D = \left[ \begin{array}{ccc} 1 &amp; 1  \\ 2 &amp; 3  \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 5:</strong> Find the <strong>coordinate vector</strong> of <span class="math notranslate nohighlight">\(F\)</span> with respect to the basis <span class="math notranslate nohighlight">\(\beta = \{A,B,C,D\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 1 &amp; 0  \\ 0 &amp; 1  \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{ccc} 2 &amp; 1  \\ 2 &amp; 2  \end{array}\right] \hspace{1cm}
+C = \left[ \begin{array}{ccc} 3 &amp; 0 \\ 1 &amp; 4   \end{array}\right] \hspace{1cm}
+D = \left[ \begin{array}{ccc} 3 &amp; 4\\ 1 &amp; 1   \end{array}\right] \hspace{1cm}
+F = \left[ \begin{array}{ccc} 14 &amp; 10\\ 7 &amp; 11   \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id19">
+<h3>Solution:<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>The coordinate vector of <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span> is a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> whose components are the coordinates of <span class="math notranslate nohighlight">\(F\)</span> with respect to  <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>Let us represent <span class="math notranslate nohighlight">\(F\)</span> as a linear combination of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+c_1\left[ \begin{array}{ccc}1 &amp; 0  \\0 &amp; 1  \end{array}\right] +
+c_2\left[ \begin{array}{ccc} 2&amp; 1 \\ 2 &amp;2  \end{array}\right] +
+c_3\left[ \begin{array}{ccc} 3 &amp; 0 \\ 1 &amp; 4 \end{array}\right] + 
+c_4\left[ \begin{array}{ccc} 3 &amp; 4 \\ 1 &amp; 1 \end{array}\right]  = 
+\left[ \begin{array}{ccc} 14 &amp; 10 \\ 7 &amp; 11 \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<p>The corresponding linear system is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+PX = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 3 &amp; 3 \\ 0 &amp; 1 &amp; 0 &amp; 4\\ 0 &amp; 2 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 4 &amp; 1\end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \\ c_4 \end{array}\right]=
+\left[ \begin{array}{r} 14 \\ 10 \\ 7 \\11  \end{array}\right]= Q
+\end{equation}
+\end{split}\]</div>
+<p>Here, the columns of <span class="math notranslate nohighlight">\(P\)</span> are the coordinate vectors of the given matrices <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(D\)</span> with respect to the standard basis of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span> and <span class="math notranslate nohighlight">\(X\)</span> represents the coordinate vector of <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(X = \left[F\right]_{\beta}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building matrices P and Q:</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">14</span><span class="p">],[</span><span class="mi">10</span><span class="p">],[</span><span class="mi">7</span><span class="p">],[</span><span class="mi">11</span><span class="p">]])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P: 
+ [[1 2 3 3]
+ [0 1 0 4]
+ [0 2 1 1]
+ [1 2 4 1]] 
+
+Q: 
+ [[14]
+ [10]
+ [ 7]
+ [11]] 
+
+X: 
+ [[1.]
+ [2.]
+ [1.]
+ [2.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> be the set of <span class="math notranslate nohighlight">\( 2 \times 2 \)</span> diagonal matrices.</p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>)  Explain why <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>)  Find a basis for <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
+<p>(<span class="math notranslate nohighlight">\(c\)</span>)  Determine the dimension of <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
 </div>
 </div>
 <div class="section" id="applications-of-vector-spaces">

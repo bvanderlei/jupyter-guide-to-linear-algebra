@@ -415,6 +415,11 @@
    Example 3:  Functions
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -537,7 +542,95 @@ B = \left[ \begin{array}{ccc} 2 &amp; 0 &amp; 5 \\ 1 &amp; -1 &amp; 2  \end{arra
 (f + g)(x) &amp; = &amp; f(x) + g(x)
 \end{eqnarray*}
 \end{split}\]</div>
-<p>These algebraic combinations of functions satisfy all the requirements to make <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> a vector space.  This space is quite different from the other examples in that it does not have a finite dimension.  Any basis for <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> must contain an infinite number of functions.  For this reason, we cannot easily do calculations such as those in the previous example to determine if a set of functions are linearly indpendent.  We will however make use of this example in a later application.</p>
+<p>These algebraic combinations of functions satisfy all the requirements to make <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> a vector space.  This space is quite different from the other examples in that it does not have a finite dimension.  Any basis for <span class="math notranslate nohighlight">\(C\left[0,1\right]\)</span> must contain an infinite number of functions.  For this reason, we cannot easily do calculations such as those in the previous example to determine if a set of functions are linearly independent.  We will however make use of this example in a later application.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Determine whether or not the set of polynomials <span class="math notranslate nohighlight">\(\{p_1, p_2, p_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+p_1 &amp; = &amp; 3x^2 + 2x + 1 \\
+p_2 &amp; = &amp; 2x^2 + 5x + 3 \\
+p_3 &amp; = &amp; 6x^2 + 4x  +5 
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Find the coordinates of <span class="math notranslate nohighlight">\(p_4\)</span> with respect to the basis <span class="math notranslate nohighlight">\(\alpha\ = \{p_1, p_2, p_3\}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+p_1 &amp; = &amp; x^2 + x + 2 \\
+p_2 &amp; = &amp; 2x^2 + 4x + 0 \\
+p_3 &amp; = &amp; 3x^2  + 2x      +1 \\
+p_4 &amp; = &amp; 11x^2 + 13x + 4
+\end{eqnarray*}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Demonstrate that a set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> through a computation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> The set of matrices <span class="math notranslate nohighlight">\(\{A, B\}\)</span> form a basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>. Find a matrix which is in the subspace (but is not <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>) and a matrix which is not in the subspace. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 1 &amp; 0  \\ 2 &amp; 0  \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{ccc} 4 &amp; 0 \\ 5 &amp; 0  \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Find the <strong>coordinate vector</strong> of <span class="math notranslate nohighlight">\(F\)</span> with respect to the basis <span class="math notranslate nohighlight">\(\beta = \{A,B,C,D\}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} 1 &amp; 0  \\ 0 &amp; 1  \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{ccc} 2 &amp; 1  \\ 2 &amp; 2  \end{array}\right] \hspace{1cm}
+C = \left[ \begin{array}{ccc} 3 &amp; 0 \\ 1 &amp; 4   \end{array}\right] \hspace{1cm}
+D = \left[ \begin{array}{ccc} 3 &amp; 4\\ 1 &amp; 1   \end{array}\right] \hspace{1cm}
+F = \left[ \begin{array}{ccc} 14 &amp; 10\\ 7 &amp; 11   \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> be the set of <span class="math notranslate nohighlight">\( 2 \times 2 \)</span> diagonal matrices.</p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>)  Explain why <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>)  Find a basis for <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
+<p>(<span class="math notranslate nohighlight">\(c\)</span>)  Determine the dimension of <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
