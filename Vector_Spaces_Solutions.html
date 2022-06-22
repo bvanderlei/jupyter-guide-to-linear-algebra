@@ -531,6 +531,11 @@
      Solution:
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     Solution:
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1136,7 +1141,10 @@ V_2 = \left[ \begin{array}{r} 4 \\ 6 \\ -2   \end{array}\right]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2  3  4  3]
  [ 3  0 -3  0]
- [-1  1  3  1]] 
+ [-1  1  3  1]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[ 1.  0. -1.  0.]
  [ 0.  1.  2.  1.]
@@ -1297,7 +1305,10 @@ W = \left[ \begin{array}{r} 0 \\ 2 \\ -2 \\ 1   \end{array}\right]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1  0 -1  0]
  [ 1  1  0  1  0]
  [-1 -1  1 -1  0]
- [ 1  1 -2  0  1]] 
+ [ 1  1 -2  0  1]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 
 [[1. 1. 0. 0. 0.]
  [0. 0. 1. 0. 0.]
@@ -1537,7 +1548,9 @@ c_2\left[ \begin{array}{r} 1 \\ 2\\ 3  \end{array}\right] =
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_augmented: 
- [[1 1 2]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [[1 1 2]
  [0 2 4]
  [1 3 6]] 
 
@@ -1972,7 +1985,9 @@ V_4 = \left[ \begin{array}{r} 1 \\ 0 \\ 1 \\ 2 \end{array}\right] \
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: 
- [[1 1 1 1]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [[1 1 1 1]
  [2 0 3 0]
  [1 2 1 1]
  [1 2 2 2]] 
@@ -1998,12 +2013,13 @@ W_2 = \left[ \begin{array}{r} 2 \\ 3 \\ 0 \\ 0 \end{array}\right] \hspace{0.7cm}
 </div>
 <div class="section" id="id10">
 <h3>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<p>The matrix <span class="math notranslate nohighlight">\(P\)</span> which contains <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(W_2\)</span> as its columns is as follows:
-$<span class="math notranslate nohighlight">\(
+<p>The matrix <span class="math notranslate nohighlight">\(P\)</span> which contains <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(W_2\)</span> as its columns is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{equation}
 P = \left[ \begin{array}{rrrr} 1 &amp; 2  \\ 2 &amp; 3  \\  0 &amp; 0 \\ 0 &amp; 0 \end{array}\right] 
 \end{equation}
-\)</span>$</p>
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
@@ -2050,12 +2066,13 @@ X_3 = \left[ \begin{array}{r} 1 \\ 2 \\ a \end{array}\right] \hspace{0.7cm}
 S = \left[ \begin{array}{rrrr} 1 &amp; 2 &amp; 1  \\ 2 &amp; a &amp; 2  \\ 1 &amp; 3 &amp; a  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>The row reduced form of <span class="math notranslate nohighlight">\(S\)</span> looks like:
-$<span class="math notranslate nohighlight">\(
+<p>The row reduced form of <span class="math notranslate nohighlight">\(S\)</span> looks like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{equation}
 \left[ \begin{array}{rrrr} 1 &amp; 0 &amp; 0  \\ 0 &amp; a - 4 &amp; 0  \\ 0 &amp; 0 &amp; a - 1  \end{array}\right] 
 \end{equation}
-\)</span>$</p>
+\end{split}\]</div>
 <p>The set of vectors <span class="math notranslate nohighlight">\(\{X_1, X_2, X_3\}\)</span> is not be a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> if there is not a pivot in each row. If <span class="math notranslate nohighlight">\( a = 4\)</span>, there is not a pivot in the second row. If <span class="math notranslate nohighlight">\( a= 1\)</span>, there is no pivot in the third row.  We can conclude that the set of vectors <span class="math notranslate nohighlight">\(\{X_1, X_2, X_3\}\)</span> is not a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> if <span class="math notranslate nohighlight">\(a = 1\)</span> or <span class="math notranslate nohighlight">\(a = 4\)</span>.</p>
 <p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> which contains vectors with their first and second enteries same and the third entry as zero. What the vectors in the subspace <span class="math notranslate nohighlight">\(U\)</span> look like? Use this information to find a basis for <span class="math notranslate nohighlight">\(U\)</span> and determine the dimension of <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </div>
@@ -2326,10 +2343,7 @@ X:
 </div>
 <div class="section" id="id17">
 <h3>Solution:<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
-<p>Any set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> would generate a <span class="math notranslate nohighlight">\(5 \times 4\)</span> coefficient matrix. For the polynomials to span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>, there should be a pivot in each row of the coefficient matrix. Since the matrix is <span class="math notranslate nohighlight">\(5 \times 4\)</span>, there can be atmost 4 pivots as there are only four columns. This means that one of the rows will always be without a pivot.
-Since there will always be atleast one row without a pivot, any set of four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
-<p>This is demonstrated by the following example:
-Let us consider any four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
+<p>Let us consider any four polynomials in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -2339,13 +2353,34 @@ p_3 &amp; = &amp; 2x^4 + x^3 + x^2 + x + 2 \\
 p_4 &amp; = &amp; 3x^4 + x^3 + 2x^2 + x + 2
 \end{eqnarray*}
 \end{split}\]</div>
-<p>The corresponding coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> is as follows:</p>
+<p>If the four polynomials span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>, then we should be able to express every polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> as a linear combination of <span class="math notranslate nohighlight">\(p_1\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, <span class="math notranslate nohighlight">\(p_3\)</span> and <span class="math notranslate nohighlight">\(p_4\)</span>.  An arbitrary polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span> has the form <span class="math notranslate nohighlight">\(ax^4 + bx^3 + cx^2 + dx  + e \)</span>. We are therefore concerned with solving the following equation.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+ax^4 + bx^3 + cx^2 + dx  + e  = c_1(x^4 + x^3 + x^2 + x + 2 ) + c_2(x^4 + 2x^2 + x + 1) + c_3(2x^4 + x^3 + x^2 + x + 2) + c_4(3x^4 + x^3 + 2x^2 + x + 2)
+\end{equation}
+\]</div>
+<p>This equation is true for all values of <span class="math notranslate nohighlight">\(x\)</span> only if the left and right side are the same polynomial.  Gathering the like terms on the right side gives a system of equations.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+c_1 + c_2 + 2c_3 + 3c_4 &amp; = &amp; a \\
+c_1 +\,\,\,\,\,\,\,\,\,\,\,\,c_3 \,\,+ \,\,\,c_4 &amp; = &amp; b \\
+c_1 + 2c_2 + c_3 + 2c_4 &amp; = &amp; c  \\
+c_1 + \,c_2 \,+\, c_3\, +\, c_4 &amp; = &amp; d \\
+2c_1 + c_2 + 2c_3 + 2c_4 &amp; = &amp; e \\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We write the system as a matrix equation and observe that the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(5\times 4\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-A = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 &amp; 1 \\2 &amp; 1 &amp; 2 &amp; 2 \end{array}\right]
+AX = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 2 &amp; 3 \\ 1 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 &amp; 1 \\2 &amp; 1 &amp; 2 &amp;2\end{array}\right]
+\left[ \begin{array}{r} c_1 \\ c_2 \\ c_3 \\c_4\end{array}\right]=
+\left[ \begin{array}{r} a \\ b \\ c \\d\\e \end{array}\right]= B
 \end{equation}
 \end{split}\]</div>
+<p>The system is consistent for any vector <span class="math notranslate nohighlight">\(B\)</span> if there is a pivot in each row of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building matrix A</span>
@@ -2375,7 +2410,7 @@ A_red:
 </div>
 </div>
 </div>
-<p>We can see from the computaions done in the above code cell that there is no pivot in the fifth row. Therefore, any set of four polynomials cannot span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
+<p>The computations show that there is no pivot in the fifth row, which implies that the set <span class="math notranslate nohighlight">\(\{ p_1, p_2, p_3, p_4 \}\)</span> does not span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.  In general, a <span class="math notranslate nohighlight">\(5\times 4\)</span> matrix can have at most <span class="math notranslate nohighlight">\(4\)</span> pivots and can thus never have a pivot in each row.  We can therefore conclude that <em>any</em> set of four polynomials does not span <span class="math notranslate nohighlight">\(\mathbb{P}_4\)</span>.</p>
 <p><strong>Exercise 4:</strong> The set of matrices <span class="math notranslate nohighlight">\(\{A, B\}\)</span> form a basis for a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>. Find a matrix which is in the subspace (but is not <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>) and a matrix which is not in the subspace. Verify your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2481,8 +2516,9 @@ Q:
  [10]
  [ 7]
  [11]] 
-
-X: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
  [[1.]
  [2.]
  [1.]
@@ -2495,6 +2531,54 @@ X:
 <p>(<span class="math notranslate nohighlight">\(a\)</span>)  Explain why <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>)  Find a basis for <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
 <p>(<span class="math notranslate nohighlight">\(c\)</span>)  Determine the dimension of <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
+</div>
+<div class="section" id="id20">
+<h3>Solution:<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\((a)\)</span></p>
+<p>Let us consider two arbitrary matrices <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccc} a &amp; 0  \\ 0 &amp; b  \end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{ccc} c &amp; 0 \\ 0 &amp; d  \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A + B = \left[ \begin{array}{ccc} a + c &amp; 0  \\ 0 &amp; b + d \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+kA  = \left[ \begin{array}{ccc} ka &amp; 0  \\ 0 &amp; kb  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>For any two arbitrary matrices <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>, <span class="math notranslate nohighlight">\(X+Y\)</span> and <span class="math notranslate nohighlight">\(kA\)</span> are also in <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>. Therefore, <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{M}_{2\times 2}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span></p>
+<p>Any matrix in <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> has the form:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\begin{equation}
+\left[ \begin{array}{ccc} a &amp; 0  \\ 0 &amp; b  \end{array}\right] \hspace{1cm}
+\end{equation}
+$$ where $a$ and $b$ are some scalars.\end{split}\\This matrix can also be written as:\end{aligned}\end{align} \]</div>
+<p>\begin{equation}
+\left[ \begin{array}{ccc}a &amp; 0  \0 &amp; b  \end{array}\right] =
+a\left[ \begin{array}{ccc} 1&amp; 0\ 0 &amp;0  \end{array}\right] +
+b\left[ \begin{array}{ccc} 0 &amp; 0 \ 0 &amp; 1 \end{array}\right]<br />
+\end{equation}
+$$</p>
+<p>Let $<span class="math notranslate nohighlight">\(
+\begin{equation}
+P = \left[ \begin{array}{ccc} 1 &amp; 0  \\ 0 &amp; 0  \end{array}\right] \hspace{1cm}
+Q = \left[ \begin{array}{ccc} 0 &amp; 0  \\ 0 &amp; 1 \end{array}\right] \hspace{1cm}
+\end{equation}
+\)</span>$</p>
+<p>Since every matrix in <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> can be written as a unique linear combination of <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(\{P,Q\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((c)\)</span></p>
+<p>Since there are two matrices in the basis for <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span>, the dimension of <span class="math notranslate nohighlight">\(\mathbb{D}_{2\times 2}\)</span> is 2.</p>
 </div>
 </div>
 <div class="section" id="applications-of-vector-spaces">
