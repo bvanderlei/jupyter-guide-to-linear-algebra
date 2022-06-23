@@ -400,9 +400,41 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrix-representations">
    Matrix Representations
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Solution:
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -578,6 +610,260 @@ R \left(S\left(\left[\begin{array}{r} 1 \\ 4 \\ -2 \end{array} \right]\right)\ri
 \end{equation}
 \end{split}\]</div>
 <p>It is impossible to form the composition <span class="math notranslate nohighlight">\(S \circ R\)</span> because this requires applying the transformation <span class="math notranslate nohighlight">\(S\)</span> to the output of the mapping <span class="math notranslate nohighlight">\(R\)</span>, but <span class="math notranslate nohighlight">\(R\)</span> outputs vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> and <span class="math notranslate nohighlight">\(S\)</span> needs input vectors from <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<p><strong>Exercise 5:</strong> Create a Python function which implements the transformation: <span class="math notranslate nohighlight">\(S:\mathbb{R}^3\to\mathbb{R}^3\)</span>, given below. Use the function to provide evidence whether the transformation is <strong>linear</strong> or not.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+S \left(\left[\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} v_1 + v_2 \\  1 \\ v_3+v_1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>Repeat for the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> is now defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T \left(\left[\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} v_1 + v_2 \\  0 \\ v_3+v_1 \end{array} \right].
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="solution">
+<h2>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">W</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span><span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">W</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S(V): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="n">V</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S(W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S(V+W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S(V)+S(W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="n">S</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V: 
+ [[1]
+ [2]
+ [3]] 
+
+S(V): 
+ [[3.]
+ [1.]
+ [5.]] 
+
+S(W): 
+ [[3.]
+ [1.]
+ [4.]] 
+
+S(V+W): 
+ [[6.]
+ [1.]
+ [9.]] 
+
+S(V)+S(W): 
+ [[6.]
+ [2.]
+ [9.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that <span class="math notranslate nohighlight">\(S(V+W)\neq S(V) + S(W)\)</span>. Therefore, the transformation <span class="math notranslate nohighlight">\(S:\mathbb{R}^3\to\mathbb{R}^3\)</span> is not linear.</p>
+<p>Now, let us consider that the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> is defined as:
+$<span class="math notranslate nohighlight">\(
+\begin{equation}
+T \left(\left[\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} v_1 + v_2 \\  0 \\ v_3+v_1 \end{array} \right]
+\end{equation}
+\)</span>$</p>
+<p>It only differs from the previous transformation in terms of the second entry which is zero in this case rather than 1. Let us define the corresponding python function in the code cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">U</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">V</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">U</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T(V): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="n">V</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T(W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T(V+W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T(V)+T(W): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">+</span><span class="n">T</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T(kV)): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">V</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kT(V)): </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="p">(</span><span class="n">V</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V: 
+ [[1]
+ [2]
+ [3]] 
+
+T(V): 
+ [[3.]
+ [0.]
+ [5.]] 
+
+T(W): 
+ [[6.]
+ [0.]
+ [5.]] 
+
+T(V+W): 
+ [[ 9.]
+ [ 0.]
+ [10.]] 
+
+T(V)+T(W): 
+ [[ 9.]
+ [ 0.]
+ [10.]] 
+
+T(kV)): 
+ [[15.]
+ [ 0.]
+ [25.]] 
+
+kT(V)): 
+ [[15.]
+ [ 0.]
+ [25.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our conclusions differ from that in the previous case. In this case, <span class="math notranslate nohighlight">\(T(V+W) = T(V) + T(W)\)</span> and <span class="math notranslate nohighlight">\(T(kV) = kT(V)\)</span>. Therefore, we have evidence that <span class="math notranslate nohighlight">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> is a linear transformation.</p>
+<p>Note the difference between <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> in this exercise.</p>
+<p><strong>Exercise 6:</strong> <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^2\)</span> is a <strong>Linear Transformation</strong> . Find <span class="math notranslate nohighlight">\(L(kU+V)\)</span> given that <span class="math notranslate nohighlight">\(k=7\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L(U) = \left[\begin{array}{r} 1 \\ 1  \end{array} \right]\hspace{1cm}
+L(V) = \left[\begin{array}{r} 3 \\ 1  \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id1">
+<h2>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Since <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^2\)</span> is a linear transformation, we can say that <span class="math notranslate nohighlight">\(L(kU+V) = L(kU) + L(V)\)</span>. Then, we can write <span class="math notranslate nohighlight">\(L(kV) = kL(V)\)</span>. Therefore, <span class="math notranslate nohighlight">\(L(kU+V) = kL(U)+ L(V)\)</span>.</p>
+<p>Given <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(L(V)\)</span> and <span class="math notranslate nohighlight">\(L(U)\)</span>, we can find <span class="math notranslate nohighlight">\(L(kU+V)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L(kU+V) = (7)\left[\begin{array}{r} 1 \\ 1  \end{array} \right] + 
+\left[\begin{array}{r} 3 \\ 1  \end{array} \right] = 
+\left[\begin{array}{r} 10 \\ 8  \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(T:\mathbb{R}^3 \to \mathbb{R}^2\)</span> be defined by <span class="math notranslate nohighlight">\(T(X)= AX\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[\begin{array}{rrr} 1 &amp; 0 &amp; 2 \\ 2 &amp; 1 &amp; 1  \end{array}\right].
+\end{equation}
+\end{split}\]</div>
+<p>Find all vectors <span class="math notranslate nohighlight">\(X\)</span> that satisfy <span class="math notranslate nohighlight">\(T(X) = \left[\begin{array}{r} 1 \\ 2  \end{array} \right]
+\)</span>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Given <span class="math notranslate nohighlight">\(T(X)\)</span> and <span class="math notranslate nohighlight">\(A\)</span>, we can find <span class="math notranslate nohighlight">\(X\)</span> by solving the following system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrr} 1 &amp; 0 &amp; 2 \\ 2 &amp; 1 &amp; 1\end{array}\right]
+\left[ \begin{array}{r} x_1 \\ x_2 \\ x_3  \end{array}\right]=
+\left[ \begin{array}{r}1 \\ 2  \end{array}\right]= T(X)
+\end{equation}
+\end{split}\]</div>
+<p>We can see that there is no pivot in the third column of the coefficient matrix <span class="math notranslate nohighlight">\(A\)</span>, this means that <span class="math notranslate nohighlight">\(x_3\)</span> is a free variable. Therefore, the above system has infinitely many solutions. In other words, there are an infinite number of vectors <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> which get mapped to the vector <span class="math notranslate nohighlight">\(AX\)</span> in space <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>For instance, when <span class="math notranslate nohighlight">\(x_3 = 3\)</span>, then we get <span class="math notranslate nohighlight">\(x_1 = -5\)</span> and <span class="math notranslate nohighlight">\(x_2 = 9\)</span>.
+So, $<span class="math notranslate nohighlight">\(
+\begin{equation}
+X = \left[ \begin{array}{rrr} -5 \\ 9 \\ 3 \end{array}\right]
+\end{equation}
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## verifying that T(X) = AX:</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">9</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AX: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="nd">@X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verifying that X is not unique:</span>
+<span class="c1"># When x_3 = 0, x_2 = 0, x_1 = 1</span>
+
+<span class="n">X_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AX_2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="nd">@X_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AX: 
+ [[1]
+ [2]] 
+
+AX_2: 
+ [[1]
+ [2]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The computation demonstrates that <span class="math notranslate nohighlight">\(T(X)\)</span> is same for two different vectors <span class="math notranslate nohighlight">\(X\)</span>. Therefore, <span class="math notranslate nohighlight">\(X\)</span> is not unique.</p>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(M:\mathbb{P}_1 \to \mathbb{P}_3\)</span> be a transformation defined by <span class="math notranslate nohighlight">\(M(p(x)) = x^3 + p(x)\)</span>. Determine whether <span class="math notranslate nohighlight">\(M\)</span> is linear or not.</p>
+</div>
+<div class="section" id="id3">
+<h2>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>In order to determine whether <span class="math notranslate nohighlight">\(M\)</span> is linear or not, let us consider two polynomials <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{P}_1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(M((p + q)(x)) = x^3 + p(x) + q(x)\)</span> by the general properties of polynomials.</p>
+<p><span class="math notranslate nohighlight">\(M(p(x)) + M(q(x)) = (x^3 + p(x)) + (x^3 + q(x)) = 2x^3 + p(x) + q(x)\)</span>.</p>
+<p>We can see that <span class="math notranslate nohighlight">\(M((p + q)(x))\)</span> is not the same as <span class="math notranslate nohighlight">\(M(p(x)) + M(q(x))\)</span>. Therefore, <span class="math notranslate nohighlight">\(M\)</span> is not linear.</p>
+<p>We can also see what <span class="math notranslate nohighlight">\(M(kp(x))\)</span> and <span class="math notranslate nohighlight">\(k(M(p(x)))\)</span> look like.</p>
+<p><span class="math notranslate nohighlight">\(M(kp(x)) = x^3 + kp(x)\)</span></p>
+<p><span class="math notranslate nohighlight">\(k(M(p(x))) = kx^3 + kp(x)\)</span></p>
+<p>It is clear that <span class="math notranslate nohighlight">\(M(kp(x))\)</span> and <span class="math notranslate nohighlight">\(k(M(p(x)))\)</span> are also different.</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(S:\mathbb{P}_2 \to \mathbb{P}_3\)</span> and <span class="math notranslate nohighlight">\(T:\mathbb{P}_3 \to \mathbb{P}_5\)</span> be two <strong>linear transformations</strong> defined by the rules given below. Define the composition <span class="math notranslate nohighlight">\(T\circ S\)</span> and determine whether it is linear or not. Explain why <span class="math notranslate nohighlight">\(S\circ T\)</span> is not defined.</p>
+<p><span class="math notranslate nohighlight">\(S(p(x)) = x(p(x))\)</span></p>
+<p><span class="math notranslate nohighlight">\(T(q(x)) = x^2(q(x))\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(p(x)\)</span> is a polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> is a polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>.</p>
+</div>
+<div class="section" id="id4">
+<h2>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Since <span class="math notranslate nohighlight">\(S:\mathbb{P}_2 \to \mathbb{P}_3\)</span> and <span class="math notranslate nohighlight">\(T:\mathbb{P}_3 \to \mathbb{P}_5\)</span> are two <strong>linear transformations</strong>, <span class="math notranslate nohighlight">\(T\circ S:\mathbb{P}_2 \to \mathbb{P}_5\)</span> and it is defined by the following rule:</p>
+<p><span class="math notranslate nohighlight">\(T\circ S = T(S(p(x))) = x^2(S(p(x)))\)</span></p>
+<p><span class="math notranslate nohighlight">\(S(p(x)) = x(p(x))\)</span>. Therefore, <span class="math notranslate nohighlight">\(T\circ S = T(S(p(x))) = x^2(xp(x))\)</span></p>
+<p><span class="math notranslate nohighlight">\(T\circ S = T(S(p(x))) = x^3(p(x))\)</span></p>
+<p>So, <span class="math notranslate nohighlight">\(T\circ S:\mathbb{P}_2 \to \mathbb{P}_5\)</span> is a transformation defined by the following rule:</p>
+<p><span class="math notranslate nohighlight">\(T\circ S = T(S(p(x))) = x^3(p(x))\)</span></p>
+<p>Let us see if  <span class="math notranslate nohighlight">\(T\circ S:\mathbb{P}_2 \to \mathbb{P}_5\)</span> is a linear transformation.
+Consider two polynomials <span class="math notranslate nohighlight">\(p(x)\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(T(S(p(x) + q(x))) = x^3(p(x) + q(x)) = x^3(p(x)) + x^3(q(x)) \)</span> by the properties of polynomials.</p>
+<p><span class="math notranslate nohighlight">\(T(S(p(x))) + T(S(q(x))) = x^3(p(x)) + x^3(q(x)) \)</span>.</p>
+<p><span class="math notranslate nohighlight">\(T(S(kp(x))) = x^3(kp(x)) = kx^3(p(x)))\)</span> by the properties of polynomials.</p>
+<p><span class="math notranslate nohighlight">\(kT(S(p(x))) = x^3(kp(x)) = kx^3(p(x)))\)</span></p>
+<p><span class="math notranslate nohighlight">\(T\circ S \)</span> is a linear transformation since <span class="math notranslate nohighlight">\(T(S(p(x) + q(x))) =T(S(p(x))) + T(S(q(x)))\)</span> and <span class="math notranslate nohighlight">\(T(S(kp(x))) = kT(S(p(x)))\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(S\circ T\)</span> is not defined because the output space of <span class="math notranslate nohighlight">\(T\)</span> is not the input space of <span class="math notranslate nohighlight">\(S\)</span>. The output space of <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(\mathbb{P}_5\)</span> but the input space of <span class="math notranslate nohighlight">\(S\)</span> is <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span>.</p>
+</div>
 <div class="section" id="matrix-representations">
 <h2>Matrix Representations<a class="headerlink" href="#matrix-representations" title="Permalink to this headline">¶</a></h2>
 <p><strong>Exercise 1:</strong> For each of the following linear transformations, find the standard matrix representation, and then determine if the transformation is onto, one-to-one, or invertible.</p>
@@ -661,6 +947,18 @@ C\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{ar
 </div>
 </div>
 <p>The RREF of <span class="math notranslate nohighlight">\([C]\)</span> has a pivot in every row and column. Therefore <span class="math notranslate nohighlight">\(C\)</span> is onto and one-to-one, which means it is invertible.</p>
+<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^2\)</span> be the <strong>linear transformation</strong> defined by <span class="math notranslate nohighlight">\(L(X)= AX\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[\begin{array}{rrr} 1 &amp; 1 &amp; 1\\ 2 &amp; 3 &amp; 4  \end{array}\right]\
+\end{equation}
+\end{split}\]</div>
+<p>Determine whether <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^2\)</span> is an invertible transformation or not.</p>
+<div class="section" id="id5">
+<h3>Solution:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>linear transformation</strong> <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^2\)</span> will be invertible if the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible as <span class="math notranslate nohighlight">\(L(X)= AX\)</span>. Since <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\( 2 \times 3 \)</span> matrix, it cannot be invertible. Therefore, <span class="math notranslate nohighlight">\(L:\mathbb{R}^3 \to \mathbb{R}^2\)</span> is not an invertible transformation.</p>
+</div>
 </div>
 </div>
 

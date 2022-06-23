@@ -644,7 +644,7 @@ M(P) &amp; = &amp; (x^2 + 2)(a_3x^3 + a_2x^2 + a_1x + a_0) \\
 </div>
 <div class="section" id="invertibility">
 <h2>Invertibility<a class="headerlink" href="#invertibility" title="Permalink to this headline">¶</a></h2>
-<p>When applying a given linear transformations, we often consider if it is possible to <em>reverse the transformation</em>.  That is, we would like to know if it is possible to map all the vectors in the output space back to vectors in the input space such that images get sent back to their preimages.  If this is possible we say that the transformation is invertible.  More formally, a linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{V}\to\mathbb{W}\)</span> is said to be <strong>invertible</strong> if there exists another transformation <span class="math notranslate nohighlight">\(L^{-1}:\mathbb{W}\to\mathbb{V}\)</span>, known as the inverse, such that <span class="math notranslate nohighlight">\((L^{-1}\circ L)(X) = X\)</span> for any vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{V}\)</span>.</p>
+<p>When applying a given linear transformation, we often consider if it is possible to <em>reverse the transformation</em>.  That is, we would like to know if it is possible to map all the vectors in the output space back to vectors in the input space such that images get sent back to their preimages.  If this is possible we say that the transformation is invertible.  More formally, a linear transformation <span class="math notranslate nohighlight">\(L:\mathbb{V}\to\mathbb{W}\)</span> is said to be <strong>invertible</strong> if there exists another transformation <span class="math notranslate nohighlight">\(L^{-1}:\mathbb{W}\to\mathbb{V}\)</span>, known as the inverse, such that <span class="math notranslate nohighlight">\((L^{-1}\circ L)(X) = X\)</span> for any vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{V}\)</span>.</p>
 <p>The transformation <span class="math notranslate nohighlight">\(L\)</span> in <strong>Example 2</strong> is invertible since the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible.  If <span class="math notranslate nohighlight">\(X\)</span> is any vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(Y=AX\)</span> is the image vector of <span class="math notranslate nohighlight">\(X\)</span>, it is possible to find <span class="math notranslate nohighlight">\(X\)</span> given <span class="math notranslate nohighlight">\(Y\)</span> by using <span class="math notranslate nohighlight">\(X=A^{-1}Y\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,6 +742,79 @@ R \left(\left[\begin{array}{r} v_1 \\ v_2  \end{array} \right]\right) =
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Create a Python function which implements the transformation: <span class="math notranslate nohighlight">\(S:\mathbb{R}^3\to\mathbb{R}^3\)</span>, given below. Use the function to provide evidence whether the transformation is <strong>linear</strong> or not.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+S \left(\left[\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} v_1 + v_2 \\  1 \\ v_3+v_1 \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<p>Repeat for the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> is now defined by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T \left(\left[\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array} \right]\right) = 
+\left[\begin{array}{c} v_1 + v_2 \\  0 \\ v_3+v_1 \end{array} \right].
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^2\)</span> is a <strong>Linear Transformation</strong> . Find <span class="math notranslate nohighlight">\(L(kU+V)\)</span> given that <span class="math notranslate nohighlight">\(k=7\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L(U) = \left[\begin{array}{r} 1 \\ 1  \end{array} \right]\hspace{1cm}
+L(V) = \left[\begin{array}{r} 3 \\ 1  \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(T:\mathbb{R}^3 \to \mathbb{R}^2\)</span> be defined by <span class="math notranslate nohighlight">\(T(X)= AX\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[\begin{array}{rrr} 1 &amp; 0 &amp; 2 \\ 2 &amp; 1 &amp; 1  \end{array}\right].
+\end{equation}
+\end{split}\]</div>
+<p>Find all vectors <span class="math notranslate nohighlight">\(X\)</span> that satisfy <span class="math notranslate nohighlight">\(T(X) = \left[\begin{array}{r} 1 \\ 2  \end{array} \right]
+\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(M:\mathbb{P}_1 \to \mathbb{P}_3\)</span> be a transformation defined by <span class="math notranslate nohighlight">\(M(p(x)) = x^3 + p(x)\)</span>. Determine whether <span class="math notranslate nohighlight">\(M\)</span> is linear or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(S:\mathbb{P}_2 \to \mathbb{P}_3\)</span> and <span class="math notranslate nohighlight">\(T:\mathbb{P}_3 \to \mathbb{P}_5\)</span> be two <strong>linear transformations</strong> defined by the rules given below. Define the composition <span class="math notranslate nohighlight">\(T\circ S\)</span> and determine whether it is linear or not. Explain why <span class="math notranslate nohighlight">\(S\circ T\)</span> is not defined.</p>
+<p><span class="math notranslate nohighlight">\(S(p(x)) = x(p(x))\)</span></p>
+<p><span class="math notranslate nohighlight">\(T(q(x)) = x^2(q(x))\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(p(x)\)</span> is a polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_2\)</span> and <span class="math notranslate nohighlight">\(q(x)\)</span> is a polynomial in <span class="math notranslate nohighlight">\(\mathbb{P}_3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
 </pre></div>
 </div>
 </div>
