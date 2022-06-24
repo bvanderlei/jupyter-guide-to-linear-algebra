@@ -542,7 +542,7 @@ L\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{ar
 </ul>
 <p><strong>A transformation is invertible if and only if it is both onto and one-to-one.</strong></p>
 <p>If we keep in mind that there can be at most one pivot per column and one pivot per row, we can make a further statement about these properties based on the relative size of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.  If <span class="math notranslate nohighlight">\(T:\mathbb{R}^n\to\mathbb{R}^m\)</span>, then <span class="math notranslate nohighlight">\(T\)</span> cannot be onto <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> if <span class="math notranslate nohighlight">\(m&gt;n\)</span>, and cannot be one-to-one if <span class="math notranslate nohighlight">\(m&lt;n\)</span>.  Only when <span class="math notranslate nohighlight">\(m=n\)</span> is it <em>possible</em> for <span class="math notranslate nohighlight">\(T\)</span> to be invertible.</p>
-<p>Let’s look at our examples.  In <strong>Example 1</strong>, the matrix <span class="math notranslate nohighlight">\([T]\)</span> is <span class="math notranslate nohighlight">\(4\times 2\)</span>.  We know the matrix can have at most two pivots (at most one per column), so cannot have a pivot in each row.  To see if there is are indeed pivots in each column, we can compute the RREF.</p>
+<p>Let’s look at our examples.  In <strong>Example 1</strong>, the matrix <span class="math notranslate nohighlight">\([T]\)</span> is <span class="math notranslate nohighlight">\(4\times 2\)</span>.  We know the matrix can have at most two pivots (at most one per column), so it cannot have a pivot in each row.  To see if there are pivots in each column, we can compute the RREF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -629,6 +629,53 @@ A = \left[\begin{array}{rrr} 1 &amp; 1 &amp; 1\\ 2 &amp; 3 &amp; 4  \end{array}\
 </div>
 </div>
 </div>
+<p><strong>Exercise 3:</strong> <span class="math notranslate nohighlight">\(L:\mathbb{R}^3\to\mathbb{R}^2\)</span> is a <strong>Linear Transformation</strong>. Find <span class="math notranslate nohighlight">\(L(X)\)</span> given the following vectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L\left(\left[\begin{array}{r} 1\\0\\0 \end{array}\right]\right)= \left[\begin{array}{r} 2\\0 \end{array}\right] \hspace{1cm}  
+L\left(\left[\begin{array}{r} 0\\1\\0 \end{array}\right]\right)= \left[\begin{array}{r} 1\\3 \end{array}\right] \hspace{1cm}  
+L\left(\left[\begin{array}{r} 0\\0\\1 \end{array}\right]\right)= \left[\begin{array}{r} 1\\2 \end{array}\right] \hspace{1cm}
+X = \left[\begin{array}{r} 4\\5\\3 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> The standard matrix representation of a <strong>linear transformation</strong> <span class="math notranslate nohighlight">\(S\)</span> is given below. Determine the input and output space of <span class="math notranslate nohighlight">\(S\)</span> by looking at the dimensions of <span class="math notranslate nohighlight">\(\left[S\right]\)</span>. Determine whether <span class="math notranslate nohighlight">\(S\)</span> is an invertible transformation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[S\right] =\left[\begin{array}{rr} 2 &amp; 0 &amp; 3 &amp; 8\\ 0 &amp; 1 &amp; 9 &amp; 4 \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> The <strong>linear transformation</strong> <span class="math notranslate nohighlight">\(W:\mathbb{R}^3\to\mathbb{R}^3\)</span> is an invertible transformation. Find <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[W\right] =\left[\begin{array}{rr} 1 &amp; 1 &amp; 0\\ 1 &amp; 2 &amp; 2 \\ 2 &amp; 1 &amp; 3 \end{array}\right] \hspace{1cm}
+W(X) = \left[\begin{array}{r} 3 \\ 11 \\ 13 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(T:\mathbb{R}^3\to\mathbb{R}^3\)</span> be a <strong>linear transformation</strong>. Given that there are two vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> which get mapped to the same vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, what can you say about the number of solutions for  <span class="math notranslate nohighlight">\([T]X=B\)</span>?  Explain why <span class="math notranslate nohighlight">\(T\)</span> is not an invertible transformation.</p>
 </div>
 </div>
 
