@@ -416,8 +416,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-4-composition-of-transformations">
-   Example 4:  Composition of transformations
+  <a class="reference internal nav-link" href="#example-4-shear">
+   Example 4: Shear
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-5-composition-of-transformations">
+   Example 5:  Composition of transformations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -570,7 +575,7 @@ B = \left[ \begin{array}{cc} -1 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
 </div>
 <div class="section" id="example-3-rotation">
 <h2>Example 3:  Rotation<a class="headerlink" href="#example-3-rotation" title="Permalink to this headline">¶</a></h2>
-<p>In the last example, we choose an angle <span class="math notranslate nohighlight">\(\theta\)</span>, and write down the matrix that represents the rotation counterclockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span>.  Basic trigonometry can be used to calculate the columns in this case.</p>
+<p>To rotate vectors in the plane, we choose an angle <span class="math notranslate nohighlight">\(\theta\)</span> and write down the matrix that represents the rotation counterclockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span>.  Basic trigonometry can be used to calculate the columns in this case.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -612,25 +617,24 @@ R = \left[ \begin{array}{cc} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \c
 </div>
 </div>
 </div>
-<div class="section" id="example-4-composition-of-transformations">
-<h2>Example 4:  Composition of transformations<a class="headerlink" href="#example-4-composition-of-transformations" title="Permalink to this headline">¶</a></h2>
-<p>One of the powerful aspects of representing linear transformations as matrices is that we can form compositions by matrix multiplication.  For example,  in order to find the matrix that represents the composition <span class="math notranslate nohighlight">\(B\circ R\)</span>, the rotation from Example 3, followed by the reflection of Example 2,
-we can simply multiply the matrices that represent the individual transformations.</p>
+<div class="section" id="example-4-shear">
+<h2>Example 4: Shear<a class="headerlink" href="#example-4-shear" title="Permalink to this headline">¶</a></h2>
+<p>In the study of mechanics, shear forces occur when one force acts on some part of a body while a second force acts on another part of the body but in the opposite direction. To visualize this, imagine a deck of playing cards resting on the table, and then while resting your hand on top of the deck, sliding your hand parallel to the table.</p>
+<p>A <strong>shear</strong> transformation is any transformation that shifts points in a given direction by an amount proportional to their original (signed) distance from the line that is parallel to the movement of direction and that passes through the origin. For example, a horizontal shear applied to a vector would add to the vector’s <span class="math notranslate nohighlight">\(x\)</span>-coordinate a value scaled by the value of its <span class="math notranslate nohighlight">\(y\)</span>-coordinate (or subtract, if the <span class="math notranslate nohighlight">\(y\)</span>-coordinate was negative). A vertical shear is expressed as a matrix in the form of the first matrix below, and a horizontal shear with the second where <span class="math notranslate nohighlight">\(k \in \mathbb{R}\)</span> is called the <strong>shearing factor</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-[B][R] = \left[ \begin{array}{cc} -1 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
-\left[ \begin{array}{cc} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{array}\right]
-=\left[ \begin{array}{cc} -\cos\theta &amp; \sin\theta \\ \sin\theta &amp; \cos\theta \end{array}\right]
+\left[ \begin{array}{r} 1 &amp; 0 \\ k &amp; 1  \end{array}\right] \hspace{1in}  
+\left[ \begin{array}{r} 1 &amp; k \\ 0 &amp; 1  \end{array}\right]  
 \end{equation}
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
-<span class="n">C_coords</span> <span class="o">=</span> <span class="n">C</span><span class="nd">@coords</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">S_coords</span> <span class="o">=</span> <span class="n">S</span><span class="nd">@coords</span>
 
-<span class="n">x_LT4</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">y_LT4</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">x_LT4</span> <span class="o">=</span> <span class="n">S_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT4</span> <span class="o">=</span> <span class="n">S_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
 
 
 <span class="c1"># Create the figure and axes objects</span>
@@ -648,8 +652,9 @@ we can simply multiply the matrices that represent the individual transformation
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Shear&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -658,11 +663,56 @@ we can simply multiply the matrices that represent the individual transformation
 </div>
 </div>
 </div>
+<div class="section" id="example-5-composition-of-transformations">
+<h2>Example 5:  Composition of transformations<a class="headerlink" href="#example-5-composition-of-transformations" title="Permalink to this headline">¶</a></h2>
+<p>One of the powerful aspects of representing linear transformations as matrices is that we can form compositions by matrix multiplication.  For example,  in order to find the matrix that represents the composition <span class="math notranslate nohighlight">\(B\circ R\)</span>, the rotation from Example 3, followed by the reflection of Example 2,
+we can simply multiply the matrices that represent the individual transformations.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+[B][R] = \left[ \begin{array}{cc} -1 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
+\left[ \begin{array}{cc} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{array}\right]
+=\left[ \begin{array}{cc} -\cos\theta &amp; \sin\theta \\ \sin\theta &amp; \cos\theta \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+<span class="n">C_coords</span> <span class="o">=</span> <span class="n">C</span><span class="nd">@coords</span>
+
+<span class="n">x_LT5</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT5</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.  x and y are original vectors, x_LT1 and y_LT1 are images</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT5</span><span class="p">,</span><span class="n">y_LT5</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT5</span><span class="p">,</span><span class="n">y_LT5</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Planar_Transformations_13_0.png" src="_images/Planar_Transformations_13_0.png" />
+</div>
+</div>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Find a matrix that represents a vertical shear followed by the rotation in Example 4.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Find a matrix that represents a vertical shear followed by the rotation in Example 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -670,9 +720,7 @@ we can simply multiply the matrices that represent the individual transformation
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -680,9 +728,7 @@ we can simply multiply the matrices that represent the individual transformation
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Create a new matrix of coordinates, apply one of the transformations in the Examples and plot the results.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Create a new matrix of coordinates, apply one of the transformations in the Examples and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
