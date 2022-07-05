@@ -305,6 +305,11 @@
      Linear Transformations
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inner_Products_Solutions.html">
+     Inner Products
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -429,7 +434,7 @@
                 
   <div class="section" id="inner-products">
 <h1>Inner Products<a class="headerlink" href="#inner-products" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter, we introduce the idea of an inner product, examine the additional structure that it imposes on  a vector space, and look at some common applications.  An inner product is an operation on two vectors in a vector space that is defined in such a way as to satisfy certain algebraic requirements.  To begin, we will focus only on one specific inner product defined for vectors in  <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Later in the chapter we will consider other examples of inner products in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
+<p>In this chapter we introduce the idea of an inner product, examine the additional structure that it imposes on  a vector space, and look at some common applications.  An inner product is an operation on two vectors in a vector space that is defined in such a way as to satisfy certain algebraic requirements.  To begin, we will focus only on one specific inner product defined for vectors in  <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  Later in the chapter we will consider other examples of inner products in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
 <p>The <strong>dot product</strong> is the most common example of an inner product.  For vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, the dot product is written as <span class="math notranslate nohighlight">\(U\cdot V\)</span>, and is defined in the following way.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -702,9 +707,7 @@ W = \frac{1}{\sqrt{13}} \left[ \begin{array}{r} 2 \\ 3 \end{array}\right]
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Create a Python function named <span class="math notranslate nohighlight">\(\texttt{Magnitude}\)</span> that accepts as an argument vector in the form of a NumPy array object with shape <span class="math notranslate nohighlight">\(n\times 1\)</span>, and returns the magnitude of that vector.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Create a Python function named <span class="math notranslate nohighlight">\(\texttt{Magnitude}\)</span> that accepts as an argument vector in the form of a NumPy array object with shape <span class="math notranslate nohighlight">\(n\times 1\)</span>, and returns the magnitude of that vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -712,9 +715,7 @@ W = \frac{1}{\sqrt{13}} \left[ \begin{array}{r} 2 \\ 3 \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Use the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module of NumPy to generate random <span class="math notranslate nohighlight">\(4\times 1\)</span> vectors <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(W\)</span>, and a random scalar <span class="math notranslate nohighlight">\(k\)</span>.  Verify the algebraic properties of the dot product listed above.  Try to make use of a conditional statement to check each statement.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Use the <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module of NumPy to generate random <span class="math notranslate nohighlight">\(4\times 1\)</span> vectors <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, and <span class="math notranslate nohighlight">\(W\)</span>, and a random scalar <span class="math notranslate nohighlight">\(k\)</span>.  Verify the algebraic properties of the dot product listed above.  Try to make use of a conditional statement to check each statement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -722,9 +723,7 @@ W = \frac{1}{\sqrt{13}} \left[ \begin{array}{r} 2 \\ 3 \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the following vectors.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be the following vectors.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -732,9 +731,7 @@ X = \left[ \begin{array}{r} 3 \\ -1 \\ 2  \end{array}\right] \hspace{1cm}
 Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<ul class="simple">
-<li><p>Determine the angle between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.  (<em>You will need the <span class="math notranslate nohighlight">\(\texttt{acos}\)</span> function in Python’s <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module.</em>)</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Determine the angle between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.  (<em>You will need the <span class="math notranslate nohighlight">\(\texttt{acos}\)</span> function in Python’s <span class="math notranslate nohighlight">\(\texttt{math}\)</span> module.</em>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -742,9 +739,7 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Find a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that is orthogonal to the vector <span class="math notranslate nohighlight">\(X\)</span>.  Verify your answer with a computation.</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> that is orthogonal to the vector <span class="math notranslate nohighlight">\(X\)</span>.  Verify your answer with a computation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -752,9 +747,7 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Construct a unit vector <span class="math notranslate nohighlight">\(Z\)</span> such that <span class="math notranslate nohighlight">\(Z\cdot Y = -||Y||\)</span>.  Verify your answer with a computation.</p></li>
-</ul>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Construct a unit vector <span class="math notranslate nohighlight">\(Z\)</span> such that <span class="math notranslate nohighlight">\(Z\cdot Y = -||Y||\)</span>.  Verify your answer with a computation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

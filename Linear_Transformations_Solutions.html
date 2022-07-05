@@ -57,6 +57,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inner Products" href="Inner_Products_Solutions.html" />
     <link rel="prev" title="Vector Spaces" href="Vector_Spaces_Solutions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -302,6 +303,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Linear Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Inner_Products_Solutions.html">
+     Inner Products
     </a>
    </li>
   </ul>
@@ -1340,8 +1346,8 @@ LR = \left[\begin{array}{rr} 1 &amp; 0 &amp; -4 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 
 <img alt="_images/Linear_Transformations_Solutions_81_0.png" src="_images/Linear_Transformations_Solutions_81_0.png" />
 </div>
 </div>
-<p><strong>Exercise 2:</strong> <span class="math notranslate nohighlight">\((a)\)</span></p>
-<p>Find a single matrix that represents a rotation about the point <span class="math notranslate nohighlight">\((1,2)\)</span>.  (<em>Hint:  Make use of a translation to bring the center of rotation to <span class="math notranslate nohighlight">\((0,0)\)</span></em>.)</p>
+<p><strong>Exercise 2:</strong></p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find a single matrix that represents a rotation about the point <span class="math notranslate nohighlight">\((1,2)\)</span>.  (<em>Hint:  Make use of a translation to bring the center of rotation to <span class="math notranslate nohighlight">\((0,0)\)</span></em>.)</p>
 <p>Rotating about the point <span class="math notranslate nohighlight">\((1,2)\)</span> is equivalent to translating one unit to the left and two units down, performing the desired rotation, and then translating back one unit to the right and two units up. Since a translation cannot be expressed using a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix, we will need to use the same trick as before and view <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> as a plane embedded in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. If we associate the coordinates <span class="math notranslate nohighlight">\((x_1,x_2)\)</span> of a point in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> with the coordinates <span class="math notranslate nohighlight">\((x_1,x_2,1)\)</span> of a point in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and define the matrices <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span> below, then multiplying any vector in the plane <span class="math notranslate nohighlight">\(x_3 = 1\)</span> with <span class="math notranslate nohighlight">\(L\)</span> translates it one unit left and two units down, while multiplying by <span class="math notranslate nohighlight">\(R\)</span> translates it back.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1382,6 +1388,7 @@ RSL = \left[\begin{array}{rr} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 2 \\ 0 &amp; 
 RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1  \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<p>To make it more obvious that this matrix transforms our vectors in the way that we want, we will apply it several times and plot each iteration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
@@ -1397,28 +1404,38 @@ RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp;
 <span class="n">RSL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 
 <span class="c1">## Compute the transformation by matrix multiplication</span>
-<span class="n">coords_transformed</span> <span class="o">=</span> <span class="n">RSL</span><span class="nd">@coords</span>
+<span class="n">coords_transformed_1</span> <span class="o">=</span> <span class="n">RSL</span><span class="nd">@coords</span>
+<span class="n">coords_transformed_2</span> <span class="o">=</span> <span class="n">RSL</span><span class="nd">@RSL@coords</span>
+<span class="n">coords_transformed_3</span> <span class="o">=</span> <span class="n">RSL</span><span class="nd">@RSL@RSL@coords</span>
 
 <span class="c1">## Slice off the first and second rows.  These are the coords of the transformed points</span>
-<span class="n">x_transformed</span> <span class="o">=</span> <span class="n">coords_transformed</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">y_transformed</span> <span class="o">=</span> <span class="n">coords_transformed</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">x_transformed_1</span> <span class="o">=</span> <span class="n">coords_transformed_1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_transformed_1</span> <span class="o">=</span> <span class="n">coords_transformed_1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">x_transformed_2</span> <span class="o">=</span> <span class="n">coords_transformed_2</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_transformed_2</span> <span class="o">=</span> <span class="n">coords_transformed_2</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">x_transformed_3</span> <span class="o">=</span> <span class="n">coords_transformed_3</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_transformed_3</span> <span class="o">=</span> <span class="n">coords_transformed_3</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
 
 <span class="c1"># Create the figure and axes objects</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
 <span class="c1"># Plot the points.</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed</span><span class="p">,</span><span class="n">y_transformed</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_1</span><span class="p">,</span><span class="n">y_transformed_1</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_2</span><span class="p">,</span><span class="n">y_transformed_2</span><span class="p">,</span><span class="s1">&#39;go&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_3</span><span class="p">,</span><span class="n">y_transformed_3</span><span class="p">,</span><span class="s1">&#39;yo&#39;</span><span class="p">)</span>
 
 <span class="c1"># Connect the points by lines</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed</span><span class="p">,</span><span class="n">y_transformed</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_1</span><span class="p">,</span><span class="n">y_transformed_1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_2</span><span class="p">,</span><span class="n">y_transformed_2</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_transformed_3</span><span class="p">,</span><span class="n">y_transformed_3</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 
 <span class="c1"># Edit some settings </span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rotation about (1,2)&quot;</span><span class="p">);</span>
 </pre></div>
@@ -1503,36 +1520,25 @@ RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp;
               <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
              <span class="p">],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">ConvertAdjacencyMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ConvertAdjacencyMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.02222222 0.15555556 0.02222222 0.02222222 0.18222222
-  0.02222222 0.02222222 0.02222222 0.18222222]
- [0.02222222 0.         0.15555556 0.28888889 0.02222222 0.18222222
-  0.02222222 0.18222222 0.18222222 0.02222222]
- [0.02222222 0.28888889 0.         0.02222222 0.02222222 0.02222222
-  0.02222222 0.02222222 0.18222222 0.18222222]
- [0.22222222 0.02222222 0.15555556 0.         0.42222222 0.18222222
-  0.42222222 0.18222222 0.18222222 0.18222222]
- [0.02222222 0.02222222 0.02222222 0.02222222 0.         0.02222222
-  0.02222222 0.02222222 0.02222222 0.02222222]
- [0.22222222 0.02222222 0.15555556 0.02222222 0.02222222 0.
-  0.42222222 0.18222222 0.18222222 0.02222222]
- [0.22222222 0.28888889 0.15555556 0.28888889 0.42222222 0.18222222
-  0.         0.18222222 0.02222222 0.18222222]
- [0.02222222 0.28888889 0.02222222 0.02222222 0.02222222 0.02222222
-  0.02222222 0.         0.18222222 0.18222222]
- [0.02222222 0.02222222 0.02222222 0.02222222 0.02222222 0.02222222
-  0.02222222 0.02222222 0.         0.02222222]
- [0.22222222 0.02222222 0.15555556 0.28888889 0.02222222 0.18222222
-  0.02222222 0.18222222 0.02222222 0.        ]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.    0.022 0.156 0.022 0.022 0.182 0.022 0.022 0.022 0.182]
+ [0.022 0.    0.156 0.289 0.022 0.182 0.022 0.182 0.182 0.022]
+ [0.022 0.289 0.    0.022 0.022 0.022 0.022 0.022 0.182 0.182]
+ [0.222 0.022 0.156 0.    0.422 0.182 0.422 0.182 0.182 0.182]
+ [0.022 0.022 0.022 0.022 0.    0.022 0.022 0.022 0.022 0.022]
+ [0.222 0.022 0.156 0.022 0.022 0.    0.422 0.182 0.182 0.022]
+ [0.222 0.289 0.156 0.289 0.422 0.182 0.    0.182 0.022 0.182]
+ [0.022 0.289 0.022 0.022 0.022 0.022 0.022 0.    0.182 0.182]
+ [0.022 0.022 0.022 0.022 0.022 0.022 0.022 0.022 0.    0.022]
+ [0.222 0.022 0.156 0.289 0.022 0.182 0.022 0.182 0.022 0.   ]]
 </pre></div>
 </div>
 </div>
 </div>
-<p><span style="background-color: #FFFF00">Hard to check that the function worked properly because of how the output doesn’t lineup nicely; might be worth using a smaller adjacency matrix.</span></p>
 </div>
 </div>
 </div>
@@ -1563,6 +1569,7 @@ RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp;
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Vector_Spaces_Solutions.html" title="previous page">Vector Spaces</a>
+    <a class='right-next' id="next-link" href="Inner_Products_Solutions.html" title="next page">Inner Products</a>
 
         </div>
         
