@@ -466,6 +466,28 @@
   <a class="reference internal nav-link" href="#transformations-in-a-plane">
    Transformations in a Plane
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Solution:
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications">
@@ -478,8 +500,18 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#discrete-dynamical-systems">
      Discrete Dynamical Systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Solution:
     </a>
    </li>
   </ul>
@@ -1092,53 +1124,179 @@ W(X) = \left[\begin{array}{r} 3 \\ 11 \\ 13 \end{array}\right]
 <h2>Transformations in a Plane<a class="headerlink" href="#transformations-in-a-plane" title="Permalink to this headline">¶</a></h2>
 <p><strong>Exercise 1:</strong></p>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) Find a matrix that represents the reflection about the <span class="math notranslate nohighlight">\(x_1\)</span>-axis.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
-</div>
-</div>
-</div>
+<div class="section" id="id10">
+<h3>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>When we reflect anything about <span class="math notranslate nohighlight">\(x_1\)</span>-axis, then its <span class="math notranslate nohighlight">\(x_1\)</span>-coordinate remains the same while the sign of <span class="math notranslate nohighlight">\(x_2\)</span>-coordinate gets reversed.</p>
+<p>Let us consider that the transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> represents the reflection about the <span class="math notranslate nohighlight">\(x_1\)</span>-axis. Then, the images of the basis vectors look like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+T\left(\left[ \begin{array}{r} 1 \\ 0  \end{array}\right]\right)= \left[ \begin{array}{r} 1 \\ 0  \end{array}\right] \hspace{1in}  T\left(\left[ \begin{array}{r} 0 \\ 1  \end{array}\right]\right)= \left[ \begin{array}{r} 0 \\ -1  \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<p>Therefore, the standard matrix representation of <span class="math notranslate nohighlight">\(T\)</span> which is defined by the matrix <span class="math notranslate nohighlight">\(B\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{cc} 1 &amp; 0 \\ 0 &amp; -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>) Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">coords</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B_coords</span> <span class="o">=</span> <span class="n">B</span><span class="nd">@coords</span>
+
+<span class="n">x_LT2</span> <span class="o">=</span> <span class="n">B_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT2</span> <span class="o">=</span> <span class="n">B_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.  x and y are original vectors, x_LT1 and y_LT1 are images</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT2</span><span class="p">,</span><span class="n">y_LT2</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT2</span><span class="p">,</span><span class="n">y_LT2</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Reflection about the x1-axis&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Transformations_Solutions_56_0.png" src="_images/Linear_Transformations_Solutions_56_0.png" />
 </div>
 </div>
 <p><strong>Exercise 2:</strong></p>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) Find a matrix that represents the reflection about the line <span class="math notranslate nohighlight">\(x_1=x_2\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
 </div>
-</div>
-</div>
+<div class="section" id="id11">
+<h3>Solution:<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>When we reflect anything about the line <span class="math notranslate nohighlight">\(x_1 = x_2\)</span>, then its <span class="math notranslate nohighlight">\(x_1\)</span>-coordinate becomes the <span class="math notranslate nohighlight">\(x_2\)</span>-coordinate and the <span class="math notranslate nohighlight">\(x_2\)</span>-coordinate becomes the <span class="math notranslate nohighlight">\(x_1\)</span>-coordinate. This basically means that the <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>-coordinates get exchanged.</p>
+<p>Let us consider that the transformation <span class="math notranslate nohighlight">\(S:\mathbb{R}^2\to\mathbb{R}^2\)</span> represents the reflection about the line <span class="math notranslate nohighlight">\(x_1=x_2\)</span>. Then, the images of the basis vectors look like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+S\left(\left[ \begin{array}{r} 1 \\ 0  \end{array}\right]\right)= \left[ \begin{array}{r} 0 \\ 1  \end{array}\right] \hspace{1in}  S\left(\left[ \begin{array}{r} 0 \\ 1  \end{array}\right]\right)= \left[ \begin{array}{r} 1 \\ 0  \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<p>Therefore, the standard matrix representation of <span class="math notranslate nohighlight">\(S\)</span> which is defined by the matrix <span class="math notranslate nohighlight">\(C\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C = \left[ \begin{array}{cc} 0 &amp; 1 \\ 1 &amp; 0 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>) Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">coords</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">C_coords</span> <span class="o">=</span> <span class="n">C</span><span class="nd">@coords</span>
+
+<span class="n">x_LT2</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT2</span> <span class="o">=</span> <span class="n">C_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.  x and y are original vectors, x_LT1 and y_LT1 are images</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT2</span><span class="p">,</span><span class="n">y_LT2</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT2</span><span class="p">,</span><span class="n">y_LT2</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1">## Plotting the dashed line y = x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Reflection about the line x_1 = x_2&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Transformations_Solutions_60_0.png" src="_images/Linear_Transformations_Solutions_60_0.png" />
 </div>
 </div>
 <p><strong>Exercise 3:</strong></p>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) Find a matrix that represents the rotation clockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
 </div>
-</div>
-</div>
+<div class="section" id="id12">
+<h3>Solution:<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>The matrix which represents the rotation clockwise by an angle <span class="math notranslate nohighlight">\(\theta\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+M = \left[ \begin{array}{cc} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>) Let <span class="math notranslate nohighlight">\(\theta = 90^{\circ}\)</span>.  Multiply the matrix by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">coords</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+<span class="n">M_coords</span> <span class="o">=</span> <span class="n">M</span><span class="nd">@coords</span>
+
+<span class="n">x_LT3</span> <span class="o">=</span> <span class="n">M_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT3</span> <span class="o">=</span> <span class="n">M_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.  x and y are original vectors, x_LT1 and y_LT1 are images</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT3</span><span class="p">,</span><span class="n">y_LT3</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT3</span><span class="p">,</span><span class="n">y_LT3</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Clockwise Rotation&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Transformations_Solutions_64_0.png" src="_images/Linear_Transformations_Solutions_64_0.png" />
 </div>
 </div>
 <p><strong>Exercise 4:</strong></p>
@@ -1244,18 +1402,64 @@ W(X) = \left[\begin{array}{r} 3 \\ 11 \\ 13 \end{array}\right]
 </div>
 <p><strong>Exercise 6:</strong></p>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) Construct a matrix that represents a horizontal and a vertical stretch by a factor of 2 .</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
-</pre></div>
 </div>
-</div>
-</div>
+<div class="section" id="id13">
+<h3>Solution:<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Let us consider that the transformation <span class="math notranslate nohighlight">\(L:\mathbb{R}^2\to\mathbb{R}^2\)</span> represents a horizontal and a vertical stretch by a factor of 2 . Then, the images of the basis vectors look like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+L\left(\left[ \begin{array}{r} 1 \\ 0  \end{array}\right]\right)= \left[ \begin{array}{r} 2 \\ 0  \end{array}\right] \hspace{1in}  L\left(\left[ \begin{array}{r} 0 \\ 1  \end{array}\right]\right)= \left[ \begin{array}{r} 0 \\ 2
+\end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<p>Therefore, the standard matrix representation of <span class="math notranslate nohighlight">\(L\)</span> which is defined by the matrix <span class="math notranslate nohighlight">\(D\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+D = \left[ \begin{array}{cc} 2 &amp; 0 \\ 0 &amp; 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>) Create a new matrix of coordinates.  Apply this transformation and plot the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building a new array of coordinates with the name &quot;coord&quot;.</span>
+
+<span class="n">coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>  
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">D_coord</span> <span class="o">=</span> <span class="n">D</span><span class="nd">@coord</span>
+
+<span class="n">x_LT1</span> <span class="o">=</span> <span class="n">D_coord</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_LT1</span> <span class="o">=</span> <span class="n">D_coord</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.  x and y are original vectors, x_LT1 and y_LT1 are images</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT1</span><span class="p">,</span><span class="n">y_LT1</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_LT1</span><span class="p">,</span><span class="n">y_LT1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Horizontal and Vertical Stretch&quot;</span><span class="p">);</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Transformations_Solutions_76_0.png" src="_images/Linear_Transformations_Solutions_76_0.png" />
 </div>
 </div>
 </div>
@@ -1445,6 +1649,86 @@ RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp;
 <img alt="_images/Linear_Transformations_Solutions_85_0.png" src="_images/Linear_Transformations_Solutions_85_0.png" />
 </div>
 </div>
+<p><strong>Exercise 3:</strong></p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find a matrix that represents clockwise rotation of <span class="math notranslate nohighlight">\(180^\circ\)</span> about the point <span class="math notranslate nohighlight">\((1,1)\)</span> followed by a shift <span class="math notranslate nohighlight">\(3\)</span> units to the right.</p>
+</div>
+<div class="section" id="id14">
+<h3>Solution:<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>In order to carry out the clockwise rotation about the point <span class="math notranslate nohighlight">\((1,1)\)</span>, we first need to bring the center of rotation to <span class="math notranslate nohighlight">\((0,0)\)</span>, for which we need to do <em>translation</em> involving the shift of <span class="math notranslate nohighlight">\(1\)</span> unit left and <span class="math notranslate nohighlight">\(1\)</span> unit down. Then, we need to do clockwise rotation with respect to <span class="math notranslate nohighlight">\((0,0)\)</span>. After performing the rotation transformation, we need to redo the <em>translation</em> involving the shift of <span class="math notranslate nohighlight">\(1\)</span> unit right and <span class="math notranslate nohighlight">\(1\)</span> unit up so that the rotation is actually carried about the point <span class="math notranslate nohighlight">\((1,1)\)</span>. After this whole rotation transformation is performed about the point (1,1), we need to carry out another <em>translation</em> transformation that involves a shift of 3 units to the right.</p>
+<p>Let us consider that the matrix <span class="math notranslate nohighlight">\(A\)</span> represents the <em>translation</em> transformation to bring the center of rotation to <span class="math notranslate nohighlight">\((0,0)\)</span>, matrix <span class="math notranslate nohighlight">\(R\)</span> represents the clockwise transformation about <span class="math notranslate nohighlight">\((0,0)\)</span> , the matrix <span class="math notranslate nohighlight">\(C\)</span> represents the <em>translation</em> transformation to take the center of rotation to <span class="math notranslate nohighlight">\((1,1)\)</span>. Lastly, the matrix <span class="math notranslate nohighlight">\(D\)</span> represents the <em>translation</em> transformation to shift <span class="math notranslate nohighlight">\(3\)</span> units right.</p>
+<p>The matrices <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{cc} 1 &amp; 0 &amp; -1\\ 0 &amp; 1 &amp; -1 \\ 0 &amp; 0 &amp; 1 \end{array}\right] \hspace{1cm}
+C = \left[ \begin{array}{cc} 1 &amp; 0 &amp; 1\\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{array}\right] \hspace{1cm}
+D = \left[ \begin{array}{cc} 1 &amp; 0 &amp; 3\\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<p>The matrix <span class="math notranslate nohighlight">\(R\)</span> representing clockwise rotation is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+R = \left[ \begin{array}{cc} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>A single matrix that represents clockwise rotation of <span class="math notranslate nohighlight">\(180^\circ\)</span> about the point <span class="math notranslate nohighlight">\((1,1)\)</span> followed by a shift <span class="math notranslate nohighlight">\(3\)</span> units to the right is given by the product <span class="math notranslate nohighlight">\(DCRA\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span>  Apply the transformation to the shape defined by <span class="math notranslate nohighlight">\(\texttt{coords}\)</span> and plot the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Form a matrix of coordinates with rows x, y, 1</span>
+<span class="n">Ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">Ones</span><span class="p">))</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">pi</span>
+
+
+<span class="c1"># Building matrices A, R, C, D</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">DCRA</span> <span class="o">=</span> <span class="n">D</span><span class="nd">@C@R@A</span>
+
+<span class="c1">## Compute translation by matrix multiplication</span>
+<span class="n">coords_translated</span> <span class="o">=</span> <span class="n">DCRA</span><span class="nd">@coords</span>
+
+<span class="c1">## Slice off the first and second rows.  These are the coords of the translated points</span>
+<span class="n">x_translated</span> <span class="o">=</span> <span class="n">coords_translated</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">y_translated</span> <span class="o">=</span> <span class="n">coords_translated</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+
+<span class="c1"># Create the figure and axes objects</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the points.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+
+<span class="c1"># Connect the points by lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_translated</span><span class="p">,</span><span class="n">y_translated</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Edit some settings </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Translation&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Linear_Transformations_Solutions_89_0.png" src="_images/Linear_Transformations_Solutions_89_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="discrete-dynamical-systems">
 <h3>Discrete Dynamical Systems<a class="headerlink" href="#discrete-dynamical-systems" title="Permalink to this headline">¶</a></h3>
@@ -1539,6 +1823,62 @@ RSL = \left[\begin{array}{rr} 0 &amp; -1 &amp; 3 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp;
 </div>
 </div>
 </div>
+<p><strong>Exercise 2:</strong> There are a total of <span class="math notranslate nohighlight">\(4\)</span> webpages in a web navigation model where page <span class="math notranslate nohighlight">\(1\)</span> links to all other pages, page <span class="math notranslate nohighlight">\(2\)</span> links to page <span class="math notranslate nohighlight">\(1\)</span>, page <span class="math notranslate nohighlight">\(3\)</span> links to page <span class="math notranslate nohighlight">\(2\)</span>, page <span class="math notranslate nohighlight">\(4\)</span> links to page <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span>. Create an adjacency matrix that describes the above link structure among the four pages. Use the Python function defined in the previous question to get the corresponding matrix used in the web navigation model. Given that  the browser starts the navigation at page <span class="math notranslate nohighlight">\(2\)</span>, predict the probability of browser vising each of the four pages after some large number of steps of navigation. Use your results to determine which page is most likely to be visited by the browser.</p>
+</div>
+<div class="section" id="id15">
+<h3>Solution:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>The adjacency matrix <span class="math notranslate nohighlight">\(A\)</span> describing the given link structure is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{ccccc} 
+0 &amp; 1 &amp; 0 &amp; 0  \\ 
+1 &amp; 0 &amp; 1 &amp; 1   \\
+1 &amp; 0 &amp; 0 &amp; 1  \\
+1 &amp; 0 &amp; 0 &amp; 0  \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Let us see what the corresponding matrix used in the web navigation looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">ConvertAdjacencyMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Browser starts navigation from page 2. So, the first vector to get multiplied with B is as follows:</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Here &#39;n&#39; represents the total number of steps of navigation</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">B</span><span class="nd">@X</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The vector representing probability of browser visiting each of the four pages is as follows: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B: 
+ [[0.         0.33333333 0.46666667 0.86666667]
+ [0.86666667 0.         0.06666667 0.06666667]
+ [0.06666667 0.33333333 0.         0.06666667]
+ [0.06666667 0.33333333 0.46666667 0.        ]] 
+
+The vector representing probability of browser visiting each of the four pages is as follows: 
+ [[0.34252669]
+ [0.31939502]
+ [0.14234875]
+ [0.19572954]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The computations show that page <span class="math notranslate nohighlight">\(1\)</span> is most likely to be visited by the browser.  This makes sense since page <span class="math notranslate nohighlight">\(1\)</span> has the most links to it.</p>
 </div>
 </div>
 </div>
