@@ -466,7 +466,7 @@ B = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 1 \\ 4 &amp; 1 &amp; 4 \\ 0 &amp; 
 AB =  \left[ \begin{array}{rrrr} 7 &amp; 4 &amp; 5 \\ 1 &amp; 6 &amp; 8 \\ 0 &amp; 5 &amp; 9 \\ -1 &amp; -1 &amp; -2 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<p>We see that <span class="math notranslate nohighlight">\((AB)_{23} = U\cdot V\)</span>, the dot product of the second row of <span class="math notranslate nohighlight">\(A\)</span> with the third row of <span class="math notranslate nohighlight">\(B\)</span>.  In general the entry <span class="math notranslate nohighlight">\((AB)_{ij}\)</span> will be the dot product of the <span class="math notranslate nohighlight">\(i\)</span>th row of <span class="math notranslate nohighlight">\(A\)</span> with the <span class="math notranslate nohighlight">\(j\)</span>th column of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>We see that <span class="math notranslate nohighlight">\((AB)_{23} = U\cdot V\)</span>, the dot product of the second row of <span class="math notranslate nohighlight">\(A\)</span> with the third column of <span class="math notranslate nohighlight">\(B\)</span>.  In general the entry <span class="math notranslate nohighlight">\((AB)_{ij}\)</span> will be the dot product of the <span class="math notranslate nohighlight">\(i\)</span>th row of <span class="math notranslate nohighlight">\(A\)</span> with the <span class="math notranslate nohighlight">\(j\)</span>th column of <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <p>Taking advantage of this connection, we could also write the definition of the dot product by viewing the vectors as <span class="math notranslate nohighlight">\(n\times 1\)</span> matrices, and making use of matrix transposes.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -751,6 +751,66 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Create a Python function named <span class="math notranslate nohighlight">\(\texttt{DifferenceMagnitude}\)</span> which takes two <span class="math notranslate nohighlight">\(n \times 1\)</span> vectors as arguments and returns the magnitude of their difference. Use this function to determine <span class="math notranslate nohighlight">\(|| X - Y||\)</span> where vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are given below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 3 \\ -1 \\ 2  \end{array}\right] \hspace{1cm} 
+Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Create a Python function which takes an <span class="math notranslate nohighlight">\(n \times 1\)</span> vector as its argument and returns the unit vector of the argument vector. Use the NumPy <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to generate a random <span class="math notranslate nohighlight">\(3 \times 1 \)</span> vector, and test this function on that vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Find a vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> such that <span class="math notranslate nohighlight">\(X\cdot Y = ||Y - X||\)</span> where the vector <span class="math notranslate nohighlight">\(X\)</span> is given below. Is the vector <span class="math notranslate nohighlight">\(Y\)</span> unique ? Verify your answer through a computation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 1 \\ 1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Create a Python function named <span class="math notranslate nohighlight">\(\texttt{Angle}\)</span> which takes two vectors as arguments and returns <span class="math notranslate nohighlight">\(\cos{\theta}\)</span> where <span class="math notranslate nohighlight">\({\theta}\)</span> is the angle between the two vectors. Use this function to show that vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U = \left[ \begin{array}{r} 1 \\ -1 \\ 2  \end{array}\right] \hspace{1cm} 
+W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Given that <span class="math notranslate nohighlight">\(||X+Y|| = 3\)</span>, <span class="math notranslate nohighlight">\(X\cdot Y = 2\)</span>, find <span class="math notranslate nohighlight">\(||X-Y||\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
 </pre></div>
 </div>
 </div>

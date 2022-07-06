@@ -398,6 +398,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution">
+   Solution:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Solution:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -480,22 +500,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6]
- [16]
- [16]
- [12]] 
-
-[[ 8]
- [10]
- [10]
- [10]] 
-
-[[16]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[17]
  [ 7]
- [ 7]
- [ 8]] 
+ [19]
+ [ 0]] 
 
-18 
+[[ 7]
+ [10]
+ [13]
+ [16]] 
+
+[[ 2]
+ [ 9]
+ [13]
+ [ 4]] 
+
+15 
 
 The dot product is commutative. 
 
@@ -616,6 +636,211 @@ Z = \left[ \begin{array}{r} -\frac{2\sqrt{5}}{5} \\ -\frac{\sqrt{5}}{5} \\ 0  \e
 </pre></div>
 </div>
 </div>
+</div>
+<p><strong>Exercise 4:</strong> Create a Python function named <span class="math notranslate nohighlight">\(\texttt{DifferenceMagnitude}\)</span> which takes two <span class="math notranslate nohighlight">\(n \times 1\)</span> vectors as arguments and returns the magnitude of their difference. Use this function to determine <span class="math notranslate nohighlight">\(|| X - Y||\)</span> where vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are given below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 3 \\ -1 \\ 2  \end{array}\right] \hspace{1cm} 
+Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building the function Difference Magnitude where X and y are two column vectors.</span>
+
+<span class="k">def</span> <span class="nf">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span>
+    <span class="n">diffMag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">diffMag</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">a53742fdcac1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span>
+
+<span class="nn">&lt;ipython-input-7-a53742fdcac1&gt;</span> in <span class="ni">DifferenceMagnitude</span><span class="nt">(X, Y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">diffMag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">diffMag</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+
+<span class="ne">NameError</span>: name &#39;sqrt&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the computations that <span class="math notranslate nohighlight">\(||X - Y|| = 3.714\)</span>.</p>
+<p><strong>Exercise 5:</strong> Create a Python function which takes an <span class="math notranslate nohighlight">\(n \times 1\)</span> vector as its argument and returns the unit vector of the argument vector. Use the NumPy <span class="math notranslate nohighlight">\(\texttt{random}\)</span> module to generate a random <span class="math notranslate nohighlight">\(3 \times 1 \)</span> vector, and test this function on that vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Creating the UnitVector function</span>
+
+<span class="k">def</span> <span class="nf">UnitVector</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">mag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">unitVect</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">mag</span>
+    
+    <span class="k">return</span> <span class="n">unitVect</span>
+
+<span class="c1">## Building a random vector</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The unit vector of X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">UnitVector</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
+ [[9]
+ [8]
+ [8]] 
+
+The unit vector of X: 
+ [[0.62254302]
+ [0.55337157]
+ [0.55337157]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Find a vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> such that <span class="math notranslate nohighlight">\(X\cdot Y = ||Y - X||\)</span> where the vector <span class="math notranslate nohighlight">\(X\)</span> is given below. Is the vector <span class="math notranslate nohighlight">\(Y\)</span> unique ? Verify your answer through a computation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 1 \\ 1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="solution">
+<h2>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p>Let us assume that the vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Y = \left[ \begin{array}{r} a \\ b  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> are some scalars.</p>
+<p>So, $<span class="math notranslate nohighlight">\(
+\begin{equation}
+Y  - X= \left[ \begin{array}{r} a - 1 \\ b - 1  \end{array}\right] 
+\end{equation}
+\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(||Y - X||^2 = (a-1)^2 + (b-1)^2 \)</span></p>
+<p><span class="math notranslate nohighlight">\(X\cdot Y = a + b\)</span></p>
+<p>As <span class="math notranslate nohighlight">\(X\cdot Y = ||Y - X||\)</span> , <span class="math notranslate nohighlight">\((X\cdot Y)^2 = ||Y - X||^2 \)</span>.</p>
+<p>So, <span class="math notranslate nohighlight">\( (a+b)^2 = (a - 1)^2 + (b-1)^2 \)</span></p>
+<p><span class="math notranslate nohighlight">\( a^2 + b^2 + 2ab = a^2 + 1 - 2a + b^2 + 1 - 2b\)</span></p>
+<p><span class="math notranslate nohighlight">\( 2ab = 2 - 2a - 2b\)</span></p>
+<p><span class="math notranslate nohighlight">\(2a + 2b + 2ab = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\( a + b + ab = 1\)</span></p>
+<p>The above equation is true for two possible set of real values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. First case is when <span class="math notranslate nohighlight">\(a = 0\)</span> and <span class="math notranslate nohighlight">\(b = 1\)</span>, and second case is when <span class="math notranslate nohighlight">\(a = 1\)</span> and <span class="math notranslate nohighlight">\(b = 0\)</span>.</p>
+<p>Therefore, we get two possible vectors <span class="math notranslate nohighlight">\(Y\)</span> which are as follows:</p>
+<p>So, $<span class="math notranslate nohighlight">\(
+\begin{equation}
+Y = \left[ \begin{array}{r} 1 \\ 0  \end{array}\right] \hspace{1cm} or \hspace{1cm}
+Y = \left[ \begin{array}{r} 0 \\ 1  \end{array}\right]
+\end{equation}
+\)</span>$</p>
+<p>This implies that the vector <span class="math notranslate nohighlight">\(Y\)</span> is not unique. We can verify our results in the code cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building vectors X and Y:</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">Y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">Y_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">dotProd1</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_1</span><span class="p">)</span>
+<span class="n">dotProd2</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_2</span><span class="p">)</span>
+
+<span class="n">diffMag1</span> <span class="o">=</span> <span class="n">DifferenceMagnitude</span><span class="p">(</span><span class="n">Y_1</span><span class="p">,</span> <span class="n">X</span> <span class="p">)</span>
+<span class="n">diffMag2</span> <span class="o">=</span> <span class="n">DifferenceMagnitude</span><span class="p">(</span><span class="n">Y_2</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product of X and Y_1 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dotProd1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of difference of Y_1 and X is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">diffMag1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product of X and Y_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dotProd2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of difference of Y_2 and X is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">diffMag2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product of X and Y_1 is: 
+ 1.0 
+
+The magnitude of difference of Y_1 and X is: 
+ 1.0 
+
+Dot product of X and Y_2 is: 
+ 1.0 
+
+The magnitude of difference of Y_2 and X is: 
+ 1.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The computations done in the above code cell demonstrate that the vector <span class="math notranslate nohighlight">\(Y\)</span> is not unique.</p>
+<p><strong>Exercise 7:</strong> Create a Python function named <span class="math notranslate nohighlight">\(\texttt{Angle}\)</span> which takes two vectors as arguments and returns <span class="math notranslate nohighlight">\(\cos{\theta}\)</span> where <span class="math notranslate nohighlight">\({\theta}\)</span> is the angle between the two vectors. Use this function to show that vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U = \left[ \begin{array}{r} 1 \\ -1 \\ 2  \end{array}\right] \hspace{1cm} 
+W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the function Angle</span>
+
+<span class="k">def</span> <span class="nf">Angle</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
+    <span class="n">dotProd</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+    <span class="n">magX</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+    <span class="n">magY</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span>
+    <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">dotProd</span><span class="o">/</span><span class="p">(</span><span class="n">magX</span><span class="o">*</span><span class="n">magY</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">cos_theta</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Angle</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that <span class="math notranslate nohighlight">\(\cos{\theta} = 0\)</span> for vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> which means that <span class="math notranslate nohighlight">\(\theta = 90^{\circ}\)</span>. This implies that <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal vectors.</p>
+<p><strong>Exercise 8:</strong> Given that <span class="math notranslate nohighlight">\(||X+Y|| = 3\)</span>, <span class="math notranslate nohighlight">\(X\cdot Y = 2\)</span>, find <span class="math notranslate nohighlight">\(||X-Y||\)</span>.</p>
+</div>
+<div class="section" id="id1">
+<h2>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>We know that <span class="math notranslate nohighlight">\(||X + Y||^2 = (X+Y)\cdot (X+Y)\)</span></p>
+<p><span class="math notranslate nohighlight">\(||X + Y||^2 = ||X||^2 + ||Y||^2 + 2X\cdot Y\)</span></p>
+<p>Given <span class="math notranslate nohighlight">\(||X + Y||\)</span> and <span class="math notranslate nohighlight">\(X\cdot Y\)</span>,we can find <span class="math notranslate nohighlight">\(||X||^2  + ||Y||^2\)</span> as follows:</p>
+<p><span class="math notranslate nohighlight">\( (3)^2 = ||X||^2 + ||Y||^2 + 2(2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(||X||^2 + ||Y||^2 = 5\)</span></p>
+<p>Now, <span class="math notranslate nohighlight">\(||X - Y||^2 = (X-Y)\cdot (X-Y)\)</span></p>
+<p><span class="math notranslate nohighlight">\(||X - Y||^2 = ||X||^2 + ||Y||^2 - 2X\cdot Y\)</span></p>
+<p>We can now substitute the values for <span class="math notranslate nohighlight">\(||X||^2 + ||Y||^2\)</span> and <span class="math notranslate nohighlight">\(X\cdot Y\)</span> to get:</p>
+<p><span class="math notranslate nohighlight">\(||X - Y||^2 = 5 - 2(2)\)</span></p>
+<p><span class="math notranslate nohighlight">\(||X - Y||^2 = 1\)</span></p>
+<p>Therefore, <span class="math notranslate nohighlight">\(||X - Y|| = 1\)</span></p>
 </div>
 </div>
 
