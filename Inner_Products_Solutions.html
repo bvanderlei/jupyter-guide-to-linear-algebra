@@ -414,6 +414,33 @@
    Solution:
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonalization">
+   Orthogonalization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -500,22 +527,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[17]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[15]
  [ 7]
- [19]
- [ 0]] 
+ [ 6]
+ [11]] 
 
-[[ 7]
+[[14]
  [10]
- [13]
- [16]] 
+ [17]
+ [ 5]] 
 
-[[ 2]
- [ 9]
- [13]
- [ 4]] 
+[[15]
+ [17]
+ [ 5]
+ [ 6]] 
 
-15 
+11 
 
 The dot product is commutative. 
 
@@ -841,6 +868,368 @@ W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right]
 <p><span class="math notranslate nohighlight">\(||X - Y||^2 = 5 - 2(2)\)</span></p>
 <p><span class="math notranslate nohighlight">\(||X - Y||^2 = 1\)</span></p>
 <p>Therefore, <span class="math notranslate nohighlight">\(||X - Y|| = 1\)</span></p>
+</div>
+<div class="section" id="orthogonalization">
+<h2>Orthogonalization<a class="headerlink" href="#orthogonalization" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 4:</strong> Find a vector that is orthogonal to the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} 1 &amp; 2\\ 2 &amp; 0 \\ 3 &amp; 1\end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="id2">
+<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Since there is a pivot in each column of the matrix <span class="math notranslate nohighlight">\(A\)</span>, the basis for the column space of <span class="math notranslate nohighlight">\(A\)</span> consists of the two column vectors.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 3 \end{array}\right] \hspace{1cm}
+X_2 = \left[ \begin{array}{r} 2 \\ 0 \\ 1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>Then the basis for the column space of <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>. Let us consider a vector <span class="math notranslate nohighlight">\(Y\)</span> which is orthogonal to vectors <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span>. This means that <span class="math notranslate nohighlight">\(X_1\cdot Y = 0\)</span> and <span class="math notranslate nohighlight">\(X_2\cdot Y=0\)</span>.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Y = \left[ \begin{array}{r} a \\ b \\ c \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span> are some scalars.</p>
+<p>The conditions <span class="math notranslate nohighlight">\(X_1\cdot Y = 0\)</span> and <span class="math notranslate nohighlight">\(X_2\cdot Y=0\)</span> gives a system of equations to solve:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+a + 2b + 3c &amp; = &amp; 0\\
+2a\,\,\,\,\,\,\,\,\,\,\,\,\, + c &amp; = &amp; 0\\ 
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(c\)</span> is a free variable we let <span class="math notranslate nohighlight">\(c = t\)</span>, where <span class="math notranslate nohighlight">\(t\)</span> is some real number.  From the above two equations, we can then find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> in terms of <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a = -t/2\)</span>  and <span class="math notranslate nohighlight">\(b = -5t/4\)</span>.</p>
+<p>Therefore, the vector <span class="math notranslate nohighlight">\(Y\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Y = t\left[ \begin{array}{r} -1/2 \\ -5/4 \\ 1 \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p>So, one particular vector orthogonal to the column space of <span class="math notranslate nohighlight">\(A\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[ \begin{array}{r} -1/2 \\ -5/4 \\ 1 \end{array}\right] \hspace{1cm} 
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(U = \texttt{Span}\{v_1,v_2\}\)</span> where <span class="math notranslate nohighlight">\(v_1\)</span>, <span class="math notranslate nohighlight">\(v_2\)</span> are given below. Perform the Gram-Schimdt orthogonalization to produce an orthonormal basis <span class="math notranslate nohighlight">\(\{u_1,u_2\}\)</span> for <span class="math notranslate nohighlight">\(U\)</span> and verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+v_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
+v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id3">
+<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\{w_1,w_2\}\)</span> be an orthogonal basis for <span class="math notranslate nohighlight">\(U\)</span>. We would first go about producing an orthogonal basis for <span class="math notranslate nohighlight">\(U\)</span>. We can then scale the orthogonal vectors to produce an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Generating the orthogonal vectors w_1 and w_2:</span>
+
+<span class="n">v_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">v_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="n">w_1</span> <span class="o">=</span> <span class="n">v_1</span> 
+<span class="n">w_2</span> <span class="o">=</span> <span class="n">v_2</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">v_2</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_1</span><span class="p">))</span><span class="o">*</span><span class="n">w_1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">w_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w_2:  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Generating the orthonormal vectors by scaling the orthogonal vectors:</span>
+
+<span class="n">u_1</span> <span class="o">=</span> <span class="n">w_1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span><span class="n">w_1</span><span class="p">))</span>
+<span class="n">u_2</span> <span class="o">=</span> <span class="n">w_2</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span><span class="n">w_2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">u_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u_2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">u_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verifying that u_1 and u_2 are orthonormal.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dot product of u_1 and u_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_1</span><span class="p">,</span><span class="n">u_2</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_1 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_1</span><span class="p">,</span><span class="n">u_1</span><span class="p">)),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_2</span><span class="p">,</span><span class="n">u_2</span><span class="p">)),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w_1: 
+ [[1]
+ [1]
+ [2]] 
+
+w_2:  
+ [[ 0.5]
+ [-0.5]
+ [ 0. ]] 
+
+u_1: 
+ [[0.40824829]
+ [0.40824829]
+ [0.81649658]] 
+
+u_2: 
+ [[ 0.70710678]
+ [-0.70710678]
+ [ 0.        ]] 
+
+The dot product of u_1 and u_2 is: 
+ 0.0 
+
+The magnitude of u_1 is: 
+ 1.0 
+
+The magnitude of u_2 is: 
+ 1.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(v\)</span> be a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Explain why the set of vectors orthogonal to <span class="math notranslate nohighlight">\(v\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+</div>
+<div class="section" id="id4">
+<h3>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(U\)</span> be the set of all vectors which are orthogonal to the vector <span class="math notranslate nohighlight">\(v\)</span>. Let us consider two vectors <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> in <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>The vectors <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+v = \left[ \begin{array}{r} v_1 \\ v_2 \\ v_3 \\ v_4 \end{array}\right] \hspace{1cm}
+x = \left[ \begin{array}{r}  x_1 \\ x_2 \\ x_3 \\ x_4 \end{array}\right] \hspace{1cm}
+y = \left[ \begin{array}{r}  y_1 \\ y_2 \\ y_3 \\ y_4 \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<p>where all the enteries are some scalars.</p>
+<p>Since vectors <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are in <span class="math notranslate nohighlight">\(U\)</span>, the vectors <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> need to be orthogonal to the vector <span class="math notranslate nohighlight">\(v\)</span>. This basically means that <span class="math notranslate nohighlight">\(x\cdot v = 0\)</span> and <span class="math notranslate nohighlight">\(y\cdot v = 0\)</span>.</p>
+<p>So, <span class="math notranslate nohighlight">\(x_1v_1 + x_2v_2 +x_3v_3 + x_4v_4 = 0\)</span> ,</p>
+<p><span class="math notranslate nohighlight">\(y_1v_1 + y_2v_2 +y_3v_3 + y_4v_4 = 0\)</span>.</p>
+<p>On adding the two equations, we get</p>
+<p><span class="math notranslate nohighlight">\((x_1 + y_1)v_1 + (x_2 + y_2)v_2 + (x_3 + y_3)v_3 + (x_4 + y_4)v_4 = 0\)</span></p>
+<p>The <em>LHS</em> is actually the dot product of vector <span class="math notranslate nohighlight">\((x+y)\)</span> with <span class="math notranslate nohighlight">\(v\)</span> and since the dot product of vector <span class="math notranslate nohighlight">\((x + y)\)</span> with <span class="math notranslate nohighlight">\(v\)</span> equals 0, <span class="math notranslate nohighlight">\((x+y)\)</span> is also in <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>On multiplying the equation <span class="math notranslate nohighlight">\(x_1v_1 + x_2v_2 +x_3v_3 + x_4v_4 = 0\)</span> by <span class="math notranslate nohighlight">\(k\)</span> on both sides, we get:</p>
+<p><span class="math notranslate nohighlight">\(kx_1v_1 + kx_2v_2 + kx_3v_3 + kx_4v_4 = k(0) = 0\)</span></p>
+<p>The <em>LHS</em> of the above equation is basically the dot product of <span class="math notranslate nohighlight">\(kx\)</span> and <span class="math notranslate nohighlight">\(v\)</span> which also equals zero. Therefore, <span class="math notranslate nohighlight">\(kx\)</span> is orthogonal to <span class="math notranslate nohighlight">\(v\)</span> and hence, <span class="math notranslate nohighlight">\(kx\)</span> is also present in <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>This imples that for any two vectors <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> in <span class="math notranslate nohighlight">\(U\)</span>, vectors <span class="math notranslate nohighlight">\((x+y)\)</span> and <span class="math notranslate nohighlight">\(kx\)</span> are also present in <span class="math notranslate nohighlight">\(U\)</span>. This satisfies the condition for a subspace and therefore, <span class="math notranslate nohighlight">\(U\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<p><strong>Exercise 7:</strong> Given vectors <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span>, find vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(X\)</span> is the projection of <span class="math notranslate nohighlight">\(V\)</span> in the direction of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(V = X + Y\)</span>. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V = \left[ \begin{array}{r} 
+9\\ 5 \\ 0 \end{array}\right] \hspace{1cm}
+W = \left[ \begin{array}{r} 3 \\ 0 \\ 3 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building vectors V and W:</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">],[</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">5</span><span class="p">]])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">W</span><span class="p">))</span><span class="o">*</span><span class="n">W</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">V</span> <span class="o">-</span> <span class="n">X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Verifying if X and Y are orthogonal to each other.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dot product of X and Y is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span> <span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
+ [[2.38235294]
+ [0.        ]
+ [3.97058824]] 
+
+Y: 
+ [[ 6.61764706]
+ [ 5.        ]
+ [-3.97058824]] 
+
+The dot product of X and Y is: 
+ 0.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a vector space spanned by the columns of <span class="math notranslate nohighlight">\(A\)</span>. Find an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span> to generate an orthogonal matrix <span class="math notranslate nohighlight">\(Q\)</span>. Verify that <span class="math notranslate nohighlight">\(Q^TQ = I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{r} 1 &amp; 2 &amp; -1\\ 0 &amp; 2 &amp; 1 \\  1 &amp; 1 &amp; 2 \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrix A</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">A_red</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_red</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the above code cell that there is a pivot in each column of <span class="math notranslate nohighlight">\(A\)</span>. Therefore, the column vectors of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent. As <span class="math notranslate nohighlight">\(U\)</span> is spanned by the columns of <span class="math notranslate nohighlight">\(A\)</span> and the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent, we can say that the columns of <span class="math notranslate nohighlight">\(A\)</span> are a basis for the vector space <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_1 = \left[ \begin{array}{r} 1\\ 0 \\ 1 \end{array}\right] \hspace{1cm}
+x_2 = \left[ \begin{array}{r} 2 \\ 2 \\ 1 \end{array}\right] \hspace{1cm}
+x_3 = \left[ \begin{array}{r} -1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
+\end{equation}
+\end{split}\]</div>
+<p>Then, <span class="math notranslate nohighlight">\(U = \texttt{Span}\{x_1,x_2,x_3\}\)</span>. Now, we can perform <strong>Gram-Schimdt</strong> orthogonalization on the bases vectors <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, and <span class="math notranslate nohighlight">\(x_3\)</span> to get the orthonormal vectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## building the vectors X_1, X_2, X_3:</span>
+
+<span class="n">X_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
+
+<span class="c1">## Let the orthogonal vectors be W_1, W_2, W_3:</span>
+
+<span class="n">W_1</span> <span class="o">=</span> <span class="n">X_1</span>
+<span class="n">W_2</span> <span class="o">=</span> <span class="n">X_2</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X_2</span><span class="p">,</span> <span class="n">W_1</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span> <span class="n">W_1</span><span class="p">))</span><span class="o">*</span><span class="n">W_1</span>
+<span class="n">W_3</span> <span class="o">=</span> <span class="n">X_3</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X_3</span><span class="p">,</span> <span class="n">W_1</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span> <span class="n">W_1</span><span class="p">))</span><span class="o">*</span><span class="n">W_1</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X_3</span><span class="p">,</span> <span class="n">W_2</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span><span class="o">*</span><span class="n">W_2</span>
+
+<span class="c1">## Let the orthonormal vectors be U_1, U_2, U_3</span>
+
+<span class="n">U_1</span> <span class="o">=</span> <span class="n">W_1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span> <span class="n">W_1</span><span class="p">))</span>
+<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span>
+<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_3</span><span class="p">,</span> <span class="n">W_3</span><span class="p">))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_3: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Stacking the orthonormal vectors in a matrix to get the orthogonal matrix Q:</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span> <span class="n">U_3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1">## Verification:</span>
+<span class="n">Q_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q_T@Q: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q_T</span><span class="nd">@Q</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>U_1: 
+ [[0.70710678]
+ [0.        ]
+ [0.70710678]] 
+
+U_2: 
+ [[ 0.23570226]
+ [ 0.94280904]
+ [-0.23570226]] 
+
+U_3: 
+ [[-0.66666667]
+ [ 0.33333333]
+ [ 0.66666667]] 
+
+Q: 
+ [[ 0.70710678  0.23570226 -0.66666667]
+ [ 0.          0.94280904  0.33333333]
+ [ 0.70710678 -0.23570226  0.66666667]] 
+
+Q_T@Q: 
+ [[ 1. -0. -0.]
+ [-0.  1. -0.]
+ [-0. -0.  1.]] 
+
+I: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above code cell, we used <strong>Gram-Schimdt</strong> Orthogonalization to generate a set of orthonormal bases i.e <span class="math notranslate nohighlight">\(\{U_1,U_2,U_3\}\)</span>. Then, we can generate a matrix <span class="math notranslate nohighlight">\(Q\)</span> which contains the orthonormal vectors as its columns. We have also verified that <span class="math notranslate nohighlight">\(Q^TQ = I\)</span>.</p>
+<p><strong>Exercise 9:</strong> Consider two vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. Given that <span class="math notranslate nohighlight">\(Z\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> in the direction of <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X \cdot Y = 6\)</span>, find <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r} 2\\ 1 \\ 1 \end{array}\right] \hspace{1cm}
+Z = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+</div>
+<div class="section" id="id5">
+<h3>Solution:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>We have been given that the vector <span class="math notranslate nohighlight">\(Z\)</span> is in the direction of vector <span class="math notranslate nohighlight">\(Y\)</span>. Therefore, the angle between the vector <span class="math notranslate nohighlight">\(X\)</span> and the vector <span class="math notranslate nohighlight">\(Z\)</span> is same as the angle between the vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>The angle between the vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\cos{\theta} = \frac{X\cdot Z}{||X||||Z||} = \frac{3}{\sqrt{2} \sqrt{6}} = \frac{\sqrt{3}}{2}
+\end{equation}
+\]</div>
+<p>Hence, <span class="math notranslate nohighlight">\(\theta = 30^{\circ}\)</span> and this is also the angle between vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\cos{30^{\circ}} = \frac{X\cdot Y}{||X||||Y||} = \frac{6}{\sqrt{6}||Y||} = \frac{\sqrt{3}}{2}
+\end{equation}
+\]</div>
+<p>From here, we can get <span class="math notranslate nohighlight">\(||Y||\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+||Y|| = \frac{2\sqrt{6}}{\sqrt{3}} = 2\sqrt{2}
+\end{equation}
+\]</div>
+<p>Now, let us find  unit vector in the direction of <span class="math notranslate nohighlight">\(Y\)</span>. Unit vector in the direction of <span class="math notranslate nohighlight">\(Z\)</span> is also the unit vector in the direction of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\hat{Y} =  \frac{Z}{||Z||}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\hat{Y} = \left[ \begin{array}{r} \frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}} \\ 0 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p>Therefore, the vector <span class="math notranslate nohighlight">\(Y\)</span> is as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Y = \hat{Y}||Y|| = 2\sqrt{2}\left[ \begin{array}{r} \frac{1}{\sqrt{2}}\\ \frac{1}{\sqrt{2}} \\ 0 \end{array}\right] =  
+\left[ \begin{array}{r} 2 \\ 2 \\ 0 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+</div>
 </div>
 </div>
 
