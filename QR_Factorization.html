@@ -599,7 +599,7 @@ QR
 </div>
 <div class="section" id="qr-factorization-function">
 <h2>QR factorization function<a class="headerlink" href="#qr-factorization-function" title="Permalink to this headline">¶</a></h2>
-<p>It is helpful to write some code in a more general way so that we may easily carry out the factorization an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requirement with a comment in the code.</p>
+<p>It is helpful to write some code in a more general way so that we may easily carry out the factorization on an arbitrary matrix with linearly independent columns.  We will include in our function a simple check of the dimensions of the input matrix.  If the number of columns is greater than the number of rows, the columns cannot be linearly independent since the number of columns exceeds the dimension of the column space.  If this is the case, we will return an error message and not carry out any computations.  If the number of columns is not greater than the number of rows, we will leave it to the user of the function to check that the columns are linearly independent.  We can document this requirement with a comment in the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
@@ -762,9 +762,8 @@ SciPy R
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Carry out the Gram-Schmidt algorithm on the following set of vectors to produce an orthonormal set <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span>.  <strong>Do not</strong> use the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the SciPy <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Carry out the Gram-Schmidt algorithm on the following set of vectors to produce an orthonormal set <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span>.  <strong>Do not</strong> use the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the SciPy <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -780,9 +779,7 @@ V_3 = \left[ \begin{array}{r} 2 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Check your results by verifying that <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is an orthonormal set and that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> equals the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.  (Reread <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">Linear_Combinations</span></a> if you are unsure how to verify the two spans are equal.)</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Check your results by verifying that <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is an orthonormal set and that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> equals the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.  (Reread <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">Linear_Combinations</span></a> if you are unsure how to verify the two spans are equal.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -790,9 +787,7 @@ V_3 = \left[ \begin{array}{r} 2 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Check your results against those obtained using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(c\)</span>) Check your results against those obtained using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -800,10 +795,9 @@ V_3 = \left[ \begin{array}{r} 2 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Predict what will happen if we attempt to find the QR factorization of matrix with <em>linearly dependent</em> columns.</p></li>
-<li><p>Try to compute the QR factorization on the following matrix with <em>linearly dependent</em> columns.  Try both the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Predict what will happen if we attempt to find the QR factorization of matrix with <em>linearly dependent</em> columns.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Try to compute the QR factorization on the following matrix with <em>linearly dependent</em> columns.  Try both the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -823,6 +817,65 @@ B = \left[ \begin{array}{rrr}
 </div>
 </div>
 </div>
+<p><strong>Exercise 3:</strong> If possible, find the <span class="math notranslate nohighlight">\(QR\)</span> factorization of the matrix <span class="math notranslate nohighlight">\(A\)</span>. Try to find the matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> without using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section, then check your result by verifying that <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 
+1 &amp; 3 &amp; 0 &amp; 2  \\ 
+0 &amp; 1 &amp; 2 &amp; 1 \\ 
+2 &amp; 1 &amp; 2 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 3 \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Are all matrices which have <span class="math notranslate nohighlight">\(QR\)</span> factorization invertible? Explain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Use the <span class="math notranslate nohighlight">\(QR\)</span> factorization of <span class="math notranslate nohighlight">\(A\)</span> to solve the given linear system <span class="math notranslate nohighlight">\(AX = B\)</span>, and verify the solution.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrrr} 
+1 &amp; 2 &amp; 3  \\ 
+0 &amp; 3 &amp; 2  \\ 
+1 &amp; 1 &amp; 4  \\
+\end{array}\right]
+\quad\quad
+X = 
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\  \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are two <span class="math notranslate nohighlight">\(n \times n\)</span> matrices.</p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Given that the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization, prove that the matrix <span class="math notranslate nohighlight">\(A\)</span> also has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Can you think of matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that <span class="math notranslate nohighlight">\(B\)</span> has linearly dependent columns  but the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization? Explain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n \times n\)</span> invertible matrix, explain why <span class="math notranslate nohighlight">\(A^TA\)</span> is also invertible.</p>
 </div>
 </div>
 

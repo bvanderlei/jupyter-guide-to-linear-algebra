@@ -468,8 +468,8 @@ V = \left[ \begin{array}{r} a \\ b \\ 0 \\ 0 \end{array}\right] \hspace{1.5cm}
 W = \left[ \begin{array}{r} 0 \\ 0 \\ 0 \\ c \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>A closely related idea is that of orthogonal complements.  If <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, the <strong>orthogonal complement</strong> of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the set of all vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> that are orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is also a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and is given the symbol <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.</p>
-<p>In the previous example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are not orthogonal complements.  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_3, E_4\}\)</span> and the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_1, E_2\}\)</span>.</p>
+<p>A closely related idea is that of orthogonal complements.  If <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, the <strong>orthogonal complement</strong> of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the set of all vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> that are orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  The orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is also a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> and is given the symbol <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.</p>
+<p>In the previous example, the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_3, E_4\}\)</span> and the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> is the span of <span class="math notranslate nohighlight">\(\{E_1, E_2, E_3\}\)</span>.</p>
 <p>If the bases elements are not standard, we can determine if <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal, or orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, by examining the elements of their bases.  If <span class="math notranslate nohighlight">\(\alpha\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal if every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span>.  If every vector in <span class="math notranslate nohighlight">\(\alpha\)</span> is orthogonal to every vector in <span class="math notranslate nohighlight">\(\beta\)</span> <em>and</em> the combined set of vectors in <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> forms a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal complements in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.</p>
 <div class="section" id="example-1-orthogonal-subspaces">
 <h2>Example 1:  Orthogonal subspaces<a class="headerlink" href="#example-1-orthogonal-subspaces" title="Permalink to this headline">¶</a></h2>
@@ -481,7 +481,7 @@ V_1 = \left[ \begin{array}{r} 3 \\ 1 \\ 2  \end{array}\right] \hspace{1cm}
 W_1 = \left[ \begin{array}{r} -1 \\ 1 \\ 1  \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
-<p>In order to verify that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces, we have to show that any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is orthogonal to any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>.  In this example, the subspaces are really just orthogonal lines in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> can be written as <span class="math notranslate nohighlight">\(V=aV_2\)</span> for some scalar <span class="math notranslate nohighlight">\(a\)</span>, and any vector <span class="math notranslate nohighlight">\(W\)</span> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> can be written as <span class="math notranslate nohighlight">\(W=bW_1\)</span> for some scalar <span class="math notranslate nohighlight">\(b\)</span>.  Then by the properties of the dot product we have <span class="math notranslate nohighlight">\(V\cdot W = (aV_1)\cdot(bW_1) = ab(V_1\cdot W_1) = 0\)</span>.  This shows that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces.</p>
+<p>In order to verify that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces, we have to show that any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is orthogonal to any arbitrary vector in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>.  In this example, the subspaces are really just orthogonal lines in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> can be written as <span class="math notranslate nohighlight">\(V=aV_1\)</span> for some scalar <span class="math notranslate nohighlight">\(a\)</span>, and any vector <span class="math notranslate nohighlight">\(W\)</span> in <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> can be written as <span class="math notranslate nohighlight">\(W=bW_1\)</span> for some scalar <span class="math notranslate nohighlight">\(b\)</span>.  Then by the properties of the dot product we have <span class="math notranslate nohighlight">\(V\cdot W = (aV_1)\cdot(bW_1) = ab(V_1\cdot W_1) = 0\)</span>.  This shows that <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> are orthogonal subspaces.</p>
 <p>The two spaces <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> in this example are not orthogonal complements since <span class="math notranslate nohighlight">\(\{V_1, W_1\}\)</span> do not form a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.  Any basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> must contain exactly three vectors.</p>
 </div>
 <div class="section" id="example-2-orthogonal-complements">
@@ -638,9 +638,7 @@ X = \left[ \begin{array}{r} -t \\ 0 \\ t \\ 2t \end{array}\right]
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Let <span class="math notranslate nohighlight">\(B\)</span> be the following <span class="math notranslate nohighlight">\(4\times 3\)</span>.  Find bases <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, the row space and null space of <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(B\)</span> be the following <span class="math notranslate nohighlight">\(4\times 3\)</span> matrix.  Find bases for <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, the row space and null space of <span class="math notranslate nohighlight">\(B\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -654,9 +652,7 @@ B = \left[ \begin{array}{rrr} 4 &amp; -3 &amp; -2  \\ 2 &amp; 0 &amp; 2 \\ 0 &am
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Using the matrix <span class="math notranslate nohighlight">\(B\)</span> and the bases from the previous exercise, determine vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, and <span class="math notranslate nohighlight">\(P+E = X\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the following vector.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Using the matrix <span class="math notranslate nohighlight">\(B\)</span> and the bases from the previous exercise, determine vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, and <span class="math notranslate nohighlight">\(P+E = X\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the following vector.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -670,9 +666,7 @@ X = \left[ \begin{array}{r}1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix in <strong>Example 3</strong>.  Find bases for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the column space and left null space of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix in <strong>Example 3</strong>.  Find bases for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the column space and left null space of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -681,9 +675,7 @@ X = \left[ \begin{array}{r}1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> with basis <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 4:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> with basis <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -695,6 +687,78 @@ W_3 = \left[ \begin{array}{r} 0 \\ 1 \\ 1 \\ 1 \\ 2 \end{array}\right]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> be the subspaces of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> where <span class="math notranslate nohighlight">\(U\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span> and <span class="math notranslate nohighlight">\(W\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_3,V_4\}\)</span>. Determine whether <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 1 \end{array}\right]\hspace{0.7cm}  
+V_2 = \left[ \begin{array}{r} 1 \\ -1 \\ 2 \\ 0 \end{array}\right]\hspace{0.7cm} 
+V_3 = \left[ \begin{array}{r} -1 \\ 1 \\ 1 \\ -1 \end{array}\right]\hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} -2 \\ 0 \\ 1 \\ 0 \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Find vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(B = P + E\)</span>. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} 1 &amp; 2\\ 2 &amp; 1\\ 2 &amp; -2\end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{rr} 1 \\ 1 \\ 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> be a basis for subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(\{X_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(W\)</span>. Find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for which subspaces <span class="math notranslate nohighlight">\(U\)</span> are <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} b \\ a \\ 2  \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ -3 \\ 3  \end{array}\right]\hspace{0.7cm} 
+X_3 = \left[ \begin{array}{r} 3 \\ b \\ a \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and it has <span class="math notranslate nohighlight">\(3\)</span> vectors in its basis. Can you determine the number of vectors in the basis of <span class="math notranslate nohighlight">\(U^{\perp}\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 9:</strong> Given that the subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> is the span of <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> , decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 1 \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ 2 \\ 3 \end{array}\right]\hspace{0.7cm} 
+V = \left[ \begin{array}{r} -1 \\ 0 \\ 8 \end{array}\right]\hspace{0.7cm} 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
 </pre></div>
 </div>
 </div>

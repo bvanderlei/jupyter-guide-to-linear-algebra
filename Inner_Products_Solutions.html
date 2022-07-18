@@ -441,6 +441,28 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qr-factorization">
+   QR Factorization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -527,22 +549,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[15]
- [ 7]
- [ 6]
- [11]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[13]
+ [ 5]
+ [15]
+ [14]] 
+
+[[ 3]
+ [ 0]
+ [ 4]
+ [10]] 
 
 [[14]
+ [19]
  [10]
- [17]
- [ 5]] 
+ [ 8]] 
 
-[[15]
- [17]
- [ 5]
- [ 6]] 
-
-11 
+15 
 
 The dot product is commutative. 
 
@@ -678,7 +700,7 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 
 <span class="k">def</span> <span class="nf">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span>
-    <span class="n">diffMag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
+    <span class="n">diffMag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">diffMag</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
@@ -689,21 +711,7 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">a53742fdcac1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">))</span>
-
-<span class="nn">&lt;ipython-input-7-a53742fdcac1&gt;</span> in <span class="ni">DifferenceMagnitude</span><span class="nt">(X, Y)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">DifferenceMagnitude</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">Y</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">diffMag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">Z</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">diffMag</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-
-<span class="ne">NameError</span>: name &#39;sqrt&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7416573867739413
 </pre></div>
 </div>
 </div>
@@ -715,7 +723,7 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Creating the UnitVector function</span>
 
 <span class="k">def</span> <span class="nf">UnitVector</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
-    <span class="n">mag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">mag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">X</span><span class="p">))</span>
     <span class="n">unitVect</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">mag</span>
     
     <span class="k">return</span> <span class="n">unitVect</span>
@@ -729,14 +737,14 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
- [[9]
- [8]
- [8]] 
+ [[3]
+ [9]
+ [4]] 
 
 The unit vector of X: 
- [[0.62254302]
- [0.55337157]
- [0.55337157]] 
+ [[0.29138576]
+ [0.87415728]
+ [0.38851434]] 
 </pre></div>
 </div>
 </div>
@@ -833,8 +841,8 @@ W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right]
 
 <span class="k">def</span> <span class="nf">Angle</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">):</span>
     <span class="n">dotProd</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-    <span class="n">magX</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
-    <span class="n">magY</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span>
+    <span class="n">magX</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">))</span>
+    <span class="n">magY</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span>
     <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">dotProd</span><span class="o">/</span><span class="p">(</span><span class="n">magX</span><span class="o">*</span><span class="n">magY</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">cos_theta</span>
@@ -949,8 +957,8 @@ v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
 
 <span class="c1"># Generating the orthonormal vectors by scaling the orthogonal vectors:</span>
 
-<span class="n">u_1</span> <span class="o">=</span> <span class="n">w_1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span><span class="n">w_1</span><span class="p">))</span>
-<span class="n">u_2</span> <span class="o">=</span> <span class="n">w_2</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span><span class="n">w_2</span><span class="p">))</span>
+<span class="n">u_1</span> <span class="o">=</span> <span class="n">w_1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span><span class="n">w_1</span><span class="p">))</span>
+<span class="n">u_2</span> <span class="o">=</span> <span class="n">w_2</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span><span class="n">w_2</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">u_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u_2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">u_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -958,8 +966,8 @@ v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
 <span class="c1"># Verifying that u_1 and u_2 are orthonormal.</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dot product of u_1 and u_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_1</span><span class="p">,</span><span class="n">u_2</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_1 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_1</span><span class="p">,</span><span class="n">u_1</span><span class="p">)),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_2</span><span class="p">,</span><span class="n">u_2</span><span class="p">)),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_1 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_1</span><span class="p">,</span><span class="n">u_1</span><span class="p">)),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The magnitude of u_2 is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">u_2</span><span class="p">,</span><span class="n">u_2</span><span class="p">)),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1120,9 +1128,9 @@ x_3 = \left[ \begin{array}{r} -1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
 
 <span class="c1">## Let the orthonormal vectors be U_1, U_2, U_3</span>
 
-<span class="n">U_1</span> <span class="o">=</span> <span class="n">W_1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span> <span class="n">W_1</span><span class="p">))</span>
-<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span>
-<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_3</span><span class="p">,</span> <span class="n">W_3</span><span class="p">))</span>
+<span class="n">U_1</span> <span class="o">=</span> <span class="n">W_1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span> <span class="n">W_1</span><span class="p">))</span>
+<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span>
+<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_3</span><span class="p">,</span> <span class="n">W_3</span><span class="p">))</span>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1165,8 +1173,9 @@ Q:
  [[ 0.70710678  0.23570226 -0.66666667]
  [ 0.          0.94280904  0.33333333]
  [ 0.70710678 -0.23570226  0.66666667]] 
-
-Q_T@Q: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q_T@Q: 
  [[ 1. -0. -0.]
  [-0.  1. -0.]
  [-0. -0.  1.]] 
@@ -1229,6 +1238,337 @@ Y = \hat{Y}||Y|| = 2\sqrt{2}\left[ \begin{array}{r} \frac{1}{\sqrt{2}}\\ \frac{1
 \left[ \begin{array}{r} 2 \\ 2 \\ 0 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
+</div>
+</div>
+<div class="section" id="qr-factorization">
+<h2>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Carry out the Gram-Schmidt algorithm on the following set of vectors to produce an orthonormal set <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span>.  <strong>Do not</strong> use the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the SciPy <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 0 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 1 \\ 1 \\ 1 \\ 1 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 2 \\ 2 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Check your results by verifying that <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> is an orthonormal set and that the span of <span class="math notranslate nohighlight">\(\{U_1, U_2, U_3\}\)</span> equals the span of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>.  (Reread <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">Linear_Combinations</span></a> if you are unsure how to verify the two spans are equal.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<span class="math notranslate nohighlight">\(c\)</span>) Check your results against those obtained using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Predict what will happen if we attempt to find the QR factorization of matrix with <em>linearly dependent</em> columns.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Try to compute the QR factorization on the following matrix with <em>linearly dependent</em> columns.  Try both the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section or the <span class="math notranslate nohighlight">\(\texttt{qr}\)</span> function from SciPy.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrr} 
+1 &amp; 3 &amp; -1  \\ 
+0 &amp; -1 &amp; 1  \\ 
+2 &amp; 2 &amp; 2  \\
+1 &amp; 1 &amp; 1  \\
+1 &amp; 0 &amp; 2  \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> If possible, find the <span class="math notranslate nohighlight">\(QR\)</span> factorization of the matrix <span class="math notranslate nohighlight">\(A\)</span>. Try to find the matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> without using the <span class="math notranslate nohighlight">\(\texttt{QRFactorization}\)</span> function from this section, then check your result by verifying that <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rrr} 
+1 &amp; 3 &amp; 0 &amp; 2  \\ 
+0 &amp; 1 &amp; 2 &amp; 1 \\ 
+2 &amp; 1 &amp; 2 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 3 \\
+\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="section" id="id6">
+<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>We can find the <span class="math notranslate nohighlight">\(QR\)</span> factorization of <span class="math notranslate nohighlight">\(A\)</span> if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrix A</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced:  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_reduced:  
+ [[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that there is a pivot in every column of the matrix <span class="math notranslate nohighlight">\(A\)</span>, which means the columns are linearly independent and we can find the <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>In order to find the orthogonal matrix <span class="math notranslate nohighlight">\(Q\)</span>, we perform the <strong>Gram-Schimdt</strong> orthogonalization on the columns of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>So, let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 1 \end{array}\right] \hspace{0.7cm} 
+V_2 = \left[ \begin{array}{r} 3 \\ 1 \\ 1 \\ 0 \end{array}\right] \hspace{0.7cm}
+V_3 = \left[ \begin{array}{r} 0 \\ 2 \\ 2 \\ 1 \end{array}\right] \hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} 2 \\ 1 \\ 1 \\ 3 \end{array}\right] \hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Building vectors V_1, V_2, V_3, V_4:</span>
+
+<span class="n">V_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">V_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">V_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">V_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+
+
+<span class="c1">## Building the orthogonal vectors W_1, W_2,W_3, W_4:</span>
+
+<span class="n">W_1</span> <span class="o">=</span> <span class="n">V_1</span>
+<span class="n">W_2</span> <span class="o">=</span> <span class="n">V_2</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_2</span><span class="p">,</span> <span class="n">W_1</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span><span class="n">W_1</span><span class="p">))</span><span class="o">*</span><span class="n">W_1</span>
+<span class="n">W_3</span> <span class="o">=</span> <span class="n">V_3</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_3</span><span class="p">,</span> <span class="n">W_1</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span><span class="n">W_1</span><span class="p">))</span><span class="o">*</span><span class="n">W_1</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_3</span><span class="p">,</span> <span class="n">W_2</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span><span class="o">*</span><span class="n">W_2</span>
+<span class="n">W_4</span> <span class="o">=</span> <span class="n">V_4</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_4</span><span class="p">,</span> <span class="n">W_1</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span><span class="n">W_1</span><span class="p">))</span><span class="o">*</span><span class="n">W_1</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_4</span><span class="p">,</span> <span class="n">W_2</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span> <span class="n">W_2</span><span class="p">))</span><span class="o">*</span><span class="n">W_2</span> <span class="o">-</span> <span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">V_4</span><span class="p">,</span> <span class="n">W_3</span><span class="p">)</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_3</span><span class="p">,</span> <span class="n">W_3</span><span class="p">))</span><span class="o">*</span><span class="n">W_3</span>
+
+
+<span class="c1">## Building the orthonormal vectors U_1, U_2, U_3, U_4:</span>
+
+<span class="n">U_1</span> <span class="o">=</span> <span class="n">W_1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_1</span><span class="p">,</span><span class="n">W_1</span><span class="p">))</span>
+<span class="n">U_2</span> <span class="o">=</span> <span class="n">W_2</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_2</span><span class="p">,</span><span class="n">W_2</span><span class="p">))</span>
+<span class="n">U_3</span> <span class="o">=</span> <span class="n">W_3</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_3</span><span class="p">,</span><span class="n">W_3</span><span class="p">))</span>
+<span class="n">U_4</span> <span class="o">=</span> <span class="n">W_4</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">W_4</span><span class="p">,</span><span class="n">W_4</span><span class="p">))</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_1: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_2: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_2</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_3: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_3</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U_4: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U_4</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">U_1</span><span class="p">,</span><span class="n">U_2</span><span class="p">,</span><span class="n">U_3</span><span class="p">,</span><span class="n">U_4</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>U_1: 
+ [[0.40824829]
+ [0.        ]
+ [0.81649658]
+ [0.40824829]] 
+
+U_2: 
+ [[ 0.82884973]
+ [ 0.38254603]
+ [-0.25503069]
+ [-0.31878836]] 
+
+U_3: 
+ [[-0.35516115]
+ [ 0.92119924]
+ [ 0.14428422]
+ [ 0.06659272]] 
+
+U_4: 
+ [[ 0.14213381]
+ [ 0.07106691]
+ [-0.49746834]
+ [ 0.85280287]] 
+
+Q: 
+ [[ 0.40824829  0.82884973 -0.35516115  0.14213381]
+ [ 0.          0.38254603  0.92119924  0.07106691]
+ [ 0.81649658 -0.25503069  0.14428422 -0.49746834]
+ [ 0.40824829 -0.31878836  0.06659272  0.85280287]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The vectors that result from the orthogonalization form the matrix <span class="math notranslate nohighlight">\(Q\)</span>.  Now, we compute <span class="math notranslate nohighlight">\(R\)</span> and verify that <span class="math notranslate nohighlight">\(QR=A\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_trans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q_trans</span><span class="nd">@A</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">## Verifying that A = QR</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QR: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q</span><span class="nd">@R</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R: 
+ [[ 2.44949  2.04124  2.04124  2.85774]
+ [-0.       2.61406 -0.06376  0.82885]
+ [-0.      -0.       2.19756  0.55494]
+ [ 0.       0.       0.       2.41627]] 
+
+A: 
+ [[1 3 0 2]
+ [0 1 2 1]
+ [2 1 2 1]
+ [1 0 1 3]] 
+
+QR: 
+ [[ 1.  3. -0.  2.]
+ [ 0.  1.  2.  1.]
+ [ 2.  1.  2.  1.]
+ [ 1.  0.  1.  3.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Are all matrices which have <span class="math notranslate nohighlight">\(QR\)</span> factorization invertible? Explain.</p>
+</div>
+<div class="section" id="id7">
+<h3>Solution:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>No, not all matrices which have <span class="math notranslate nohighlight">\(QR\)</span> factorization are invertible. Only square matrices can be invertible, but non-square matrices may have <span class="math notranslate nohighlight">\(QR\)</span> factorizations.</p>
+<p><strong>Exercise 5:</strong> Use the <span class="math notranslate nohighlight">\(QR\)</span> factorization of <span class="math notranslate nohighlight">\(A\)</span> to solve the given linear system <span class="math notranslate nohighlight">\(AX = B\)</span>, and verify the solution.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+AX = \left[ \begin{array}{rrrr} 
+1 &amp; 2 &amp; 3  \\ 
+0 &amp; 3 &amp; 2  \\ 
+1 &amp; 1 &amp; 4  \\
+\end{array}\right]
+\quad\quad
+X = 
+\left[ \begin{array}{r} 1 \\ 1 \\ 1 \\  \end{array} \right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrices A and B:</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">Q</span><span class="p">,</span><span class="n">R</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">QRFactorization</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">BackSubstitution</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1">## Verifying that AX = B</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AX: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="nd">@X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
+ [[-3.]
+ [-1.]
+ [ 2.]] 
+
+AX: 
+ [[1.]
+ [1.]
+ [4.]] 
+
+B: 
+ [[1]
+ [1]
+ [4]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The computation verifies <span class="math notranslate nohighlight">\(AX = B\)</span>.</p>
+<p><strong>Exercise 6:</strong> <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are two <span class="math notranslate nohighlight">\(n \times n\)</span> matrices.</p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Given that the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization, prove that the matrix <span class="math notranslate nohighlight">\(A\)</span> also has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Can you think of matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that <span class="math notranslate nohighlight">\(B\)</span> has linearly dependent columns  but the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization? Explain.</p>
+</div>
+<div class="section" id="id8">
+<h3>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\((a)\)</span> It has been given that the product <span class="math notranslate nohighlight">\(BA\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization, this means that the columns of the matrix <span class="math notranslate nohighlight">\(BA\)</span> are linearly independent. If the columns of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(P\)</span> are linearly independent, it means that the solution to the system <span class="math notranslate nohighlight">\(PX = R\)</span> will be unique.</p>
+<p>Therefore, if the columns of matrix <span class="math notranslate nohighlight">\(BA\)</span> are linearly independent, this implies that the homogenous system <span class="math notranslate nohighlight">\(BAX = 0\)</span> must have a trivial solution i.e <span class="math notranslate nohighlight">\(X = 0\)</span>.</p>
+<p>Now, let us consider the homogenous system <span class="math notranslate nohighlight">\(AX = 0\)</span>. If we multiply both the sides of this equation by <span class="math notranslate nohighlight">\(B\)</span>, it gives:</p>
+<p><span class="math notranslate nohighlight">\(AX = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\( B(AX) = B(0)\)</span></p>
+<p><span class="math notranslate nohighlight">\( (BA)X = 0\)</span></p>
+<p>This means <span class="math notranslate nohighlight">\(X = 0\)</span> since <span class="math notranslate nohighlight">\(BA(X) = 0\)</span>  has a trivial solution only.</p>
+<p>So, we started off by saying that <span class="math notranslate nohighlight">\(AX = 0\)</span> and we got <span class="math notranslate nohighlight">\(X = 0\)</span>. This means that the system <span class="math notranslate nohighlight">\(AX = 0\)</span> has only the trivial solution. This means that the columns of <span class="math notranslate nohighlight">\(A\)</span> are also linearly independent. Therefore, <span class="math notranslate nohighlight">\(A\)</span> also has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Let us consider a <span class="math notranslate nohighlight">\( 2 \times 3\)</span> matrix <span class="math notranslate nohighlight">\(B\)</span> and its transpose.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rr} 1 &amp;&amp; 2 &amp;&amp; 1 \\ 2 &amp;&amp; 3 &amp;&amp; 0   \end{array}\right] \hspace{0.7cm} 
+\quad\quad
+B^T = \left[ \begin{array}{rr} 1 &amp;&amp; 2 \\ 2 &amp;&amp; 3 \\ 1 &amp;&amp; 0  \end{array}\right] \hspace{0.7cm} 
+\end{equation}
+\end{split}\]</div>
+<p>Now, let us consider the product <span class="math notranslate nohighlight">\(BB^T\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrices B and B_transpose</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">B_transpose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The product of B and B_transpose is:  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="nd">@B_transpose</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="nd">@B_transpose</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The product of B and B_transpose is:  
+ [[ 6  8]
+ [ 8 13]] 
+
+U: 
+ [[1. 0.]
+ [0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that though the matrix <span class="math notranslate nohighlight">\(B\)</span> has linearly dependent columns, the matrix <span class="math notranslate nohighlight">\(BB^T\)</span> has linearly independent columns (<span class="math notranslate nohighlight">\(BB^T\)</span> has a pivot in each column).  Hence, we can say that the matrix <span class="math notranslate nohighlight">\(BB^T\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>Therefore, if we consider that the matrix <span class="math notranslate nohighlight">\(A = B^T\)</span>, then <span class="math notranslate nohighlight">\(BA\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization even though <span class="math notranslate nohighlight">\(B\)</span> does not have a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p><strong>Exercise 7:</strong> If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n \times n\)</span> invertible matrix, explain why <span class="math notranslate nohighlight">\(A^TA\)</span> is also invertible.</p>
 </div>
 </div>
 </div>
