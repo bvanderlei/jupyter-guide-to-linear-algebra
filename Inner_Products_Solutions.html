@@ -405,63 +405,19 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solution">
-   Solution:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Solution:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#orthogonalization">
    Orthogonalization
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Solution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     Solution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Solution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Solution:
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qr-factorization">
    QR Factorization
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Solution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     Solution:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
-     Solution:
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonal-subspaces">
+   Orthogonal Subspaces
+  </a>
  </li>
 </ul>
 
@@ -549,22 +505,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[13]
- [ 5]
- [15]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5]
+ [19]
+ [19]
  [14]] 
 
-[[ 3]
- [ 0]
- [ 4]
- [10]] 
+[[ 2]
+ [11]
+ [11]
+ [16]] 
 
-[[14]
- [19]
- [10]
- [ 8]] 
+[[ 0]
+ [ 3]
+ [11]
+ [13]] 
 
-15 
+7 
 
 The dot product is commutative. 
 
@@ -737,14 +693,14 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
- [[3]
- [9]
- [4]] 
+ [[8]
+ [0]
+ [8]] 
 
 The unit vector of X: 
- [[0.29138576]
- [0.87415728]
- [0.38851434]] 
+ [[0.70710678]
+ [0.        ]
+ [0.70710678]] 
 </pre></div>
 </div>
 </div>
@@ -756,8 +712,7 @@ The unit vector of X:
 X = \left[ \begin{array}{r} 1 \\ 1  \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<div class="section" id="solution">
-<h2>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h2>
+<p><strong>Solution:</strong></p>
 <p>Let us assume that the vector <span class="math notranslate nohighlight">\(Y\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> is as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -862,9 +817,7 @@ W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right]
 </div>
 <p>We can see that <span class="math notranslate nohighlight">\(\cos{\theta} = 0\)</span> for vectors <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> which means that <span class="math notranslate nohighlight">\(\theta = 90^{\circ}\)</span>. This implies that <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal vectors.</p>
 <p><strong>Exercise 8:</strong> Given that <span class="math notranslate nohighlight">\(||X+Y|| = 3\)</span>, <span class="math notranslate nohighlight">\(X\cdot Y = 2\)</span>, find <span class="math notranslate nohighlight">\(||X-Y||\)</span>.</p>
-</div>
-<div class="section" id="id1">
-<h2>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Solution:</strong></p>
 <p>We know that <span class="math notranslate nohighlight">\(||X + Y||^2 = (X+Y)\cdot (X+Y)\)</span></p>
 <p><span class="math notranslate nohighlight">\(||X + Y||^2 = ||X||^2 + ||Y||^2 + 2X\cdot Y\)</span></p>
 <p>Given <span class="math notranslate nohighlight">\(||X + Y||\)</span> and <span class="math notranslate nohighlight">\(X\cdot Y\)</span>,we can find <span class="math notranslate nohighlight">\(||X||^2  + ||Y||^2\)</span> as follows:</p>
@@ -876,7 +829,6 @@ W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right]
 <p><span class="math notranslate nohighlight">\(||X - Y||^2 = 5 - 2(2)\)</span></p>
 <p><span class="math notranslate nohighlight">\(||X - Y||^2 = 1\)</span></p>
 <p>Therefore, <span class="math notranslate nohighlight">\(||X - Y|| = 1\)</span></p>
-</div>
 <div class="section" id="orthogonalization">
 <h2>Orthogonalization<a class="headerlink" href="#orthogonalization" title="Permalink to this headline">¶</a></h2>
 <p><strong>Exercise 4:</strong> Find a vector that is orthogonal to the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
@@ -886,8 +838,7 @@ W = \left[ \begin{array}{r} 2 \\ 0 \\ -1  \end{array}\right]
 A = \left[ \begin{array}{rr} 1 &amp; 2\\ 2 &amp; 0 \\ 3 &amp; 1\end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-<div class="section" id="id2">
-<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>Since there is a pivot in each column of the matrix <span class="math notranslate nohighlight">\(A\)</span>, the basis for the column space of <span class="math notranslate nohighlight">\(A\)</span> consists of the two column vectors.</p>
 <p>Let</p>
 <div class="math notranslate nohighlight">
@@ -938,9 +889,7 @@ v_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
 v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-</div>
-<div class="section" id="id3">
-<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>Let <span class="math notranslate nohighlight">\(\{w_1,w_2\}\)</span> be an orthogonal basis for <span class="math notranslate nohighlight">\(U\)</span>. We would first go about producing an orthogonal basis for <span class="math notranslate nohighlight">\(U\)</span>. We can then scale the orthogonal vectors to produce an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1005,9 +954,7 @@ The magnitude of u_2 is:
 </div>
 </div>
 <p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(v\)</span> be a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Explain why the set of vectors orthogonal to <span class="math notranslate nohighlight">\(v\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
-</div>
-<div class="section" id="id4">
-<h3>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>Let <span class="math notranslate nohighlight">\(U\)</span> be the set of all vectors which are orthogonal to the vector <span class="math notranslate nohighlight">\(v\)</span>. Let us consider two vectors <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> in <span class="math notranslate nohighlight">\(U\)</span>.</p>
 <p>The vectors <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1173,9 +1120,8 @@ Q:
  [[ 0.70710678  0.23570226 -0.66666667]
  [ 0.          0.94280904  0.33333333]
  [ 0.70710678 -0.23570226  0.66666667]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q_T@Q: 
+
+Q_T@Q: 
  [[ 1. -0. -0.]
  [-0.  1. -0.]
  [-0. -0.  1.]] 
@@ -1197,9 +1143,7 @@ X = \left[ \begin{array}{r} 2\\ 1 \\ 1 \end{array}\right] \hspace{1cm}
 Z = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-</div>
-<div class="section" id="id5">
-<h3>Solution:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>We have been given that the vector <span class="math notranslate nohighlight">\(Z\)</span> is in the direction of vector <span class="math notranslate nohighlight">\(Y\)</span>. Therefore, the angle between the vector <span class="math notranslate nohighlight">\(X\)</span> and the vector <span class="math notranslate nohighlight">\(Z\)</span> is same as the angle between the vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <p>The angle between the vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> is as follows:</p>
 <div class="math notranslate nohighlight">
@@ -1238,7 +1182,6 @@ Y = \hat{Y}||Y|| = 2\sqrt{2}\left[ \begin{array}{r} \frac{1}{\sqrt{2}}\\ \frac{1
 \left[ \begin{array}{r} 2 \\ 2 \\ 0 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
-</div>
 </div>
 <div class="section" id="qr-factorization">
 <h2>QR Factorization<a class="headerlink" href="#qr-factorization" title="Permalink to this headline">¶</a></h2>
@@ -1309,8 +1252,7 @@ A = \left[ \begin{array}{rrr}
 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<div class="section" id="id6">
-<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>We can find the <span class="math notranslate nohighlight">\(QR\)</span> factorization of <span class="math notranslate nohighlight">\(A\)</span> if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1454,9 +1396,7 @@ QR:
 </div>
 </div>
 <p><strong>Exercise 4:</strong> Are all matrices which have <span class="math notranslate nohighlight">\(QR\)</span> factorization invertible? Explain.</p>
-</div>
-<div class="section" id="id7">
-<h3>Solution:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p>No, not all matrices which have <span class="math notranslate nohighlight">\(QR\)</span> factorization are invertible. Only square matrices can be invertible, but non-square matrices may have <span class="math notranslate nohighlight">\(QR\)</span> factorizations.</p>
 <p><strong>Exercise 5:</strong> Use the <span class="math notranslate nohighlight">\(QR\)</span> factorization of <span class="math notranslate nohighlight">\(A\)</span> to solve the given linear system <span class="math notranslate nohighlight">\(AX = B\)</span>, and verify the solution.</p>
 <div class="math notranslate nohighlight">
@@ -1518,9 +1458,7 @@ B:
 <p><strong>Exercise 6:</strong> <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are two <span class="math notranslate nohighlight">\(n \times n\)</span> matrices.</p>
 <p>(<span class="math notranslate nohighlight">\(a\)</span>) Given that the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization, prove that the matrix <span class="math notranslate nohighlight">\(A\)</span> also has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
 <p>(<span class="math notranslate nohighlight">\(b\)</span>) Can you think of matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that <span class="math notranslate nohighlight">\(B\)</span> has linearly dependent columns  but the product <span class="math notranslate nohighlight">\(BA\)</span> has <span class="math notranslate nohighlight">\(QR\)</span> factorization? Explain.</p>
-</div>
-<div class="section" id="id8">
-<h3>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p><strong>Solution:</strong></p>
 <p><span class="math notranslate nohighlight">\((a)\)</span> It has been given that the product <span class="math notranslate nohighlight">\(BA\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization, this means that the columns of the matrix <span class="math notranslate nohighlight">\(BA\)</span> are linearly independent. If the columns of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(P\)</span> are linearly independent, it means that the solution to the system <span class="math notranslate nohighlight">\(PX = R\)</span> will be unique.</p>
 <p>Therefore, if the columns of matrix <span class="math notranslate nohighlight">\(BA\)</span> are linearly independent, this implies that the homogenous system <span class="math notranslate nohighlight">\(BAX = 0\)</span> must have a trivial solution i.e <span class="math notranslate nohighlight">\(X = 0\)</span>.</p>
 <p>Now, let us consider the homogenous system <span class="math notranslate nohighlight">\(AX = 0\)</span>. If we multiply both the sides of this equation by <span class="math notranslate nohighlight">\(B\)</span>, it gives:</p>
@@ -1570,6 +1508,321 @@ U:
 <p>Therefore, if we consider that the matrix <span class="math notranslate nohighlight">\(A = B^T\)</span>, then <span class="math notranslate nohighlight">\(BA\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization even though <span class="math notranslate nohighlight">\(B\)</span> does not have a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
 <p><strong>Exercise 7:</strong> If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n \times n\)</span> invertible matrix, explain why <span class="math notranslate nohighlight">\(A^TA\)</span> is also invertible.</p>
 </div>
+<div class="section" id="orthogonal-subspaces">
+<h2>Orthogonal Subspaces<a class="headerlink" href="#orthogonal-subspaces" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(B\)</span> be the following <span class="math notranslate nohighlight">\(4\times 3\)</span> matrix.  Find bases for <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, the row space and null space of <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrr} 4 &amp; -3 &amp; -2  \\ 2 &amp; 0 &amp; 2 \\ 0 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 2:</strong> Using the matrix <span class="math notranslate nohighlight">\(B\)</span> and the bases from the previous exercise, determine vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(B^T)\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>, and <span class="math notranslate nohighlight">\(P+E = X\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the following vector.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X = \left[ \begin{array}{r}1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}  
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 3:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix in <strong>Example 3</strong>.  Find bases for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> and <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>, the column space and left null space of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> with basis <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+W_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}  
+W_2 = \left[ \begin{array}{r} 3 \\ 2 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm} 
+W_3 = \left[ \begin{array}{r} 0 \\ 1 \\ 1 \\ 1 \\ 2 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> be the subspaces of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> where <span class="math notranslate nohighlight">\(U\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span> and <span class="math notranslate nohighlight">\(W\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_3,V_4\}\)</span>. Determine whether <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 1 \end{array}\right]\hspace{0.7cm}  
+V_2 = \left[ \begin{array}{r} 1 \\ -1 \\ 2 \\ 0 \end{array}\right]\hspace{0.7cm} 
+V_3 = \left[ \begin{array}{r} -1 \\ 1 \\ 1 \\ -1 \end{array}\right]\hspace{0.7cm}
+V_4 = \left[ \begin{array}{r} -2 \\ 0 \\ 1 \\ 0 \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong></p>
+<p>First we check if the subspaces <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal to each other. Consider that the matrix <span class="math notranslate nohighlight">\(A\)</span> contains vectors <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span> as its columns and the matrix <span class="math notranslate nohighlight">\(B\)</span> contains <span class="math notranslate nohighlight">\(V_3\)</span>, <span class="math notranslate nohighlight">\(V_4\)</span> as its columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrices A and B:</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">A_trans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_trans@B: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_trans</span><span class="nd">@B</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_trans@B: 
+ [[0 0]
+ [0 0]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The subspaces <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal to each other since <span class="math notranslate nohighlight">\(A^TB\)</span> is a zero matrix. In order to see if <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other, we need to find out if <span class="math notranslate nohighlight">\(\{V_1,V_2,V_3,V_4\}\)</span> forms a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Let C be the matrix with V_1, V_2, V_3, V_4 as its columns:</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">C_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C_reduced:  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">C_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C: 
+ [[ 1  1 -1 -2]
+ [ 0 -1  1  0]
+ [ 2  2  1  1]
+ [ 1  0 -1  0]] 
+
+C_reduced:  
+ [[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is a pivot in each row and column of the matrix <span class="math notranslate nohighlight">\(C\)</span> which contains the vectors <span class="math notranslate nohighlight">\(V_1\)</span>, <span class="math notranslate nohighlight">\(V_2\)</span>, <span class="math notranslate nohighlight">\(V_3\)</span> and <span class="math notranslate nohighlight">\(V_4\)</span> as its columns, this means that <span class="math notranslate nohighlight">\(\{V_1,V_2,V_3,V_4\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Therefore, we can say that the subspaces <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<p><strong>Exercise 6:</strong> Find vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(B = P + E\)</span>. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} 1 &amp; 2\\ 2 &amp; 1\\ 2 &amp; -2\end{array}\right] \hspace{1cm}
+B = \left[ \begin{array}{rr} 1 \\ 1 \\ 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong></p>
+<p>We first find a basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.
+As there is a pivot in each column of the matrix <span class="math notranslate nohighlight">\(A\)</span>, the two columns of <span class="math notranslate nohighlight">\(A\)</span> form a basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.
+Therefore, we can say that a basis for <span class="math notranslate nohighlight">\(C(A)\)</span> is <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>, where <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 2 \\ 2  \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ 1 \\ -2 \end{array}\right]\hspace{0.7cm} 
+\end{equation}
+\end{split}\]</div>
+<p>Now <span class="math notranslate nohighlight">\(P\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>. Once we calculate <span class="math notranslate nohighlight">\(P\)</span>, we can find <span class="math notranslate nohighlight">\(E\)</span> by subtracting the vector <span class="math notranslate nohighlight">\(P\)</span> from the vector <span class="math notranslate nohighlight">\(B\)</span>.  If <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span> is an orthonormal basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+P =  \langle U_1,B\rangle U_1 + \langle U_2,B\rangle U_2 
+\end{equation}
+\]</div>
+<p>To calculate <span class="math notranslate nohighlight">\(P\)</span>, we therefore need to find the orthonormal basis <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span>.  Since <span class="math notranslate nohighlight">\(X_1\cdot X_2 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are orthogonal.  We need to scale <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> to unit length to produce the orthonormal basis <span class="math notranslate nohighlight">\(\{U_1, U_2\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \frac{1}{3}\left[ \begin{array}{r} 1 \\ 2 \\ 2  \end{array}\right]\hspace{0.7cm} 
+U_2 = \frac{1}{3} \left[ \begin{array}{r} 2 \\ 1 \\ -2 \end{array}\right]\hspace{0.7cm} 
+\end{equation}
+\end{split}\]</div>
+<p>Now <span class="math notranslate nohighlight">\(B\cdot U_1 = \frac{5}{3}\)</span> and <span class="math notranslate nohighlight">\(B\cdot U_2 = \frac{1}{3}\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+P = \frac{5}{(3)(3)}\left[ \begin{array}{r} 1 \\ 2 \\ 2  \end{array}\right]    + 
+\frac{1}{(3)(3)} \left[ \begin{array}{r} 2 \\ 1 \\ -2 \end{array}\right]  =  \frac{1}{9}\left[ \begin{array}{r} 7 \\ 11 \\ 8  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Then <span class="math notranslate nohighlight">\(E\)</span> is the difference of <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+E = B-P = \left[ \begin{array}{r} 1 \\ 1 \\ 1  \end{array}\right] -
+ \frac{1}{9} \left[ \begin{array}{r} 7 \\ 11 \\ 8 \end{array}\right]  = \frac{1}{9}\left[ \begin{array}{r} 2 \\ -2 \\ 1  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>If our answers are correct, then <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> must be orthogonal to each other. We can check this in the code cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="o">/</span><span class="mi">9</span><span class="p">],[</span><span class="mi">11</span><span class="o">/</span><span class="mi">9</span><span class="p">],[</span><span class="mi">8</span><span class="o">/</span><span class="mi">9</span><span class="p">]])</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product of P and E is: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">lag</span><span class="o">.</span><span class="n">DotProduct</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product of P and E is: 
+ 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> be a basis for subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(\{X_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(W\)</span>. Find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for which subspaces <span class="math notranslate nohighlight">\(U\)</span> are <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} b \\ a \\ 2  \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ -3 \\ 3  \end{array}\right]\hspace{0.7cm} 
+X_3 = \left[ \begin{array}{r} 3 \\ b \\ a \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong></p>
+<p>For subspaces <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> to be orthogonal to each other, we need <span class="math notranslate nohighlight">\(X_1\cdot X_3 = 0\)</span>, <span class="math notranslate nohighlight">\(X_2\cdot X_3 = 0\)</span>  This gives two equations</p>
+<p><span class="math notranslate nohighlight">\(3b + ab + 2a = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(6 - 3b + 3a = 0\)</span></p>
+<p>This system of equations is not linear, so we cannot use elimination to find a solution.  We solve the second equation for <span class="math notranslate nohighlight">\(b\)</span> to get <span class="math notranslate nohighlight">\( b = a + 2\)</span>, and substitute the result into the first equation</p>
+<p><span class="math notranslate nohighlight">\(3(a + 2) + a(a-2) + 2a  = 0\)</span></p>
+<p>This gives a quadratic equation for <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p><span class="math notranslate nohighlight">\( a^2 + 7a + 6 = 0\)</span></p>
+<p>The roots of the equation are <span class="math notranslate nohighlight">\( a = -1\)</span> and  <span class="math notranslate nohighlight">\(a=-6\)</span>.</p>
+<p>When <span class="math notranslate nohighlight">\(a=-1\)</span>, <span class="math notranslate nohighlight">\(b=1\)</span> and <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span> and <span class="math notranslate nohighlight">\(X_3\)</span> are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ -1 \\ 2  \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ -3 \\ 3  \end{array}\right]\hspace{0.7cm} 
+X_3 = \left[ \begin{array}{r} 3 \\ 1 \\ -1 \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>When <span class="math notranslate nohighlight">\(a=-6\)</span>, <span class="math notranslate nohighlight">\(b=-4\)</span> and <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span> and <span class="math notranslate nohighlight">\(X_3\)</span> are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} -4 \\ -6 \\ 2  \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ -3 \\ 3  \end{array}\right]\hspace{0.7cm} 
+X_3 = \left[ \begin{array}{r} 3 \\ -4 \\ -6 \end{array}\right]\hspace{0.7cm}
+\end{equation}
+\end{split}\]</div>
+<p>For each pair of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> values we need to check that <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> to determine whether <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building matrix A with X_1, X_2, X_3 as its columns when a = -1, b = 1:</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1">## Building the matrix B with X_1, X_2, X_3 as its columns when a = -6, b = -4:</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">B_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B_reduced: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B_reduced</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+
+B_reduced: 
+ [[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there is a pivot in each row and column of the matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> in both cases.</p>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and it has <span class="math notranslate nohighlight">\(3\)</span> vectors in its basis. Can you determine the number of vectors in the basis of <span class="math notranslate nohighlight">\(U^{\perp}\)</span>?</p>
+<p><strong>Solution:</strong></p>
+<p>The basis for <span class="math notranslate nohighlight">\(U\)</span> and the basis for <span class="math notranslate nohighlight">\(U^{\perp}\)</span> should together be the basis for <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.  This means that <span class="math notranslate nohighlight">\( dim(U) + dim(U^{\perp}) = dim(\mathbb{R}^4)\)</span>.  Since <span class="math notranslate nohighlight">\(dim(\mathbb{R}^4) = 4\)</span>, <span class="math notranslate nohighlight">\( dim(U^{\perp}) = 1\)</span>.  Therefore, any basis of <span class="math notranslate nohighlight">\(U^{\perp}\)</span> contains only one vector.</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>.  Decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 1 \end{array}\right]\hspace{0.7cm}  
+X_2 = \left[ \begin{array}{r} 2 \\ 2 \\ 3 \end{array}\right]\hspace{0.7cm} 
+V = \left[ \begin{array}{r} -1 \\ 0 \\ 8 \end{array}\right]\hspace{0.7cm} 
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong></p>
+<p>We would first start by finding a basis for <span class="math notranslate nohighlight">\(U^{\perp}\)</span>. Let <span class="math notranslate nohighlight">\(\{X_3\}\)</span> be a vector <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_3 = \left[ \begin{array}{r} a \\ b \\ c  \end{array}\right]\hspace{0.7cm}  
+\end{equation}
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(U^{\perp}\)</span> is the orthogonal complement of <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(X_1\cdot X_3 = 0\)</span> and <span class="math notranslate nohighlight">\(X_2\cdot X_3 = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\( a + c = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\( 2a + 2b + 3c = 0\)</span></p>
+<p>In this system of equations, we observe that <span class="math notranslate nohighlight">\(c\)</span> is a free variable, and let <span class="math notranslate nohighlight">\(c = t\)</span> where <span class="math notranslate nohighlight">\(t\)</span>. We then find <span class="math notranslate nohighlight">\( a = -t\)</span> and <span class="math notranslate nohighlight">\(b = -t/2\)</span>.  Since we only need one specific vector to form a basis for <span class="math notranslate nohighlight">\(U^{\perp}\)</span>, we let <span class="math notranslate nohighlight">\(t=2\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_3 = \left[ \begin{array}{r} -2 \\  -1 \\ 2  \end{array}\right]\hspace{0.7cm}  
+\end{equation}
+\end{split}\]</div>
+<p>Now <span class="math notranslate nohighlight">\(\{X_1,X_2,X_3\}\)</span> is a basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(V\)</span> is a linear combination of the basis vectors.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V =\left[ \begin{array}{r} -1 \\ 0 \\ 8  \end{array}\right]= a\left[ \begin{array}{r} 1 \\ 0 \\ 1  \end{array}\right]  +  
+ b \left[ \begin{array}{r} 2 \\ 2 \\ 3 \end{array}\right]  + 
+  c \left[ \begin{array}{r} -2 \\ -1 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>We solve a system of equations to get the values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Building the matrix A with X_1,X_2, X_3 as its columns and B represents the vector V:</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">8</span><span class="p">]])</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
+ [[1.]
+ [1.]
+ [2.]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V = 1\left[ \begin{array}{r} 1 \\ 0 \\ 1  \end{array}\right]  +  
+ 1 \left[ \begin{array}{r} 2 \\ 2 \\ 3 \end{array}\right]  + 
+  2 \left[ \begin{array}{r} -2 \\ -1 \\ 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\( V = V_1 + V_2\)</span> with <span class="math notranslate nohighlight">\(V_1\)</span> in the subspace <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> in the orthogonal complement <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = 1\left[ \begin{array}{r} 1 \\ 0 \\ 1  \end{array}\right]  +  
+ 1 \left[ \begin{array}{r} 2 \\ 2 \\ 3 \end{array}\right]  = 
+  \left[ \begin{array}{r} 3 \\ 2 \\ 4 \end{array}\right] \hspace{1cm}
+V_2 = 2 \left[ \begin{array}{r} -2 \\ -1 \\ 2 \end{array}\right] = 
+\left[ \begin{array}{r} -4 \\ -2 \\ 4  \end{array}\right]  
+\end{equation}
+\end{split}\]</div>
 </div>
 </div>
 

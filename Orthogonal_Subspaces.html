@@ -565,6 +565,14 @@ V\cdot W &amp; = &amp; (a_1V_1 + a_2V_2) \cdot (b_1W_1 + b_2W_2) \\
 <div class="section" id="orthogonal-decomposition">
 <h2>Orthogonal decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">¶</a></h2>
 <p>The previous example reveals an important property of orthogonal complements.  If we are given orthogonal complements <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span> for <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, then <strong>every vector <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as the sum of two components, one in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and the other in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span></strong>.  This idea parallels that of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">projecting</span></a> one vector onto another.  Any <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> can be written as <span class="math notranslate nohighlight">\(X = P + E\)</span>  where <span class="math notranslate nohighlight">\(P\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> onto the subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, and <span class="math notranslate nohighlight">\(E\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}^{\perp}\)</span>.  Since the complements are orthogonal, we know that <span class="math notranslate nohighlight">\(P\cdot E = 0\)</span>.</p>
+<p>In order to compute the the projection of a vector <span class="math notranslate nohighlight">\(X\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, we use of an orthonormal basis  <span class="math notranslate nohighlight">\(\{U_1,U_2,U_3,..., U_n\}\)</span> for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  The projection <span class="math notranslate nohighlight">\(P\)</span> is the sum of projections onto the individual basis vectors.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+P =  \langle U_1,X\rangle U_1 + \langle U_2,X \rangle U_2 + \langle U_3, X \rangle U_3 + .......+ \langle U_n, X\rangle U_n 
+\end{equation}
+\]</div>
+<p>It is important to note that if the given basis for <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is not orthonormal, we must first use the Gram-Schimdt algorithm to generate an orthonormal basis in order to make use of this formula.</p>
 </div>
 <div class="section" id="fundamental-subspaces">
 <h2>Fundamental subspaces<a class="headerlink" href="#fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
@@ -747,7 +755,7 @@ X_3 = \left[ \begin{array}{r} 3 \\ b \\ a \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<p><strong>Exercise 9:</strong> Given that the subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> is the span of <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> , decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>.  Decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
