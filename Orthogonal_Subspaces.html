@@ -577,8 +577,8 @@ P =  \langle U_1,X\rangle U_1 + \langle U_2,X \rangle U_2 + \langle U_3, X \rang
 <div class="section" id="fundamental-subspaces">
 <h2>Fundamental subspaces<a class="headerlink" href="#fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
 <p>In Chapter 2 we defined the <a class="reference internal" href="Linear_Combinations.html"><span class="doc std std-doc">column space</span></a> and the <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">null space</span></a> of a matrix, and asserted that there are four fundamental subspaces associated with every matrix. In this section, we define the other two subspaces, and observe that they are the orthogonal complements of the first two spaces.</p>
-<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the <strong>row space</strong> of <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of <em>rows</em> of <span class="math notranslate nohighlight">\(A\)</span>.  Alternatively, we could say that the row space of <span class="math notranslate nohighlight">\(A\)</span> is the column space of <span class="math notranslate nohighlight">\(A^T\)</span>.  The row space of <span class="math notranslate nohighlight">\(A\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and is the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, the null space of <span class="math notranslate nohighlight">\(A\)</span>.  Recall that a vector <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> if <span class="math notranslate nohighlight">\(AX=0\)</span>.  The entries of the vector <span class="math notranslate nohighlight">\(AX\)</span> are exactly the values of the dot products of <span class="math notranslate nohighlight">\(X\)</span> with each of the rows of <span class="math notranslate nohighlight">\(A\)</span>.  Since these entries are all zero, <span class="math notranslate nohighlight">\(X\)</span> is orthogonal to each row of <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>The <strong>left null space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is the complement of the <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since the column space of <span class="math notranslate nohighlight">\(A\)</span> is also the row space of <span class="math notranslate nohighlight">\(A^T\)</span>, it must also be that the orthogonal complement of the column space is the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix, the <strong>row space</strong> of <span class="math notranslate nohighlight">\(A\)</span> is defined as the span of the <em>rows</em> of <span class="math notranslate nohighlight">\(A\)</span>.  Alternatively, we could say that the row space of <span class="math notranslate nohighlight">\(A\)</span> is the column space of <span class="math notranslate nohighlight">\(A^T\)</span>.  The row space of <span class="math notranslate nohighlight">\(A\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, and is the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, the null space of <span class="math notranslate nohighlight">\(A\)</span>.  Recall that a vector <span class="math notranslate nohighlight">\(X\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span> if <span class="math notranslate nohighlight">\(AX=0\)</span>.  The entries of the vector <span class="math notranslate nohighlight">\(AX\)</span> are exactly the values of the dot products of <span class="math notranslate nohighlight">\(X\)</span> with each of the rows of <span class="math notranslate nohighlight">\(A\)</span>.  Since these entries are all zero, <span class="math notranslate nohighlight">\(X\)</span> is orthogonal to each row of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>The <strong>left null space</strong> of an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is the orthogonal complement of <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>.  Since the column space of <span class="math notranslate nohighlight">\(A\)</span> is also the row space of <span class="math notranslate nohighlight">\(A^T\)</span>, it must also be that the orthogonal complement of the column space is the null space of <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
 </div>
 <div class="section" id="example-3-demonstrating-orthogonality-of-fundamental-subspaces">
 <h2>Example 3: Demonstrating orthogonality of fundamental subspaces<a class="headerlink" href="#example-3-demonstrating-orthogonality-of-fundamental-subspaces" title="Permalink to this headline">¶</a></h2>
@@ -683,7 +683,22 @@ X = \left[ \begin{array}{r}1 \\ 0 \\ 1 \\ 1 \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<p><strong>Exercise 4:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> with basis <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p>
+<p><strong>Exercise 4:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> spanned by <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span>. Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+U_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm} 
+U_2 = \left[ \begin{array}{r} -2 \\ 1 \\ 0 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^5\)</span> spanned by <span class="math notranslate nohighlight">\(\{W_1, W_2, W_3\}\)</span>.  Find a basis for the orthogonal complement <span class="math notranslate nohighlight">\(\mathcal{W}^{\perp}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -699,7 +714,7 @@ W_3 = \left[ \begin{array}{r} 0 \\ 1 \\ 1 \\ 1 \\ 2 \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> be the subspaces of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> where <span class="math notranslate nohighlight">\(U\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span> and <span class="math notranslate nohighlight">\(W\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_3,V_4\}\)</span>. Determine whether <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> be the subspaces of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> where <span class="math notranslate nohighlight">\(U\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span> and <span class="math notranslate nohighlight">\(W\)</span> is the span of <span class="math notranslate nohighlight">\(\{V_3,V_4\}\)</span>. Determine whether <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -716,7 +731,7 @@ V_4 = \left[ \begin{array}{r} -2 \\ 0 \\ 1 \\ 0 \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<p><strong>Exercise 6:</strong> Find vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(B = P + E\)</span>. Verify your answer.</p>
+<p><strong>Exercise 7:</strong> Find vectors <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(E\)</span> such that <span class="math notranslate nohighlight">\(P\)</span> is in the column space of the matrix <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(E\)</span> is orthogonal to <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(B = P + E\)</span>. Verify your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -731,7 +746,7 @@ B = \left[ \begin{array}{rr} 1 \\ 1 \\ 1 \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> be a basis for subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(\{X_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(W\)</span>. Find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for which subspaces <span class="math notranslate nohighlight">\(U\)</span> are <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
+<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> be a basis for subspace <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and <span class="math notranslate nohighlight">\(\{X_3\}\)</span> be a basis for <span class="math notranslate nohighlight">\(W\)</span>. Find the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for which subspaces <span class="math notranslate nohighlight">\(U\)</span> are <span class="math notranslate nohighlight">\(W\)</span> are orthogonal complements of each other.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -747,7 +762,7 @@ X_3 = \left[ \begin{array}{r} 3 \\ b \\ a \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and it has <span class="math notranslate nohighlight">\(3\)</span> vectors in its basis. Can you determine the number of vectors in the basis of <span class="math notranslate nohighlight">\(U^{\perp}\)</span>?</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> and it has <span class="math notranslate nohighlight">\(3\)</span> vectors in its basis. Can you determine the number of vectors in the basis of <span class="math notranslate nohighlight">\(U^{\perp}\)</span>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
@@ -755,7 +770,7 @@ X_3 = \left[ \begin{array}{r} 3 \\ b \\ a \end{array}\right]\hspace{0.7cm}
 </div>
 </div>
 </div>
-<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>.  Decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
+<p><strong>Exercise 10:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>.  Decompose the vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> such that one component is in subspace <span class="math notranslate nohighlight">\(U\)</span> and other component in <span class="math notranslate nohighlight">\(U^{\perp}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -767,6 +782,54 @@ V = \left[ \begin{array}{r} -1 \\ 0 \\ 8 \end{array}\right]\hspace{0.7cm}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 11:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Find a basis for each of the four of fundamental subspaces (<span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>, <span class="math notranslate nohighlight">\(\mathcal{R}(A)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>) associated with <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{r} 1 &amp; 1 &amp; 0 &amp; 2 &amp; -1 \\ 1 &amp; 0 &amp; 1 &amp; -1 &amp; 0 \\ 3 &amp; 1 &amp; 2 &amp; 0 &amp; -1 \end{array}\right] 
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Show that each vector in the basis of the row space <span class="math notranslate nohighlight">\(\mathcal{R}(A)\)</span> is orthogonal to each vector in the basis of the null space <span class="math notranslate nohighlight">\(\mathcal{N}(A)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Show that each vector in the basis of the column space <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> is orthogonal to each vector in the basis of the left nullspace <span class="math notranslate nohighlight">\(\mathcal{N}(A^T)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 12:</strong> The equation <span class="math notranslate nohighlight">\(x + 2y - 3z = 0\)</span> defines a plane in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find a matrix that has this plane as its null space. Is the matrix unique?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find a matrix that has this plane as its row space. Is the matrix unique?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
 </pre></div>
 </div>
 </div>

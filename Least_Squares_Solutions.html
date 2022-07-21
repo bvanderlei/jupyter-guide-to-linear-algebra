@@ -451,7 +451,7 @@
 <h1>Least Squares Solutions<a class="headerlink" href="#least-squares-solutions" title="Permalink to this headline">¶</a></h1>
 <p>In this section we address the problem of inconsistent systems, and the common resolution known as the least squares solution.</p>
 <p>In the case that <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, there is no vector <span class="math notranslate nohighlight">\(X\)</span> such that the two vectors <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are the same.  A natural idea then is to choose a vector <span class="math notranslate nohighlight">\(X\)</span> such that <span class="math notranslate nohighlight">\(AX\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are as close as possible.  To do this we define the error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span>, and choose the <span class="math notranslate nohighlight">\(X\)</span> that minimizes <span class="math notranslate nohighlight">\(||E||\)</span>.  This choice of <span class="math notranslate nohighlight">\(X\)</span> is known as the <strong>least squares solution</strong> to the system <span class="math notranslate nohighlight">\(AX=B\)</span>, and we will assign it the symbol <span class="math notranslate nohighlight">\(\hat{X}\)</span>.  The direct approach to this formulation of the problem requires the use of calculus to minimize <span class="math notranslate nohighlight">\(||E||\)</span>, but we will take a different approach that only requires inner products and projections.  We will first give the solution to the least squares problem and provide only a visual explanation.  After some examples, we will give a more rigorous explanation.</p>
-<p>Recall that if the system <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, the vector <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.  <strong>The error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span> has minimum magnitude exactly when it is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span></strong>.  We can easily visualize this if in the case that <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> as a one dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
+<p>Recall that if the system <span class="math notranslate nohighlight">\(AX=B\)</span> is inconsistent, the vector <span class="math notranslate nohighlight">\(B\)</span> is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, the column space of <span class="math notranslate nohighlight">\(A\)</span>.  <strong>The error vector <span class="math notranslate nohighlight">\(E=AX-B\)</span> has minimum magnitude exactly when it is orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span></strong>.  We can easily visualize this in the case that <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> as a one dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
 <div class="section" id="example-1-two-inconsistent-equations">
 <h2>Example 1:  Two inconsistent equations<a class="headerlink" href="#example-1-two-inconsistent-equations" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider a simple example of an inconsistent system <span class="math notranslate nohighlight">\(AX=B\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> is a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix.</p>
@@ -640,14 +640,15 @@ x_2 &amp; = &amp; s
 <span class="n">N_A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
 <span class="c1"># Construct A^TA</span>
 <span class="n">N_B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">N_A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N_A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">N_B</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[42 16]
- [16 10]]
+ [16 10]] 
+
 [[-3]
  [-4]]
 </pre></div>
@@ -695,9 +696,9 @@ Magnitude of minimum error is: 2.5874933722078426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.10652905]
- [-0.52217972]]
-Magnitude of error is: 6.864670632021223
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.19143363]
+ [-0.53632981]]
+Magnitude of error is: 7.342071076039876
 </pre></div>
 </div>
 </div>
@@ -749,7 +750,7 @@ Magnitude of error is: 6.864670632021223
 </div>
 <div class="section" id="qr-factorization-to-solve-normal-equations">
 <h2>QR factorization to solve normal equations<a class="headerlink" href="#qr-factorization-to-solve-normal-equations" title="Permalink to this headline">¶</a></h2>
-<p>In this final example, we consider making use of the <span class="math notranslate nohighlight">\(QR\)</span> factorization to solve the normal equations.  If we have insert <span class="math notranslate nohighlight">\(A=QR\)</span> into the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>, we will see a simplification.</p>
+<p>In this final example, we consider making use of the <span class="math notranslate nohighlight">\(QR\)</span> factorization to solve the normal equations.  If we insert <span class="math notranslate nohighlight">\(A=QR\)</span> into the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span>, we will see a simplification.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -779,9 +780,7 @@ RX &amp; = &amp; Q^TB
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Verify that the following system is inconsistent, the find the least squares solution.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Verify that the following system is inconsistent, then find the least squares solution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}
@@ -798,9 +797,7 @@ x_1 - 2x_2 - x_3 &amp; = &amp; 1 \\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Another way to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span> is to find an orthogonal basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, find the projection of <span class="math notranslate nohighlight">\(B\)</span> in the direction of each of those basis elements, and then add up these projections.  Demonstrate this calculation using <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> from <strong>Example 2</strong>.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Another way to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span> is to find an orthogonal basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, find the projection of <span class="math notranslate nohighlight">\(B\)</span> in the direction of each of those basis elements, and then add up these projections.  Demonstrate this calculation using <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> from <strong>Example 2</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -808,10 +805,8 @@ x_1 - 2x_2 - x_3 &amp; = &amp; 1 \\
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Explain why an inconsistent system, <span class="math notranslate nohighlight">\(AX=B\)</span>, does not have a unique least squares solution if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly dependent.</p></li>
-<li><p>Demonstrate that the following inconsistent system does not have a unique least squares solution.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Explain why an inconsistent system, <span class="math notranslate nohighlight">\(AX=B\)</span>, does not have a unique least squares solution if the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly dependent.</p>
+<p><strong>Exercise 4:</strong> Demonstrate that the following inconsistent system does not have a unique least squares solution.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{eqnarray*}

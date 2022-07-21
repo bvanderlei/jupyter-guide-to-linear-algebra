@@ -584,7 +584,7 @@ X\cdot U_k &amp; = &amp; (b_1U_1 + b_2U_2 + ... b_nU_n)\cdot U_k \\
 </div>
 </div>
 </div>
-<p>We see in fact that the computed value of <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> is not <em>exactly</em> zero due to the imprecision of the machine arithmetic.  This is very similar to the some of the results we observed when performing elimination numerically, and we must keep in mind the potential for such errors.</p>
+<p>We see in fact that the computed value of <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> is not <em>exactly</em> zero due to the imprecision of the machine arithmetic.  This is very similar to some of the results we observed when performing elimination numerically, and we must keep in mind the potential for such errors.</p>
 <p>We also note that the formula derived here for <span class="math notranslate nohighlight">\(\hat{B}\)</span> works for vectors of any dimension.  If <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(V\)</span> are vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, they still occupy a common plane, and the picture looks just the same as the one above regardless of the fact that the plane sits in a higher dimensional space.</p>
 </div>
 <div class="section" id="gram-schmidt-algorithm">
@@ -725,7 +725,7 @@ V_3 = \left[ \begin{array}{r} 3 \\ 0 \\ 1 \end{array}\right] \hspace{0.7cm}
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p><strong>Exercise 1:</strong>  Explain why a set of mutually orthogonal vectors must be linearly independent.</p>
+<p><strong>Exercise 1:</strong>  Explain why a set of nonzero mutually orthogonal vectors must be linearly independent.</p>
 <p><strong>Exercise 2:</strong>  Derive the formula for the projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(V\)</span> in another way that doesn’t involve <span class="math notranslate nohighlight">\(\cos{\theta}\)</span>.  Let <span class="math notranslate nohighlight">\(\hat{B} = kV\)</span>, where <span class="math notranslate nohighlight">\(k\)</span> is an unknown scalar.  Now use <span class="math notranslate nohighlight">\(\hat{B}\cdot E\)</span> to determine <span class="math notranslate nohighlight">\(k\)</span> directly.</p>
 <p><strong>Exercise 3:</strong> The set <span class="math notranslate nohighlight">\(\beta = \{U_1, U_2, U_3\}\)</span> is an orthonormal basis for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <div class="math notranslate nohighlight">
@@ -773,12 +773,12 @@ A = \left[ \begin{array}{rr} 1 &amp; 2\\ 2 &amp; 0 \\ 3 &amp; 1\end{array}\right
 </div>
 </div>
 </div>
-<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(U = \texttt{Span}\{v_1,v_2\}\)</span> where <span class="math notranslate nohighlight">\(v_1\)</span>, <span class="math notranslate nohighlight">\(v_2\)</span> are given below. Perform the Gram-Schimdt orthogonalization to produce an orthonormal basis <span class="math notranslate nohighlight">\(\{u_1,u_2\}\)</span> for <span class="math notranslate nohighlight">\(U\)</span> and verify your answer.</p>
+<p><strong>Exercise 5:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> be the subspace spanned by <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span>. Apply the Gram-Schimdt orthogonalization on the basis <span class="math notranslate nohighlight">\(\{V_1,V_2\}\)</span> to produce an orthonormal basis <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span> for <span class="math notranslate nohighlight">\(\mathcal{U}\)</span>.  Verify that <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span> is an orthonormal basis with a computation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-v_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
-v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right] 
+V_1 = \left[ \begin{array}{r} 1 \\ 1 \\ 2 \end{array}\right] \hspace{1cm}
+V_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
 <div class="cell docutils container">
@@ -788,8 +788,23 @@ v_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(v\)</span> be a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Explain why the set of vectors orthogonal to <span class="math notranslate nohighlight">\(v\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
-<p><strong>Exercise 7:</strong> Given vectors <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span>, find vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(X\)</span> is the projection of <span class="math notranslate nohighlight">\(V\)</span> in the direction of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(V = X + Y\)</span> .Verify your answer.</p>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> be the subspace spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span>. Apply the Gram-Schimdt orthogonalization on the basis <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> to produce an orthonormal basis <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span> for <span class="math notranslate nohighlight">\(\mathcal{U}\)</span>.  Verify that <span class="math notranslate nohighlight">\(\{U_1,U_2\}\)</span> is an orthonormal basis with a computation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[ \begin{array}{r} 1 \\ 0 \\ 2 \\ 2 \end{array}\right] \hspace{0.7cm} 
+X_2 = \left[ \begin{array}{r} -2 \\ 1 \\ 0 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 7:</strong> Let <span class="math notranslate nohighlight">\(V\)</span> be a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>. Explain why the set of vectors orthogonal to <span class="math notranslate nohighlight">\(V\)</span> is a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span>.</p>
+<p><strong>Exercise 8:</strong> Given vectors <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(W\)</span>, find vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> such that <span class="math notranslate nohighlight">\(X\)</span> is the projection of <span class="math notranslate nohighlight">\(V\)</span> in the direction of <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(V = X + Y\)</span> .Verify your answer.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -805,7 +820,7 @@ W = \left[ \begin{array}{r} 3 \\ 0 \\ 3 \end{array}\right]
 </div>
 </div>
 </div>
-<p><strong>Exercise 8:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a vector space spanned by the columns of <span class="math notranslate nohighlight">\(A\)</span>. Find an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span> to generate an orthogonal matrix <span class="math notranslate nohighlight">\(Q\)</span>. Verify that <span class="math notranslate nohighlight">\(Q^TQ = I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.</p>
+<p><strong>Exercise 9:</strong> Let <span class="math notranslate nohighlight">\(U\)</span> be a vector space spanned by the columns of <span class="math notranslate nohighlight">\(A\)</span>. Find an orthonormal basis for <span class="math notranslate nohighlight">\(U\)</span> to generate an orthogonal matrix <span class="math notranslate nohighlight">\(Q\)</span>. Verify that <span class="math notranslate nohighlight">\(Q^TQ = I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -819,7 +834,7 @@ A = \left[ \begin{array}{r} 1 &amp; 2 &amp; -1\\ 0 &amp; 2 &amp; 1 \\  1 &amp; 1
 </div>
 </div>
 </div>
-<p><strong>Exercise 9:</strong> Consider two vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. Given that <span class="math notranslate nohighlight">\(Z\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> in the direction of <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X \cdot Y = 6\)</span>, find <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p><strong>Exercise 10:</strong> Consider two vectors <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. Given that <span class="math notranslate nohighlight">\(Z\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> in the direction of <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X \cdot Y = 6\)</span>, find <span class="math notranslate nohighlight">\(Y\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
