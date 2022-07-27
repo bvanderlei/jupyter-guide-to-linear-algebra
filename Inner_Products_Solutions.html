@@ -510,22 +510,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[13]
- [ 9]
- [12]
- [ 9]] 
-
-[[12]
- [ 3]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5]
+ [18]
  [17]
- [13]] 
+ [11]] 
 
-[[ 7]
+[[18]
  [13]
- [13]
- [19]] 
+ [10]
+ [ 7]] 
 
-6 
+[[15]
+ [ 4]
+ [18]
+ [ 3]] 
+
+14 
 
 The dot product is commutative. 
 
@@ -721,14 +721,14 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
- [[3]
- [3]
- [1]] 
+ [[7]
+ [2]
+ [9]] 
 
 The unit vector of X: 
- [[0.6882472 ]
- [0.6882472 ]
- [0.22941573]] 
+ [[0.6047079 ]
+ [0.17277369]
+ [0.77748158]] 
 </pre></div>
 </div>
 </div>
@@ -1017,8 +1017,9 @@ u_2:
  [[ 0.70710678]
  [-0.70710678]
  [ 0.        ]] 
-
-The dot product of u_1 and u_2 is: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The dot product of u_1 and u_2 is: 
  0.0 
 
 The magnitude of u_1 is: 
@@ -1222,9 +1223,6 @@ I:
  [[1. 0. 0.]
  [0. 1. 0.]
  [0. 0. 1.]] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1602,6 +1600,10 @@ U:
 <p>We see that though the matrix <span class="math notranslate nohighlight">\(B\)</span> has linearly dependent columns, the matrix <span class="math notranslate nohighlight">\(BB^T\)</span> has linearly independent columns (<span class="math notranslate nohighlight">\(BB^T\)</span> has a pivot in each column).  Hence, we can say that the matrix <span class="math notranslate nohighlight">\(BB^T\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
 <p>Therefore, if we consider that the matrix <span class="math notranslate nohighlight">\(A = B^T\)</span>, then <span class="math notranslate nohighlight">\(BA\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization even though <span class="math notranslate nohighlight">\(B\)</span> does not have a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
 <p><strong>Exercise 7:</strong> If <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n \times n\)</span> invertible matrix, explain why <span class="math notranslate nohighlight">\(A^TA\)</span> is also invertible.</p>
+<p><strong>Solution:</strong></p>
+<p>If we assume that the matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible, then it has a pivot in each column.  This means that the columns of <span class="math notranslate nohighlight">\(A\)</span> are linearly independent and that <span class="math notranslate nohighlight">\(A\)</span> has a <span class="math notranslate nohighlight">\(QR\)</span> factorization.</p>
+<p>So, <span class="math notranslate nohighlight">\( A^TA = (QR)^T(QR)\)</span> = <span class="math notranslate nohighlight">\( R^TQ^TQR = R^T(Q^TQ)R = R^TR \)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(R\)</span> is an upper-triangular matrix with non-zero enteries on the diagonal we can reduce it to the identity matrix <span class="math notranslate nohighlight">\(I\)</span> by performing row operations.  This means that <span class="math notranslate nohighlight">\(R\)</span> is invertible. The matrix <span class="math notranslate nohighlight">\(R^T\)</span> is lower triangular with non-zero entries on the diagonal and is invertible for the same reason.  Since <span class="math notranslate nohighlight">\(A^TA\)</span> is the product of two invertible matrices, it must also be invertible.  (<em>See exercises in <a class="reference internal" href="Inverse_Matrices.html"><span class="doc std std-doc">Inverse Matrices</span></a>.)</em></p>
 </div>
 <div class="section" id="orthogonal-subspaces">
 <h2>Orthogonal Subspaces<a class="headerlink" href="#orthogonal-subspaces" title="Permalink to this headline">¶</a></h2>
@@ -2675,30 +2677,46 @@ B_cap:
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_cap</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B_cap</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_aug</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.5</span><span class="p">]])</span>
+<span class="n">A_aug_red</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_aug</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_cap: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X_cap</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A_aug_red: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_aug_red</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pivot could not be found in column 2 .
-Zero entry found in U pivot position 2 .
-X_cap: 
- [[0.16666667]
- [0.66666667]
- [0.        ]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A_aug_red: 
+ [[1.         0.         2.         0.16666667]
+ [0.         1.         0.         0.66666667]
+ [0.         0.         0.         0.        ]] 
 </pre></div>
 </div>
 </div>
 </div>
-<p>There are an infinite number of least square solutions for the given system. One such solution is</p>
+<p>Let</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
-\hat{X} = \left[\begin{array}{r} 0.16666667 \\0.66666667 \\ 0\end{array}\right]  
+\hat{X} = \left[\begin{array}{r} a \\b \\ c\end{array}\right]  
 \end{equation}
 \end{split}\]</div>
+<p>We can see that <span class="math notranslate nohighlight">\(c\)</span> is a free variable. So, let <span class="math notranslate nohighlight">\(c=t\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is a scalar. Then, <span class="math notranslate nohighlight">\(b = 0.67\)</span>, <span class="math notranslate nohighlight">\(a = 0.167 - 2t\)</span>.</p>
+<p>So,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\hat{X} = \left[\begin{array}{r} 0.167-2t \\ 0.67 \\ t\end{array}\right]    
+= \left[\begin{array}{r} 0.167 \\ 0.67 \\ 0\end{array}\right]  +t\left[\begin{array}{r} -2 \\ 0 \\ 1\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Hence, we can conclude that there are infintely many solutions for the system <span class="math notranslate nohighlight">\( A\hat{X} = \hat{B}\)</span>. One possible solution is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\hat{X} = \left[\begin{array}{r} 0.167 \\ 0.67 \\ 0\end{array}\right]    
+\end{equation}
+\end{split}\]</div>
+<p>when <span class="math notranslate nohighlight">\(t=0\)</span>.</p>
 <p><strong>Exercise 9:</strong> Can you use <span class="math notranslate nohighlight">\(QR\)</span> factorization in <strong>Exercise 7</strong> to solve the normal equation ? Explain.</p>
 <p><strong>Solution:</strong></p>
 <p>No, we cannot use <span class="math notranslate nohighlight">\(QR\)</span> factorization in <strong>Exercise 7</strong> to solve the normal equation because <span class="math notranslate nohighlight">\(QR\)</span> factorization exists only if the columns of the matrix <span class="math notranslate nohighlight">\(A\)</span> are linearly independent.  In <strong>Exercise 7</strong>, we saw that column three was a multiple of the first column.  Therefore, the columns of the matrix <span class="math notranslate nohighlight">\(A\)</span> were linearly dependent.</p>
