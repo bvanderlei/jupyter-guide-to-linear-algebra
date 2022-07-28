@@ -696,9 +696,9 @@ Magnitude of minimum error is: 2.5874933722078426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.14987536]
- [-0.53299946]]
-Magnitude of error is: 7.099073670150773
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.13484443]
+ [-0.05103952]]
+Magnitude of error is: 8.225808055409255
 </pre></div>
 </div>
 </div>
@@ -797,7 +797,7 @@ x_1 - 2x_2 - x_3 &amp; = &amp; 1 \\
 </div>
 </div>
 </div>
-<p><strong>Exercise 2:</strong> Another way to compute <span class="math notranslate nohighlight">\(\hat{B}\)</span> is to find an orthogonal basis for <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, find the projection of <span class="math notranslate nohighlight">\(B\)</span> in the direction of each of those basis elements, and then add up these projections.  Demonstrate this calculation using <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> from <strong>Example 2</strong>.</p>
+<p><strong>Exercise 2:</strong> Another way find the least squares solution to an inconsistent system is to find <span class="math notranslate nohighlight">\(\hat{B}\)</span> by projecting <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span> and then solving <span class="math notranslate nohighlight">\(A\hat{X}=\hat{B}\)</span> directly.  (<em>Review <a class="reference internal" href="Orthogonal_Subspaces.html"><span class="doc std std-doc">Orthogonal Subspaces</span></a> for how compute this projection.</em>)  Demonstrate the entire calculation using <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> from <strong>Example 2</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

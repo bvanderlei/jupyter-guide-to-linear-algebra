@@ -426,6 +426,11 @@
    Orthogonal projections
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -440,8 +445,8 @@
                 
   <div class="section" id="projections">
 <h1>Projections<a class="headerlink" href="#projections" title="Permalink to this headline">¶</a></h1>
-<p>At the start of the chapter, we considered the projection of one vector onto the direction of another, and how to use that projection to decompose the vector into two orthogonal components.  We then considered the higher dimensional analogy of projecting a vector onto a subspace and, using that projection to decompose the vector into orthogonal components.   In this section, we concentrate these concepts, and consider projections as linear transformations which have applications beyond vector decomposition.</p>
-<p>A linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^n\)</span> is a <strong>projection</strong> if <span class="math notranslate nohighlight">\(T\circ T = T\)</span>.  The result of applying a projection once is the same as the result of applying it twice.  We can understand the effect of a projection as the collapsing of a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  Once a vector as been projected onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, any further projection onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has no effect.</p>
+<p>At the start of the chapter, we considered the projection of one vector onto the direction of another, and how to use that projection to decompose the vector into two orthogonal components.  We then considered the higher dimensional analogy of projecting a vector onto a subspace and, using that projection to decompose the vector into orthogonal components.   In this section, we concentrate on these concepts, and consider projections as linear transformations which have applications beyond vector decomposition.</p>
+<p>A linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^n\)</span> is a <strong>projection</strong> if <span class="math notranslate nohighlight">\(T\circ T = T\)</span>.  The result of applying a projection once is the same as the result of applying it twice.  We can understand the effect of a projection as the collapsing of a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  Once a vector has been projected onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, any further projection onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has no effect.</p>
 <div class="section" id="example-1-orthogonal-projection-in-mathbb-r-2">
 <h2>Example 1:  Orthogonal projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-orthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
 <p>We look first at an orthogonal projection onto the <span class="math notranslate nohighlight">\(x_1\)</span>-axis in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.  This transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be defined with the following formula.</p>
@@ -515,7 +520,7 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 </div>
 </div>
 <p>Now that we know <span class="math notranslate nohighlight">\(T\)</span> is a projection, let’s consider the effect of <span class="math notranslate nohighlight">\(T\)</span> a bit more carefully.  We observe that the second column is a multiple of the first.  This means that <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span> is one-dimensional.  Since <span class="math notranslate nohighlight">\(P^2=P\)</span>, we
-know that any vector <span class="math notranslate nohighlight">\(X\)</span> in the column space will be unchanged by when multiplied by <span class="math notranslate nohighlight">\(P\)</span>.</p>
+know that any vector <span class="math notranslate nohighlight">\(X\)</span> in the column space will be unchanged when multiplied by <span class="math notranslate nohighlight">\(P\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -576,7 +581,7 @@ PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
 <img alt="_images/Projections_8_0.png" src="_images/Projections_8_0.png" />
 </div>
 </div>
-<p>We see of course that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span>, but in contrast to the projections in earlier sections, this projections is not orthogonal.  If we decompose <span class="math notranslate nohighlight">\(X\)</span> into components <span class="math notranslate nohighlight">\(PX\)</span> and <span class="math notranslate nohighlight">\(X-PX\)</span>, we see that these components are not orthogonal.</p>
+<p>We see of course that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span>, but in contrast to the projection in earlier sections, this projections is not orthogonal.  If we decompose <span class="math notranslate nohighlight">\(X\)</span> into components <span class="math notranslate nohighlight">\(PX\)</span> and <span class="math notranslate nohighlight">\(X-PX\)</span>, we see that these components are not orthogonal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">P</span><span class="nd">@X</span>
@@ -640,7 +645,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 </div>
 <div class="section" id="orthogonal-projections">
 <h2>Orthogonal projections<a class="headerlink" href="#orthogonal-projections" title="Permalink to this headline">¶</a></h2>
-<p>Having observed that projections can be carried out in an arbitrary direction, we now focus attention on how to define a matrix <span class="math notranslate nohighlight">\(P\)</span> that carries out <strong>orthogonal projection</strong> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  That is, for a vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we want the projection matrix <span class="math notranslate nohighlight">\(P\)</span> such that <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(E = B-\hat{B}\)</span> to be orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  In fact, we have already seen the necessary calculations for these projections.</p>
+<p>Having observed that projections can be carried out in an arbitrary direction, we now focus attention on how to define a matrix <span class="math notranslate nohighlight">\(P\)</span> that carries out an <strong>orthogonal projection</strong> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  That is, for a vector <span class="math notranslate nohighlight">\(B\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, we want the projection matrix <span class="math notranslate nohighlight">\(P\)</span> such that <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> and <span class="math notranslate nohighlight">\(E = B-\hat{B}\)</span> to be orthogonal to <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  In fact, we have already seen the necessary calculations for these projections.</p>
 <p>In the simplest example, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is one-dimensional with basis <span class="math notranslate nohighlight">\(\{V\}\)</span>, with <span class="math notranslate nohighlight">\(V\)</span> a vector of unit length.  In our discussion of <a class="reference internal" href="Orthogonalization.html"><span class="doc std std-doc">orthogonalization</span></a> we worked out the following formula.</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -655,7 +660,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 \hat{B} = V \left(V\cdot B \right) 
 \end{equation}
 \]</div>
-<p>In order to understand this as a matrix-vector multiplication, we can rewrite it using matrix multiplication for the dot products, and the associate property of matrix multiplication.</p>
+<p>In order to understand this as a matrix-vector multiplication, we can rewrite it using matrix multiplication for the dot products, and the associative property of matrix multiplication.</p>
 <div class="math notranslate nohighlight">
 \[ 
 \begin{equation}
@@ -663,7 +668,7 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 \end{equation}
 \]</div>
 <p>The result is that if <span class="math notranslate nohighlight">\(V\)</span> is a unit vector, the matrix <span class="math notranslate nohighlight">\(P = VV^T\)</span> orthogonally projects <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.</p>
-<p>In the most general case, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a <span class="math notranslate nohighlight">\(m\)</span>-dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> with basis <span class="math notranslate nohighlight">\(\{V_1, V_2,..., V_m\}\)</span>.  This scenario was treated in the previous section on least squares solutions.  If if <span class="math notranslate nohighlight">\(A\)</span> is a matrix with the <span class="math notranslate nohighlight">\(V_i\)</span> as columns, and <span class="math notranslate nohighlight">\(B\)</span> is a vector that is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, we found that we can solve the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span> in order to find a vector <span class="math notranslate nohighlight">\(\hat{X}\)</span> such that <span class="math notranslate nohighlight">\(A\hat{X} = \hat{B}\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  If we now want to focus on the projection of <span class="math notranslate nohighlight">\(B\)</span>, we can write <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> where <span class="math notranslate nohighlight">\(P = A(A^TA)^{-1}A^T\)</span> is the projection matrix.</p>
+<p>In the most general case, <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is a <span class="math notranslate nohighlight">\(m\)</span>-dimensional subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> with basis <span class="math notranslate nohighlight">\(\{V_1, V_2,..., V_m\}\)</span>.  This scenario was treated in the previous section on least squares solutions.  If <span class="math notranslate nohighlight">\(A\)</span> is a matrix with the <span class="math notranslate nohighlight">\(V_i\)</span> as columns, and <span class="math notranslate nohighlight">\(B\)</span> is a vector that is not in <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>, we found that we can solve the normal equations <span class="math notranslate nohighlight">\(A^TAX=A^TB\)</span> in order to find a vector <span class="math notranslate nohighlight">\(\hat{X}\)</span> such that <span class="math notranslate nohighlight">\(A\hat{X} = \hat{B}\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(B\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{C}(A)\)</span>.  If we now want to focus on the projection of <span class="math notranslate nohighlight">\(B\)</span>, we can write <span class="math notranslate nohighlight">\(\hat{B} = PB\)</span> where <span class="math notranslate nohighlight">\(P = A(A^TA)^{-1}A^T\)</span> is the projection matrix.</p>
 <p>In the case that we have an orthonormal basis, projection onto a subspace is quite a bit simpler.  If <span class="math notranslate nohighlight">\(\{U_1, U_2,..., U_m\}\)</span> is an orthonormal basis for an <span class="math notranslate nohighlight">\(m\)</span>-dimensional subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, <span class="math notranslate nohighlight">\(\hat{B}\)</span> can be written in expressed in terms of the basis vectors, with coordinates computed using dot products.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -681,8 +686,81 @@ P(PX-X) = P^2X - PX = PX - PX = 0
 &amp; = &amp; (U_1U_1^T + U_2U_2^T + ... + U_mU_m^T)B 
 \end{eqnarray*}
 \end{split}\]</div>
-<p>Each of the matrices <span class="math notranslate nohighlight">\(U_i^TU_i\)</span> projects <span class="math notranslate nohighlight">\(B\)</span> onto the direction of <span class="math notranslate nohighlight">\(U_i\)</span>.  The sum of all of the individual projections gives us <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and the sum of all the projection matrices gives us <span class="math notranslate nohighlight">\(P U_1U_1^T + U_2U_2^T + ... + U_mU_m^T\)</span>.</p>
+<p>Each of the matrices <span class="math notranslate nohighlight">\(U_i^TU_i\)</span> projects <span class="math notranslate nohighlight">\(B\)</span> onto the direction of <span class="math notranslate nohighlight">\(U_i\)</span>.  The sum of all of the individual projections gives us <span class="math notranslate nohighlight">\(\hat{B}\)</span>, and the sum of all the projection matrices gives us <span class="math notranslate nohighlight">\(P = U_1U_1^T + U_2U_2^T + ... + U_mU_m^T\)</span>.</p>
 <p>We can also realize that the formula <span class="math notranslate nohighlight">\(P = A(A^TA)^{-1}A^T\)</span> for the general case still applies.  Let’s take <span class="math notranslate nohighlight">\(Q\)</span> to be the matrix with <span class="math notranslate nohighlight">\(U_i\)</span> as columns.  Since <span class="math notranslate nohighlight">\(Q\)</span> is an orthogonal matrix, <span class="math notranslate nohighlight">\(Q^TQ= I\)</span>, and <span class="math notranslate nohighlight">\(P =  Q(Q^TQ)^{-1}Q^T = QQ^T\)</span>.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> be the subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> spanned by <span class="math notranslate nohighlight">\(\{X_1,X_2\}\)</span> where <span class="math notranslate nohighlight">\(X_1\)</span> and <span class="math notranslate nohighlight">\(X_2\)</span> are given below. Find a matrix <span class="math notranslate nohighlight">\(P\)</span> such that <span class="math notranslate nohighlight">\(PX = B\)</span> where <span class="math notranslate nohighlight">\(B\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(X\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{U}\)</span>. Verify your answer.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_1 = \left[\begin{array}{r} 1 \\ 1 \\ 2 \end{array}\right]  \hspace{1cm}
+X_2 = \left[\begin{array}{r} 2 \\ 0 \\ -1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be a subspace of <span class="math notranslate nohighlight">\(\mathbb{R}^4\)</span> with <span class="math notranslate nohighlight">\(\dim{\mathcal{W}}=2\)</span>. What will be the dimensions of a matrix <span class="math notranslate nohighlight">\(P\)</span> that projects vectors orthogonally onto <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>?  Will the dimensions of <span class="math notranslate nohighlight">\(P\)</span> change if <span class="math notranslate nohighlight">\(\dim{\mathcal{W}}=3\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong></p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Let <span class="math notranslate nohighlight">\(\mathcal{U} = \{[x_1\, x_2\, x_3, x_4]^T : x_1 + 3x_2 + x_3 -2x_4 = 0 \}\)</span>. Find the matrix <span class="math notranslate nohighlight">\(P\)</span> that projects vectors orthogonally onto <span class="math notranslate nohighlight">\(\mathcal{U}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Demonstrate that your matrix is a projection matrix by showing that <span class="math notranslate nohighlight">\(P^2 = P\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong></p>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Let <span class="math notranslate nohighlight">\(\mathcal{V} = \{[x_1\, x_2\, x_3]^T : x_1 + x_2 + x_3  = 0 \}\)</span>.  Find the matrix <span class="math notranslate nohighlight">\(P\)</span> that projects vectors orthogonally onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> by two different methods.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Demonstrate that your matrix is a projection matrix by showing that <span class="math notranslate nohighlight">\(P^2 = P\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong></p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find the matrix <span class="math notranslate nohighlight">\(P_1\)</span> that projects orthogonally onto the subspace spanned by <span class="math notranslate nohighlight">\(\begin{equation}
+\left\{ \left[ \begin{array}{r} 2 \\ 1 \end{array} \right]\right\}
+\end{equation}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find the matrix <span class="math notranslate nohighlight">\(P_2\)</span> that projects orthogonally onto the subspace spanned by <span class="math notranslate nohighlight">\(\begin{equation}
+\left\{ \left[ \begin{array}{r} -1 \\ 4 \end{array} \right]\right\}
+\end{equation}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Is the product <span class="math notranslate nohighlight">\(P_1P_2\)</span> also an orthogonal projection?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 6:</strong> Let <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> be the subspace spanned by <span class="math notranslate nohighlight">\(\begin{equation} \left\{ \left[ \begin{array}{r} 0 \\ 1 \\ 0 \end{array} \right]\right\} \end{equation}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{W}\)</span> be the subspace spanned by <span class="math notranslate nohighlight">\(\begin{equation} \left\{ \left[ \begin{array}{r} 2 \\ 1 \\ 1 \end{array} \right] \hspace{0.1cm} , \hspace{0.1cm} \left[ \begin{array}{r} 0 \\ 1 \\ 1 \end{array} \right]\right\} \end{equation}\)</span></p>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Find a matrix <span class="math notranslate nohighlight">\(P\)</span> so that <span class="math notranslate nohighlight">\(PX\)</span> is the projection of <span class="math notranslate nohighlight">\(X\)</span> onto <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> along <span class="math notranslate nohighlight">\(\mathcal{W}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Check that <span class="math notranslate nohighlight">\(P^2 = P\)</span></p>
+<p><span class="math notranslate nohighlight">\((c)\)</span> Check that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> for any <span class="math notranslate nohighlight">\(X \in \mathbb{R}^3\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((d)\)</span> Check that <span class="math notranslate nohighlight">\(PW = 0\)</span> for any <span class="math notranslate nohighlight">\(W \in \mathcal{W}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
