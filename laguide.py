@@ -561,6 +561,36 @@ def RowReduction(A):
     return B
 
 
+def ScaleMatrixRows(A):
+    ''' 
+    ScaleMatrixRows(A)
+    
+    ScaleMatrix rows accepts an mxn array where each row has been scaled
+    to unit length.
+    
+    Parameters
+    ----------
+    A : NumPy array object of dimension mxn
+    
+    Returns
+    -------
+    B: NumPy array object of dimension mxn
+    '''    
+    
+    m = A.shape[0]
+    n = A.shape[1]
+    
+    B = np.copy(A).astype('float64')
+
+    for i in range(m):
+        row = A[i:i+1,:]
+        row_magnitude = Magnitude(row.transpose())
+        if (row_magnitude != 0):
+            for j in range(n):
+                B[i,j] = B[i,j]/row_magnitude
+    
+    return B
+
 def SolveSystem(A,B):
     ''' 
     SolveSystem(A,B)
