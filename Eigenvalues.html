@@ -310,6 +310,11 @@
      Inner Products
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Eigenvalues_Solutions.html">
+     Eigenvalues
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -406,8 +411,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-1-matrix-representing-horizontal-shear">
-   Example 1:  Matrix representing horizontal shear
+  <a class="reference internal nav-link" href="#example-1-matrix-representing-horizontal-stretch">
+   Example 1:  Matrix representing horizontal stretch
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -437,8 +442,8 @@
 <p>In this chapter we shift focus away from solving linear systems, and look closer at the effect of matrix multiplication.  We restrict our attention now to square matrices, which define linear transformations from <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> to <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>.  In this context we will study special values called eigenvalues, and corresponding vectors called eigenvectors, that can be used to analyze the effect of a corresponding matrix.</p>
 <p>Given a square <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span>, a scalar <span class="math notranslate nohighlight">\(\lambda\)</span> is called an <strong>eigenvalue</strong> of <span class="math notranslate nohighlight">\(A\)</span> if there exists some nonzero vector <span class="math notranslate nohighlight">\(V\)</span> in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> such that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  The vector <span class="math notranslate nohighlight">\(V\)</span> is the <strong>eigenvector</strong> associated with <span class="math notranslate nohighlight">\(\lambda\)</span>.  The equation states that when an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is multiplied by <span class="math notranslate nohighlight">\(A\)</span>, the result is simply a multiple of the eigenvector.  In general, there may be multiple eigenvalues associated with a given matrix, and we will label them as <span class="math notranslate nohighlight">\(\lambda_1\)</span>, <span class="math notranslate nohighlight">\(\lambda_2\)</span>, etc., to keep an orderly notation.  We will lable eigenvectors in a similar way in order to track which eigenvectors are associated with which eigenvalues.</p>
 <p>We will visualize examples in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.</p>
-<div class="section" id="example-1-matrix-representing-horizontal-shear">
-<h2>Example 1:  Matrix representing horizontal shear<a class="headerlink" href="#example-1-matrix-representing-horizontal-shear" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1-matrix-representing-horizontal-stretch">
+<h2>Example 1:  Matrix representing horizontal stretch<a class="headerlink" href="#example-1-matrix-representing-horizontal-stretch" title="Permalink to this headline">¶</a></h2>
 <p>Let’s consider first the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -446,7 +451,7 @@
 A = \left[ \begin{array}{cc} 2 &amp; 0 \\ 0 &amp; 1 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>We saw in <a class="reference internal" href="Planar_Transformations.html"><span class="doc std std-doc">Chapter 3</span></a> that multiplication by this matrix has the effect of a horizontal shear.</p>
+<p>We saw in <a class="reference internal" href="Planar_Transformations.html"><span class="doc std std-doc">Chapter 3</span></a> that multiplication by this matrix has the effect of a horizontal stretch.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -487,7 +492,7 @@ X = \left[ \begin{array}{c} 2  \\ 3 \end{array}\right] \hspace{1cm}
 AX = \left[ \begin{array}{c} 4  \\ 3 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>For this example it is possible to deduce the eigenvalues and eigenvectors since the effect of the matrix is rather simple.  Any vector that does not have its direction changed by this transformation is an eigenvector.  In particular, we notice that any vector along the <span class="math notranslate nohighlight">\(x_1\)</span>-axis will be scaled by the shear, but the direction will be unchanged.  Let’s choose the unit vector to label as <span class="math notranslate nohighlight">\(V_1\)</span></p>
+<p>For this example it is possible to deduce the eigenvalues and eigenvectors since the effect of the matrix is rather simple.  Any vector that does not have its direction changed by this transformation is an eigenvector.  In particular, we notice that any vector along the <span class="math notranslate nohighlight">\(x_1\)</span>-axis will be scaled by the stretch, but the direction will be unchanged.  Let’s choose the unit vector to label as <span class="math notranslate nohighlight">\(V_1\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -504,7 +509,7 @@ After a bit of thought, we realize that any vector along the <span class="math n
 V_2 = \left[ \begin{array}{c} 0  \\ 1 \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
-<p>Since <span class="math notranslate nohighlight">\(AV_2 = V_2\)</span>, it must be that the associated eigenvalue is <span class="math notranslate nohighlight">\(\lambda_2 = 1.\)</span>  Again we note that there is a whole collection eigenvectors associated with <span class="math notranslate nohighlight">\(\lambda_2\)</span>, since any multiple of <span class="math notranslate nohighlight">\(V_2\)</span> is also unchanged by the transformation.</p>
+<p>Since <span class="math notranslate nohighlight">\(AV_2 = V_2\)</span>, it must be that the associated eigenvalue is <span class="math notranslate nohighlight">\(\lambda_2 = 1.\)</span>  Again we note that there is a whole collection of eigenvectors associated with <span class="math notranslate nohighlight">\(\lambda_2\)</span>, since any multiple of <span class="math notranslate nohighlight">\(V_2\)</span> is also unchanged by the transformation.</p>
 </div>
 <div class="section" id="example-2-projection-matrix">
 <h2>Example 2:  Projection matrix<a class="headerlink" href="#example-2-projection-matrix" title="Permalink to this headline">¶</a></h2>
@@ -521,14 +526,15 @@ B = \left[ \begin{array}{cc} 0.2 &amp; -0.4 \\ -0.4 &amp; 0.8 \end{array}\right]
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">]])</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="nd">@X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="nd">@X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="nd">@Y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.6]
- [ 1.2]]
+ [ 1.2]] 
+
 [[0.]
  [0.]]
 </pre></div>
@@ -575,7 +581,7 @@ V_1 = \left[ \begin{array}{r} -1  \\ 2 \end{array}\right] \hspace{1cm}
 \end{equation}
 \end{split}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(BV_1 = V_1\)</span> the eigenvalue corresponding to <span class="math notranslate nohighlight">\(V_1\)</span> is <span class="math notranslate nohighlight">\(\lambda_1 = 1\)</span>.</p>
-<p>The other eigenvalue for this matrix may not be as easy to discover by examining the directions of various choices of <span class="math notranslate nohighlight">\(X\)</span> and the corresponding directions of <span class="math notranslate nohighlight">\(BX\)</span>.  If we closely consider the definition of eigenvalues however, we realize there is any nonzero vector <span class="math notranslate nohighlight">\(V\)</span> such that <span class="math notranslate nohighlight">\(BV=0\)</span>, then that vector must be an eigenvector, with zero as the corresponding eigenvalue.  To make the statement in terms of the fundamental subspaces, zero is an eigenvalue of the matrix <span class="math notranslate nohighlight">\(B\)</span> if there are any nonzero vectors in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>.</p>
+<p>The other eigenvalue for this matrix may not be as easy to discover by examining the directions of various choices of <span class="math notranslate nohighlight">\(X\)</span> and the corresponding directions of <span class="math notranslate nohighlight">\(BX\)</span>.  If we closely consider the definition of eigenvalues however, we realize that if there exists any nonzero vector <span class="math notranslate nohighlight">\(V\)</span> such that <span class="math notranslate nohighlight">\(BV=0\)</span>, then that vector must be an eigenvector with zero as the corresponding eigenvalue.  To make the statement in terms of the fundamental subspaces, zero is an eigenvalue of the matrix <span class="math notranslate nohighlight">\(B\)</span> if there are any nonzero vectors in <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span>.</p>
 <p>In this example, since <span class="math notranslate nohighlight">\(B\)</span> represents an orthogonal projection, <span class="math notranslate nohighlight">\(\mathcal{N}(B)\)</span> is the subspace orthogonal to <span class="math notranslate nohighlight">\(\mathcal{C}(B)\)</span>.  We can label any such vector as <span class="math notranslate nohighlight">\(V_2\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -587,9 +593,29 @@ V_2 = \left[ \begin{array}{r} 2  \\ 1 \end{array}\right] \hspace{1cm}
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Determine the eigenvalues and corresponding eigenvectors of the following matrix by considering the transformation that it represents.  Check your answers with a computations.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Determine the eigenvalues and corresponding eigenvectors of the following matrix by considering the transformation that it represents.  Check your answers with a computations.</p>
+<p><span class="math notranslate nohighlight">\((a)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{cc} 1 &amp; 0 \\ 0 &amp; -3 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((b)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{cc} 1 &amp; 1 \\ 0 &amp; 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((c)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+C = \left[ \begin{array}{cc} \cos(\frac{\pi}{2}) &amp; -\sin(\frac{\pi}{2}) \\ \sin(\frac{\pi}{2}) &amp; \cos(\frac{\pi}{2}) \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((d)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
