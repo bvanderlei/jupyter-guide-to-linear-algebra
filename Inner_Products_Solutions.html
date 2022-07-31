@@ -429,6 +429,11 @@
    Projections
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#applications">
+   Applications
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -515,22 +520,22 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[17]
+ [ 1]
  [ 8]
- [15]
- [10]] 
+ [12]] 
 
-[[ 9]
- [16]
- [ 9]
- [10]] 
+[[ 6]
+ [13]
+ [ 8]
+ [12]] 
 
-[[4]
- [2]
- [8]
- [0]] 
+[[16]
+ [13]
+ [11]
+ [ 6]] 
 
-12 
+2 
 
 The dot product is commutative. 
 
@@ -726,14 +731,14 @@ Y = \left[ \begin{array}{r} 4 \\ 2 \\ 0  \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
- [[4]
- [8]
- [3]] 
+ [[9]
+ [9]
+ [8]] 
 
 The unit vector of X: 
- [[0.42399915]
- [0.8479983 ]
- [0.31799936]] 
+ [[0.59867109]
+ [0.59867109]
+ [0.53215208]] 
 </pre></div>
 </div>
 </div>
@@ -1014,10 +1019,7 @@ V_2 = \left[ \begin{array}{r} 2 \\ 1 \\ 3 \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u_1: 
- 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.40824829]
+ [[0.40824829]
  [0.40824829]
  [0.81649658]] 
 
@@ -2690,9 +2692,7 @@ AX = \left[\begin{array}{rr} 0 &amp; 1  \\ 0 &amp; 1 \\ 1 &amp; 1 \end{array}\ri
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X: 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [[1.5]
+ [[1.5]
  [2.5]] 
 </pre></div>
 </div>
@@ -3223,6 +3223,10 @@ P:
 <p><span class="math notranslate nohighlight">\((b)\)</span> Check that <span class="math notranslate nohighlight">\(P^2 = P\)</span></p>
 <p><span class="math notranslate nohighlight">\((c)\)</span> Check that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> for any <span class="math notranslate nohighlight">\(X \in \mathbb{R}^3\)</span>.</p>
 <p><span class="math notranslate nohighlight">\((d)\)</span> Check that <span class="math notranslate nohighlight">\(PW = 0\)</span> for any <span class="math notranslate nohighlight">\(W \in \mathcal{W}\)</span>.</p>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Write a function that performs the same task as the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> function <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.  That is, it should accept an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix as an argument, and return a matrix where each entry has been divided by the magnitude of the row in which it is located.  Test your function by comparing results with <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -3230,6 +3234,305 @@ P:
 </div>
 </div>
 </div>
+<p><strong>Exercise 2:</strong> The search method described in this section often yields the same results as the one described in <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">Chapter 3</span></a>.  Construct an example where the two methods yield <em>different</em> results.<br />
+(<em>Hint: If we ignore the actual words involved, we see the question is one of matrix multiplication.  Let <span class="math notranslate nohighlight">\(A\)</span> be a <span class="math notranslate nohighlight">\(4\times 6\)</span> database matrix consisting of ones and zeros and let <span class="math notranslate nohighlight">\(A_u\)</span> be the matrix returned by <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows(A)}\)</span>.  Let <span class="math notranslate nohighlight">\(X\)</span> be a <span class="math notranslate nohighlight">\(6\times 1\)</span> search vector consisting of ones and zeros and let <span class="math notranslate nohighlight">\(X_u = X/||X||\)</span>.  To build the required example, arrange the ones and zeros in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(X\)</span> such that the largest entry in <span class="math notranslate nohighlight">\(AX\)</span> appears in a different location than the largest entry in <span class="math notranslate nohighlight">\(A_uX_u\)</span>.</em>)</p>
+<p><strong>Solution:</strong></p>
+<p>These search algorithms may differ in their results when the rows of the database matrix have large variations in the number of ones they contain. The method described in <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">Chapter 3</span></a> simply counts the number of matching keywords, but is unaffected by the number of keywords in the row not found in the query vector. In contrast, the method we learned in this section scales the rows our database matrix by how many keywords are found in each row. This means that a row in the matrix which includes many keywords not found in the query vector will contribute less to the dot product for each correctly matching keyword than a row that contains fewer of the searchable keywords that are not in the query vector.</p>
+<p>As an example, consider the database matrix <span class="math notranslate nohighlight">\(A\)</span> and the query vector <span class="math notranslate nohighlight">\(X\)</span> defined below. Row four contains one more keyword in the query vector than row one, but also includes four searchable keywords that are not included in the query vector. This leads to the two methods giving conflicting results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A_u</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">ScaleMatrixRows</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">X_u</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_u</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_u</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 0 0 1]
+ [1 0 1 0 1 0]
+ [0 0 0 1 1 1]
+ [1 1 1 1 1 1]] 
+
+[[0.         0.         0.         0.         0.         1.        ]
+ [0.57735027 0.         0.57735027 0.         0.57735027 0.        ]
+ [0.         0.         0.         0.57735027 0.57735027 0.57735027]
+ [0.40824829 0.40824829 0.40824829 0.40824829 0.40824829 0.40824829]] 
+
+[[1]
+ [0]
+ [0]
+ [0]
+ [0]
+ [1]] 
+
+[[0.70710678]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.70710678]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_u</span><span class="nd">@X_u</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1]
+ [1]
+ [1]
+ [2]] 
+
+[[0.70710678]
+ [0.40824829]
+ [0.40824829]
+ [0.57735027]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The method from Chapter 3 suggests the fourth row is the best match, but the method learned in this section suggests that the first row is the best match.</p>
+<p><strong>Exercise 3:</strong> The concept of least squares can also be used to find polynomials of best fit that are of degree greater than one. Given the points <span class="math notranslate nohighlight">\((-1,0),(0,1),(1,3),\)</span> and <span class="math notranslate nohighlight">\((2,9)\)</span>, find the parabola <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> that best fits through the points in the sense of least squares. Then plot the points ontop of a graph of the parabola to observe the fit.</p>
+<p><strong>Solution:</strong></p>
+<p>The system to be solved is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+a -b +c &amp; = &amp; 0 \\
+0a + 0b + c &amp; = &amp; 1  \\
+a + b + c &amp; = &amp; 3 \\
+4a + 2b + c &amp; = &amp; 9
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We can rewrite this system in the following matrix form <span class="math notranslate nohighlight">\(AX = B\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rr} 1 &amp; -1 &amp; 1  \\ 0 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 \\ 4 &amp; 2 &amp; 1 \end{array}\right]\left[\begin{array}{r} a \\b \\ c \end{array}\right] = 
+\left[\begin{array}{r} 0 \\ 1 \\ 3 \\ 9  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Next we form the augmented matrix <span class="math notranslate nohighlight">\([A|B]\)</span> and use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> to verify that the system is inconsistent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">]])</span>
+<span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">])</span>
+<span class="n">A_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pivot in the last column indicates that the system is inconsistent, so we solve the normal equations <span class="math notranslate nohighlight">\(A^TAX = A^TB\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+<span class="n">B_N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="n">Solution</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A_N</span><span class="p">,</span><span class="n">B_N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.25]
+ [1.65]
+ [0.55]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore the parabola that best fits our data, in the sense of least squares, is <span class="math notranslate nohighlight">\(y = 1.25x^2 + 1.65x + 0.55\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_fit</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x_fit</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span><span class="n">y_fit</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Inner_Products_Solutions_234_0.png" src="_images/Inner_Products_Solutions_234_0.png" />
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Lets revisit a problem we saw earlier to see how the technique of least squares compares to our previous method of interpolation. Here are the average radii of the orbits of the planets in our solar system, and their average orbital velocity around the Sun.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Planet</p></th>
+<th class="head"><p>Distance from Sun (million km)</p></th>
+<th class="head"><p>Orbital Velocity (km/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mercury</p></td>
+<td><p>57.9</p></td>
+<td><p>47.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Venus</p></td>
+<td><p>108.2</p></td>
+<td><p>35.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Earth</p></td>
+<td><p>149.6</p></td>
+<td><p>29.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mars</p></td>
+<td><p>228.0</p></td>
+<td><p>24.1</p></td>
+</tr>
+<tr class="row-even"><td><p>Jupiter</p></td>
+<td><p>778.5</p></td>
+<td><p>13.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturn</p></td>
+<td><p>1432.0</p></td>
+<td><p>9.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Uranus</p></td>
+<td><p>2867.0</p></td>
+<td><p>6.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Neptune</p></td>
+<td><p>4515.0</p></td>
+<td><p>5.4</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Use the method of least squares to find the cubic polynomial of best fit for these points. Plot the data points together with the graph of the polynomial to observe the fit.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> The dwarf planet Ceres has an average distance from the sun of 413.5 million km. What does the polynomial suggest the value would be? How closely does this agree with what the points seem to suggest?</p>
+<p><strong>Solution:</strong></p>
+<p>The system to be solved is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+57.9^3a + 57.9^2b + 57.9c + d &amp; = &amp; 47.4 \\
+108.2^3a + 108.2^2b + 108.2c + d &amp; = &amp; 35.0  \\
+149.6^3a + 149.6^2b + 149.6c + d &amp; = &amp; 29.8 \\
+228.0^3a + 228.0^2b + 228.0c + d &amp; = &amp; 24.1 \\
+778.5^3a + 778.5^2b + 778.5c + d &amp; = &amp; 13.1 \\
+1432.0^3a + 1432.0^2b + 1432.0c + d &amp; = &amp; 9.7  \\
+2867.0^3a + 2867.0^2b + 2867.0c + d &amp; = &amp; 6.8 \\
+4515.0^3a + 4515.0^2b + 4515.0c + d &amp; = &amp; 5.4 \\
+\end{eqnarray*}
+\end{split}\]</div>
+<p>We can rewrite this system in the following matrix form <span class="math notranslate nohighlight">\(AX = B\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+\left[\begin{array}{rr} 57.9^3 &amp; 57.9^2 &amp; 57.9 &amp; 1  \\ 108.2^3 &amp; 108.2^2 &amp; 108.2 &amp; 1 \\ 149.6^3 &amp; 149.6^2 &amp; 149.6 &amp; 1 \\ 228.0^3 &amp; 228.0^2 &amp; 228.0 &amp; 1 \\ 778.5^3 &amp; 778.5^2 &amp; 778.5 &amp; 1 \\ 1432.0^3 &amp; 1432.0^2 &amp; 1432.0 &amp; 1 \\ 2867.0^3 &amp; 2867.0^2 &amp; 2867.0 &amp; 1 \\ 4515.0^3 &amp; 4515.0^2 &amp; 4515.0 &amp; 1 \end{array}\right]\left[\begin{array}{r} a \\b \\ c \\ d \end{array}\right] = 
+\left[\begin{array}{r} 47.4 \\ 35.0 \\ 29.8 \\ 24.1 \\ 13.1 \\ 9.7 \\ 6.8 \\ 5.4  \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>Next we form the augmented matrix <span class="math notranslate nohighlight">\([A|B]\)</span> and use <span class="math notranslate nohighlight">\(\texttt{FullRowReduction}\)</span> to verify that the system is inconsistent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">57.9</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">57.9</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mf">57.9</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mf">108.2</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">108.2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mf">108.2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mf">149.6</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">149.6</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mf">149.6</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">228</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">228.0</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mf">228.0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mf">778.5</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">778.5</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mf">778.5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1432</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">1432.0</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">1432</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2867</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mf">2867.0</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2867</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4515</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="mi">4515</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">4515</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">47.4</span><span class="p">],[</span><span class="mi">35</span><span class="p">],[</span><span class="mf">29.8</span><span class="p">],[</span><span class="mf">24.1</span><span class="p">],[</span><span class="mf">13.1</span><span class="p">],[</span><span class="mf">9.7</span><span class="p">],[</span><span class="mf">6.8</span><span class="p">],[</span><span class="mf">5.4</span><span class="p">]])</span>
+<span class="n">A_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">])</span>
+<span class="n">A_augmented_reduced</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">FullRowReduction</span><span class="p">(</span><span class="n">A_augmented</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_augmented_reduced</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The pivot in the last column indicates that the system is inconsistent, so we solve the normal equations <span class="math notranslate nohighlight">\(A^TAX = A^TB\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
+<span class="n">B_N</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@B</span>
+<span class="n">Solution</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">SolveSystem</span><span class="p">(</span><span class="n">A_N</span><span class="p">,</span><span class="n">B_N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.29799177e-09]
+ [ 1.90052171e-05]
+ [-4.67736769e-02]
+ [ 4.03880682e+01]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Therefore the parabola that best fits our data, in the sense of least squares, is <span class="math notranslate nohighlight">\(y = (-2.30 \times 10^{-9})x^3 + (1.90 \times 10^{-5})x^2 + (-4.68 \times 10^{-2})x + 40.39\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">57.9</span><span class="p">,</span> <span class="mf">108.2</span><span class="p">,</span> <span class="mf">149.6</span><span class="p">,</span> <span class="mi">228</span><span class="p">,</span> <span class="mf">778.5</span><span class="p">,</span> <span class="mi">1432</span><span class="p">,</span> <span class="mi">2867</span><span class="p">,</span> <span class="mi">4515</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">47.4</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">29.8</span><span class="p">,</span> <span class="mf">24.1</span><span class="p">,</span> <span class="mf">13.1</span><span class="p">,</span> <span class="mf">9.7</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">4700</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_fit</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x_fit</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">x_fit</span> <span class="o">+</span> <span class="n">d</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_fit</span><span class="p">,</span><span class="n">y_fit</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4700</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Inner_Products_Solutions_243_0.png" src="_images/Inner_Products_Solutions_243_0.png" />
+</div>
+</div>
+<p>The polynomial looks like it takes on a value near 22 when <span class="math notranslate nohighlight">\(x = 413.5\)</span>, which is quite close to what the points seem to suggest.</p>
 </div>
 </div>
 

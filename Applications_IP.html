@@ -441,7 +441,7 @@
 <h1>Applications of Inner Products<a class="headerlink" href="#applications-of-inner-products" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="linear-regression">
 <h2>Linear regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
-<p>A common example of the use of least squares is Linear Regression.  In this scenario, we suppose that two variables are related through linear relationship, or we wish to approximate their relationship as linear.  Although data may show that the relationship is not exactly linear, or the data may be subject to experimental error, we might still hope to find the linear model that best fits the data.  This is commonly known as the “line of best fit”, or the “least squares line”.</p>
+<p>A common example of the use of least squares is Linear Regression.  In this scenario, we suppose that two variables are related through a linear relationship, or we wish to approximate their relationship as linear.  Although data may show that the relationship is not exactly linear, or the data may be subject to experimental error, we might still hope to find the linear model that best fits the data.  This is commonly known as the “line of best fit”, or the “least squares line”.</p>
 <p>For our example, suppose that we are studying the price of beer and nachos at various entertainment venues, and we collect data from a representative sample of venues.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -476,6 +476,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.75</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">,</span> <span class="mf">6.25</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mf">14.8</span><span class="p">,</span> <span class="mf">15.5</span><span class="p">,</span> <span class="mf">15.9</span><span class="p">,</span> <span class="mf">17.25</span><span class="p">])</span>
@@ -511,9 +512,7 @@
 <p>We find the least squares solution by solving the normal equations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">4.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.9</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">6.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">4.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">5.9</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">6.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">],[</span><span class="mi">13</span><span class="p">],[</span><span class="mf">14.8</span><span class="p">],[</span><span class="mf">15.5</span><span class="p">],[</span><span class="mf">15.9</span><span class="p">],[</span><span class="mf">17.25</span><span class="p">]])</span>
 
 <span class="n">A_LS</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@A</span>
@@ -530,7 +529,7 @@
 </div>
 </div>
 </div>
-<p>We see that this least squares solution produces a line fits the data reasonably well.</p>
+<p>We see that this least squares solution produces a line that fits the data reasonably well.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
@@ -557,7 +556,7 @@
 </div>
 <div class="section" id="information-retrieval">
 <h2>Information Retrieval<a class="headerlink" href="#information-retrieval" title="Permalink to this headline">¶</a></h2>
-<p>In the earlier section on the applications of <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">vector spaces</span></a> we discussed how documents could be represented as vectors, and how matrix algebra might be used to identify which documents most closely match a set of keywords defined by a search.  Here we describe an alternative that makes use of fact that dot products can be used to compute the angles between vectors, which can be interpreted as a measure of how closely the vectors align.</p>
+<p>In the earlier section on the applications of <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">vector spaces</span></a> we discussed how documents could be represented as vectors, and how matrix algebra might be used to identify which documents most closely match a set of keywords defined by a search.  Here we describe an alternative that makes use of the fact that dot products can be used to compute the angles between vectors, which can be interpreted as a measure of how closely the vectors align.</p>
 <p>Let’s again consider the specific example of a database which contains a list of webpages with content related to information retrieval, and that the set of searchable keywords is small.</p>
 <p><strong>{algorithm, engine, information, google, computations, matrix, optimization, retrieval, search, theory }</strong></p>
 <p>Again, suppose we look at just a few titles in such a database.</p>
@@ -569,28 +568,10 @@
 <li><p>Theory Behind Search Engines</p></li>
 <li><p>Computations in Information Retrieval</p></li>
 </ul>
-<p>Previously, each webpage title was represented by a <span class="math notranslate nohighlight">\(1\times 10\)</span> row vector that contained entries of ones for keywords that were included in the title, and zeros for those that were not.  (<em>For example,  was represented as <span class="math notranslate nohighlight">\([1, 1, 0, 0, 0, 0, 0, 0, 1, 0]\)</span>.</em>)  We now make one minor adjustment to this representation.  Each of these row vectors will be scaled by its magnitude to make it a unit vector.  Thus <em>Search Engine Algorithms</em> will be represented by the following vector.</p>
+<p>Previously, each webpage title was represented by a <span class="math notranslate nohighlight">\(1\times 10\)</span> row vector that contained entries of ones for keywords that were included in the title, and zeros for those that were not.  (<em>For example, Search Engine Algorithms was represented as <span class="math notranslate nohighlight">\([1, 1, 0, 0, 0, 0, 0, 0, 1, 0]\)</span>.</em>)  We now make one minor adjustment to this representation.  Each of these row vectors will be scaled by its magnitude to make it a unit vector.  Thus <em>Search Engine Algorithms</em> will be represented by the following vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
-
-<span class="k">def</span> <span class="nf">ScaleMatrixRows</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    
-    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,:]</span>
-        <span class="n">row_magnitude</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">row_magnitude</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">row_magnitude</span>
-    
-    <span class="k">return</span> <span class="n">B</span>
-
-<span class="n">T1_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T1_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">T1_scaled</span> <span class="o">=</span> <span class="n">T1_raw</span><span class="o">/</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">T1_raw</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">T1_scaled</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -613,7 +594,7 @@
 <span class="n">T6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">T1</span><span class="p">,</span><span class="n">T2</span><span class="p">,</span><span class="n">T3</span><span class="p">,</span><span class="n">T4</span><span class="p">,</span><span class="n">T5</span><span class="p">,</span><span class="n">T6</span><span class="p">))</span>
-<span class="n">D_scaled</span> <span class="o">=</span> <span class="n">ScaleMatrixRows</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">D_scaled</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">ScaleMatrixRows</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">D_scaled</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -664,9 +645,7 @@
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Write a function that performs the same task as the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> function <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.  That is, it should accept an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix as an argument, and return a matrix where each entry has been divided by the magnitude of the row in which it is located.  Test your function by comparing results with <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Write a function that performs the same task as the <span class="math notranslate nohighlight">\(\texttt{laguide}\)</span> function <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.  That is, it should accept an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix as an argument, and return a matrix where each entry has been divided by the magnitude of the row in which it is located.  Test your function by comparing results with <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -674,10 +653,68 @@
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>The search method described in this section often yields the same results as the one described in <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">Chapter 3</span></a>.  Construct an example where the two methods yield <em>different</em> results.<br />
-(<em>Hint: If we ignore the actual words involved, we see the question is one of matrix multiplication.  Let <span class="math notranslate nohighlight">\(A\)</span> be a <span class="math notranslate nohighlight">\(4\times 6\)</span> database matrix consisting of ones and zeros and let <span class="math notranslate nohighlight">\(A_u\)</span> be the matrix returned by <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows(A)}\)</span>.  Let <span class="math notranslate nohighlight">\(X\)</span> be a <span class="math notranslate nohighlight">\(6\times 1\)</span> search vector consisting of ones and zeros and let <span class="math notranslate nohighlight">\(X_u = X/||X||\)</span>.  To build the required example, arrange the ones and zeros in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(X\)</span> such that the largest entry in <span class="math notranslate nohighlight">\(AX\)</span> appears in a different location than the largest entry in <span class="math notranslate nohighlight">\(A_uX_u\)</span>.</em>)</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> The search method described in this section often yields the same results as the one described in <a class="reference internal" href="Applications_VS.html"><span class="doc std std-doc">Chapter 3</span></a>.  Construct an example where the two methods yield <em>different</em> results.<br />
+(<em>Hint: If we ignore the actual words involved, we see the question is one of matrix multiplication.  Let <span class="math notranslate nohighlight">\(A\)</span> be a <span class="math notranslate nohighlight">\(4\times 6\)</span> database matrix consisting of ones and zeros and let <span class="math notranslate nohighlight">\(A_u\)</span> be the matrix returned by <span class="math notranslate nohighlight">\(\texttt{ScaleMatrixRows(A)}\)</span>.  Let <span class="math notranslate nohighlight">\(X\)</span> be a <span class="math notranslate nohighlight">\(6\times 1\)</span> search vector consisting of ones and zeros and let <span class="math notranslate nohighlight">\(X_u = X/||X||\)</span>.  To build the required example, arrange the ones and zeros in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(X\)</span> such that the largest entry in <span class="math notranslate nohighlight">\(AX\)</span> appears in a different location than the largest entry in <span class="math notranslate nohighlight">\(A_uX_u\)</span>.</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> The concept of least squares can also be used to find polynomials of best fit that are of degree greater than one. Given the points <span class="math notranslate nohighlight">\((-1,0),(0,1),(1,3),\)</span> and <span class="math notranslate nohighlight">\((2,9)\)</span>, find the parabola <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> that best fits through the points in the sense of least squares. Then plot the points ontop of a graph of the parabola to observe the fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Lets revisit a problem we saw earlier to see how the technique of least squares compares to our previous method of interpolation. Here are the average radii of the orbits of the planets in our solar system, and their average orbital velocity around the Sun.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Planet</p></th>
+<th class="head"><p>Distance from Sun (million km)</p></th>
+<th class="head"><p>Orbital Velocity (km/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mercury</p></td>
+<td><p>57.9</p></td>
+<td><p>47.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Venus</p></td>
+<td><p>108.2</p></td>
+<td><p>35.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Earth</p></td>
+<td><p>149.6</p></td>
+<td><p>29.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mars</p></td>
+<td><p>228.0</p></td>
+<td><p>24.1</p></td>
+</tr>
+<tr class="row-even"><td><p>Jupiter</p></td>
+<td><p>778.5</p></td>
+<td><p>13.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturn</p></td>
+<td><p>1432.0</p></td>
+<td><p>9.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Uranus</p></td>
+<td><p>2867.0</p></td>
+<td><p>6.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Neptune</p></td>
+<td><p>4515.0</p></td>
+<td><p>5.4</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Use the method of least squares to find the cubic polynomial of best fit for these points. Plot the data points together with the graph of the polynomial to observe the fit.</p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> The dwarf planet Ceres has an average distance from the sun of 413.5 million km. What does the polynomial suggest the value would be? How closely does this agree with what the points seem to suggest?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
