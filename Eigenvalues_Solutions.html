@@ -403,6 +403,21 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagonalization">
+   Diagonalization
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -568,6 +583,197 @@ C = \left[ \begin{array}{cc} cos(\frac{\pi}{2}) &amp; -sin(\frac{\pi}{2}) \\ sin
 D = \left[ \begin{array}{cc} -0.6 &amp; -0.8 \\ -0.8 &amp; 0.6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
+<div class="section" id="diagonalization">
+<h2>Diagonalization<a class="headerlink" href="#diagonalization" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Find the diagonalization of the matrix from <strong>Example 1</strong>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+A = \left[ \begin{array}{rr} 2 &amp; -1  \\ -1 &amp; 2 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong> Recall that <span class="math notranslate nohighlight">\(A\)</span> has eigenvalues <span class="math notranslate nohighlight">\(\lambda_1 = 3\)</span> and <span class="math notranslate nohighlight">\(\lambda_2 = 1\)</span>, and corresponding eigenvectors <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span> defined below.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+V_1 = \left[ \begin{array}{r} 1 \\ -1 \end{array}\right] \hspace{2cm} V_2 = \left[ \begin{array}{r} 1 \\ 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p>To find the diagonalization of <span class="math notranslate nohighlight">\(A\)</span>, we need to find the diagonal matrix <span class="math notranslate nohighlight">\(D\)</span> with the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> along its diagonal, and the matrix <span class="math notranslate nohighlight">\(S\)</span> which has columns equal to the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>. We write them out below, and then verify that <span class="math notranslate nohighlight">\(A = SDS^{-1}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+D = \left[ \begin{array}{r} 3 &amp; 0 \\ 0 &amp; 1 \end{array}\right] \hspace{2cm} S = \left[ \begin{array}{r} 1 &amp; 1 \\ -1 &amp; 1 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">S</span><span class="nd">@D@lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0. 0.]
+ [0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Find the diagonalization of the following matrix.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+B = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 3 &amp; -2 &amp; 1 \\  1 &amp; 0 &amp; 1\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><strong>Solution:</strong> First we must find the eigenvectors of <span class="math notranslate nohighlight">\(B\)</span> and their corresponding eigenvalues. We make use of the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function to do this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">evalues</span><span class="p">,</span><span class="n">evectors</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2.+0.j  1.+0.j  2.+0.j] 
+
+[[0.         0.         0.57735027]
+ [1.         0.31622777 0.57735027]
+ [0.         0.9486833  0.57735027]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(S\)</span> is equivalent to the matrix of eigenvectors above, so all we have to do is write out <span class="math notranslate nohighlight">\(D\)</span> and then verify that <span class="math notranslate nohighlight">\(B = SDS^{-1}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">evectors</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span> <span class="o">-</span> <span class="n">S</span><span class="nd">@D@lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.00000000e+00 0.00000000e+00 0.00000000e+00]
+ [0.00000000e+00 0.00000000e+00 0.00000000e+00]
+ [1.11022302e-16 0.00000000e+00 0.00000000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 3:</strong> Write a function that accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> as an argument, and returns the three matrices <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(S^{-1}\)</span> such that <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>.  Make use of the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p>
+<p><strong>Solution:</strong> We write a function that finds the diagonalization of an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> and then test it on the matrix <span class="math notranslate nohighlight">\(B\)</span> defined in exercise 2 to check that it works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Diagonalization</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Diagonalization(A)</span>
+<span class="sd">    </span>
+<span class="sd">    Diagonalization takes an nxn matrix A and computes the diagonalization</span>
+<span class="sd">    of A. There is no error checking to ensure that the eigenvectors of A </span>
+<span class="sd">    form a linearly independent set.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    A : NumPy array object of dimension nxn</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    S :        NumPy array object of dimension nxn</span>
+<span class="sd">    D :        NumPy array object of dimension nxn</span>
+<span class="sd">    S_inverse: Numpy array object of dimension nxn</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># n is number of rows and columns in A</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;complex128&#39;</span><span class="p">)</span>
+    <span class="n">evalues</span><span class="p">,</span><span class="n">evectors</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    
+    <span class="n">S</span> <span class="o">=</span> <span class="n">evectors</span>
+    <span class="n">S_inverse</span> <span class="o">=</span> <span class="n">lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">evalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">S</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">S_inverse</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">S_inverse</span> <span class="o">=</span> <span class="n">Diagonalization</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S_inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.         0.57735027]
+ [1.         0.31622777 0.57735027]
+ [0.         0.9486833  0.57735027]] 
+
+[[-2.+0.j  0.+0.j  0.+0.j]
+ [ 0.+0.j  1.+0.j  0.+0.j]
+ [ 0.+0.j  0.+0.j  2.+0.j]] 
+
+[[-0.66666667  1.         -0.33333333]
+ [-1.05409255  0.          1.05409255]
+ [ 1.73205081  0.          0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 4:</strong> Construct a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix that is not diagonal and has eigenvalues 2, 4, and 10.</p>
+<p><strong>Solution:</strong> If we want to construct a matrix <span class="math notranslate nohighlight">\(C\)</span> with eigenvalues 2, 4, and 10, then <span class="math notranslate nohighlight">\(D\)</span> must be a diagonal matrix with those eigenvalues as its diagonal entries. If we let <span class="math notranslate nohighlight">\(S\)</span> be any <span class="math notranslate nohighlight">\(3 \times 3\)</span> non diagonal matrix with linearly independent columns, then <span class="math notranslate nohighlight">\(C = SDS^{-1}\)</span> will give us our desired matrix. We define <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(S\)</span> below, calculate <span class="math notranslate nohighlight">\(C\)</span>, and then check our answer using the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+D = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 0 &amp; 4 &amp; 0 \\  0 &amp; 0 &amp; 10\end{array}\right] \hspace{2cm} S = \left[ \begin{array}{rrr} 1 &amp; 1 &amp; 0  \\ 0 &amp; 1 &amp; 1 \\  1 &amp; 0 &amp; 1\end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">S</span><span class="nd">@D@lag</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">evalues</span><span class="p">,</span><span class="n">evectors</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 3.  1. -1.]
+ [-3.  7.  3.]
+ [-4.  4.  6.]] 
+
+[10.+0.j  2.+0.j  4.+0.j]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The eigenvalues determined by <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> appear in a different order than we had originally, but are correct.</p>
+<p><strong>Exercise 5:</strong> Suppose that <span class="math notranslate nohighlight">\(C = QDQ^{-1}\)</span> where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Q = \left[ \begin{array}{c|c|c} &amp; &amp; \\ U &amp; V &amp; W \\ &amp; &amp; \end{array} \right] \hspace{2cm} D = \left[ \begin{array}{rrr} 0 &amp; 0 &amp; 0  \\ 0 &amp; 3 &amp; 0 \\  0 &amp; 0 &amp; 5 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Give a basis for <span class="math notranslate nohighlight">\(\mathcal{N}(C)\)</span></p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find all the solutions to <span class="math notranslate nohighlight">\(CX = V + W\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

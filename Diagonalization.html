@@ -480,7 +480,7 @@ A = \left[ \begin{array}{rr} 2 &amp; -1  \\ -1 &amp; 2 \end{array}\right]
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">S</span><span class="nd">@D@S_inverse</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">)</span>
@@ -489,7 +489,8 @@ A = \left[ \begin{array}{rr} 2 &amp; -1  \\ -1 &amp; 2 \end{array}\right]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2. -1.]
- [-1.  2.]]
+ [-1.  2.]] 
+
 [[ 5.]
  [-1.]]
 </pre></div>
@@ -629,7 +630,7 @@ AX = A(V_1 + 2V_2) = AV_1 + 2AV_2 = \lambda_1V_1 + 2\lambda_2V_2 = 3V_1 + 2V_2
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$2V_2$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="s1">&#39;$AX$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$3V_2$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$3V_1$&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -749,7 +750,7 @@ B = \left[ \begin{array}{rrr} 1 &amp; 2 &amp; 0  \\ 2 &amp; -1 &amp; 4 \\  0 &am
 </div>
 </div>
 </div>
-<p>We don’t have the exact eigenvalues, but we can check that <span class="math notranslate nohighlight">\(BV_i - \lambda_iV_i = 0\)</span> for <span class="math notranslate nohighlight">\(i=1, 2, 3\)</span>, allowing of for small precision error.</p>
+<p>We don’t have the exact eigenvalues, but we can check that <span class="math notranslate nohighlight">\(BV_i - \lambda_iV_i = 0\)</span> for <span class="math notranslate nohighlight">\(i=1, 2, 3\)</span>, allowing for the usual roundoff error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="nd">@V_1</span><span class="o">-</span><span class="n">E_1</span><span class="o">*</span><span class="n">V_1</span><span class="p">)</span>
@@ -805,7 +806,7 @@ SD = \left[ \begin{array}{c|c|c} &amp; &amp; \\ V_1 &amp; V_2 &amp; V_3 \\ &amp;
 </div>
 <div class="section" id="diagonal-factorization">
 <h2>Diagonal factorization<a class="headerlink" href="#diagonal-factorization" title="Permalink to this headline">¶</a></h2>
-<p>The calculation that we used to verify the eigenvalues an eigenvectors is also very useful to construct another important matrix factorization.  Suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, <span class="math notranslate nohighlight">\(D\)</span> is a diagonal matrix with the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> along its diagonal, and <span class="math notranslate nohighlight">\(S\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span> as its columns.  We have just seen that <span class="math notranslate nohighlight">\(AS=SD\)</span>.  If <span class="math notranslate nohighlight">\(S\)</span> is invertible, we may also write <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>, which is known as the <strong>diagonalization</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>The calculation that we used to verify the eigenvalues and eigenvectors is also very useful to construct another important matrix factorization.  Suppose that <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix, <span class="math notranslate nohighlight">\(D\)</span> is a diagonal matrix with the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> along its diagonal, and <span class="math notranslate nohighlight">\(S\)</span> is the <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span> as its columns.  We have just seen that <span class="math notranslate nohighlight">\(AS=SD\)</span>.  If <span class="math notranslate nohighlight">\(S\)</span> is invertible, we may also write <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>, which is known as the <strong>diagonalization</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>The diagonalization of <span class="math notranslate nohighlight">\(A\)</span> is important because it provides us with a complete description of the action of <span class="math notranslate nohighlight">\(A\)</span> in terms of its eigenvectors.  Consider an arbitrary vector <span class="math notranslate nohighlight">\(X\)</span>, and the product <span class="math notranslate nohighlight">\(AX\)</span>, computed by using the three factors in the diagonalization.</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S^{-1}X\)</span> computes the coordinates of <span class="math notranslate nohighlight">\(X\)</span> in terms of the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
@@ -817,9 +818,7 @@ SD = \left[ \begin{array}{c|c|c} &amp; &amp; \\ V_1 &amp; V_2 &amp; V_3 \\ &amp;
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Find the diagonalization of the matrix from <strong>Example 1</strong>.</p></li>
-</ul>
+<p><strong>Exercise 1:</strong> Find the diagonalization of the matrix from <strong>Example 1</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -835,9 +834,7 @@ A = \left[ \begin{array}{rr} 2 &amp; -1  \\ -1 &amp; 2 \end{array}\right]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Find the diagonalization of the following matrix.</p></li>
-</ul>
+<p><strong>Exercise 2:</strong> Find the diagonalization of the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -851,9 +848,7 @@ B = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 3 &amp; -2 &amp; 1 \\  1 &am
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Write a function that accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> as an argument, and returns the three matrices <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(S^{-1}\)</span> such that <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>.  Make use of the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p></li>
-</ul>
+<p><strong>Exercise 3:</strong> Write a function that accepts an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> as an argument, and returns the three matrices <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(S^{-1}\)</span> such that <span class="math notranslate nohighlight">\(A=SDS^{-1}\)</span>.  Make use of the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -861,12 +856,26 @@ B = \left[ \begin{array}{rrr} 2 &amp; 0 &amp; 0  \\ 3 &amp; -2 &amp; 1 \\  1 &am
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Construct a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix that is not diagonal and has eigenvalues 2, 4, and 10.</p></li>
-</ul>
+<p><strong>Exercise 4:</strong> Construct a <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix that is not diagonal and has eigenvalues 2, 4, and 10.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 5:</strong> Suppose that <span class="math notranslate nohighlight">\(C = QDQ^{-1}\)</span> where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+Q = \left[ \begin{array}{c|c|c} &amp; &amp; \\ U &amp; V &amp; W \\ &amp; &amp; \end{array} \right] \hspace{2cm} D = \left[ \begin{array}{rrr} 0 &amp; 0 &amp; 0  \\ 0 &amp; 3 &amp; 0 \\  0 &amp; 0 &amp; 5 \end{array}\right]
+\end{equation}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\((a)\)</span> Give a basis for <span class="math notranslate nohighlight">\(\mathcal{N}(C)\)</span></p>
+<p><span class="math notranslate nohighlight">\((b)\)</span> Find all the solutions to <span class="math notranslate nohighlight">\(CX = V + W\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solutions here.</span>
 </pre></div>
 </div>
 </div>
