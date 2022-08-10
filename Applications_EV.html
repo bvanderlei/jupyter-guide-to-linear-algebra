@@ -416,13 +416,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#navigating-webpages">
-   Navigating webpages
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#navigating-webpages">
+   Navigating webpages
   </a>
  </li>
 </ul>
@@ -453,7 +453,7 @@ AX_{t-1}
 \end{equation}
 \end{split}\]</div>
 <p>Given an initial condition <span class="math notranslate nohighlight">\(X_0\)</span>, we know that <span class="math notranslate nohighlight">\(X_n = A^nX_0\)</span>.  We are interested in determining the behavior of the system for large <span class="math notranslate nohighlight">\(n\)</span>.  We might now recognize that this calculation is exactly the same as the Power Method from the previous section, and therefore expect that the sequence of vectors produced should tend toward the eigenvector corresponding to the largest eigenvalue.</p>
-<p>In this case the components of the vector have individual meaning, so let’s calculate the first 30 iterations and plot <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span> to get a sense of how they are changing.  For this calculation we store each vector <span class="math notranslate nohighlight">\(X_t\)</span> as a column in an array named <span class="math notranslate nohighlight">\(\texttt{results}\)</span>.</p>
+<p>In this case the components of the vector have individual meaning, so let’s calculate the first <span class="math notranslate nohighlight">\(20\)</span> iterations and plot <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span> to get a sense of how they are changing.  For this calculation we store each vector <span class="math notranslate nohighlight">\(X_t\)</span> as a column in an array named <span class="math notranslate nohighlight">\(\texttt{results}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -485,8 +485,8 @@ AX_{t-1}
 
 <span class="c1">## The optional label keyword argument provides text that is used to create a legend</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="s1">&#39;b+&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Susceptible&quot;</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Infective&quot;</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="s1">&#39;g+&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Removed&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Infectious&quot;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="s1">&#39;g+&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Recovered&quot;</span><span class="p">);</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
@@ -498,9 +498,9 @@ AX_{t-1}
 <img alt="_images/Applications_EV_2_0.png" src="_images/Applications_EV_2_0.png" />
 </div>
 </div>
-<p>Based on the calculation it appears that the state of the population has reached an <em>equilibrium</em> after 20 weeks.  In the equilibrium state, each category of the population, <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(I\)</span>, and <span class="math notranslate nohighlight">\(R\)</span>, have as many individuals entering the category as leaving it.  In terms of the matrix equation, if <span class="math notranslate nohighlight">\(X\)</span> is the vector that contains the equilibrium values of <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> must be a solution to the equation <span class="math notranslate nohighlight">\(AX=X\)</span>, since <span class="math notranslate nohighlight">\(X_{t-1}=X_t\)</span> when the components not changing.  The equation <span class="math notranslate nohighlight">\(AX=X\)</span> implies that <span class="math notranslate nohighlight">\(X\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> corresponding to an eigenvalue of one.</p>
+<p>Based on the calculation it appears that the state of the population has reached an <em>equilibrium</em> after 20 weeks.  In the equilibrium state, each category of the population, <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(I\)</span>, and <span class="math notranslate nohighlight">\(R\)</span>, have as many individuals entering the category as leaving it.  In terms of the matrix equation, if <span class="math notranslate nohighlight">\(X\)</span> is the vector that contains the equilibrium values of <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, then <span class="math notranslate nohighlight">\(X\)</span> must be a solution to the equation <span class="math notranslate nohighlight">\(AX=X\)</span>, since <span class="math notranslate nohighlight">\(X_{t-1}=X_t\)</span> when the components are not changing.  The equation <span class="math notranslate nohighlight">\(AX=X\)</span> implies that <span class="math notranslate nohighlight">\(X\)</span> is an eigenvector of <span class="math notranslate nohighlight">\(A\)</span> corresponding to an eigenvalue of one.</p>
 <p>The equation <span class="math notranslate nohighlight">\(AX=X\)</span> represents a linear system, even though it is not written in the typical form.  We can rearrange it to look more familiar by using the tools of matrix algebra.  The key is to recognize that <span class="math notranslate nohighlight">\(X\)</span> can be written as <span class="math notranslate nohighlight">\(IX\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix.  This gives <span class="math notranslate nohighlight">\(AX=IX\)</span>, which can be rewritten as <span class="math notranslate nohighlight">\((A-I)X = 0\)</span>.  This matrix equation is the type with which we have been working throughout the previous chapters.</p>
-<p>Before attempting to solve the system <span class="math notranslate nohighlight">\((A-I)X = 0\)</span>, we first recognize it as a <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">Homogeneous Systems</span></a> and apply some reasoning based on our knowledge of linear systems.  We know that the solution set of a homogeneous system certainly contains the trivial solution <span class="math notranslate nohighlight">\(X=0\)</span>.  Therefore if there is also a nonzero solution to <span class="math notranslate nohighlight">\((A-I)X=0\)</span>, the system must have an infinite number of solutions since linear systems always have zero, exactly one, or an infinite number of solutions.  If the system <span class="math notranslate nohighlight">\((A-I)X=0\)</span> does not have a unique solution there must be a free variable, which means that one of the columns of the matrix <span class="math notranslate nohighlight">\(A-I\)</span> will not have a pivot. In this case the direct methods of solution based on <span class="math notranslate nohighlight">\(LU\)</span> or <span class="math notranslate nohighlight">\(QR\)</span> factorizations will fail.  We must go back to the basic row operations and calculate the RREF of the augmented matrix <span class="math notranslate nohighlight">\([(A-I)|0]\)</span>.</p>
+<p>Before attempting to solve the system <span class="math notranslate nohighlight">\((A-I)X = 0\)</span>, we first recognize it as a <a class="reference internal" href="Linear_Independence.html"><span class="doc std std-doc">Homogeneous System</span></a> and apply some reasoning based on our knowledge of linear systems.  We know that the solution set of a homogeneous system certainly contains the trivial solution <span class="math notranslate nohighlight">\(X=0\)</span>.  Therefore if there is also a nonzero solution to <span class="math notranslate nohighlight">\((A-I)X=0\)</span>, the system must have an infinite number of solutions since linear systems always have zero, exactly one, or an infinite number of solutions.  If the system <span class="math notranslate nohighlight">\((A-I)X=0\)</span> does not have a unique solution there must be a free variable, which means that one of the columns of the matrix <span class="math notranslate nohighlight">\(A-I\)</span> will not have a pivot. In this case the direct methods of solution based on <span class="math notranslate nohighlight">\(LU\)</span> or <span class="math notranslate nohighlight">\(QR\)</span> factorizations will fail.  We must go back to the basic row operations and calculate the RREF of the augmented matrix <span class="math notranslate nohighlight">\([(A-I)|0]\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">laguide</span> <span class="k">as</span> <span class="nn">lag</span>
@@ -560,10 +560,10 @@ Computed values of s, i, r at time  100 :
 </div>
 <p>The results agree nicely with our analysis, but there are two remaining questions:</p>
 <ol class="simple">
-<li><p>Why does it <span class="math notranslate nohighlight">\(s_t+i_t+r_t = 1\)</span> for every <span class="math notranslate nohighlight">\(t\)</span> in the calculation, even though this constraint does not appear to be enforced?</p></li>
+<li><p>Why is it that <span class="math notranslate nohighlight">\(s_t+i_t+r_t = 1\)</span> for every <span class="math notranslate nohighlight">\(t\)</span> in the calculation, even though this constraint does not appear to be enforced?</p></li>
 <li><p>What are the results if we change the initial population composition given by <span class="math notranslate nohighlight">\(X_0\)</span>?</p></li>
 </ol>
-<p>The answer to the first question is simple, but not immediately obvious.  If we add the three equations that define <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, we find that <span class="math notranslate nohighlight">\(s_t+i_t+r_t = s_{t-1} + i_{t-1} + r_{t-1}\)</span>.  This means that as long as the three equations are true, the sum <span class="math notranslate nohighlight">\(s_t+i_t+r_t\)</span> does not change carry the iteration forward in time.  Since we start with the components of <span class="math notranslate nohighlight">\(X_0\)</span> summing to one, the components of <span class="math notranslate nohighlight">\(X_t\)</span> will sum to one for all other <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>The answer to the first question is simple, but not immediately obvious.  If we add the three equations that define <span class="math notranslate nohighlight">\(s_t\)</span>, <span class="math notranslate nohighlight">\(i_t\)</span>, and <span class="math notranslate nohighlight">\(r_t\)</span>, we find that <span class="math notranslate nohighlight">\(s_t+i_t+r_t = s_{t-1} + i_{t-1} + r_{t-1}\)</span>.  This means that as long as the three equations are true, the sum <span class="math notranslate nohighlight">\(s_t+i_t+r_t\)</span> does not change as we carry the iteration forward in time.  Since we start with the components of <span class="math notranslate nohighlight">\(X_0\)</span> summing to one, the components of <span class="math notranslate nohighlight">\(X_t\)</span> will sum to one for all other <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>In order to answer the second question, we assume that we start with an arbitrary <span class="math notranslate nohighlight">\(X_0\)</span>, although we will require that the components of <span class="math notranslate nohighlight">\(X_0\)</span> to be nonnegative and add to one so that the results are meaningful in the application.  As we did when considering the Power Method, we write <span class="math notranslate nohighlight">\(X_0\)</span> as a linear combination of <span class="math notranslate nohighlight">\(\{V_1, V_2, V_3\}\)</span>, the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>.  This makes  it easy to express <span class="math notranslate nohighlight">\(X_t = A^tX_0\)</span> in terms of the eigenvectors as well, just as did before.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -579,7 +579,7 @@ X_t &amp; = &amp; c_1\lambda_1^tV_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3
 X_t  =  c_1V_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3 
 \end{equation}
 \]</div>
-<p>If <span class="math notranslate nohighlight">\(|\lambda_2|&lt; 1\)</span> and <span class="math notranslate nohighlight">\(|\lambda_3|&lt; 1\)</span> then the second the third terms will approach zero as <span class="math notranslate nohighlight">\(t\)</span> gets large and <span class="math notranslate nohighlight">\(X_t\)</span> will approach the direction of <span class="math notranslate nohighlight">\(V_1\)</span>.  We use SciPy to verify that <span class="math notranslate nohighlight">\(\lambda_2\)</span> and <span class="math notranslate nohighlight">\(\lambda_3\)</span> are in fact a pair of complex numbers with magnitude less than one.</p>
+<p>If <span class="math notranslate nohighlight">\(|\lambda_2|&lt; 1\)</span> and <span class="math notranslate nohighlight">\(|\lambda_3|&lt; 1\)</span> then the second and the third terms will approach zero as <span class="math notranslate nohighlight">\(t\)</span> gets large and <span class="math notranslate nohighlight">\(X_t\)</span> will approach the direction of <span class="math notranslate nohighlight">\(V_1\)</span>.  We use SciPy to verify that <span class="math notranslate nohighlight">\(\lambda_2\)</span> and <span class="math notranslate nohighlight">\(\lambda_3\)</span> are in fact a pair of complex numbers with magnitude less than one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">sla</span>
@@ -603,9 +603,37 @@ X_t  =  c_1V_1 + c_2\lambda_2^tV_2 + c_3\lambda_3^tV_3
 </div>
 <p>Therefore unless <span class="math notranslate nohighlight">\(c_1 = 0\)</span>, the vectors <span class="math notranslate nohighlight">\(X_t\)</span> approach the direction of <span class="math notranslate nohighlight">\(V_1\)</span>.  The case where <span class="math notranslate nohighlight">\(c_1 = 0\)</span> corresponds to initial conditions with negative entries, which are not relevant in the application.  The conclusion is that <span class="math notranslate nohighlight">\(X_t\)</span> will approach the equilibrium state for all meaningful initial configurations of the population.</p>
 </div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p><strong>Exercise 1:</strong> Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all meaningful initial states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 2:</strong> Perform an analysis similar to that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
+\left[ \begin{array}{rrr} 0.95 &amp; 0 &amp; 0.05 \\ 0.05 &amp; 0.80 &amp; 0 \\ 0 &amp; 0.20 &amp; 0.95 \end{array}\right]
+\left[ \begin{array}{r} s_{t-1} \\ i_{t-1} \\ r_{t-1}  \end{array}\right]=
+AX_{t-1}
+\end{equation}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="navigating-webpages">
 <h2>Navigating webpages<a class="headerlink" href="#navigating-webpages" title="Permalink to this headline">¶</a></h2>
-<p>In the dynamical system <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>, the entries in the state vector <span class="math notranslate nohighlight">\(X_t\)</span> can represent probabilities that a web browser is on a particular page after <span class="math notranslate nohighlight">\(t\)</span> steps of random browsing defined by the matrix <span class="math notranslate nohighlight">\(A\)</span>, which is build using the link structure among the web pages.  The matrix and initial condition previously considered are given below.</p>
+<p>In the dynamical system <span class="math notranslate nohighlight">\(X_t = AX_{t-1}\)</span>, the entries in the state vector <span class="math notranslate nohighlight">\(X_t\)</span> can represent probabilities that a web browser is on a particular page after <span class="math notranslate nohighlight">\(t\)</span> steps of random browsing defined by the matrix <span class="math notranslate nohighlight">\(A\)</span>, which is built using the link structure among the web pages.  The matrix and initial condition previously considered are given below.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -687,38 +715,6 @@ X_0 = \left[ \begin{array}{ccccc} 0 \\ 0 \\ 0 \\ 1 \\ 0
  [0.11062058]
  [0.11062058]
  [0.33075804]]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Experiment with a range of initial conditions in the infectious disease model to provide evidence that an equilibrium state is reached for all meaningful initial states.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Perform an analysis similar to the that in the example for the following infectious disease model.  In this model the rate at which individuals move from the Recovered category to the Susceptible category is less than that in the example.  Make a plot similar to that in the example and also calculate the theoretical equilibrium values for <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{equation}
-X_t = \left[ \begin{array}{r} s_t \\ i_t \\ r_t  \end{array}\right] =
-\left[ \begin{array}{rrr} 0.95 &amp; 0 &amp; 0.05 \\ 0.05 &amp; 0.80 &amp; 0 \\ 0 &amp; 0.20 &amp; 0.95 \end{array}\right]
-\left[ \begin{array}{r} s_{t-1} \\ i_{t-1} \\ r_{t-1}  \end{array}\right]=
-AX_{t-1}
-\end{equation}
-\end{split}\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
 </pre></div>
 </div>
 </div>

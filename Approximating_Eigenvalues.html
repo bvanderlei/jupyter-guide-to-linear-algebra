@@ -419,13 +419,11 @@
   <a class="reference internal nav-link" href="#inverse-power-method">
    Inverse power method
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shifts">
-     Shifts
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shifted-inverse-power-method">
+   Shifted inverse power method
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -460,7 +458,7 @@ A = \left[ \begin{array}{rr} a &amp; b  \\ c &amp; d \end{array}\right]
 \end{equation}
 \end{split}\]</div>
 <p>The eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> are solutions to the quadratic equation <span class="math notranslate nohighlight">\(\lambda^2 - (a+d)\lambda + ad-bc = 0\)</span>, which can be written explicitly in terms of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(d\)</span> using the quadratic formula.  The challenges with larger matrices are that the polynomial is more difficult to construct, and the roots cannot be easily found with a formula.</p>
-<p>The algorithms we describe in the section are iterative methods.  They generate a sequence of vectors <span class="math notranslate nohighlight">\(\{X^{(1)}, X^{(2)}, X^{(3)}, ... \}\)</span> that approach a true eigenvector of the matrix under consideration.  An approximation of the corresponding eigenvalue can then be computed by multiplying the approximate eigenvector by <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>The algorithms we describe in this section are iterative methods.  They generate a sequence of vectors <span class="math notranslate nohighlight">\(\{X^{(1)}, X^{(2)}, X^{(3)}, ... \}\)</span> that approach a true eigenvector of the matrix under consideration.  An approximation of the corresponding eigenvalue can then be computed by multiplying the approximate eigenvector by <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="section" id="power-method">
 <h2>Power method<a class="headerlink" href="#power-method" title="Permalink to this headline">¶</a></h2>
 <p>The first algorithm we introduce for approximating eigenvalues is known as the <strong>Power Method</strong>.  This method generates a sequence of vectors by repeated matrix multiplication.  Under suitable conditions, the sequence of vectors approaches the eigenvector associated with the eigenvalue that is largest in absolute value.</p>
@@ -499,7 +497,7 @@ X^{(m)} =  \lambda_1^m\left(c_1V_1 + c_2\left(\frac{\lambda_2}{\lambda_1}\right)
 A = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -6 &amp; 0 &amp; 12 &amp; 12 \\ -10 &amp; 3 &amp; 7 &amp; 14 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length as the Power Method is applied.  If the vectors in the sequence are not scaled, their magnitudes will grow of <span class="math notranslate nohighlight">\(\lambda_1&gt;1\)</span> or decay if <span class="math notranslate nohighlight">\(\lambda_1&lt;1\)</span>.    Since all components of the vectors get divided by the same factor when the vector is scaled, this step doesn’t change the ultimate behavior of the sequence.  The scaled sequence of vectors still approaches the direction of the eigenvector.</p>
+<p>As a matter of practicality, it is common to scale the vectors in the sequence to unit length as the Power Method is applied.  If the vectors in the sequence are not scaled, their magnitudes will grow if <span class="math notranslate nohighlight">\(\lambda_1&gt;1\)</span> or decay if <span class="math notranslate nohighlight">\(\lambda_1&lt;1\)</span>.    Since all components of the vectors get divided by the same factor when the vector is scaled, this step doesn’t change the ultimate behavior of the sequence.  The scaled sequence of vectors still approaches the direction of the eigenvector.</p>
 <p>We choose an arbitrary <span class="math notranslate nohighlight">\(X^{(0)}\)</span> and calculate <span class="math notranslate nohighlight">\(X^{(20)}\)</span> using the following rule.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -562,7 +560,7 @@ X^{(m)}=\frac{AX^{(m-1)}}{||AX^{(m-1)}||}
 </div>
 </div>
 </div>
-<p>Indeed the difference <span class="math notranslate nohighlight">\(AX-24X\)</span> small.  Note that in this case, we can even do the calculation with integer multiplication.  Notice that <span class="math notranslate nohighlight">\(X\)</span> has 0 in the first entry and the other entries are equal.  If we set these entries to 1, the result is easy to calculate even without the aid of the computer.  (<em>Remember that we can change the magnitude of an eigenvector and it is still an eigenvector.</em>)</p>
+<p>Indeed the difference <span class="math notranslate nohighlight">\(AX-24X\)</span> is small.  Note that in this case, we can even do the calculation with integer multiplication.  Notice that <span class="math notranslate nohighlight">\(X\)</span> has 0 in the first entry and the other entries are equal.  If we set these entries to 1, the result is easy to calculate even without the aid of the computer.  (<em>Remember that we can change the magnitude of an eigenvector and it is still an eigenvector.</em>)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -571,7 +569,7 @@ AX = \left[ \begin{array}{rrrr} -2 &amp; 6 &amp; 2 &amp; -8 \\ -6 &amp; 0 &amp; 
 \left[ \begin{array}{r} 0 \\ 24\\ 24 \\ 24 \end{array}\right] = 24X
 \end{equation}
 \end{split}\]</div>
-<p>In practice, we do not know how many iterations we need to perform in order to get a good approximation of the eigenvector eigenvalue.  Instead we should specify a condition upon which we will be satisfied with the approximation and terminate the iteration.  For example, since <span class="math notranslate nohighlight">\(||AX^{(m)}||\approx \lambda_1\)</span> and <span class="math notranslate nohighlight">\(AX^{(m)}\approx \lambda_1X^{(m)}\)</span> we might require that <span class="math notranslate nohighlight">\(AX^{(m)} - ||AX^{(m)}||X^{(m)} &lt; \epsilon\)</span> for some small number <span class="math notranslate nohighlight">\(\epsilon\)</span> known as a tolerance.  This condition ensures that <span class="math notranslate nohighlight">\(X^{(m)}\)</span> functions roughly like an eigenvector.  It is also best to include in the code a limit on the number of iterations that will be carried out.  This ensures that the computation will eventually end, even if a satisfactory result has not yet been achieved.</p>
+<p>In practice, we do not know how many iterations we need to perform in order to get a good approximation of the eigenvector.  Instead we should specify a condition upon which we will be satisfied with the approximation and terminate the iteration.  For example, since <span class="math notranslate nohighlight">\(||AX^{(m)}||\approx \lambda_1\)</span> and <span class="math notranslate nohighlight">\(AX^{(m)}\approx \lambda_1X^{(m)}\)</span> we might require that <span class="math notranslate nohighlight">\(AX^{(m)} - ||AX^{(m)}||X^{(m)} &lt; \epsilon\)</span> for some small number <span class="math notranslate nohighlight">\(\epsilon\)</span> known as a tolerance.  This condition ensures that <span class="math notranslate nohighlight">\(X^{(m)}\)</span> functions roughly like an eigenvector.  It is also best to include in the code a limit on the number of iterations that will be carried out.  This ensures that the computation will eventually end, even if a satisfactory result has not yet been achieved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
@@ -620,7 +618,7 @@ Magnitude of the difference is:
 </div>
 </div>
 </div>
-<p>A more common condition to require is that <span class="math notranslate nohighlight">\(||X^{(m)} - X^{(m-1})|| &lt; \epsilon\)</span> for a given tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span>.  This condition mere requires that the vectors in the sequence get close to one another, not that they are actually approximate an eigenvector.</p>
+<p>A more common condition to require is that <span class="math notranslate nohighlight">\(||X^{(m)} - X^{(m-1})|| &lt; \epsilon\)</span> for a given tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span>.  This condition merely requires that the vectors in the sequence get close to one another, not that they are actually approximate an eigenvector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
@@ -677,7 +675,7 @@ Magnitude of the difference is:
 A^{-1}V = \frac{1}{\lambda}V
 \end{equation}
 \]</div>
-<p>If <span class="math notranslate nohighlight">\(\lambda\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda^{-1}\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>.  Furthermore the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is also an eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  The important point here is that if <span class="math notranslate nohighlight">\(\lambda_n\)</span> is the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda_n^{-1}\)</span> is the <em>largest</em> eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  If we want to approximate the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, we can just apply the Power Method to <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\lambda\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda^{-1}\)</span> is an eigenvalue of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  Furthermore the eigenvector of <span class="math notranslate nohighlight">\(A\)</span> is also an eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  The important point here is that if <span class="math notranslate nohighlight">\(\lambda_n\)</span> is the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(\lambda_n^{-1}\)</span> is the <em>largest</em> eigenvector of <span class="math notranslate nohighlight">\(A^{-1}\)</span>.  If we want to approximate the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, we can just apply the Power Method to <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
 <p>We demonstrate the calculation for the following <span class="math notranslate nohighlight">\(3\times 3\)</span> matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -716,9 +714,9 @@ X^{(m)}=\frac{A^{-1}X^{(m-1)}}{||A^{-1}X^{(m-1)}||}
     
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A inverse is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue of A inverse is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A_inv</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue of A is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -729,10 +727,10 @@ X^{(m)}=\frac{A^{-1}X^{(m-1)}}{||A^{-1}X^{(m-1)}||}
  [ 6.14168469e-05]
  [-8.94437425e-01]] 
 
-Magnitude of the eigenvalue is A inverse is approximately:
+Magnitude of the eigenvalue of A inverse is approximately:
 0.3333371476391265 
 
-Magnitude of the eigenvalue is A is approximately:
+Magnitude of the eigenvalue of A is approximately:
 2.999931351114087 
 </pre></div>
 </div>
@@ -773,7 +771,7 @@ AV = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue of A inverse is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">lu_solve</span><span class="p">(</span><span class="n">LU_factorization</span><span class="p">,</span><span class="n">X</span><span class="p">)),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of the eigenvalue of A is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -787,14 +785,15 @@ AV = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &
 Magnitude of the eigenvalue of A inverse is approximately:
 0.3333371476391265 
 
-Magnitude of the eigenvalue is A is approximately:
+Magnitude of the eigenvalue of A is approximately:
 2.999931351114087 
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="shifts">
-<h3>Shifts<a class="headerlink" href="#shifts" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="shifted-inverse-power-method">
+<h2>Shifted inverse power method<a class="headerlink" href="#shifted-inverse-power-method" title="Permalink to this headline">¶</a></h2>
 <p>Using a small modification to the Inverse Power Method, we can also approximate eigenvalues that are not the smallest.  For this variation of the method, we need to observe that if we “shift” the diagonal entries of a matrix by a scalar <span class="math notranslate nohighlight">\(\mu\)</span>, all of the eigenvalues of the matrix are also shifted by <span class="math notranslate nohighlight">\(\mu\)</span>.  Let <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix with eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> and corresponding eigenvector <span class="math notranslate nohighlight">\(V\)</span>, so that <span class="math notranslate nohighlight">\(AV=\lambda V\)</span>.  Then <span class="math notranslate nohighlight">\((A-\mu I)V = AV - \mu V = \lambda V - \mu V = (\lambda-\mu)V\)</span>, which means that <span class="math notranslate nohighlight">\(V\)</span> is also an eigenvector of the matrix <span class="math notranslate nohighlight">\((A-\mu I)\)</span> corresponding to the eigenvalue <span class="math notranslate nohighlight">\(\lambda -\mu\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -838,7 +837,7 @@ A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &a
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvector is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalue is A is approximately:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalue of A is approximately:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lag</span><span class="o">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">A</span><span class="nd">@X</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -849,38 +848,23 @@ A = \left[ \begin{array}{rrrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &a
  [0.88465174]
  [0.14744196]] 
 
-Eigenvalue is A is approximately:
+Eigenvalue of A is approximately:
 6.0
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix from the Inverse Power Method example.</p>
+<p><strong>Exercise 1:</strong> Let <span class="math notranslate nohighlight">\(A\)</span> be the matrix from the Inverse Power Method example.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
 A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &amp; 3 &amp; 6 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<ul class="simple">
-<li><p>Use the Power Method to approximate the largest eigenvalue <span class="math notranslate nohighlight">\(\lambda_1\)</span>.  Verify that the exact value of <span class="math notranslate nohighlight">\(\lambda_1\)</span> is 12.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
-
-<span class="c1">## Code solution here.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Apply the Inverse Power Method with a shift of <span class="math notranslate nohighlight">\(\mu = 10\)</span>.  Explain why the results differ from those in the example.</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Use the Power Method to approximate the largest eigenvalue <span class="math notranslate nohighlight">\(\lambda_1\)</span>.  Verify that the exact value of <span class="math notranslate nohighlight">\(\lambda_1\)</span> is 12.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -888,9 +872,15 @@ A = \left[ \begin{array}{rrr} 9 &amp; -1 &amp; -3 \\ 0 &amp; 6 &amp; 0 \\ -6 &am
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Apply the Inverse Power Method with a shift 0f <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequence of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Apply the Inverse Power Method with a shift of <span class="math notranslate nohighlight">\(\mu = 10\)</span>.  Explain why the results differ from those in the example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(<span class="math notranslate nohighlight">\(c\)</span>) Apply the Inverse Power Method with a shift of <span class="math notranslate nohighlight">\(\mu = 7.5\)</span> and the initial vector given below.  Explain why the sequence of vectors approach the eigenvector corresponding to <span class="math notranslate nohighlight">\(\lambda_1\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -904,16 +894,14 @@ X^{(0)} = \left[ \begin{array}{r} 1 \\ 0  \\ 0 \end{array}\right]
 </div>
 </div>
 </div>
-<p>Let <span class="math notranslate nohighlight">\(B\)</span> be the following matrix.</p>
+<p><strong>Exercise 2:</strong>* Let <span class="math notranslate nohighlight">\(B\)</span> be the following matrix.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
 B = \left[ \begin{array}{rrrr} -2 &amp; -18 &amp; 6 \\ -11 &amp; 3 &amp; 11 \\ -27 &amp; 15 &amp; 31 \end{array}\right]
 \end{equation}
 \end{split}\]</div>
-<ul class="simple">
-<li><p>Apply the Power Method and Inverse Power Method with shifts to approximate all eigenvalues of the matrix <span class="math notranslate nohighlight">\(B\)</span>. (<em>Note that one of the eigenvalues of this matrix is negative.</em>)</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(a\)</span>) Apply the Power Method and Inverse Power Method with shifts to approximate all eigenvalues of the matrix <span class="math notranslate nohighlight">\(B\)</span>. (<em>Note that one of the eigenvalues of this matrix is negative.</em>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>
@@ -921,9 +909,7 @@ B = \left[ \begin{array}{rrrr} -2 &amp; -18 &amp; 6 \\ -11 &amp; 3 &amp; 11 \\ -
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Check your results using the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p></li>
-</ul>
+<p>(<span class="math notranslate nohighlight">\(b\)</span>) Check your results using the <span class="math notranslate nohighlight">\(\texttt{eig}\)</span> function in SciPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Code solution here.</span>

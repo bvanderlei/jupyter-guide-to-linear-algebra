@@ -454,7 +454,7 @@
 <p>A linear transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^n \to \mathbb{R}^n\)</span> is a <strong>projection</strong> if <span class="math notranslate nohighlight">\(T\circ T = T\)</span>.  The result of applying a projection once is the same as the result of applying it twice.  We can understand the effect of a projection as the collapsing of a vector in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> onto a subspace <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.  Once a vector has been projected onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>, any further projection onto <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> has no effect.</p>
 <div class="section" id="example-1-orthogonal-projection-in-mathbb-r-2">
 <h2>Example 1:  Orthogonal projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-1-orthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
-<p>We look first at an orthogonal projection onto the <span class="math notranslate nohighlight">\(x_1\)</span>-axis in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.  This transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be defined with the following formula.</p>
+<p>We look first at a projection onto the <span class="math notranslate nohighlight">\(x_1\)</span>-axis in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>.  This transformation <span class="math notranslate nohighlight">\(T:\mathbb{R}^2\to\mathbb{R}^2\)</span> can be defined with the following formula.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation}
@@ -478,6 +478,7 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 
 <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -487,6 +488,7 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$X$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span><span class="s1">&#39;$T(X)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span><span class="mf">1.85</span><span class="p">,</span><span class="s1">&#39;$X - T(X)$&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -499,6 +501,7 @@ T\left( \left[ \begin{array}{r} x \\ y \end{array} \right]\right) =
 <img alt="_images/Projections_3_0.png" src="_images/Projections_3_0.png" />
 </div>
 </div>
+<p>Notice that if we decompose <span class="math notranslate nohighlight">\(X\)</span> into the components <span class="math notranslate nohighlight">\(T(X)\)</span> and <span class="math notranslate nohighlight">\(X - T(X)\)</span>, then <span class="math notranslate nohighlight">\(T(X)\)</span> and <span class="math notranslate nohighlight">\(X - T(X)\)</span> are orthogonal.</p>
 </div>
 <div class="section" id="example-2-nonorthogonal-projection-in-mathbb-r-2">
 <h2>Example 2  Nonorthogonal projection in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#example-2-nonorthogonal-projection-in-mathbb-r-2" title="Permalink to this headline">¶</a></h2>
@@ -539,20 +542,20 @@ PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
 \[\begin{split}
 \begin{equation}
 PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
-\left[\begin{array}{r} 4 \\ 2 \end{array}\right] =
-\left[\begin{array}{r} 3 \\ 1 \end{array}\right] 
+\left[\begin{array}{r} 2 \\ 4 \end{array}\right] =
+\left[\begin{array}{r} -3 \\ -1 \end{array}\right] 
 \end{equation}
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="nd">@X</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.]
- [1.]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-3.]
+ [-1.]]
 </pre></div>
 </div>
 </div>
@@ -583,10 +586,10 @@ PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Projections_8_0.png" src="_images/Projections_8_0.png" />
+<img alt="_images/Projections_9_0.png" src="_images/Projections_9_0.png" />
 </div>
 </div>
-<p>We see of course that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span>, but in contrast to the projection in earlier sections, this projections is not orthogonal.  If we decompose <span class="math notranslate nohighlight">\(X\)</span> into components <span class="math notranslate nohighlight">\(PX\)</span> and <span class="math notranslate nohighlight">\(X-PX\)</span>, we see that these components are not orthogonal.</p>
+<p>We see of course that <span class="math notranslate nohighlight">\(PX\)</span> is in <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span>, but in contrast to the projection in the previous example, this projections is not orthogonal.  If we decompose <span class="math notranslate nohighlight">\(X\)</span> into components <span class="math notranslate nohighlight">\(PX\)</span> and <span class="math notranslate nohighlight">\(X-PX\)</span>, we see that these components are not orthogonal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">P</span><span class="nd">@X</span>
@@ -596,7 +599,7 @@ PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-8.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-20.0
 </pre></div>
 </div>
 </div>
@@ -629,7 +632,7 @@ PX = \left[\begin{array}{rr} 3/2 &amp; -3/2 \\ 1/2 &amp; -1/2 \end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Projections_11_0.png" src="_images/Projections_11_0.png" />
+<img alt="_images/Projections_12_0.png" src="_images/Projections_12_0.png" />
 </div>
 </div>
 <p>The transformation is projecting onto <span class="math notranslate nohighlight">\(\mathcal{C}(P)\)</span>, but <em>not in the orthogonal direction</em>.  To reveal the direction of the projection, we look at <span class="math notranslate nohighlight">\(\mathcal{N}(P)\)</span>.</p>
